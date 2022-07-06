@@ -1,0 +1,3090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>NodeJs - Zhang&#39;s Blog的博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Zhang&#39;s Blog" /><meta name="description" content="nodejs中文网 Step01.NodeJs安装教程 下载Node.js安装包 官网下载地址：http://nodejs.cn/download" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.67.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/nodejs/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="NodeJs" />
+<meta property="og:description" content="nodejs中文网 Step01.NodeJs安装教程 下载Node.js安装包 官网下载地址：http://nodejs.cn/download" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/nodejs/" />
+<meta property="article:published_time" content="2022-05-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-05-19T00:00:00+00:00" />
+<meta itemprop="name" content="NodeJs">
+<meta itemprop="description" content="nodejs中文网 Step01.NodeJs安装教程 下载Node.js安装包 官网下载地址：http://nodejs.cn/download">
+<meta itemprop="datePublished" content="2022-05-19T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-05-19T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="11579">
+
+
+
+<meta itemprop="keywords" content="JavaScript," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="NodeJs"/>
+<meta name="twitter:description" content="nodejs中文网 Step01.NodeJs安装教程 下载Node.js安装包 官网下载地址：http://nodejs.cn/download"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Zhang&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/home/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">MyBlog</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Zhang&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/home/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">MyBlog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">NodeJs</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-05-19 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#step01nodejs安装教程">Step01.NodeJs安装教程</a>
+      <ul>
+        <li><a href="#下载nodejs安装包">下载Node.js安装包</a></li>
+      </ul>
+    </li>
+    <li><a href="#step02使用node在命令行运行js文件">Step02.使用node在命令行运行js文件</a></li>
+    <li><a href="#step03node的模块化">Step03.node的模块化</a>
+      <ul>
+        <li><a href="#require">require</a></li>
+        <li><a href="#使用外部变量">使用外部变量</a></li>
+        <li><a href="#使用exports属性将想要暴露给外部的变量暴露出去">使用exports属性,将想要暴露给外部的变量暴露出去</a></li>
+        <li><a href="#module和exports的区别和联系">module和exports的区别和联系</a></li>
+      </ul>
+    </li>
+    <li><a href="#step04npm">Step04.npm</a></li>
+    <li><a href="#step05buffer">Step05.Buffer</a>
+      <ul>
+        <li><a href="#将数据保存到buffer缓冲区">将数据保存到Buffer缓冲区</a></li>
+        <li><a href="#计算机底层相关原理">计算机底层相关原理</a></li>
+        <li><a href="#创建一个指定大小的buffer">创建一个指定大小的Buffer</a></li>
+        <li><a href="#buffer的所有构造方法都被废弃掉了">Buffer的所有构造方法都被废弃掉了</a>
+          <ul>
+            <li><a href="#使用bufferalloc">使用Buffer.alloc()</a></li>
+            <li><a href="#使用bufferallocunsafe">使用Buffer.allocUnsafe()</a></li>
+          </ul>
+        </li>
+        <li><a href="#将buffer中的数据以字符串形式打印出来而不是十六进制">将Buffer中的数据以字符串形式打印出来而不是十六进制</a></li>
+      </ul>
+    </li>
+    <li><a href="#step06文件操作">Step06.文件操作</a>
+      <ul>
+        <li><a href="#同步操作">同步操作</a>
+          <ul>
+            <li><a href="#同步写">同步写</a></li>
+          </ul>
+        </li>
+        <li><a href="#异步操作">异步操作</a>
+          <ul>
+            <li><a href="#异步写">异步写</a></li>
+          </ul>
+        </li>
+        <li><a href="#简单">简单</a>
+          <ul>
+            <li><a href="#简单写">简单写</a></li>
+            <li><a href="#简单读">简单读</a></li>
+            <li><a href="#使用简单操作拷贝一张图片">使用简单操作,拷贝一张图片</a></li>
+          </ul>
+        </li>
+        <li><a href="#流式">流式</a>
+          <ul>
+            <li><a href="#流式写">流式写</a></li>
+            <li><a href="#流式读">流式读</a></li>
+          </ul>
+        </li>
+        <li><a href="#其他操作">其他操作</a>
+          <ul>
+            <li><a href="#判断文件是否存在">判断文件是否存在</a></li>
+            <li><a href="#查看文件状态">查看文件状态</a></li>
+            <li><a href="#删除一个文件">删除一个文件</a></li>
+            <li><a href="#查看指定目录内部结构">查看指定目录内部结构</a></li>
+            <li><a href="#文件截断">文件截断</a></li>
+            <li><a href="#创建目录">创建目录</a></li>
+            <li><a href="#还有renamermdirwatchfile等操作啥的用到读文档吧">还有rename、rmdir、watchFile等操作啥的,用到读文档吧</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#step07http">Step07.http</a>
+      <ul>
+        <li><a href="#使用http创建一个简单的服务器">使用http创建一个简单的服务器</a></li>
+        <li><a href="#使用get请求自己的node服务器">使用get请求自己的node服务器</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <ul>
+<li><a href="http://api.nodejs.cn/">nodejs中文网</a></li>
+</ul>
+<h1 id="step01nodejs安装教程">Step01.NodeJs安装教程</h1>
+<h2 id="下载nodejs安装包">下载Node.js安装包</h2>
+<blockquote>
+<p>官网下载地址：http://nodejs.cn/download/
+根据自己电脑选择32位还是64位，点我去下载</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200319150926762.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NtYWxsX1lvZ3VydA==,size_16,color_FFFFFF,t_70" alt="Photo"></p>
+<ul>
+<li>
+<p>打开下载好的安装程序，点击下一步</p>
+</li>
+<li>
+<p>这里四项全部安装，点击下一步</p>
+<p><img src="https://img-blog.csdnimg.cn/20200319151150284.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NtYWxsX1lvZ3VydA==,size_16,color_FFFFFF,t_70" alt="Photo"></p>
+</li>
+<li>
+<p>这里不用打勾✔，下一步</p>
+<p><img src="https://img-blog.csdnimg.cn/20200319151215694.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NtYWxsX1lvZ3VydA==,size_16,color_FFFFFF,t_70" alt="Photo"></p>
+</li>
+<li>
+<p>安装完成,查看是否安装成功</p>
+</li>
+<li>
+<p>cmd,npm -v</p>
+</li>
+<li>
+<p>修改全局模块路径和缓存路径(可选,自行选择是否修改)</p>
+<blockquote>
+<p>当我们在执行npm install express -g命令时，g表示global全局。会默认下载到c盘，c盘一般作为系统盘，尽量把一些程序安装到其他盘，来减少c盘空间的占用</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200319151803719.png" alt="Photo"></p>
+<blockquote>
+<p>它的默认路径为：【C:\Users\用户名\AppData\Roaming\npm】。</p>
+<p>注意：此文件夹默认是隐藏的，需要设置显示隐藏的文件夹，在&quot;查看&quot;菜单中设置，如下图：</p>
+<p>这里将全局模块（文件夹名：node_global）和缓存（文件夹名：node_cache）放在了nodejs安装目录下，在你的nodejs安装目录下创建创建两个文件夹，名称分别为：node_global和node_cache，在node_global文件夹下再建一个node_modules文件夹，配置环境变量用</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200319151859132.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NtYWxsX1lvZ3VydA==,size_16,color_FFFFFF,t_70" alt="Photo"></p>
+</li>
+<li>
+<p>此时，还没有更改完成，需要手动指定到这两个文件夹中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-txt" data-lang="txt">win+R打开运行窗口，输入cmd，再输入以下两条指令
+  
+npm config set prefix &#34;创建的node_global文件夹所在路径&#34;
+npm config set cache &#34;创建的node_cache文件夹所在路径&#34;
+  
+如：
+  npm config set prefix &#34;E:\develop\nodejs\node_global&#34;
+  npm config set cache &#34;E:\develop\nodejs\node_cache&#34;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>修改完毕后，再配置环境变量</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-txt" data-lang="txt">右键此电脑——&gt;高级系统设置——&gt;环境变量
+  
+进入环境变量对话框，在【系统变量】下新建【NODE_PATH】，输入【D:\Develop\nodejs\node_global\node_modules】，将【用户变量】下的【Path】修改为【D:\Develop\nodejs\node_global】
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://img-blog.csdnimg.cn/img_convert/cc1f03d184f2dc2998a65e77c4586a8e.png" alt="Photo"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/d9f428bef6b930c16f739a6821ceeb49.png" alt="Photo"></p>
+<p>​	<img src="https://img-blog.csdnimg.cn/img_convert/c63ad4c610c39ceaf1468ca36baf6f69.png" alt="Photo"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/189455c58e7ac97985d145f2de6fac80.png" alt="Photo">Q</p>
+</li>
+</ul>
+<hr>
+<h1 id="step02使用node在命令行运行js文件">Step02.使用node在命令行运行js文件</h1>
+<ul>
+<li>
+<p>随便写个js文件</p>
+<p><code>test.js</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;I am node&#34;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>终端运行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">node test.js
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<hr>
+<h1 id="step03node的模块化">Step03.node的模块化</h1>
+<h2 id="require">require</h2>
+<ul>
+<li>
+<p>创建一个01.js和02.js</p>
+<p><code>01.js</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;I am module_01&#34;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>在02.js中,想将01.js作为模块引入</p>
+<p><code>02.js</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">require</span><span class="p">(</span><span class="s2">&#34;./01.js&#34;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>运行02.js</p>
+</li>
+<li>
+<p>01.js也被执行</p>
+</li>
+<li>
+<p>需要注意的是,node中的路径,前面必须是带<code>.</code>点的</p>
+<blockquote>
+<p><code>.</code>、<code>..</code>、<code>...</code>等</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="使用外部变量">使用外部变量</h2>
+<ul>
+<li>
+<p>在01.js中,声明一个变量</p>
+<p><code>01.js</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;I am module_01&#34;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>02.js</code>已经引入了<code>01.js</code></p>
+</li>
+<li>
+<p>在02.js中使用01.js中的变量a</p>
+<p><code>02.js</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">require</span><span class="p">(</span><span class="s2">&#34;./01.js&#34;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>是肯定报错的</p>
+</li>
+<li>
+<p>这是因为</p>
+</li>
+<li>
+<p>js文件中的所有代码,都是运行在一个独立的函数中的</p>
+</li>
+<li>
+<p>即使你写在了<code>01.js</code>的全局变量位置</p>
+</li>
+<li>
+<p>那也是</p>
+<p><code>01.js</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;I am module_01&#34;</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>对于02.js,是无法直接使用a的</p>
+</li>
+<li>
+<p>对于node的require函数,返回的是一个对象,通过这个对象,我们可以操作引入的js文件中的数据</p>
+<p><code>02.js</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">module_01</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;./01.js&#34;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">module_01</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>01.js</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;I am module_01&#34;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>02.js</code>打印结果为空</p>
+</li>
+</ul>
+<hr>
+<h2 id="使用exports属性将想要暴露给外部的变量暴露出去">使用exports属性,将想要暴露给外部的变量暴露出去</h2>
+<ul>
+<li>
+<p>上面说到过,即使你将变量写在js文件的全局部分,还是会有一个无名自调用函数,将当前js文件的全部代码包裹起来</p>
+</li>
+<li>
+<p>对于node,我们将想要暴露给外部的变量,设置为exports<code>变量</code>的属性就好了</p>
+<p><code>01.js</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">export</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kr">export</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+  
+<span class="kr">export</span><span class="p">.</span><span class="nx">func</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>这样,在02.js中调用01.js后,就可以使用x、y以及func函数</p>
+</li>
+<li>
+<p>require函数会将引入模块中的export对象返回,通过require函数的返回对象,就可以操纵这些变量了</p>
+<p><code>02.js</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">module_01</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;./01.js&#34;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">module_01</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">module_01</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">module_01</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
+<span class="nx">module_01</span><span class="p">.</span><span class="nx">func</span><span class="p">(</span><span class="nx">module_01</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="nx">module_01</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<hr>
+<h2 id="module和exports的区别和联系">module和exports的区别和联系</h2>
+<ul>
+<li>
+<p>前面的写法中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">exports</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>和</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>是一样的效果</p>
+</li>
+<li>
+<p>但是,对于module.export</p>
+</li>
+<li>
+<p>你可以这样写</p>
+<p><code>01.js</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">x</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span>
+    <span class="nx">y</span><span class="o">:</span><span class="mi">20</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>然后在导入模块方</p>
+<p><code>02.js</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">module_01</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;./01.js&#34;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">module_01</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">module_01</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>结果正常运行</p>
+</li>
+<li>
+<p>也就是说,可以将json对象,赋值给module.exports</p>
+</li>
+<li>
+<p>是否也可以将json对象赋值给exports呢</p>
+</li>
+<li>
+<p>答案是不可以</p>
+</li>
+<li>
+<p>会报错</p>
+</li>
+<li>
+<p>就是说吧</p>
+<ul>
+<li>
+<p>module.exports</p>
+<blockquote>
+<p>既可以是使用json对象的形式</p>
+<p>也可以使用给属性赋值的形式</p>
+</blockquote>
+</li>
+<li>
+<p>exports</p>
+<blockquote>
+<p>只能使用给属性赋值的形式</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>具体为什么</p>
+</li>
+<li>
+<p><img src="https://img-blog.csdnimg.cn/7f75f7908e584c159b8cfc1ae9cb61cf.png" alt="img"></p>
+</li>
+<li>
+<p>看这个图</p>
+</li>
+<li>
+<p>对于var的基本数据类型变量</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>首先在栈内存(存放key-value)中开辟一块内存空间给变量a,并且存放整型10</p>
+</li>
+<li>
+<p>然后,<code>var b = a</code>这步</p>
+</li>
+<li>
+<p>是在栈内存又开辟了一块内存空间给b,并且让b内存空间中的内容和a一样</p>
+</li>
+<li>
+<p>二者都存放数据10,但这两个10并没什么关系</p>
+</li>
+<li>
+<p>唯一的关系就是你写的赋值语法</p>
+</li>
+<li>
+<p>。。。</p>
+</li>
+<li>
+<p>对于对象</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">obj1</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">x</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="nx">y</span> <span class="o">:</span> <span class="mi">20</span>
+<span class="p">}</span>
+  
+<span class="kd">var</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="nx">obj1</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>都说这叫引用</p>
+</li>
+<li>
+<p>为什么这么说呢</p>
+</li>
+<li>
+<p>这是因为</p>
+</li>
+<li>
+<p>当你创建一个对象变量obj1时,同样会在栈内存开辟一块空间给你的变量obj1</p>
+</li>
+<li>
+<p>但是你给这个变量obj1赋的值,也就是对象<code>{x:10,y:20}</code></p>
+</li>
+<li>
+<p>会被存放在堆内存中</p>
+</li>
+<li>
+<p>而栈内存中的<code>对象变量obj1</code>,只存放在堆内存中的这个对象<code>{x:10,y:20}</code>的内存地址</p>
+</li>
+<li>
+<p>这时,你再给</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="nx">obj1</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>那就是,将obj1里,栈内存里存放的<code>堆内存的对象的</code>内存地址,赋值给obj2</p>
+</li>
+<li>
+<p>这样,经过一番操作</p>
+</li>
+<li>
+<p>obj1和obj2里的值是一样的</p>
+</li>
+<li>
+<p>都是堆内存中对象<code>{x:10,y:20}</code>的内存地址</p>
+</li>
+<li>
+<p>他们俩谁更改对象属性</p>
+</li>
+<li>
+<p>都是在操作<code>{x:10,y:20}</code>这个对象</p>
+</li>
+<li>
+<p>现在,言归正传</p>
+</li>
+<li>
+<p><code>module.exports</code>是初始对象</p>
+</li>
+<li>
+<p>而exports只是module.exports的引用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">exports</span> <span class="o">=</span> <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>真正有能力将数据暴露给外部的,是<code>module.exports</code>而不是<code>exports</code></p>
+</li>
+<li>
+<p>你直接给exports赋值对象,本来exports引用的是module.exports,你现在把exports赋值对象,exports的指向就变了</p>
+</li>
+<li>
+<p>就没module.exports的能力了</p>
+</li>
+<li>
+<p>所以说</p>
+</li>
+<li>
+<p>module.exports,你无论是赋值给json对象,还是直接等号赋值</p>
+</li>
+<li>
+<p>都行</p>
+</li>
+<li>
+<p>因为module.exports就是老祖宗</p>
+</li>
+<li>
+<p><strong>从require传递过去的就是<code>module.exports</code></strong></p>
+</li>
+<li>
+<p>但你如果更改了exports,给exports赋值一个对象</p>
+</li>
+<li>
+<p>那它在栈内存中,存储的内存地址就不是module.exports了</p>
+</li>
+<li>
+<p>所以说,如果你给exports赋值一个对象,那exports就只是一个普通对象了</p>
+</li>
+</ul>
+<hr>
+<h1 id="step04npm">Step04.npm</h1>
+<ul>
+<li>
+<p>Node Package Manage(node包管理器)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">npm search math <span class="c1"># node search 包名 -&gt; 根据关键字搜索npm中的包</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>初始化一个包</strong></p>
+</li>
+<li>
+<p>即,在文件夹下创建<code>package.json</code>文件</p>
+</li>
+<li>
+<p>在想要初始化的包下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">npm init
+  
+zhangyuhang@ZhangUbuntu:~/npm_study$ npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+  
+See <span class="sb">`</span>npm <span class="nb">help</span> init<span class="sb">`</span> <span class="k">for</span> definitive documentation on these fields
+and exactly what they <span class="k">do</span>.
+  
+Use <span class="sb">`</span>npm install &lt;pkg&gt;<span class="sb">`</span> afterwards to install a package and
+save it as a dependency in the package.json file.
+  
+Press ^C at any <span class="nb">time</span> to quit.
+package name: <span class="o">(</span>npm_study<span class="o">)</span> 
+version: <span class="o">(</span>1.0.0<span class="o">)</span> 
+description: npm_study
+entry point: <span class="o">(</span>index.js<span class="o">)</span> 
+<span class="nb">test</span> command: 
+git repository: 
+keywords: 
+author: 
+license: <span class="o">(</span>ISC<span class="o">)</span> 
+About to write to /home/zhangyuhang/npm_study/package.json:
+  
+<span class="o">{</span>
+  <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;npm_study&#34;</span>,
+  <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;1.0.0&#34;</span>,
+  <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;npm_study&#34;</span>,
+  <span class="s2">&#34;main&#34;</span>: <span class="s2">&#34;index.js&#34;</span>,
+  <span class="s2">&#34;scripts&#34;</span>: <span class="o">{</span>
+    <span class="s2">&#34;test&#34;</span>: <span class="s2">&#34;echo \&#34;Error: no test specified\&#34; &amp;&amp; exit 1&#34;</span>
+  <span class="o">}</span>,
+  <span class="s2">&#34;author&#34;</span>: <span class="s2">&#34;&#34;</span>,
+  <span class="s2">&#34;license&#34;</span>: <span class="s2">&#34;ISC&#34;</span>
+<span class="o">}</span>
+  
+Is this OK? <span class="o">(</span>yes<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>然后,包下就多了一个<code>package.json</code>文件</p>
+</li>
+<li>
+<p>package.json文件,是包的说明书</p>
+</li>
+<li>
+<p>在当前包内下载npm包</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">npm install math <span class="c1"># npm install 包名 -&gt; 下载npm包到当前包下</span>
+<span class="c1"># 等价于</span>
+npm i math
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>注:没有package.json的不叫包</strong></p>
+</li>
+<li>
+<p>下载完成后,包内就出现了一个node_moudles目录</p>
+</li>
+<li>
+<p>这个目录下存放着我们下载的依赖</p>
+</li>
+<li>
+<p>上面初始化包的时候,配置项写的是,index.js作为入口文件</p>
+<p><code>index.js</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">math</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;math&#34;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">math</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>既然当前包下载了math,那在当前包的js中肯定能使用它</p>
+</li>
+<li>
+<p>结果为3</p>
+</li>
+<li>
+<p>移除当前包下的math包</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">npm remove math <span class="c1"># npm remove 包名 -&gt; 卸载当前包下指定名称的npm包</span>
+<span class="c1"># 等价于</span>
+npm r math
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>安装的同时,向package.json中添加依赖</p>
+</li>
+<li>
+<p>上面的方法,安装和卸载对package.json没有任何操作</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">npm install math --save / npm i math --save <span class="c1"># npm i 包名 --save -&gt; 将包下载到当前包的同时,向package.json添加依赖</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>这样包下载完成后,打开当前包的package.json</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;npm_study&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;1.0.0&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;npm_study&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;main&#34;</span><span class="p">:</span> <span class="s2">&#34;index.js&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;scripts&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;test&#34;</span><span class="p">:</span> <span class="s2">&#34;echo \&#34;Error: no test specified\&#34; &amp;&amp; exit 1&#34;</span>
+  <span class="p">},</span>
+  <span class="nt">&#34;author&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;license&#34;</span><span class="p">:</span> <span class="s2">&#34;ISC&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;dependencies&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;math&#34;</span><span class="p">:</span> <span class="s2">&#34;0.0.3&#34;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>可以看到,多了个dependencies依赖</p>
+</li>
+<li>
+<p>但是这有什么作用呢</p>
+</li>
+<li>
+<p>当你想,将自己开发的npm包上线时</p>
+</li>
+<li>
+<p>如果是把node_modules目录同时上传到服务器</p>
+</li>
+<li>
+<p>那会有两个缺点</p>
+<ul>
+<li>1.文件太大,上传下载都太慢</li>
+<li>2.不能保证是最新的,这个node_modules基本是老版本</li>
+</ul>
+</li>
+<li>
+<p>所以,<code>--save</code>操作,将下载的包的信息,在package.json中生成一个依赖</p>
+</li>
+<li>
+<p>只需要将package.json上传到服务器</p>
+</li>
+<li>
+<p>别人下载你的npm包</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">npm install
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>就会自动下载依赖中的全部内容</p>
+</li>
+<li>
+<p>这就是为什么导别人的项目都要</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">npm install
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>最后,全局安装</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">npm install math -g
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<hr>
+<h1 id="step05buffer">Step05.Buffer</h1>
+<h2 id="将数据保存到buffer缓冲区">将数据保存到Buffer缓冲区</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">&#34;hello django&#34;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">buf</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">str</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">buf</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>Buffer都是将数据以二进制形式保存</p>
+</li>
+<li>
+<p>但是,因为二进制数据太长,在控制台都使用16进制显示</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span> root <span class="o">]</span> <span class="o">=</span>&gt; &lt;Buffer <span class="m">68</span> <span class="m">65</span> 6c 6c 6f <span class="m">20</span> <span class="m">64</span> 6a <span class="m">61</span> 6e <span class="m">67</span> 6f&gt;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="计算机底层相关原理">计算机底层相关原理</h2>
+<p><code>1.js</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">&#34;hello django&#34;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">buf</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">str</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">buf</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>2.js</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">&#34;hello django 我最爱&#34;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">buf</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">str</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">buf</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">buf</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>结果</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">zhangyuhang@ZhangUbuntu:~/nodejs$ node buffer.js
+&lt;Buffer <span class="m">68</span> <span class="m">65</span> 6c 6c 6f <span class="m">20</span> <span class="m">64</span> 6a <span class="m">61</span> 6e <span class="m">67</span> 6f&gt;
+<span class="m">12</span>
+zhangyuhang@ZhangUbuntu:~/nodejs$ node buffer.js
+&lt;Buffer <span class="m">68</span> <span class="m">65</span> 6c 6c 6f <span class="m">20</span> <span class="m">64</span> 6a <span class="m">61</span> 6e <span class="m">67</span> 6f <span class="m">20</span> e6 <span class="m">88</span> <span class="m">91</span> e6 9c <span class="m">80</span> e7 <span class="m">88</span> b1&gt;
+<span class="m">22</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>第一个是12,第二个是22</p>
+</li>
+<li>
+<p>这里显示的是字节</p>
+</li>
+<li>
+<p>先说一下计算机的字节原理</p>
+</li>
+<li>
+<p>在计算机中,<strong>最底层数据是二进制</strong></p>
+</li>
+<li>
+<p>内存中,一个单元格<strong>除了能保存0就是1</strong></p>
+</li>
+<li>
+<p>这里的一个<strong><code>二进制</code></strong>数 - 0或1,代表<strong><code>1位(bit)</code></strong></p>
+</li>
+<li>
+<p>所以,位(比特)是计算机底层最小的基本单位</p>
+</li>
+<li>
+<p>规定,<strong><code>连续的8位 = 1字节(byte)</code></strong></p>
+<table>
+<thead>
+<tr>
+<th>8bit</th>
+<th>=</th>
+<th>1 byte / B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1024byte</td>
+<td>=</td>
+<td>1kb</td>
+</tr>
+<tr>
+<td>1024kb</td>
+<td>=</td>
+<td>1mb</td>
+</tr>
+<tr>
+<td>1024mb</td>
+<td>=</td>
+<td>1gb</td>
+</tr>
+<tr>
+<td>1024gb</td>
+<td>=</td>
+<td>1tb</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>太多了,没功夫。。。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">一般内存换算是1024进制，也就是2的10次方。1TB<span class="o">=</span>1024GB；1GB<span class="o">=</span>1024MB；1MB<span class="o">=</span>1024KB；1KB<span class="o">=</span>1024Byte。Byte就是B也就是字节；KB是千字节；MB是兆；GB是千兆；TB是千千兆。
+<span class="nv">KB</span><span class="o">=</span>1024B；1MB<span class="o">=</span><span class="nv">1024KB</span><span class="o">=</span>1024×1024B。其中1024<span class="o">=</span>2^10。
+1B（byte，字节）<span class="o">=</span> <span class="m">8</span> bit（比特，即为位）；
+1KB（Kilobyte，千字节）<span class="o">=</span><span class="nv">1024B</span><span class="o">=</span> 2^10 B；
+1MB（Megabyte，兆字节，百万字节，简称“兆”）<span class="o">=</span><span class="nv">1024KB</span><span class="o">=</span> 2^20 B；
+1GB（Gigabyte，吉字节，十亿字节，又称“千兆”）<span class="o">=</span><span class="nv">1024MB</span><span class="o">=</span> 2^30 B；
+1TB（Terabyte，万亿字节，太字节）<span class="o">=</span><span class="nv">1024GB</span><span class="o">=</span> 2^40 B；
+1PB（Petabyte，千万亿字节，拍字节）<span class="o">=</span><span class="nv">1024TB</span><span class="o">=</span> 2^50 B；
+1EB（Exabyte，百亿亿字节，艾字节）<span class="o">=</span><span class="nv">1024PB</span><span class="o">=</span> 2^60 B；
+1ZB（Zettabyte，十万亿亿字节，泽字节）<span class="o">=</span> <span class="nv">1024EB</span><span class="o">=</span> 2^70 B；
+1YB（Yottabyte，一亿亿亿字节，尧字节）<span class="o">=</span> <span class="nv">1024ZB</span><span class="o">=</span> 2^80 B；
+1BB（Brontobyte，一千亿亿亿字节，珀字节）<span class="o">=</span> <span class="nv">1024YB</span><span class="o">=</span> 2^90 B；
+1NB（NonaByte，一百万亿亿亿字节，诺字节） <span class="o">=</span> <span class="m">1024</span> <span class="nv">BB</span> <span class="o">=</span> 2^100 B；
+1DB（DoggaByte，十亿亿亿亿字节，刀字节） <span class="o">=</span> <span class="m">1024</span> <span class="nv">NB</span> <span class="o">=</span> 2^110 B；
+1CB（Corydonbyte，万亿亿亿亿字节，馈字节）<span class="o">=</span><span class="nv">1024DB</span><span class="o">=</span>2^120 B；
+1XB（Xerobyte，千万亿亿亿亿字节，约字节）<span class="o">=</span><span class="nv">1024CB</span><span class="o">=</span>2^130 B；<span class="o">[</span>1<span class="o">]</span>
+最小的单位是“位”（bit），最大的单位是“约字节”（XB），它们之间相差8.0×2^130倍。
+我们在平时生活当中常用“B”“KB”“MB”“GB”和“TB”。其中“MB”和“GB”还有“TB”最为常见。
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>回归正传,上面的12和22从哪来的呢</p>
+</li>
+<li>
+<p>12的是字符串<code>hello django</code></p>
+</li>
+<li>
+<p>22的是字符串<code>hello django 我最爱</code></p>
+</li>
+<li>
+<p>因为1个英文字母和空格,都占用1个字节(byte)</p>
+</li>
+<li>
+<p>所以<code>hello django</code>是<strong>12个字节</strong></p>
+</li>
+<li>
+<p>而一个中文字符占用3个字节</p>
+</li>
+<li>
+<p>所以<code>hello django 我最爱</code>是22个字节(byte)</p>
+</li>
+<li>
+<p>Buffer.length计算的是字节长度</p>
+</li>
+<li>
+<p>前面说到,Buffer会将数据转换为2进制保存,但是在控制台显示的都是16进制数据</p>
+</li>
+<li>
+<p>这是因为2进制太长,不好显示</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">&lt;Buffer <span class="m">68</span> <span class="m">65</span> 6c 6c 6f <span class="m">20</span> <span class="m">64</span> 6a <span class="m">61</span> 6e <span class="m">67</span> 6f <span class="m">20</span> e6 <span class="m">88</span> <span class="m">91</span> e6 9c <span class="m">80</span> e7 <span class="m">88</span> b1&gt;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>1byte = 8bit</p>
+</li>
+<li>
+<p>而1bit就是内存中一个小格</p>
+</li>
+<li>
+<p>里面只存放0或1</p>
+</li>
+<li>
+<p>所以,1byte,里面存放了一个数据</p>
+</li>
+<li>
+<p>bit里的数据都是二进制</p>
+</li>
+<li>
+<p>但是到了byte,8个bit中的数据就代表了一个数字</p>
+</li>
+<li>
+<p>因为2进制是最底层的数据</p>
+</li>
+<li>
+<p>所以</p>
+<ul>
+<li>
+<p>二进制 -&gt;</p>
+<blockquote>
+<p>00000000 - 11111111</p>
+</blockquote>
+</li>
+<li>
+<p>十进制 -&gt;</p>
+<blockquote>
+<p>0 - 255</p>
+</blockquote>
+</li>
+<li>
+<p>十六进制 -&gt;</p>
+<blockquote>
+<p>00 - ff</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>buffer中的一个数据,占用了内存的一个byte,也就是一个数字</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">&#34;hello django&#34;</span><span class="p">;</span>
+  
+<span class="kd">var</span> <span class="nx">buf</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">str</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">buf</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>如果是这样的,二者结果一样</p>
+</li>
+<li>
+<p>这是因为1个英文字母或空格占1个字节</p>
+</li>
+<li>
+<p>所以此时的Buffer长度和字符串长度是一样的</p>
+</li>
+<li>
+<p>但是</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">var <span class="nv">str</span> <span class="o">=</span> <span class="s2">&#34;hello django 我最爱&#34;</span><span class="p">;</span>
+  
+var <span class="nv">buf</span> <span class="o">=</span> Buffer.from<span class="o">(</span>str<span class="o">)</span><span class="p">;</span>
+console.log<span class="o">(</span>buf.length<span class="o">)</span><span class="p">;</span>
+console.log<span class="o">(</span>str.length<span class="o">)</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>这样就不一样了</p>
+</li>
+<li>
+<p>因为一个中文字符串的长度不为1,为3</p>
+</li>
+<li>
+<p>Buffer.length</p>
+<blockquote>
+<p>计算的是Buffer占用内存的大小</p>
+</blockquote>
+</li>
+<li>
+<p>String.length</p>
+<blockquote>
+<p>计算的是字符串的长度</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="创建一个指定大小的buffer">创建一个指定大小的Buffer</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">buf</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Buffer</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">buf</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="buffer的所有构造方法都被废弃掉了">Buffer的所有构造方法都被废弃掉了</h2>
+<ul>
+<li>上面的代码会存在问题</li>
+<li>已经被官方废弃了</li>
+</ul>
+<h3 id="使用bufferalloc">使用Buffer.alloc()</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">buf</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">alloc</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">buf</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>通过索引,操作Buffer数据</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">buf</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">alloc</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="nx">buf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">buf</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span><span class="p">;</span>
+<span class="nx">buf</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">buf</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">zhangyuhang@ZhangUbuntu:~/nodejs$ node buffer.js
+&lt;Buffer <span class="m">01</span> ff <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> 0a <span class="m">00</span> 00&gt;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>如果越界操作</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">buf</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">alloc</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="nx">buf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">buf</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">buf</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>不会有任何变化</p>
+</li>
+<li>
+<p>因为</p>
+<p><strong><code>Buffer直接操作的是底层bit数组</code></strong></p>
+<p><strong><code>长度不可变</code></strong></p>
+</li>
+<li>
+<p>所以长度一旦确定,就无法再进行扩容</p>
+</li>
+<li>
+<p>如果数据超过1byte的范围了呢</p>
+<blockquote>
+<p>二进制 00000000 - 11111111</p>
+<p>十进制 0 - 255</p>
+<p>十六进制 00 - ff</p>
+</blockquote>
+</li>
+<li>
+<p>设置一个256和556</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">buf</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">alloc</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="nx">buf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">buf</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">256</span><span class="p">;</span>
+<span class="nx">buf</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">556</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">buf</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">zhangyuhang@ZhangUbuntu:~/nodejs$ node buffer.js
+&lt;Buffer <span class="m">01</span> <span class="m">00</span> <span class="m">00</span> 2c <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> 00&gt;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>对于 十进制的 256 , 经过Buffer转换结果为0&hellip;</p>
+</li>
+<li>
+<p>556转换结果为2c , 2c对应十进制的44&hellip;</p>
+</li>
+<li>
+<p>这是因为,对于超出byte范围的数据</p>
+</li>
+<li>
+<p>1byte是8个bit</p>
+</li>
+<li>
+<p>将十进制的556转为二进制</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="m">10101010110</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>超出了8位</p>
+</li>
+<li>
+<p>Buffer会取后8位</p>
+<p><code>101    |    01010110</code></p>
+</li>
+<li>
+<p>前面的则会被删掉</p>
+</li>
+<li>
+<p>最后将后8位置转换为16进制,显示在控制台中</p>
+</li>
+<li>
+<p>Buffer除了可以保存十进制为二进制</p>
+</li>
+<li>
+<p>还可以保存十六进制为二进制</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">buf</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">alloc</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="nx">buf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">buf</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0xff</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">buf</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">zhangyuhang@ZhangUbuntu:~/nodejs$ node buffer.js
+&lt;Buffer <span class="m">01</span> ff <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Buffer数据输出都是16进制,对于<strong><code>数字</code></strong>,这个是无法更改的</p>
+</li>
+<li>
+<p>但是可以先将这个数值改为字符串,然后就可以更改显示进制类型了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">buf</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">alloc</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="nx">buf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">buf</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0xff</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">buf</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">toString</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>toString(base)</code>方法,只能操作基本数据类型,不能直接操作一个数组</p>
+</li>
+<li>
+<p>Buffer输出的数据都是16进制,但是单独普通输出一个数据</p>
+</li>
+<li>
+<p>在控制台都是10进制</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">buf</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">alloc</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="nx">buf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">buf</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0xff</span><span class="p">;</span>
+<span class="nx">buf</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">250</span><span class="p">;</span>
+  
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">buf</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">buf</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">zhangyuhang@ZhangUbuntu:~/nodejs$ node buffer.js
+<span class="m">1</span>
+<span class="m">255</span>
+<span class="m">250</span>
+<span class="m">0</span>
+<span class="m">0</span>
+<span class="m">0</span>
+<span class="m">0</span>
+<span class="m">0</span>
+<span class="m">0</span>
+<span class="m">0</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="使用bufferallocunsafe">使用Buffer.allocUnsafe()</h3>
+<ul>
+<li>
+<p><code>Buffer.allocUnsafe(size)</code>和<code>Buffer.alloc(size)</code></p>
+</li>
+<li>
+<p>一样,都是创建一个指定大小的Buffer</p>
+</li>
+<li>
+<p>唯一不同的是</p>
+</li>
+<li>
+<p><code>Buffer.alloc(size)</code></p>
+<blockquote>
+<p>在给Buffer分配内存空间时,会将待分配内存空间中全部内容清空</p>
+<p>再分配</p>
+</blockquote>
+</li>
+<li>
+<p>而<code>Buffer.allocUnsafe(size)</code></p>
+<blockquote>
+<p>分配之前不会将待分配这块内存空间中内容清空</p>
+<p>因为内存空间肯定是反复用的</p>
+<p>之前可能有别人用过</p>
+<p>数据还没被清除掉</p>
+<p>所以,这种分配方式</p>
+<p>Buffer中可能带有其他数据</p>
+<p>所以叫作不安全</p>
+</blockquote>
+</li>
+<li>
+<p>不安全但是性能好</p>
+</li>
+<li>
+<p>因为不需要进行清空操作</p>
+</li>
+</ul>
+<hr>
+<h2 id="将buffer中的数据以字符串形式打印出来而不是十六进制">将Buffer中的数据以字符串形式打印出来而不是十六进制</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">buf</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="s2">&#34;我是xxx&#34;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">buf</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Buffer.from不需要遍历数组,直接使用toString</li>
+<li>但是Buffer.alloc()和Buffer.allocUnsafe()需要遍历数组,并且一个一个的进行进制转换</li>
+</ul>
+<hr>
+<h1 id="step06文件操作">Step06.文件操作</h1>
+<ul>
+<li>
+<p>nodejs操作文件需要导入模块<code>fs</code></p>
+</li>
+<li>
+<p>fs是node的核心模块,无需下载直接require</p>
+</li>
+<li>
+<p>但是Buffer就不需要require可以直接使用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;fs&#34;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>然后就可以通过<code>fs</code>对象来操作文件了</p>
+</li>
+<li>
+<p>node对文件操作分为同步和异步</p>
+</li>
+<li>
+<p>同步就是程序等待这一块代码执行完才继续向下执行</p>
+<ul>
+<li>所谓造成阻塞</li>
+<li>同步锁</li>
+</ul>
+</li>
+<li>
+<p>异步就是,程序执行到这块,不会堵塞,继续向下执行。这块程序有回调函数,通过回调函数获取异步执行结果,确保不会造成异步数据混乱</p>
+</li>
+</ul>
+<h2 id="同步操作">同步操作</h2>
+<ul>
+<li>对文件的操作无非三步
+<ul>
+<li>1.打开文件</li>
+<li>2.对文件进行操作</li>
+<li>3.保存并关闭文件</li>
+</ul>
+</li>
+<li>同步操作的方法后面都带有<code>Sync</code></li>
+<li>例如同步打开也是<code>fs.openSync(path)</code></li>
+<li>异步就是<code>fs.open(path,callback)</code></li>
+</ul>
+<h3 id="同步写">同步写</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;fs&#34;</span><span class="p">);</span> <span class="c1">// 导入fs
+</span><span class="c1"></span>
+<span class="kd">var</span> <span class="nx">fd</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">openSync</span><span class="p">(</span><span class="s2">&#34;hello.txt&#34;</span><span class="p">,</span><span class="s2">&#34;w&#34;</span><span class="p">);</span> <span class="c1">// 第一个参数是文件路径,第二个是对文件的操作方式 -&gt; 返回一个文件指针 , 通过fs可以操作这个文件指针,从而实现对文件的操作 - 如果文件不存在于这个路径,会新建一个
+</span><span class="c1"></span><span class="nx">fs</span><span class="p">.</span><span class="nx">writeSync</span><span class="p">(</span><span class="nx">fd</span><span class="p">,</span><span class="s2">&#34;hello django&#34;</span><span class="p">);</span> <span class="c1">// fs的同步写操作,将第二个参数的内容写进 第一个参数所代表的 文件指针指向的文件中 , 在写之前文件内容会被清空
+</span><span class="c1"></span><span class="nx">fs</span><span class="p">.</span><span class="nx">closeSync</span><span class="p">(</span><span class="nx">fd</span><span class="p">);</span> <span class="c1">// 将指定文件指针关闭
+</span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>除了基础用法,还有一些其他参数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">fs</span><span class="p">.</span><span class="nx">writeSync</span><span class="p">(</span><span class="nx">fd</span><span class="p">,</span><span class="s2">&#34;hello django&#34;</span><span class="p">,</span><span class="mi">20</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>这样,fs.writeSync会在文件第20个字符处,开始写入内容</p>
+</li>
+<li>
+<p>前面20个字符位置都填上正方形字符,因为是在内存中打开的文件,然后在内存中第20个字符(不是第20个bit)位置,开始写入内容</p>
+</li>
+<li>
+<p>前面20个字符位置默认是0,0转为字符是正方形</p>
+</li>
+<li>
+<p>最后,指定编码,默认是utf-8</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">fs</span><span class="p">.</span><span class="nx">writeSync</span><span class="p">(</span><span class="nx">fd</span><span class="p">,</span><span class="s2">&#34;hello django&#34;</span><span class="p">,</span><span class="s2">&#34;utf-8&#34;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>当然你也可以指定其他编码</p>
+</li>
+</ul>
+<h2 id="异步操作">异步操作</h2>
+<h3 id="异步写">异步写</h3>
+<ul>
+<li>注意:异步方法是没有返回值的</li>
+<li>只有同步有返回值</li>
+<li>因为这就意味着</li>
+<li>要等待方法全部执行完</li>
+<li>提供返回值才继续向下执行</li>
+<li>这TMD就是同步了</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;fs&#34;</span><span class="p">);</span>
+
+
+<span class="c1">// 和同步写不同的就是,全都是回调
+</span><span class="c1"></span><span class="nx">fs</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">&#34;./byread.md&#34;</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">fd</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="c1">// 第一个是错误信息,第二个是成功后,将文件指针提供给你
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">fs</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">fd</span><span class="p">,</span> <span class="s2">&#34;普京&#34;</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="c1">// 写入操作(文件指针,写入文件内容,回调),这里的回调只有一个错误信息,因为即使成功了也不需要提供任何对象或数据
+</span><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;写入成功!!!&#34;</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="nx">fs</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="nx">fd</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="c1">// 我以为关闭操作的回调没参数了,官方解释是:&#34;除了可能出现的例外(错误),该回调不需要任何参数&#34;
+</span><span class="c1"></span>                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;文件关闭成功!!!&#34;</span><span class="p">);</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;文件关闭失败!!!&#34;</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">})</span>
+        <span class="p">})</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;异步主线程!!!&#34;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="简单">简单</h2>
+<h3 id="简单写">简单写</h3>
+<ul>
+<li>
+<p>简单写相比同步写和异步写</p>
+</li>
+<li>
+<p>不需要你创建文件对象fd</p>
+</li>
+<li>
+<p>但它仍然是异步的</p>
+</li>
+<li>
+<p>参数</p>
+<blockquote>
+<p>要操作的文件路径</p>
+<p>要写入的内容(官方是支持string和node的什么ArrayBuffer啥的)</p>
+<p>一个json,就是设置你要对文件进行什么操作,是读还是写之类,默认是<strong><code>w</code></strong></p>
+<blockquote>
+<p>至于<code>a+</code> <code>a</code> <code>wx</code>之类的,用到就百度吧</p>
+</blockquote>
+<p>最后一个回调,只有一个错误信息参数</p>
+</blockquote>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;fs&#34;</span><span class="p">);</span>
+
+<span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span><span class="p">(</span><span class="s2">&#34;byread.md&#34;</span><span class="p">,</span> <span class="s2">&#34;# 我是靓仔&#34;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">flag</span><span class="o">:</span> <span class="s2">&#34;ax+&#34;</span> <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;写入失败!!!&#34;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;写入成功!!!&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>简单写也分同步和异步</p>
+</li>
+<li>
+<p>上面的那个是异步</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;fs&#34;</span><span class="p">);</span>
+  
+<span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="s2">&#34;byread.md&#34;</span><span class="p">,</span> <span class="s2">&#34;# 我是靓仔&#34;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">flag</span><span class="o">:</span> <span class="s2">&#34;w&#34;</span> <span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>这个是同步,没有返回值,也没有回调</p>
+</li>
+<li>
+<p>就是我不知道这哥们要不要<code>close()</code>方法啊</p>
+</li>
+</ul>
+<hr>
+<h3 id="简单读">简单读</h3>
+<ul>
+<li>
+<p>为啥读取结果是Buffer的呢,防止读取图片操作</p>
+</li>
+<li>
+<p>异步</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;fs&#34;</span><span class="p">);</span>
+
+<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s2">&#34;byread.md&#34;</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="c1">// 文件路径,(读取错误信息,读取成功数据(Buffer类型))
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>同步</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;fs&#34;</span><span class="p">);</span>
+
+<span class="c1">// fs.readFile(&#34;byread.md&#34;, (err, data) =&gt; {
+</span><span class="c1">//     if (err) {
+</span><span class="c1">//         console.log(err);
+</span><span class="c1">//     } else {
+</span><span class="c1">//         console.log(data.toString());
+</span><span class="c1">//     }
+</span><span class="c1">// });
+</span><span class="c1"></span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="s2">&#34;byread.md&#34;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>同步返回值是读取数据,合情合理</p>
+<p>等到函数执行完了返回读取数据,同步的正常逻辑</p>
+</blockquote>
+<h3 id="使用简单操作拷贝一张图片">使用简单操作,拷贝一张图片</h3>
+<ul>
+<li>因为<code>fs.readFIle</code>可以读取任意格式文件为Buffer</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;fs&#34;</span><span class="p">);</span>
+
+<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s2">&#34;image.png&#34;</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;读取错误!!!&#34;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;读取成功&#34;</span><span class="p">);</span>
+        <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span><span class="p">(</span><span class="s2">&#34;image_copy.png&#34;</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="p">{</span> <span class="nx">flag</span><span class="o">:</span> <span class="s1">&#39;w&#39;</span> <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;复制失败!!!&#34;</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;复制成功!!!&#34;</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="流式">流式</h2>
+<h3 id="流式写">流式写</h3>
+<ul>
+<li>直接给文件路径</li>
+<li>创建一个流式文件对象</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;fs&#34;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">ws</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createWriteStream</span><span class="p">(</span><span class="s2">&#34;byread.md&#34;</span><span class="p">);</span> <span class="c1">// 创建流式文件对象
+</span><span class="c1"></span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s2">&#34;open&#34;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="c1">// once方法可以给对象绑定并监听一个事件
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;流式已打开!!!&#34;</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">ws</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s2">&#34;close&#34;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;流式已关闭!!!&#34;</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">ws</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&#34;我喜欢美女!!!&#34;</span><span class="p">);</span> <span class="c1">// 流式写入的方法都是追加的，因为同属于一个管道
+</span><span class="c1"></span><span class="nx">ws</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&#34;我喜欢钱!!!&#34;</span><span class="p">);</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&#34;我喜欢孤独!!!&#34;</span><span class="p">);</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&#34;我喜欢独自旅游!!!&#34;</span><span class="p">)</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&#34;我信老天爷!!!&#34;</span><span class="p">);</span>
+
+<span class="nx">ws</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>就是创建一个流式文件对象</p>
+</li>
+<li>
+<p>然后直接写</p>
+</li>
+<li>
+<p>你可以用两个方法,监听流式的打开和关闭</p>
+</li>
+<li>
+<p>使用ws.end();方法关闭流式写对象</p>
+</li>
+<li>
+<p>这里有个<code>ws.end();</code>和<code>ws.close();</code>方法的区别</p>
+</li>
+<li>
+<p>先不研究那么细,以后再说</p>
+</li>
+<li>
+<p>当然这些方法都是异步的</p>
+</li>
+<li>
+<p>那么这里就说一下异步</p>
+</li>
+<li>
+<p>异步就是主线程发射出一个子线程给异步算法单独去操作</p>
+</li>
+<li>
+<p>异步不一定是并行还是并发</p>
+</li>
+<li>
+<p>因为现在的电脑都是多核,这个以后再讨论</p>
+</li>
+<li>
+<p>因为异步都是通过回调函数,来实现异步</p>
+</li>
+<li>
+<p>所以主线程和子线程谁先谁后,就成了问题</p>
+</li>
+<li>
+<p>其实,就单独说这里的代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;fs&#34;</span><span class="p">);</span>
+  
+<span class="kd">var</span> <span class="nx">ws</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createWriteStream</span><span class="p">(</span><span class="s2">&#34;byread.md&#34;</span><span class="p">);</span>
+  
+<span class="nx">ws</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s2">&#34;open&#34;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;流式已打开!!!&#34;</span><span class="p">);</span>
+<span class="p">});</span>
+  
+<span class="nx">ws</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s2">&#34;close&#34;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;流式已关闭!!!&#34;</span><span class="p">);</span>
+<span class="p">});</span>
+  
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;main_thread&#34;</span><span class="p">);</span>
+<span class="p">}</span>
+  
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;child_thread&#34;</span><span class="p">);</span>
+    <span class="nx">ws</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&#34;aaa!!!&#34;</span><span class="p">);</span>
+<span class="p">}</span>
+  
+<span class="nx">ws</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="s2">&#34;fff!!!&#34;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>这里的执行结果是</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">main_thread</span>
+<span class="nx">main_thread</span>
+<span class="nx">main_thread</span>
+<span class="nx">main_thread</span>
+<span class="nx">main_thread</span>
+<span class="nx">main_thread</span>
+<span class="nx">main_thread</span>
+<span class="nx">main_thread</span>
+<span class="nx">main_thread</span>
+<span class="nx">main_thread</span>
+<span class="nx">child_thread</span>
+<span class="nx">child_thread</span>
+<span class="nx">child_thread</span>
+<span class="nx">child_thread</span>
+<span class="nx">child_thread</span>
+<span class="nx">child_thread</span>
+<span class="nx">child_thread</span>
+<span class="nx">child_thread</span>
+<span class="nx">child_thread</span>
+<span class="nx">child_thread</span>
+<span class="nx">流式已打开</span><span class="o">!!!</span>
+<span class="nx">流式已关闭</span><span class="o">!!!</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>对于</p>
+<blockquote>
+<p>流式写操作和console.log操作都在一个for循环里</p>
+<p>但是先执行了全部for循环的console.log,后执行了流式的open();和end();</p>
+<p>这个很好解释</p>
+<p>因为流式操作是异步的,这个方法<code>ws.write(param);</code>调用后</p>
+<p>假设吧,for循环的i为3</p>
+<p>那么console.log后</p>
+<p>执行ws.write,方法确实是被执行了</p>
+<p>但是它内部处理是异步回调</p>
+<p>它自己内部处理它的</p>
+<p>继续for的i为4,继续执行console.log</p>
+</blockquote>
+</li>
+<li>
+<p>但是,就这么说的话,即使</p>
+<blockquote>
+<p>ws.write和</p>
+<p>console.log</p>
+</blockquote>
+</li>
+<li>
+<p>都被执行了</p>
+</li>
+<li>
+<p>而且他俩都是自己执行自己的</p>
+</li>
+<li>
+<p>即使是,console.log执行完后,执行ws.write,ws.write自己执行自己,不阻塞继续向下执行下一轮console.log和ws.write</p>
+</li>
+<li>
+<p>那也不可能说总是console.log比ws.write先吧</p>
+</li>
+<li>
+<p>这就产生了一个疑问</p>
+</li>
+<li>
+<p>会不会异步是子线程</p>
+</li>
+<li>
+<p>而for里的普通console.log是主线程</p>
+</li>
+<li>
+<p>先执行主线程,然后再执行子线程</p>
+</li>
+<li>
+<p>所以才会,同一个for循环里,执行结果却是</p>
+</li>
+<li>
+<p>所有console.log都在前面</p>
+</li>
+<li>
+<p>ws.write都在后面</p>
+</li>
+<li>
+<p>但其实不是的</p>
+</li>
+<li>
+<p>就node的这个代码而言</p>
+</li>
+<li>
+<p>主线程和子线程是没有先后顺序的</p>
+</li>
+<li>
+<p>就是可能说</p>
+</li>
+<li>
+<p>console.log的速度非常快</p>
+</li>
+<li>
+<p>文件读写的速度稍微慢一些</p>
+</li>
+<li>
+<p>而且还是异步,for循环次数还非常少</p>
+</li>
+<li>
+<p>但是,给console.log加上延时函数,就不一样了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;fs&#34;</span><span class="p">);</span>
+  
+<span class="kd">var</span> <span class="nx">ws</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createWriteStream</span><span class="p">(</span><span class="s2">&#34;byread.md&#34;</span><span class="p">);</span>
+  
+  
+<span class="nx">ws</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s2">&#34;open&#34;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;流式已打开!!!&#34;</span><span class="p">);</span>
+<span class="p">});</span>
+  
+<span class="nx">ws</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s2">&#34;close&#34;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;流式已关闭!!!&#34;</span><span class="p">);</span>
+<span class="p">});</span>
+  
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;child_thread&#34;</span><span class="p">);</span>
+    <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+    <span class="nx">ws</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&#34;aaa!!!&#34;</span><span class="p">);</span>
+<span class="p">}</span>
+  
+  
+<span class="nx">ws</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="s2">&#34;fff!!!&#34;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">流式已打开!!!
+流式已关闭!!!
+child_thread
+child_thread
+child_thread
+child_thread
+child_thread
+child_thread
+child_thread
+child_thread
+child_thread
+child_thread
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="流式读">流式读</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;fs&#34;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">rs</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createReadStream</span><span class="p">(</span><span class="s2">&#34;image.png&#34;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">ws</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createWriteStream</span><span class="p">(</span><span class="s2">&#34;image_copy.png&#34;</span><span class="p">);</span>
+
+
+<span class="nx">rs</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s2">&#34;open&#34;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;流式读打开&#34;</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">rs</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s2">&#34;close&#34;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;流式读关闭&#34;</span><span class="p">);</span>
+    <span class="nx">ws</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="nx">ws</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s2">&#34;open&#34;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;流式写打开&#34;</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">ws</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s2">&#34;close&#34;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;流式写关闭&#34;</span><span class="p">);</span>
+<span class="p">});</span>
+
+
+<span class="nx">rs</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&#34;data&#34;</span><span class="p">,</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="c1">// 给流式读取一个实时绑定事件,只要它一有数据流过去,就直接写入流式写
+</span><span class="c1"></span>    <span class="nx">ws</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>但是on这种方法是人工干预,每次读一段就写一段</li>
+<li>nodejs给了一种更好用的方法</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;fs&#34;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">rs</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createReadStream</span><span class="p">(</span><span class="s2">&#34;image.png&#34;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">ws</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createWriteStream</span><span class="p">(</span><span class="s2">&#34;image_copy.png&#34;</span><span class="p">);</span>
+
+
+<span class="nx">rs</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s2">&#34;open&#34;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;流式读打开&#34;</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">rs</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s2">&#34;close&#34;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;流式读关闭&#34;</span><span class="p">);</span>
+    <span class="nx">ws</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="nx">ws</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s2">&#34;open&#34;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;流式写打开&#34;</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">ws</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s2">&#34;close&#34;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;流式写关闭&#34;</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">rs</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">ws</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>rs.pipe(ws);</code></li>
+<li>在ws和rs之间建立管道,自动帮我们完成</li>
+<li>流式读读取一段之后,自动写入流式写的操作</li>
+</ul>
+<hr>
+<h2 id="其他操作">其他操作</h2>
+<h3 id="判断文件是否存在">判断文件是否存在</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;fs&#34;</span><span class="p">);</span>
+
+<span class="cm">/*
+</span><span class="cm">    判断指定路径文件是否存在
+</span><span class="cm">    fs.existsSync(path);同步
+</span><span class="cm">    fs.exists(path, callback)；异步,已被弃用
+</span><span class="cm"> */</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">existsSync</span><span class="p">(</span><span class="s2">&#34;byread.md&#34;</span><span class="p">));</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="查看文件状态">查看文件状态</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;-------------------&#34;</span><span class="p">);</span>
+<span class="cm">/*
+</span><span class="cm">    查看文件状态
+</span><span class="cm">    + 异步
+</span><span class="cm">        + fs.stat(path,[options],callback(err, stats));
+</span><span class="cm">    + 同步
+</span><span class="cm">        + fs.statSync(path,[options]);
+</span><span class="cm">    
+</span><span class="cm">    + stats.isDirectory();
+</span><span class="cm">        + 是否为目录
+</span><span class="cm">    + stats.isFile
+</span><span class="cm">        + 是否为文件
+</span><span class="cm">
+</span><span class="cm"> */</span>
+
+<span class="c1">// fs.stat(&#34;byread.md&#34;, (err, stats) =&gt; {
+</span><span class="c1">//     if (err) {
+</span><span class="c1">//         console.log(&#34;查看文件状态失败!!!&#34;);
+</span><span class="c1">//     } else {
+</span><span class="c1">//         console.log(stats);
+</span><span class="c1">//         console.log(&#34;是否为目录:&#34; + stats.isDirectory());
+</span><span class="c1">//         console.log(&#34;是否为文件:&#34; + stats.isFile());
+</span><span class="c1">//     }
+</span><span class="c1">// });
+</span><span class="c1"></span>
+<span class="kd">var</span> <span class="nx">stats</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">statSync</span><span class="p">(</span><span class="s2">&#34;byread.md&#34;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stats</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;是否为目录:&#34;</span> <span class="o">+</span> <span class="nx">stats</span><span class="p">.</span><span class="nx">isDirectory</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;是否为文件:&#34;</span> <span class="o">+</span> <span class="nx">stats</span><span class="p">.</span><span class="nx">isFile</span><span class="p">());</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;-------------------&#34;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="删除一个文件">删除一个文件</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="cm">/*
+</span><span class="cm">    删除一个文件
+</span><span class="cm">    + 异步
+</span><span class="cm">        + fs.unlink(path,callback(err));
+</span><span class="cm">    + 同步
+</span><span class="cm">        + fs.unlinkSync(path);返回值undefined;
+</span><span class="cm">
+</span><span class="cm"> */</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">unlink</span><span class="p">(</span><span class="s2">&#34;byread.md&#34;</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;删除失败!!!&#34;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;删除成功!!!&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="查看指定目录内部结构">查看指定目录内部结构</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;-------------------&#34;</span><span class="p">);</span>
+
+<span class="cm">/*
+</span><span class="cm">    查看指定目录内部结构
+</span><span class="cm">    + 异步
+</span><span class="cm">        fs.readdir(&#34;.&#34;, callback(err, data));
+</span><span class="cm">        返回: &lt;string[]&gt; | &lt;Buffer[]&gt; | &lt;fs.Dirent[]&gt;,总之就是目录结构
+</span><span class="cm">    + 同步
+</span><span class="cm">        fs.readdirSync(&#34;.&#34;);
+</span><span class="cm">
+</span><span class="cm"> */</span>
+
+<span class="c1">// fs.readdir(&#34;.&#34;, (err, data) =&gt; {
+</span><span class="c1">//     if (err) {
+</span><span class="c1">//         console.log(err);
+</span><span class="c1">//     } else {
+</span><span class="c1">//         console.log(data);
+</span><span class="c1">//     }
+</span><span class="c1">// });
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">readdirSync</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;-------------------&#34;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="文件截断">文件截断</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;-------------------&#34;</span><span class="p">);</span>
+
+<span class="cm">/*
+</span><span class="cm">    文件截断:从文件开头字符算起,到指定字节位置,后面的内容全部删掉
+</span><span class="cm">            正确说法是,从开头到指定字节位置,截取下来,并替代掉文件中的全部内容
+</span><span class="cm">    + 异步
+</span><span class="cm">        + fs.truncate(path, length, callback(err));
+</span><span class="cm">    + 同步
+</span><span class="cm">    `   + fs.truncateSync(path,length);
+</span><span class="cm">*/</span>
+
+<span class="c1">// fs.truncate(&#34;byread.md&#34;, 1, (err) =&gt; {
+</span><span class="c1">//     if (err) {
+</span><span class="c1">//         throw err;
+</span><span class="c1">//     }
+</span><span class="c1">// });
+</span><span class="c1"></span><span class="nx">fs</span><span class="p">.</span><span class="nx">truncateSync</span><span class="p">(</span><span class="s2">&#34;byread.md&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;-------------------&#34;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="创建目录">创建目录</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="cm">/*  
+</span><span class="cm">    创建目录
+</span><span class="cm">    + 异步
+</span><span class="cm">        + fs.mkdir(path,callback(err));
+</span><span class="cm">    + 同步
+</span><span class="cm">        + fs.mkdirSync(path);返回: &lt;string&gt; | &lt;undefined&gt;,同步地创建目录。 返回 undefined 或创建的第一个目录路径
+</span><span class="cm"> */</span>
+
+<span class="nx">fs</span><span class="p">.</span><span class="nx">mkdir</span><span class="p">(</span><span class="s2">&#34;log&#34;</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="nx">err</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;目录创建成功!!!&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="还有renamermdirwatchfile等操作啥的用到读文档吧">还有rename、rmdir、watchFile等操作啥的,用到读文档吧</h3>
+<hr>
+<h1 id="step07http">Step07.http</h1>
+<h2 id="使用http创建一个简单的服务器">使用http创建一个简单的服务器</h2>
+<p><code>index.js</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;http&#34;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">port</span> <span class="o">=</span> <span class="mi">3000</span><span class="p">;</span>
+
+<span class="c1">// 回调函数,req是请求体,res是响应体
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">((</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">statusCode</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span> <span class="c1">// 响应体状态码
+</span><span class="c1"></span>    <span class="nx">res</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s2">&#34;Content-Type&#34;</span><span class="p">,</span> <span class="s2">&#34;text/plain;charset=utf-8&#34;</span><span class="p">);</span> <span class="c1">// 响应体文本规范(编码等)
+</span><span class="c1"></span>    <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&#34;go&#34;</span><span class="p">);</span> <span class="c1">// write方法用于设置响应内容，可以写多个write函数，参数内容会被按顺序拼接起来
+</span><span class="c1"></span>    <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&#34;python&#34;</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="s2">&#34;你好,django!!!&#34;</span><span class="p">);</span> <span class="c1">// 结束响应，end方法中的参数也会作为响应内容，拼接到响应内容最后面
+</span><span class="c1"></span><span class="p">})</span>
+
+<span class="nx">server</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">port</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="c1">// 监听请求端口
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;This server is running!!!&#34;</span><span class="p">);</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>启动服务</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">node index.js
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>浏览器请求</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">localhost:3000
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="使用get请求自己的node服务器">使用get请求自己的node服务器</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;http&#34;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">port</span> <span class="o">=</span> <span class="mi">3000</span><span class="p">;</span>
+
+<span class="c1">// 回调函数,req是请求体,res是响应体
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">((</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">statusCode</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span> <span class="c1">// 响应体状态码
+</span><span class="c1"></span>    <span class="nx">res</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s2">&#34;Content-Type&#34;</span><span class="p">,</span> <span class="s2">&#34;text/plain;charset=utf-8&#34;</span><span class="p">);</span> <span class="c1">// 响应体文本规范(编码等)
+</span><span class="c1"></span>    <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&#34;go&#34;</span><span class="p">);</span> <span class="c1">// write方法用于设置响应内容，可以写多个write函数，参数内容会被按顺序拼接起来
+</span><span class="c1"></span>    <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&#34;python&#34;</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="s2">&#34;你好,django!!!&#34;</span><span class="p">);</span> <span class="c1">// 结束响应，end方法中的参数也会作为响应内容，拼接到响应内容最后面
+</span><span class="c1"></span><span class="p">})</span>
+
+<span class="nx">server</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">port</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="c1">// 监听请求端口
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;This server is running!!!&#34;</span><span class="p">);</span>
+<span class="p">})</span>
+
+
+<span class="c1">// 向自己的服务器发起请求
+</span><span class="c1">// 第一个参数是 host，第二个是请求参数,第三个是响应体的回调函数
+</span><span class="c1"></span><span class="nx">http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;http://localhost:3000/&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">resData</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+    <span class="cm">/*
+</span><span class="cm">     不断监听（就是说一个on可以监听所有的write） 服务器中的write方法
+</span><span class="cm">     每有一个write方法发送响应内容，on就获取一次最新的write的内容，并将这个内容作为on函数第二个参数，箭头函数的参数
+</span><span class="cm">     */</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&#34;data&#34;</span><span class="p">,</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">resData</span> <span class="o">+=</span> <span class="nx">data</span>
+    <span class="p">});</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&#34;end&#34;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">resData</span><span class="p">);</span>
+        <span class="p">})</span>
+        <span class="c1">// console.log(res);
+</span><span class="c1"></span><span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>就是说，服务器中的所有</li>
+<li>write方法和end方法</li>
+<li>都会被请求脚本的on方法监听</li>
+<li>并每次监听都将write或者end写入的响应内容取出</li>
+<li>作为on方法第二个参数，也就是箭头函数的参数</li>
+<li>实际上就是一个死循环</li>
+<li>直到你服务器执行end方法</li>
+<li>否则on方法一直执行下去</li>
+</ul>
+<hr>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Zhang's Blog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2022-05-19
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/javascript/">JavaScript</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/vue-&#43;-nodejs%E5%AE%9E%E7%8E%B0%E7%9A%84%E4%B8%80%E4%B8%AA%E8%8C%B6%E5%8F%B6%E7%BD%91%E7%AB%99/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">vue &#43; nodejs实现的一个茶叶网站</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/vue-&#43;-django%E5%AE%9E%E7%8E%B0%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+            <span class="next-text nav-default">Vue &#43; django实现个人博客</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://www.google.com/" class="iconfont icon-google" title="google"></a>
+      <a href="https://github.com/" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://www.douban.com/" class="iconfont icon-douban" title="douban"></a>
+      <a href="https://getpocket.com/" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="https://www.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="https://www.instagram.com/" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="https://about.gitlab.com/" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="https://www.bilibili.com/" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://golang.org/">GoLang</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Author - 
+    <a class="theme-link" href="https://space.bilibili.com/628950169/">Mr'zhang</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Zhang's Blog</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

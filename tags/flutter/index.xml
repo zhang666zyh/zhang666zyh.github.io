@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Flutter on Zhang&#39;s Blog的博客</title>
+    <link>http://localhost:1313/tags/flutter/</link>
+    <description>Recent content in Flutter on Zhang&#39;s Blog的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 30 May 2022 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/flutter/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Flutter</title>
+      <link>http://localhost:1313/post/flutter/</link>
+      <pubDate>Mon, 30 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/flutter/</guid>
+      <description>Dart Step01.配置Dart开发环境 Windows10 下载Dart Dart官网 下载Windows64版本的exe安装程序,U盘里有 它会自动帮你配置好环境变量</description>
+    </item>
+    
+  </channel>
+</rss>

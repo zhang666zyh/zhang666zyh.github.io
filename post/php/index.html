@@ -1,0 +1,2544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>PHP - Zhang&#39;s Blog的博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Zhang&#39;s Blog" /><meta name="description" content="Step1. 安装PHP运行环境wampServer Step2. 使用运行环境 Step3. 安装PHP编译器Zend Studio Step4. 使用Zend Studio编写第一个PHP脚本 Step5. PHP脚本" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.67.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/php/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="PHP" />
+<meta property="og:description" content="Step1. 安装PHP运行环境wampServer Step2. 使用运行环境 Step3. 安装PHP编译器Zend Studio Step4. 使用Zend Studio编写第一个PHP脚本 Step5. PHP脚本" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/php/" />
+<meta property="article:published_time" content="2021-07-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-07-17T00:00:00+00:00" />
+<meta itemprop="name" content="PHP">
+<meta itemprop="description" content="Step1. 安装PHP运行环境wampServer Step2. 使用运行环境 Step3. 安装PHP编译器Zend Studio Step4. 使用Zend Studio编写第一个PHP脚本 Step5. PHP脚本">
+<meta itemprop="datePublished" content="2021-07-17T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-07-17T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="11289">
+
+
+
+<meta itemprop="keywords" content="PHP," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="PHP"/>
+<meta name="twitter:description" content="Step1. 安装PHP运行环境wampServer Step2. 使用运行环境 Step3. 安装PHP编译器Zend Studio Step4. 使用Zend Studio编写第一个PHP脚本 Step5. PHP脚本"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Zhang&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/home/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">MyBlog</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Zhang&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/home/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">MyBlog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">PHP</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-07-17 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#step1-安装php运行环境wampserver">Step1. 安装PHP运行环境wampServer</a></li>
+    <li><a href="#step2-使用运行环境">Step2. 使用运行环境</a></li>
+    <li><a href="#step3-安装php编译器zend-studio">Step3. 安装PHP编译器Zend Studio</a></li>
+    <li><a href="#step4-使用zend-studio编写第一个php脚本">Step4. 使用Zend Studio编写第一个PHP脚本</a></li>
+    <li><a href="#step5-php脚本可以嵌入到html代码中">Step5. PHP脚本可以嵌入到HTML代码中</a></li>
+    <li><a href="#step6-php变量">Step6. PHP变量</a>
+      <ul>
+        <li><a href="#创建变量">创建变量</a></li>
+        <li><a href="#变量类型">变量类型</a></li>
+        <li><a href="#变量类型之间转换">变量类型之间转换</a></li>
+      </ul>
+    </li>
+    <li><a href="#step7-常量">Step7. 常量</a></li>
+    <li><a href="#step8-php预定义常量">Step8. PHP预定义常量</a></li>
+    <li><a href="#step9-php运算符">Step9. PHP运算符</a>
+      <ul>
+        <li><a href="#数字运算符">数字运算符</a></li>
+        <li><a href="#字符串运算符">字符串运算符</a></li>
+        <li><a href="#比较运算符">比较运算符</a></li>
+        <li><a href="#逻辑运算符">逻辑运算符</a></li>
+        <li><a href="#其他运算符">其他运算符</a></li>
+      </ul>
+    </li>
+    <li><a href="#step10-控制语句">Step10. 控制语句</a>
+      <ul>
+        <li><a href="#if-elseswitchforwhile和do-while与c和java一模一样">if-else、switch、for、while和do-while与C和Java一模一样</a></li>
+        <li><a href="#exit函数结束当前php脚本结束整个文件的执行die和它有相同的作用">exit();函数结束当前PHP脚本,结束整个文件的执行,die();和它有相同的作用</a></li>
+      </ul>
+    </li>
+    <li><a href="#step11-函数">Step11. 函数</a>
+      <ul>
+        <li><a href="#自定义函数">自定义函数</a></li>
+        <li><a href="#函数中变量的范围">函数中变量的范围</a></li>
+        <li><a href="#静态变量">静态变量</a></li>
+        <li><a href="#函数传递参数">函数传递参数</a></li>
+        <li><a href="#可变长度参数">可变长度参数</a></li>
+        <li><a href="#变量函数">变量函数</a></li>
+        <li><a href="#递归函数">递归函数</a></li>
+        <li><a href="#内置内部函数">内置(内部)函数</a></li>
+      </ul>
+    </li>
+    <li><a href="#step12-数组">Step12. 数组</a>
+      <ul>
+        <li><a href="#数据类型">数据类型:</a></li>
+        <li><a href="#索引数组">索引数组</a>
+          <ul>
+            <li><a href="#创建并输出数组">创建并输出数组</a></li>
+            <li><a href="#使用array方法创建数组">使用array();方法创建数组</a></li>
+          </ul>
+        </li>
+        <li><a href="#关联数组">关联数组</a></li>
+        <li><a href="#数组作为数组元素数组嵌套">数组作为数组元素(数组嵌套)</a></li>
+        <li><a href="#遍历数组">遍历数组</a>
+          <ul>
+            <li><a href="#使用for循环遍历数组">使用for循环遍历数组</a></li>
+            <li><a href="#使用count数组名方法获取数组长度">使用count(数组名);方法获取数组长度</a></li>
+            <li><a href="#使用foreach遍历数组">使用foreach遍历数组</a></li>
+          </ul>
+        </li>
+        <li><a href="#预定义变量">预定义变量</a>
+          <ul>
+            <li><a href="#超全局变量">超全局变量</a></li>
+          </ul>
+        </li>
+        <li><a href="#处理数组的方法">处理数组的方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#step13-字符串">Step13. 字符串</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#去除字符串两边的空格字符或字符串">去除字符串两边的空格、字符或字符串</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#step14-正则表达式">Step14. 正则表达式</a>
+      <ul>
+        <li><a href="#使用preg_match_allpatternstrarray进行字符串的查找">使用preg_match_all($pattern,$str,$array);进行字符串的查找</a></li>
+        <li><a href="#转义字符------">转义字符 &mdash;&gt;  \</a></li>
+        <li><a href="#元字符">元字符</a></li>
+        <li><a href="#模式修正符">模式修正符</a></li>
+        <li><a href="#正则表达式的相关函数">正则表达式的相关函数</a></li>
+      </ul>
+    </li>
+    <li><a href="#step15-日期和时间">Step15. 日期和时间</a></li>
+    <li><a href="#step16-math内置函数">Step16. Math内置函数</a></li>
+    <li><a href="#step17-图像操作">Step17. 图像操作</a>
+      <ul>
+        <li><a href="#创建图片">创建图片</a></li>
+        <li><a href="#绘制图片">绘制图片</a></li>
+      </ul>
+    </li>
+    <li><a href="#step18-文件操作">Step18. 文件操作</a>
+      <ul>
+        <li><a href="#文件的基本操作">文件的基本操作</a></li>
+        <li><a href="#文件读写">文件读写</a></li>
+        <li><a href="#文件上传">文件上传</a></li>
+        <li><a href="#文件下载">文件下载</a></li>
+      </ul>
+    </li>
+    <li><a href="#step19-cookie和session操作">Step19. Cookie和Session操作</a>
+      <ul>
+        <li><a href="#cookie">Cookie</a></li>
+        <li><a href="#session">Session</a></li>
+        <li><a href="#分别使用cookie和session创建登陆界面">分别使用Cookie和Session创建登陆界面</a>
+          <ul>
+            <li><a href="#cookie-1">Cookie</a></li>
+            <li><a href="#session-1">Session</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#step20-php连接mysql">Step20. PHP连接MySQL</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><img src="https://img-blog.csdnimg.cn/20210720004102548.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-Head"></p>
+<!-- TOC -->
+<ul>
+<li><a href="#step1-%E5%AE%89%E8%A3%85php%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83wampserver">Step1. 安装PHP运行环境wampServer</a></li>
+<li><a href="#step2-%E4%BD%BF%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83">Step2. 使用运行环境</a></li>
+<li><a href="#step3-%E5%AE%89%E8%A3%85php%E7%BC%96%E8%AF%91%E5%99%A8zend-studio">Step3. 安装PHP编译器Zend Studio</a></li>
+<li><a href="#step4-%E4%BD%BF%E7%94%A8zend-studio%E7%BC%96%E5%86%99%E7%AC%AC%E4%B8%80%E4%B8%AAphp%E8%84%9A%E6%9C%AC">Step4. 使用Zend Studio编写第一个PHP脚本</a></li>
+<li><a href="#step5-php%E8%84%9A%E6%9C%AC%E5%8F%AF%E4%BB%A5%E5%B5%8C%E5%85%A5%E5%88%B0html%E4%BB%A3%E7%A0%81%E4%B8%AD">Step5. PHP脚本可以嵌入到HTML代码中</a></li>
+<li><a href="#step6-php%E5%8F%98%E9%87%8F">Step6. PHP变量</a>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BA%E5%8F%98%E9%87%8F">创建变量</a></li>
+<li><a href="#%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B">变量类型</a></li>
+<li><a href="#%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B%E4%B9%8B%E9%97%B4%E8%BD%AC%E6%8D%A2">变量类型之间转换</a></li>
+</ul>
+</li>
+<li><a href="#step7-%E5%B8%B8%E9%87%8F">Step7. 常量</a></li>
+<li><a href="#step8-php%E9%A2%84%E5%AE%9A%E4%B9%89%E5%B8%B8%E9%87%8F">Step8. PHP预定义常量</a></li>
+<li><a href="#step9-php%E8%BF%90%E7%AE%97%E7%AC%A6">Step9. PHP运算符</a>
+<ul>
+<li><a href="#%E6%95%B0%E5%AD%97%E8%BF%90%E7%AE%97%E7%AC%A6">数字运算符</a></li>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BF%90%E7%AE%97%E7%AC%A6">字符串运算符</a></li>
+<li><a href="#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6">比较运算符</a></li>
+<li><a href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6">逻辑运算符</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96%E8%BF%90%E7%AE%97%E7%AC%A6">其他运算符</a></li>
+</ul>
+</li>
+<li><a href="#step10-%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5">Step10. 控制语句</a>
+<ul>
+<li><a href="#if-elseswitchforwhile%E5%92%8Cdo-while%E4%B8%8Ec%E5%92%8Cjava%E4%B8%80%E6%A8%A1%E4%B8%80%E6%A0%B7">if-else、switch、for、while和do-while与C和Java一模一样</a></li>
+<li><a href="#exit%E5%87%BD%E6%95%B0%E7%BB%93%E6%9D%9F%E5%BD%93%E5%89%8Dphp%E8%84%9A%E6%9C%AC%E7%BB%93%E6%9D%9F%E6%95%B4%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E6%89%A7%E8%A1%8Cdie%E5%92%8C%E5%AE%83%E6%9C%89%E7%9B%B8%E5%90%8C%E7%9A%84%E4%BD%9C%E7%94%A8">exit;函数结束当前PHP脚本,结束整个文件的执行,die;和它有相同的作用</a></li>
+</ul>
+</li>
+<li><a href="#step11-%E5%87%BD%E6%95%B0">Step11. 函数</a>
+<ul>
+<li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0">自定义函数</a></li>
+<li><a href="#%E5%87%BD%E6%95%B0%E4%B8%AD%E5%8F%98%E9%87%8F%E7%9A%84%E8%8C%83%E5%9B%B4">函数中变量的范围</a></li>
+<li><a href="#%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F">静态变量</a></li>
+<li><a href="#%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0">函数传递参数</a></li>
+<li><a href="#%E5%8F%AF%E5%8F%98%E9%95%BF%E5%BA%A6%E5%8F%82%E6%95%B0">可变长度参数</a></li>
+<li><a href="#%E5%8F%98%E9%87%8F%E5%87%BD%E6%95%B0">变量函数</a></li>
+<li><a href="#%E9%80%92%E5%BD%92%E5%87%BD%E6%95%B0">递归函数</a></li>
+<li><a href="#%E5%86%85%E7%BD%AE%E5%86%85%E9%83%A8%E5%87%BD%E6%95%B0">内置内部函数</a></li>
+</ul>
+</li>
+<li><a href="#step12-%E6%95%B0%E7%BB%84">Step12. 数组</a>
+<ul>
+<li><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型:</a></li>
+<li><a href="#%E7%B4%A2%E5%BC%95%E6%95%B0%E7%BB%84">索引数组</a>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BA%E5%B9%B6%E8%BE%93%E5%87%BA%E6%95%B0%E7%BB%84">创建并输出数组</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8array%E6%96%B9%E6%B3%95%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84">使用array;方法创建数组</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%B3%E8%81%94%E6%95%B0%E7%BB%84">关联数组</a></li>
+<li><a href="#%E6%95%B0%E7%BB%84%E4%BD%9C%E4%B8%BA%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E6%95%B0%E7%BB%84%E5%B5%8C%E5%A5%97">数组作为数组元素数组嵌套</a></li>
+<li><a href="#%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84">遍历数组</a>
+<ul>
+<li><a href="#%E4%BD%BF%E7%94%A8for%E5%BE%AA%E7%8E%AF%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84">使用for循环遍历数组</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8count%E6%95%B0%E7%BB%84%E5%90%8D%E6%96%B9%E6%B3%95%E8%8E%B7%E5%8F%96%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6">使用count数组名;方法获取数组长度</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8foreach%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84">使用foreach遍历数组</a></li>
+</ul>
+</li>
+<li><a href="#%E9%A2%84%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F">预定义变量</a>
+<ul>
+<li><a href="#%E8%B6%85%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F">超全局变量</a></li>
+</ul>
+</li>
+<li><a href="#%E5%A4%84%E7%90%86%E6%95%B0%E7%BB%84%E7%9A%84%E6%96%B9%E6%B3%95">处理数组的方法</a></li>
+</ul>
+</li>
+<li><a href="#step13-%E5%AD%97%E7%AC%A6%E4%B8%B2">Step13. 字符串</a>
+- <a href="#%E5%8E%BB%E9%99%A4%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%A4%E8%BE%B9%E7%9A%84%E7%A9%BA%E6%A0%BC%E5%AD%97%E7%AC%A6%E6%88%96%E5%AD%97%E7%AC%A6%E4%B8%B2">去除字符串两边的空格、字符或字符串</a></li>
+<li><a href="#step14-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">Step14. 正则表达式</a>
+<ul>
+<li><a href="#%E4%BD%BF%E7%94%A8preg_match_allpatternstrarray%E8%BF%9B%E8%A1%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9F%A5%E6%89%BE">使用preg_match_all$pattern,$str,$array;进行字符串的查找</a></li>
+<li>[转义字符 &mdash;&gt;  ](#%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6&mdash;&mdash;%5C)</li>
+<li><a href="#%E5%85%83%E5%AD%97%E7%AC%A6">元字符</a></li>
+<li><a href="#%E6%A8%A1%E5%BC%8F%E4%BF%AE%E6%AD%A3%E7%AC%A6">模式修正符</a></li>
+<li><a href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0">正则表达式的相关函数</a></li>
+</ul>
+</li>
+<li><a href="#step15-%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4">Step15. 日期和时间</a></li>
+<li><a href="#step16-math%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0">Step16. Math内置函数</a></li>
+<li><a href="#step17-%E5%9B%BE%E5%83%8F%E6%93%8D%E4%BD%9C">Step17. 图像操作</a>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BA%E5%9B%BE%E7%89%87">创建图片</a></li>
+<li><a href="#%E7%BB%98%E5%88%B6%E5%9B%BE%E7%89%87">绘制图片</a></li>
+</ul>
+</li>
+<li><a href="#step18-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C">Step18. 文件操作</a>
+<ul>
+<li><a href="#%E6%96%87%E4%BB%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C">文件的基本操作</a></li>
+<li><a href="#%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99">文件读写</a></li>
+<li><a href="#%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0">文件上传</a></li>
+<li><a href="#%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD">文件下载</a></li>
+</ul>
+</li>
+<li><a href="#step19-cookie%E5%92%8Csession%E6%93%8D%E4%BD%9C">Step19. Cookie和Session操作</a>
+<ul>
+<li><a href="#cookie">Cookie</a></li>
+<li><a href="#session">Session</a></li>
+<li><a href="#%E5%88%86%E5%88%AB%E4%BD%BF%E7%94%A8cookie%E5%92%8Csession%E5%88%9B%E5%BB%BA%E7%99%BB%E9%99%86%E7%95%8C%E9%9D%A2">分别使用Cookie和Session创建登陆界面</a>
+<ul>
+<li><a href="#cookie">Cookie</a></li>
+<li><a href="#session">Session</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#step20-php%E8%BF%9E%E6%8E%A5mysql">Step20. PHP连接MySQL</a></li>
+</ul>
+<!-- /TOC -->
+<h1 id="step1-安装php运行环境wampserver">Step1. 安装PHP运行环境wampServer</h1>
+<ul>
+<li>
+<p>wampServer内嵌了MySQL、PHP以及Apache,安装一个等于安装了三个</p>
+</li>
+<li>
+<p>安装目录树一定要全英文,不然会出错</p>
+</li>
+<li>
+<p>安装完毕后任务栏会出现一个小图标,点击language,将其设置成中文</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20210719010935339.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-1"></p>
+<ul>
+<li>
+<p>打开浏览器,输入栏输入127.0.0.1,回车,如果出现下方界面,那就说明环境安装成功了
+<img src="https://img-blog.csdnimg.cn/20210719010843291.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-2"></p>
+</li>
+<li>
+<p>打开C:\Windows\System32\drivers\etc,找到host文件,使用记事本打开,找到最后一行</p>
+</li>
+<li>
+<p>如果存在好几行127.0.0.1            localhost的话,只留下一行,将多余的删除掉就好</p>
+</li>
+</ul>
+<h1 id="step2-使用运行环境">Step2. 使用运行环境</h1>
+<blockquote>
+<p>找到wampServer的安装目录,打开www文件夹,你可以看到有两个php文件,分别是index.php和testmysql.php</p>
+</blockquote>
+<blockquote>
+<p>通过学习JavaWeb我们知道,访问本地jsp文件是可以直接通过根目录进行访问的</p>
+</blockquote>
+<blockquote>
+<p>所以在浏览器输入栏输入127.0.0.1/index.php,你会发现界面没有变,和你输入127.0.0.1是一样的</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20210719011705995.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-4"></p>
+<blockquote>
+<p>这是因为Web项目默认访问的就是index文件,无论你是index.jsp还是index.php</p>
+</blockquote>
+<blockquote>
+<p>现在我们再访问testmysql.php,我们可以看到</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/2021071901170683.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-5"></p>
+<blockquote>
+<p>现在我们在www文件夹下新建a/aa/HTML.html,html文件内容为aaaaa(随意)</p>
+</blockquote>
+<blockquote>
+<p>现在文件结构是这样的:</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20210719011655812.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-6"></p>
+<blockquote>
+<p>根据上面的说明,如果我们想访问HTML.html文件,我们可以在浏览器输入栏中这样写:127.0.0.1/a/aa/HTML.html,回车访问</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/2021071901170615.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-7"></p>
+<hr>
+<h1 id="step3-安装php编译器zend-studio">Step3. 安装PHP编译器Zend Studio</h1>
+<p>请自行百度</p>
+<h1 id="step4-使用zend-studio编写第一个php脚本">Step4. 使用Zend Studio编写第一个PHP脚本</h1>
+<blockquote>
+<p>打开Zend Studio编译器</p>
+</blockquote>
+<blockquote>
+<p>更改一下工作空间
+<img src="https://img-blog.csdnimg.cn/20210720111726903.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-8"></p>
+</blockquote>
+<blockquote>
+<p>找到你安装wampServer的文件路径
+<img src="https://img-blog.csdnimg.cn/20210720111828423.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-9"></p>
+</blockquote>
+<blockquote>
+<p>点击确定,这时候Zend Studio会重启</p>
+</blockquote>
+<blockquote>
+<p>重新进入Zend Studio,文件-&gt;新建-&gt;项目
+<img src="https://img-blog.csdnimg.cn/20210720112314959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-10"></p>
+</blockquote>
+<blockquote>
+<p>PHP-&gt;Local PHP Project
+<img src="https://img-blog.csdnimg.cn/20210720112314720.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-11"></p>
+</blockquote>
+<blockquote>
+<p>起一个项目名为Demo,然后回车确定</p>
+</blockquote>
+<blockquote>
+<p>然后打开左侧的项目文件夹,里面有一个index.php文件,上面有提到过,index文件是一个web项目刚建立默认打开的</p>
+</blockquote>
+<blockquote>
+<p>点开index.php文件
+<img src="https://img-blog.csdnimg.cn/20210720113828497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-12"></p>
+</blockquote>
+<blockquote>
+<p>程序会自动给出你&lt;?php代码,这是php脚本的关键字</p>
+</blockquote>
+<blockquote>
+<p>php程序的输出语句是echo &lsquo;HelloWorld&rsquo;;</p>
+</blockquote>
+<blockquote>
+<p>我们就可以写出这样一句:<?php echo 'HelloWorld';?></p>
+</blockquote>
+<blockquote>
+<p>然后ctrl+s保存</p>
+</blockquote>
+<blockquote>
+<p>在浏览器地址栏访问项目,就可以看到:
+<img src="https://img-blog.csdnimg.cn/20210720113828397.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-13"></p>
+</blockquote>
+<h1 id="step5-php脚本可以嵌入到html代码中">Step5. PHP脚本可以嵌入到HTML代码中</h1>
+<p>很经典,PHP就是用来做网站的,所以说应该也必须和HTML代码一起写</p>
+<p>我觉得PHP就像jsp,他俩都带p,还都是代码和HTML文件的组合</p>
+<pre><code>    &lt;?php echo 'HelloWorld!!!';echo 'HelloWorld!!!'?&gt;
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;zh-CN&quot;&gt;
+    &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;初识PHP脚本程序&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;br/&gt;
+    &lt;?php if(1 &lt; 2){
+    echo 'True...';
+    }?&gt;
+
+    &lt;br/&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+    &lt;?php echo 'HelloWorld!!!';
+
+这样在HTML文件中嵌入PHP代码,然后使用浏览器访问
+</code></pre>
+<p><code>注:</code></p>
+<blockquote>
+<p>第一行的PHP代码可以没有;,但是不能没有?&gt;</p>
+</blockquote>
+<blockquote>
+<p>最后一行的PHP代码可以没有?&gt;,但不能没有;</p>
+</blockquote>
+<blockquote>
+<p>中间的;和?&gt;都必须有</p>
+</blockquote>
+<blockquote>
+<p>如果你在Zend Studio里面编写PHP代码了,PHP代码之间有空格有换行,没关系,编译器会自动忽略</p>
+</blockquote>
+<h1 id="step6-php变量">Step6. PHP变量</h1>
+<h2 id="创建变量">创建变量</h2>
+<pre><code>&lt;?php 
+
+$name = 10; //创建一个名为name的变量,赋值为10
+unset($name);//释放掉指定变量的内存空间
+$name = 20;
+// unset($name);
+
+$str = 'test';
+$$str = 'Blackburn';//这里等价于$test = 'Blackburn';
+
+$var1 = 10;
+$var2 = $var1;
+
+$test1 = 50;
+$test2 = &amp;$test1;//使用&amp;符号为变量之间的引用,给变量test1起一个新的名字test2,就等于test2可以全权控制test1;
+$test2 = 500;
+
+echo $name;
+
+echo $test;
+
+echo $var2;
+
+echo $test1;
+?&gt;
+</code></pre>
+<h2 id="变量类型">变量类型</h2>
+<pre><code>    &lt;?php 
+    $a = true;
+    var_dump($a);//布尔型
+
+    $b = 1;
+    var_dump($b);//整形
+
+    $b = false;
+    var_dump($b);
+
+    $c = 1.1;
+    var_dump($c);//浮点型
+
+    $d = 'str';
+    var_dump($d);//字符串型
+
+    $e = 'test\'...';
+    var_dump($e);//和其他语言一样,使用\作为转义字符
+
+    $f = &quot;find\t$e&quot;;//使用双引号字符串里面的变量会被解析
+    var_dump($f);
+
+    /*
+    * 但如果是这样的:$f = &quot;find\t$echo&quot;;那不就懵逼了
+    * 所以可以这样:
+    */
+    $f = &quot;find\t{$e}cho&quot;;
+    var_dump($f);
+
+    $g = 'fing\t$e';//使用单引号字符串里面的变量不会被解析
+    var_dump($g);
+
+
+    //分界符,将字符串所在位置划分为一块空间,这样你在这里写单引号还是双引号都不用使用转义字符了
+    $h = &lt;&lt;&lt;aaa
+    zhang666zyhtttttt&quot;&quot; ''tttttt
+    aaa;
+    var_dump($h);
+    ?&gt;
+</code></pre>
+<h2 id="变量类型之间转换">变量类型之间转换</h2>
+<pre><code>    &lt;?php 
+    $a = 'Blackburn';
+    var_dump((int)$a);
+    ?&gt;
+</code></pre>
+<h1 id="step7-常量">Step7. 常量</h1>
+<p><code>定义方法</code></p>
+<p>define(name,value)</p>
+<blockquote>
+<p>示例:</p>
+</blockquote>
+<pre><code>&lt;?php
+define('DEMO','Blackburn');
+echo DEMO;
+</code></pre>
+<blockquote>
+<p>注意:</p>
+</blockquote>
+<ul>
+<li>
+<p>常量通常用大写</p>
+</li>
+<li>
+<p>常量就是不可变量,不可以第二次赋值和声明</p>
+</li>
+<li>
+<p>使用defined()方法可以判断常量是否已被定义</p>
+</li>
+<li>
+<p>常量的值只能是bool,int,String,float类型</p>
+</li>
+</ul>
+<hr>
+<h1 id="step8-php预定义常量">Step8. PHP预定义常量</h1>
+<blockquote>
+<p>就是PHP已经预定义好的常量</p>
+</blockquote>
+<p><code>常用的预定义常量</code></p>
+<ul>
+<li>
+<p><strong>FILE</strong>  &mdash;&gt; 当前文件路径</p>
+</li>
+<li>
+<p><strong>LINE</strong>  &mdash;&gt; 这行代码在整个文件中的行号</p>
+</li>
+</ul>
+<blockquote>
+<p>PHP文档 : <a href="https://www.php.net/">https://www.php.net/</a></p>
+</blockquote>
+<hr>
+<h1 id="step9-php运算符">Step9. PHP运算符</h1>
+<h2 id="数字运算符">数字运算符</h2>
+<blockquote>
+<p>+,-,*,/,%,++,&ndash;,-取反</p>
+</blockquote>
+<blockquote>
+<p>而已&hellip;</p>
+</blockquote>
+<h2 id="字符串运算符">字符串运算符</h2>
+<blockquote>
+<p>字符串运算符只有一个点</p>
+</blockquote>
+<blockquote>
+<p>又称字符串连接符,将两个字符串进行连接,你可以对这个连接后的新字符串进行赋值或者打印,但这并不影响原来的两个字符串</p>
+</blockquote>
+<h2 id="比较运算符">比较运算符</h2>
+<p><code>== --&gt; 判断左右两个值是否相等</code></p>
+<pre><code>&lt;?php 
+$a = 1;
+$b = 2;
+echo '&lt;br/&gt;';
+if($a == $b){
+    echo 'true';
+}else{
+    echo 'false';
+}
+</code></pre>
+<p><code>!= --&gt; 就是判断运算符左右两个值是否不相等呗</code></p>
+<p><code>&lt;&gt; --&gt; 同上</code></p>
+<p><code>=== --&gt; 判断是否全等</code></p>
+<blockquote>
+<p>全等:值和类型都要相等</p>
+</blockquote>
+<pre><code>&lt;?php
+$a = 1;
+$b = '1';
+echo '&lt;br/&gt;';
+echo $a == $b;
+echo $a === $b;
+</code></pre>
+<blockquote>
+<p>如果是1 == &lsquo;1&rsquo;,PHP会自动将类型转换,返回值会为true.</p>
+</blockquote>
+<blockquote>
+<p>但是如果是1 === &lsquo;1&rsquo;,那么就不存在类型转换这回事,同时判断左右两个值的类型和值是否同时相等</p>
+</blockquote>
+<p><code>!===</code></p>
+<blockquote>
+<p>不全等:就是类型和值至少有一个不相等</p>
+</blockquote>
+<p><code>&lt;</code></p>
+<pre><code>&lt;?php 
+$a = 1;
+$b = 2;
+
+if($a &lt;= $b){
+    echo '$a &lt;== $b';
+}   
+</code></pre>
+<h2 id="逻辑运算符">逻辑运算符</h2>
+<ul>
+<li>
+<p>与 &mdash;&gt; &amp;&amp;或者and</p>
+</li>
+<li>
+<p>或 &mdash;&gt; ||或者or</p>
+</li>
+<li>
+<p>异或 &mdash;&gt; xor</p>
+<blockquote>
+<p>两个不一样才是true,否则为false</p>
+</blockquote>
+</li>
+<li>
+<p>非 &mdash;&gt; !</p>
+<blockquote>
+<p>取反的意思</p>
+</blockquote>
+<pre><code>  &lt;?php 
+  $a = true;
+  $b = false;
+
+  echo '&lt;br/&gt;';
+
+  echo $a&amp;&amp;$b;
+
+  echo '&lt;br/&gt;';
+
+  echo $a and $b;
+
+  echo '&lt;br/&gt;';
+
+  echo $a||$b;
+
+  echo '&lt;br/&gt;';
+
+  echo $a or $b;
+
+  var_dump($a &amp;&amp; $b);
+  echo '&lt;br/&gt;';
+  echo $a xor $b;	
+  echo 'Test';
+  echo '&lt;br/&gt;';
+  echo !$b;
+</code></pre>
+</li>
+</ul>
+<h2 id="其他运算符">其他运算符</h2>
+<ul>
+<li>
+<p>三元运算符 &mdash;&gt; 变量=表达式?表达式1,表达式2;</p>
+<pre><code>  &lt;?php 
+  $a = 1 != 2 ? true:false;
+  echo($a);
+</code></pre>
+</li>
+<li>
+<p>Windows命令行运算符 &mdash;&gt; <code>cmd命令</code>;</p>
+<pre><code>  &lt;?php 
+  $b = `ipconfig`;
+  echo $b;
+</code></pre>
+<blockquote>
+<p>这时候就会将这句cmd命令行代码的返回值打印到浏览器</p>
+</blockquote>
+</li>
+<li>
+<p>@屏蔽运算符 &mdash;&gt; 屏蔽错误代码</p>
+<pre><code>  &lt;?php 
+  echo @$a;
+</code></pre>
+</li>
+</ul>
+<h1 id="step10-控制语句">Step10. 控制语句</h1>
+<h2 id="if-elseswitchforwhile和do-while与c和java一模一样">if-else、switch、for、while和do-while与C和Java一模一样</h2>
+<h2 id="exit函数结束当前php脚本结束整个文件的执行die和它有相同的作用">exit();函数结束当前PHP脚本,结束整个文件的执行,die();和它有相同的作用</h2>
+<h1 id="step11-函数">Step11. 函数</h1>
+<h2 id="自定义函数">自定义函数</h2>
+<pre><code>    &lt;?php 
+    function UseBr(){
+        echo '&lt;br/&gt;';
+    }
+
+    test();
+    function test(){
+        UseBr();
+        echo '我是一个方法!!!';
+    }
+    function add($a,$b){
+        UseBr();
+        echo $a + $b;
+    }
+
+    function Test_Return(){
+        UseBr();
+        return 'Demo';
+        echo 'Demo';
+    }
+
+    test();
+    add(1,2);
+
+    $var = add(1,2);
+    echo $var;
+
+    $str = Test_Return();
+    echo $str;
+
+    ?&gt;
+</code></pre>
+<blockquote>
+<p>方法你不被调用就不会执行</p>
+</blockquote>
+<blockquote>
+<p>PHP智能的地方之一就是可以先调用后声明</p>
+</blockquote>
+<h2 id="函数中变量的范围">函数中变量的范围</h2>
+<pre><code>    &lt;?php 
+    $i = 10;
+    define('NAME','Blackburn');
+    function Test(){
+        echo NAME;//常量可以不用理会变量的范围在所有范围都可以使用
+        global $i;//需要声明$i为全局变量
+        echo $i;
+        $a = 10;
+    }
+    Test();
+    ?&gt;
+</code></pre>
+<h2 id="静态变量">静态变量</h2>
+<pre><code>    &lt;?php 
+    function Test($i){
+        static $a = 0;
+        $a += $i;
+        if($a == 5){
+            echo $a;
+            die();
+        }
+    }
+
+    $number = 1;
+    for($i = 1;$i &lt; 10;$i++){
+        Test($number);
+    }
+    ?&gt;
+</code></pre>
+<h2 id="函数传递参数">函数传递参数</h2>
+<ul>
+<li>
+<p>函数传递参数的默认值</p>
+<pre><code>  &lt;?php 
+  function Test($a=10,$b){//默认值
+      return $a+$b;
+  }
+  echo Test(20,20);
+
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>形参实参匹配问题</p>
+<blockquote>
+<p>形参比实参长不会报错,否则会报错</p>
+</blockquote>
+<blockquote>
+<p>这是PHP智能的地方</p>
+</blockquote>
+<pre><code>  &lt;?php 
+  function Test($a,$b){
+      echo $a + $b;
+  }
+  Test(10,20,30);
+  ?&gt;
+</code></pre>
+</li>
+</ul>
+<h2 id="可变长度参数">可变长度参数</h2>
+<ul>
+<li>
+<p>func_get_args();</p>
+<blockquote>
+<p>获取全部传入的参数</p>
+</blockquote>
+<pre><code>      &lt;?php 
+      function test(){
+          var_dump(func_get_args());
+      }
+      test(1,2,3,4,5);
+      ?&gt;
+</code></pre>
+</li>
+<li>
+<p>func_get_arg($i);</p>
+<blockquote>
+<p>获取指定索引位置的形式参数</p>
+</blockquote>
+<pre><code>  &lt;?php 
+  function Test(){
+      var_dump(func_get_arg(2));
+  }
+  Test(1,2,3,4);
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>func_num_args();</p>
+<blockquote>
+<p>获取传入函数的参数的个数</p>
+</blockquote>
+<pre><code>  &lt;?php 
+  function Test(){
+      var_dump(func_num_args());
+  }
+  Test(1,2,3,4,5);
+  ?&gt;
+</code></pre>
+</li>
+</ul>
+<h2 id="变量函数">变量函数</h2>
+<blockquote>
+<p>将调用函数赋值给一个变量,而不在乎有没有返回值</p>
+</blockquote>
+<pre><code>    &lt;?php 
+    function Test(){
+        echo '我是一个函数变量';
+    }
+
+    $var = Test();
+    ?&gt;
+</code></pre>
+<blockquote>
+<p>我觉得就是利用变量赋值进行的函数调用</p>
+</blockquote>
+<blockquote>
+<p>但是这么思考的话,它还叫做可变函数</p>
+</blockquote>
+<h2 id="递归函数">递归函数</h2>
+<pre><code>    &lt;?php 
+    function fibnacci($i){
+        if($i &lt; 3){
+            return 1;
+        }else{
+            return fibnacci($i-1)+fibnacci($i-2);
+        }
+    }
+
+    function UseBr(){
+        echo '&lt;br/&gt;';
+    }
+
+    for($i = 1;$i &lt; 20;$i++){
+        UseBr();
+        echo fibnacci($i);
+    }
+    ?&gt;
+</code></pre>
+<h2 id="内置内部函数">内置(内部)函数</h2>
+<blockquote>
+<p>PHP给我们许多现成的内置函数,可以拿过来直接使用</p>
+</blockquote>
+<blockquote>
+<p>不能作为变量函数使用将其赋值给变量</p>
+</blockquote>
+<h1 id="step12-数组">Step12. 数组</h1>
+<h2 id="数据类型">数据类型:</h2>
+<ul>
+<li>
+<p>整形</p>
+</li>
+<li>
+<p>浮点型</p>
+</li>
+<li>
+<p>字符串型</p>
+</li>
+<li>
+<p>布尔型</p>
+</li>
+</ul>
+<h2 id="索引数组">索引数组</h2>
+<h3 id="创建并输出数组">创建并输出数组</h3>
+<blockquote>
+<p>输出数组不能使用echo,使用函数print_r(数组名);</p>
+</blockquote>
+<blockquote>
+<p>输出数组元素中的bool类型的值会打印出0或1</p>
+</blockquote>
+<pre><code>    &lt;?php
+    $student[0] = 1;
+    $student[1] = 'Blackburn';
+    $student[2] = 100;
+    $student[3] = true;
+
+    //输出数组内容不能使用echo
+
+    print_r($student);
+</code></pre>
+<blockquote>
+<p>可以省略索引值,默认从0开始向下递增</p>
+</blockquote>
+<pre><code>    &lt;?php
+    $student[] = 1;
+    $student[] = 'Blackburn';
+    $student[] = 100;
+    $student[] = true;
+
+    //输出数组内容不能使用echo
+
+    print_r($student);
+</code></pre>
+<h3 id="使用array方法创建数组">使用array();方法创建数组</h3>
+<p><code>1.php</code></p>
+<pre><code>    &lt;?php
+    $student = array(1,'Blackburn',100,true);
+
+    print_r($student);
+</code></pre>
+<p><code>2.php</code></p>
+<pre><code>    &lt;?php
+    $student = array(
+        0=&gt;1,
+        1=&gt;'Blackburn',
+        2=&gt;100,
+        3=&gt;true
+    );
+
+    print_r($student);
+</code></pre>
+<h2 id="关联数组">关联数组</h2>
+<blockquote>
+<p>索引可以是任意合法类型数据</p>
+</blockquote>
+<pre><code>    &lt;?php
+    $student['id'] = 1;
+    $student['name'] = 'Blackburn';
+    $studnet['age'] = 18;
+    $student['score'] = 100;
+
+    $teacher = array(
+            'id' =&gt; 2,
+            'name' =&gt; '郭菡',
+            'salary' =&gt; 1000000
+    );
+
+
+
+    print_r($student);	
+
+    echo '&lt;br/&gt;';
+
+    print_r($teacher);
+</code></pre>
+<h2 id="数组作为数组元素数组嵌套">数组作为数组元素(数组嵌套)</h2>
+<blockquote>
+<p>虽然echo不能输出数组,但是可以输出指定索引的数组元素</p>
+</blockquote>
+<pre><code>    &lt;?php
+    $student = array(
+        0 =&gt; array(1,'Blackburn',100),
+        1 =&gt; array(2,'张长全',100),
+        2 =&gt; array(3,'张长领',100)
+    );
+
+    echo $student[0][1];
+</code></pre>
+<h2 id="遍历数组">遍历数组</h2>
+<h3 id="使用for循环遍历数组">使用for循环遍历数组</h3>
+<pre><code>    &lt;?php
+    $arr = array(1,2,3,4,5,6,7,8,9,10);
+    for($i = 0;$i &lt; 10;$i++){
+        echo '&lt;br/&gt;';
+        echo $arr[$i];
+    }
+</code></pre>
+<h3 id="使用count数组名方法获取数组长度">使用count(数组名);方法获取数组长度</h3>
+<pre><code>    &lt;?php
+    $arr = array(1,2,3,4,5,6,7,8,9,10);
+    for($i = 0;$i &lt; count($array);$i++){
+        echo '&lt;br/&gt;';
+        echo $arr[$i];
+    }
+</code></pre>
+<h3 id="使用foreach遍历数组">使用foreach遍历数组</h3>
+<blockquote>
+<p>.运算符可以将两个字符串连接</p>
+</blockquote>
+<p><code>遍历数组的值</code></p>
+<pre><code>    &lt;?php 
+    $array = array(
+        'name' =&gt; 'Blackburn',
+        'age' =&gt; 18,
+        'score' =&gt; 100
+    );
+    foreach($array as $value){
+        echo $value.'&lt;br/&gt;';
+    }
+    ?&gt;
+</code></pre>
+<p><code>遍历数组的键值对</code></p>
+<pre><code>    &lt;?php 
+    $array = array(
+        'name' =&gt; 'Blackburn',
+        'age' =&gt; 18,
+        'score' =&gt; 100
+    );
+    foreach($array as $key=&gt;$value){
+        echo $key.'=&gt;'.$value.'&lt;br/&gt;';
+    }
+    ?&gt;
+</code></pre>
+<p><code>遍历数组嵌套数组的数组</code></p>
+<pre><code>    &lt;?php 
+    $arr = array(
+        'a',
+        'b',
+        'c',
+        'd',
+        array(1,2,3,4,5)
+    );
+    foreach($arr as $value){
+        var_dump($value);
+    }
+    ?&gt;
+</code></pre>
+<h2 id="预定义变量">预定义变量</h2>
+<h3 id="超全局变量">超全局变量</h3>
+<blockquote>
+<p>PHP中许多预定义变量都是超全局的,就是可以在整个PHP脚本的所有作用域都通用</p>
+</blockquote>
+<blockquote>
+<p>在函数或者方法中无需  global $全局变量;</p>
+</blockquote>
+<ul>
+<li>
+<p>$_GET   &mdash;&gt;   获取浏览器请求的参数</p>
+<blockquote>
+<p>索引值为参数名,索引值为参数名对应的参数值</p>
+</blockquote>
+<p><code>服务端</code></p>
+<pre><code>      &lt;?php 
+      var_dump($_GET);	
+      ?&gt;
+</code></pre>
+<p><code>请求</code></p>
+<pre><code>      http://localhost/test/demo36.php?name=zhangyuhang
+</code></pre>
+</li>
+<li>
+<p>$_POST   &mdash;&gt;   也是获取客户端请求的参数</p>
+<blockquote>
+<p>客户端请求资源方式有四种,get,post,put,delete</p>
+</blockquote>
+<blockquote>
+<p>其中最常用的是get和post两种</p>
+</blockquote>
+<pre><code>  &lt;?php 
+  var_dump($_POST);
+  ?&gt;
+  &lt;!DOCTYPE html&gt;
+  &lt;html lang=&quot;zh-CN&quot;&gt;
+  &lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;form method=&quot;post&quot;&gt;
+      姓名:&lt;input type=&quot;text&quot; name='username' /&gt;&lt;br/&gt;
+      性别:&lt;input type=&quot;text&quot; name='sex' /&gt;&lt;br/&gt;
+      &lt;input type=&quot;submit&quot; value='提交' /&gt;
+  &lt;/form&gt;
+  &lt;/body&gt;
+  &lt;/html&gt; 
+</code></pre>
+</li>
+</ul>
+<h2 id="处理数组的方法">处理数组的方法</h2>
+<pre><code>- array_count_values(数组名);   ---&gt;  统计数组中每个元素出现的次数,返回一个数组类型的数据(也就是说需要使用print_r输出)
+</code></pre>
+<h1 id="step13-字符串">Step13. 字符串</h1>
+<blockquote>
+<p>字符串是一种不可变变量,使用方法对字符串进行操作得到的结果只能打印或者赋值给另外一个字符串,并不能改变原来的字符串</p>
+</blockquote>
+<h3 id="去除字符串两边的空格字符或字符串">去除字符串两边的空格、字符或字符串</h3>
+<pre><code>    &lt;?php 
+    $string = '	abc    ';
+    $str1 = trim($string);//去除字符串首尾的空格
+    var_dump($str1);
+
+    $str2 = trim($str1,'a');//去除整个字符串首尾指定的字符或者字符串
+    var_dump($str2);
+    ?&gt;
+</code></pre>
+<h1 id="step14-正则表达式">Step14. 正则表达式</h1>
+<h2 id="使用preg_match_allpatternstrarray进行字符串的查找">使用preg_match_all($pattern,$str,$array);进行字符串的查找</h2>
+<pre><code>    &lt;?php 
+    $pattern = '/test/';
+    
+    var_dump(preg_match_all($pattern,'faftesta,,..test',$arr));
+
+    var_dump($arr);
+    ?&gt;
+</code></pre>
+<blockquote>
+<p>$pattern是正则表达式字符串,$str是被匹配字符串</p>
+</blockquote>
+<blockquote>
+<p>$array是函数将所有匹配结果储存到数组中,然后通过索引的方式进行查找</p>
+</blockquote>
+<h2 id="转义字符------">转义字符 &mdash;&gt;  \</h2>
+<pre><code>    &lt;?php 
+    $pattern = '/tes\'t/';
+    $str = 'agaoeoqvmqi9pctest afaftes\'t';
+    var_dump(preg_match_all($pattern,$str,$array));
+    var_dump($array);
+    ?&gt;
+</code></pre>
+<h2 id="元字符">元字符</h2>
+<blockquote>
+<p>大写的意思就是小写的补集</p>
+</blockquote>
+<ul>
+<li>
+<p>\d &mdash;&gt; 匹配0-9之间的十进制字符</p>
+<pre><code>  &lt;?php 
+  $pattern = '/test\d/';
+  $str = 'faft4o3rjslfj23rjtest234fsgar3';
+  var_dump(preg_match_all($pattern,$str,$array));
+  print_r($array);
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>\s匹配所有的空白字符,包括换行符,空格,制表符,回车符,垂直制表符等</p>
+<pre><code>  &lt;?php 
+  $pattern = '/tes\st/';
+  $str = &quot;fafjarer 
+          fasf  afau43tes t0tu4th tes\nt325@$2sf&quot;;
+
+  var_dump(preg_match_all($pattern,$str,$array));
+  print_r($array);
+  ?&gt;
+</code></pre>
+<blockquote>
+<p>在字符串中使用转义字符,字符串需要使用双引号,否则转移失败</p>
+</blockquote>
+</li>
+<li>
+<p>\w匹配所有的数字、字母或下划线</p>
+<pre><code>  &lt;?php 
+  $pattern = '/tes\wt/';
+  $str = &quot;fafjarer 
+          fasf  afautes4t3tes t0tu4th tes\nt325@$2sf&quot;;
+
+  var_dump(preg_match_all($pattern,$str,$array));
+  print_r($array);
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>.匹配除换行符以外的任意字符</p>
+<pre><code>  &lt;?php 
+  $pattern = '/tes.t/';
+  $str = &quot;fafjarer 
+          fasf  afaute
+
+          \ns4t3tes t0tu4tesetth tes\nt325@$2sf&quot;;
+
+  var_dump(preg_match_all($pattern,$str,$array));
+  print_r($array);
+  ?&gt;
+</code></pre>
+<blockquote>
+<p>如果你真的想要匹配.,需要使用\对其进行转义</p>
+</blockquote>
+</li>
+<li>
+<p>&lsquo;*&rsquo; *符号前面的字符串至少出现0次</p>
+<pre><code>  &lt;?php 
+  $pattern = '/tes*t/';
+  $str = &quot;fafjarer 
+          fasf  afaute
+          \ns4t3tes t0tu4sttesetth test325@$2sf&quot;;
+
+  var_dump(preg_match_all($pattern,$str,$array));
+  print_r($array);
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>&lsquo;+&rsquo; +符号前面的字符至少要出现1次(注意:不是字符串)</p>
+<pre><code>  &lt;?php 
+  $pattern = '/tes+t/';
+  $str = &quot;tes
+          test
+          tes3423fs
+          testestest
+          t&quot;;
+
+  var_dump(preg_match_all($pattern,$str,$array));
+  print_r($array);
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>? ?符号表示?前面的字符出现0次到1次(注意:是字符,不是字符串)</p>
+<pre><code>  &lt;?php 
+  $pattern = '/tes?t/';
+  $str = &quot;abct&quot;;
+
+  var_dump(preg_match_all($pattern,$str,$arr));
+  var_dump($arr);
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>{n} 符号前面的字符正好出现n次</p>
+<pre><code>  &lt;?php 
+  $pattern = '/tes{2}t/';
+  $str = 'sajt4otesstfa3r3';
+  var_dump(preg_match_all($pattern,$str,$arr));
+  var_dump($arr);
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>{n,} 符号表示前面的字符至少出现n次数</p>
+<pre><code>  &lt;?php 
+  $pattern = '/tes{2,}t/';
+  $str = 'sajt4otessttesssstfa3r3';
+  var_dump(preg_match_all($pattern,$str,$arr));
+  var_dump($arr);
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>{m,n} 符号表示前面的字符出现m-n次</p>
+<pre><code>  &lt;?php 
+  $pattern = '/tes{2,5}t/';
+  $str = 'sajt4otesssssssttesssstfa3r3';
+  var_dump(preg_match_all($pattern,$str,$arr));
+  var_dump($arr);
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>.{n}</p>
+<pre><code>  &lt;?php 
+  $pattern = '/tes{2,5}t/';
+  $str = 'sajt4otesssssssttesssstfa3r3';
+  var_dump(preg_match_all($pattern,$str,$arr));
+  var_dump($arr);
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>.* 默认使用默认情况下是贪婪模式(尽可能多的匹配字符,包括正则表达式的结尾字符,所以下面的例子里被匹配的字符串中的最后一个t也算)</p>
+<pre><code>  &lt;?php 
+  $pattern = '/t.*t/';
+  $str = 'sssssteeetsssssssssssssssssssssssssssssssssssssststsfaa4w4t 44ttf';
+  var_dump(preg_match_all($pattern,$str,$arr));
+  var_dump($arr) x;
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>.*? 默认使用默认情况是懒惰模式(尽可能少的匹配字符)</p>
+<blockquote>
+<p>它和.*的区别是</p>
+</blockquote>
+<blockquote>
+<p>.*匹配从正则表达式第一个字符开始向后抓取所有字符,直到整个字符串中最后一个符合正则表达式结尾的字符结束</p>
+</blockquote>
+<blockquote>
+<p>而.*?从正则表达式第一个字符开始向后抓取字符,遇到第一个符合正则表达式结尾的字符就结束,将匹配结果取出,接着再向后匹配</p>
+</blockquote>
+<pre><code>  &lt;?php 
+  $pattern = '/t.*?t/';
+  $str = 'fafat2323aft324jat rjwqu49rhjt .. 5t5q4qrfa';
+  var_dump(preg_match_all($pattern,$str,$arr));
+  var_dump($arr);	
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>^ 或者 \A,匹配正则表达式的开始位置</p>
+<pre><code>  &lt;?php 
+  $pattern = '/^test/';
+  $str = 'testabc';
+  var_dump(preg_match_all($pattern,$str,$arr));
+  var_dump($arr);	
+  ?&gt;
+</code></pre>
+<blockquote>
+<p>就是说这个字符串必须是以t开头,而且后面必须是est,因为原正则表达式是这么写的吗</p>
+</blockquote>
+</li>
+<li>
+<p>$ 或者 \Z,匹配字符串结束位置</p>
+<pre><code>  &lt;?php 
+  $pattern = '/test$/';
+  $str = 'abctest';
+  var_dump(preg_match_all($pattern,$str,$arr));
+  var_dump($arr);	
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>| 或,匹配左边或者右边的字符</p>
+<pre><code>  &lt;?php 
+  $pattern = '/test|abcd/';
+  $str = 'abctestfalfjrwqaesdak;abcd';
+  var_dump(preg_match_all($pattern,$str,$arr));
+  var_dump($arr);	
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>[] 匹配括号内任意一个字符</p>
+<pre><code>  &lt;?php 
+  $pattern = '/t[abcde]st/';
+  $str = '123test341t42teat6tbst43';
+  var_dump(preg_match_all($pattern,$str,$arr));
+  var_dump($arr);	
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>() 将多个字符变成一个整体</p>
+<blockquote>
+<p>在()后面加上//数字,就代表匹配第一个括号中的内容</p>
+</blockquote>
+<p><code>1.php</code></p>
+<pre><code>  &lt;?php 
+  $pattern = '/t(es)t\\1/';
+  $str = '				testes	             ';
+  var_dump(preg_match_all($pattern,$str,$arr));
+  var_dump($arr);	
+  ?&gt;
+</code></pre>
+<p><code>2.php</code></p>
+<pre><code>  &lt;?php 
+  $pattern = '/t(.)(.)t\\1\\2/';
+  $str = '				tiotio	             ';
+  var_dump(preg_match_all($pattern,$str,$arr));
+  var_dump($arr);	
+  ?&gt;
+</code></pre>
+</li>
+</ul>
+<h2 id="模式修正符">模式修正符</h2>
+<ul>
+<li>
+<p>i 不区分大小写</p>
+<pre><code>  &lt;?php 
+  $pattern = '/test/i';
+  $str = 'test  Test  TEST ';
+  var_dump(preg_match_all($pattern,$str,$arr));
+  var_dump($arr);	
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>m 多行匹配</p>
+<blockquote>
+<p>正则表达式中必须包含^或者$</p>
+</blockquote>
+<blockquote>
+<p>被匹配字符串中必须包含\n</p>
+</blockquote>
+<pre><code>  &lt;?php 
+  $pattern = '/^test/m';
+  $str = 'test
+  abc
+  test
+  demo';
+  var_dump(preg_match_all($pattern,$str,$arr));
+  var_dump($arr);	
+  ?&gt;
+</code></pre>
+<blockquote>
+<p>直接写\n换行是没用的</p>
+</blockquote>
+</li>
+<li>
+<p>s 如果设定了此修正符,那么,将匹配所有的字符包括换行符(通常.和s一起使用)</p>
+<pre><code>  &lt;?php 
+  $pattern = '/t.st/s';
+  // $str = &quot;t\nst&quot;;//匹配得到
+  $str = &quot;t
+  st&quot;;//匹配不到,这里需要使用\r将\n转义为回车符
+  var_dump(preg_match_all($pattern,$str,$arr));
+  var_dump($arr);	
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>U 禁止贪婪匹配</p>
+<pre><code>  &lt;?php 
+  $pattern = '/t.*st/U';
+  $str = &quot;tefafafstesttestfatessafagsastestt&quot;;
+  var_dump(preg_match_all($pattern,$str,$arr));
+  var_dump($arr);	
+  ?&gt;
+</code></pre>
+</li>
+</ul>
+<h2 id="正则表达式的相关函数">正则表达式的相关函数</h2>
+<ul>
+<li>preg_match();</li>
+</ul>
+<blockquote>
+<p>从字符串头部字符开始匹配成功就退出,就是说只匹配一次</p>
+</blockquote>
+<pre><code>    &lt;?php 
+    $pattern = '/t(.*?)st/';
+    $str = '	test	tfaadst    tadast	';
+    var_dump(preg_match($pattern,$str,$arr));
+    var_dump($arr);
+
+    if(preg_match($pattern,$str,$arr)){
+        echo 'true';
+    }else{
+        echo 'false';
+    }
+
+    ?&gt;
+</code></pre>
+<h1 id="step15-日期和时间">Step15. 日期和时间</h1>
+<ul>
+<li>
+<p>date_default_timezone_set(&lsquo;Asia/Shanghai
+&lsquo;);</p>
+<blockquote>
+<p>设置时区</p>
+</blockquote>
+</li>
+<li>
+<p>time();</p>
+<blockquote>
+<p>获取时间戳</p>
+</blockquote>
+</li>
+<li>
+<p>mktime(秒,分,时,日,月,年);</p>
+<blockquote>
+<p>获取指定时间的时间戳</p>
+</blockquote>
+</li>
+<li>
+<p>date(&lsquo;Y-m-d G:i:s&rsquo;,time());</p>
+<blockquote>
+<p>格式化本地时间</p>
+</blockquote>
+</li>
+<li>
+<p>microtime();</p>
+<blockquote>
+<p>获取微秒数</p>
+</blockquote>
+<blockquote>
+<p>还有一种写法就是microtime(true);//改变格式</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="step16-math内置函数">Step16. Math内置函数</h1>
+<blockquote>
+<p>round 对float类型数据进行四舍五入</p>
+</blockquote>
+<h1 id="step17-图像操作">Step17. 图像操作</h1>
+<h2 id="创建图片">创建图片</h2>
+<ul>
+<li>
+<p>imagecreatetruecolor($x,$y);</p>
+<blockquote>
+<p>创建一张真彩色图片</p>
+</blockquote>
+<blockquote>
+<p>返回值为一个图像对象</p>
+</blockquote>
+</li>
+<li>
+<p>imagecolorallocate(图片对象,R,G,B);</p>
+<blockquote>
+<p>返回值为一个颜色变量</p>
+</blockquote>
+</li>
+<li>
+<p>imagefill(图片对象,x,y,颜色变量);</p>
+<blockquote>
+<p>没有返回值,就是将颜色填充到指定图片中,然后将图片从指定坐标向右下角绘制</p>
+</blockquote>
+</li>
+<li>
+<p>imagejpeg(图片对象);</p>
+<blockquote>
+<p>将图片输出</p>
+</blockquote>
+</li>
+<li>
+<p>imagejpeg(图片对象,保存路径);</p>
+<blockquote>
+<p>将图片保存到指定路径中</p>
+</blockquote>
+</li>
+<li>
+<p>imagedestroy(图片对象);</p>
+<blockquote>
+<p>释放图片资源</p>
+</blockquote>
+<p><code>demo71.php</code></p>
+  <?php 
+  header('Content-type:image/jpeg');//默认情况输出为Content-type:text/html;
+  $img = imagecreatetruecolor(200,200);//创建一张真彩色图片
+  $color1 = imagecolorallocate($img,50,50,50);//创建颜色
+  $color2 = imagecolorallocate($img,229,36,50);
+
+  imagefill($img, 0, 0, $color2);//填充颜色
+
+  imagejpeg($img);//生成图片
+
+  imagedestroy($img);
+  ?>
+<p><code>demo72.php</code></p>
+  <?php 
+  header('Content-type:text/html');
+  $img = imagecreatetruecolor(200,200);
+  $color1 = imagecolorallocate($img,50,50,50);
+  $color2 = imagecolorallocate($img,229,36,50);
+
+  imagefill($img, 0, 0, $color1);
+
+  if(imagejpeg($img,'image/img.jpeg')){
+      echo '文件保存成功!!!';
+  }
+  imagedestroy($img);
+  ?>
+</li>
+</ul>
+<h2 id="绘制图片">绘制图片</h2>
+<ul>
+<li>
+<p>imagesetpixel(图片对象,点的横坐标,点的纵坐标,点的颜色);</p>
+<blockquote>
+<p>在图片上的指定坐标画点</p>
+</blockquote>
+</li>
+<li>
+<p>imageline(图片对象,起点横坐标,起点纵坐标,终点横坐标,终点纵坐标,线条颜色);</p>
+<blockquote>
+<p>在图片上画一个两点之间的线条</p>
+</blockquote>
+</li>
+<li>
+<p>imagettftext(图片对象,字体大小,旋转角度,起点横坐标,起点纵坐标,颜色,字体,文本);</p>
+<blockquote>
+<p>将指定字符串</p>
+</blockquote>
+<blockquote>
+<p>以指定字体</p>
+</blockquote>
+<blockquote>
+<p>指定颜色</p>
+</blockquote>
+<blockquote>
+<p>指定字体大小</p>
+</blockquote>
+<blockquote>
+<p>指定左上角的位置开始</p>
+</blockquote>
+<blockquote>
+<p>绕着指定点旋转指定角度</p>
+</blockquote>
+<blockquote>
+<p>将文字写到指定的图片上</p>
+</blockquote>
+<p><code>验证码</code></p>
+<pre><code>  &lt;?php 
+  header('Content-type:image/jpeg');
+
+  function IntToStr($num){
+      return chr($num);
+  }
+
+  $width = 120;
+  $heigth = 40;
+  $img = imagecreatetruecolor($width, $heigth);
+  $R = rand(150,255);
+  $G = rand(150,255);
+  $B = rand(150,255);
+  $colorBg = imagecolorallocate($img, $R, $G, $B);
+  $colorBorder = imagecolorallocate($img,0,0,0);
+  $colorLine = imagecolorallocate($img,0,0,0);
+  $colorNum = imagecolorallocate($img,0,0,0);
+  $colorString = imagecolorallocate($img,0,0,0);
+  // $colorBorder = imagecolorallocate($img,0,0,0)
+  imagefill($img,0,0,$colorBg);
+  // imagerectangle($img, 0, 0, $width-1, $heigth-1,$colorBorder);	
+  for($i = 0;$i &lt; 100;$i++){
+      imagesetpixel($img, rand(0,$width-1), rand(0,$heigth-1), $colorBorder);
+  }
+
+  for($i = 0;$i &lt; 3;$i++){
+      imageline($img,rand(0,$width/2),rand(0,$heigth),rand($width/2,$width),rand(0,$heigth),$colorLine);
+  }
+
+
+  // imagestring($img, 50, 30, 10, rand(1111, 9999), $colorNum);
+  imagettftext($img, 14, 8, 10, 30, $colorNum, 'lib/SketchyComic-1.ttf',IntToStr(rand(65,90)).IntToStr(rand(65,90)).IntToStr(rand(65,90)).IntToStr(rand(65,90)));
+  imagejpeg($img);
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>imagecreatefromjpeg($str_Path);</p>
+<blockquote>
+<p>创建指定本地路径或者指定URL的图片对象</p>
+</blockquote>
+<blockquote>
+<p>根据文件格式,还有imagecreatefrompng、imagecreatefromjpg、imagecreatefromgif等</p>
+</blockquote>
+</li>
+<li>
+<p>getimagesize(图片对象);</p>
+<blockquote>
+<p>获取图片的尺寸</p>
+</blockquote>
+<blockquote>
+<p>返回值为数组,第一个元素为width,第二个元素为height</p>
+</blockquote>
+</li>
+<li>
+<p>imagettfbbox(尺寸,角度,字体,文本);</p>
+<blockquote>
+<p>获取文字占用的空间,返回值为含有8个元素的数组</p>
+</blockquote>
+<blockquote>
+<p>8个元素为文字左下角顶点开始逆时针旋转四个点的横纵坐标</p>
+</blockquote>
+<blockquote>
+<p>宽度用2-0,高度用3-5</p>
+</blockquote>
+<p><code>给图片加水印</code></p>
+<pre><code>  &lt;?php
+  $size = 100;
+  $angle = 0;
+  $str_Path = 'image/3k9l86.jpg';
+  $font_file = 'lib/QianTuMaKeShouXieTi-2.ttf';
+  $text = 'Blackburn';
+
+  $image_Position;
+  $image_width = 0;
+  $image_heigth = 0;
+
+  $str_Position;
+  $str_width = 0;
+  $str_heigth = 0;
+
+
+
+  header('Content-type:image/jpeg');
+
+  $img = imagecreatefromjpeg($str_Path);
+  $color_Text = imagecolorallocate($img,255,255,255);
+
+  $image_Position = getimagesize($str_Path);
+  $image_width = $image_Position[0];
+  $image_heigth = $image_Position[1];
+
+
+  $str_Position = imagettfbbox($size, $angle,$font_file,$text);
+  $str_width = $str_Position[2]-$str_Position[0];
+  $str_heigth = $str_Position[3]-$str_Position[5];
+
+  imagettftext($img,$size,$angle,$image_width-$str_width,$image_heigth-$str_heigth, $color_Text,$font_file,$text);
+
+  imagejpeg($img);
+  imagedestroy($img);
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>imagecopy(目标图像,源图像,目标图像开始粘贴图片点的横坐标,目标图像开始粘贴图片点的纵坐标,源图像开始剪切点的横坐标,源图像开始剪切点的纵坐标,被剪切的宽度,被剪切的高度);</p>
+<blockquote>
+<p>在一个图片上以一个点为原点,向右下角截取指定长和高的矩形粘贴到目标图片上指定点为起点向右下角延伸的位置</p>
+</blockquote>
+</li>
+<li>
+<p>imagecopymerge(目标图像,源图像,目标图像开始粘贴图片点的横坐标,目标图像开始粘贴图片点的纵坐标,源图像开始剪切点的横坐标,源图像开始剪切点的纵坐标,被剪切的宽度,被剪切的高度,被剪切图片的透明度);</p>
+<blockquote>
+<p>就比imagecopy多个一个透明度</p>
+</blockquote>
+</li>
+<li>
+<p>imagecopyresample(目标图片,源图片,目标图片接受点横坐标,目标图片接受点纵坐标,源图片截取起点横坐标,源图片截取起点纵坐标,目标图片接收的长度,目标图片接收的宽度,源图片截取的长度,源图片截取的宽度);</p>
+<blockquote>
+<p>就是将源图片截取一部分,将截取出来的这一部分拼合到目标图片上</p>
+</blockquote>
+<blockquote>
+<p>但是目标图片的尺寸为最大尺寸范围,如果你截取的图片尺寸超过目标图片的尺寸,结果就会像屏幕不够用了一样</p>
+</blockquote>
+<blockquote>
+<p>只能显示它能显示的下的内容,其它的都到外面了</p>
+</blockquote>
+<p><code>更改图片尺寸</code></p>
+<pre><code>  &lt;?php 
+  header('Content-type:image/jpeg');
+  $img = imagecreatefromjpeg('image/3k9l86.jpg');
+  $img1 = imagecreatetruecolor(500, 500);
+  imagecopyresampled($img1, $img, 0, 0, 0, 0, 600, 500, 4096, 2160);
+  if(imagejpeg($img1)){	
+      imagejpeg($img1,'image/copy.jpg');
+  }
+  imagedestroy($img);
+</code></pre>
+</li>
+</ul>
+<h1 id="step18-文件操作">Step18. 文件操作</h1>
+<h2 id="文件的基本操作">文件的基本操作</h2>
+<pre><code>    &lt;?php 
+    var_dump(is_file('demo77.php'));//判断对象是否为文件
+    var_dump(is_dir('D:\Code\wamp\www\test'));//判断对象是否为目录
+
+    var_dump(file_exists('D:\Code\wamp\www\test'));//判断文件或者文件夹是否存在
+
+    var_dump(filesize('demo77.php'));//返回文件大小的字节数
+
+    var_dump(is_readable('D:\Code\wamp\www\test'));//判断文件是否可读
+
+    var_dump(is_writeable('demo77.php'));//判断文件是否可写
+
+    var_dump(filectime('C:\Windows'));//返回文件创建时间的时间戳
+
+    // var_dump(date('Y-m-d G:i:s',filectime('C:\Windows')));
+
+    var_dump(fileatime('C:\Windows'));//返回文件上次访问的时间
+
+    var_dump(stat('C:\Windows'));//获取文件大部分属性值
+
+    ?&gt;
+</code></pre>
+<ul>
+<li>
+<p>basename($file_Path);</p>
+<blockquote>
+<p>返回路径中的文件名部分</p>
+</blockquote>
+</li>
+<li>
+<p>dirname($file_Path);</p>
+<blockquote>
+<p>返回路径中的目录部分</p>
+</blockquote>
+<pre><code>  &lt;?php 
+  echo __FILE__;//获取当前文件路径
+
+  echo '&lt;br /&gt;';
+
+  echo basename(__FILE__);//返回路径中的文件名部分
+
+  echo '&lt;br /&gt;';
+
+  echo dirname(__FILE__);//返回路径中的目录部分
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>opendir($dir_Path);</p>
+<blockquote>
+<p>打开文件句柄</p>
+</blockquote>
+</li>
+<li>
+<p>readdir(句柄变量); 句柄指针在根目录从上往下读取,如果是文件夹就返回点,如果是文件就返回文件名</p>
+</li>
+<li>
+<p>rewinddir();</p>
+<blockquote>
+<p>将句柄返回到起始位置</p>
+</blockquote>
+<pre><code>  &lt;?php 
+  $dir = opendir('D:\Code\wamp\www\test');//返回目录的句柄(句柄就是指针)
+  var_dump(readdir($dir));
+  var_dump(readdir($dir));//从上往下读取目录
+  var_dump(readdir($dir));
+  var_dump(readdir($dir));
+  var_dump(readdir($dir));
+  var_dump(readdir($dir));
+  rewinddir();//将句柄倒回最初的状态
+  var_dump(readdir($dir));
+  var_dump(readdir($dir));
+  var_dump(readdir($dir));
+  var_dump(readdir($dir));
+  var_dump(readdir($dir));
+  var_dump(readdir($dir));
+  var_dump(readdir($dir));
+  var_dump(readdir($dir));
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>mkdir($dir_Path,0777,true);</p>
+<blockquote>
+<p>新建文件夹</p>
+</blockquote>
+<blockquote>
+<p>第一个参数为新建文件夹的路径</p>
+</blockquote>
+<blockquote>
+<p>第二个参数为新建文件夹的权限,默认为0777,可读可写</p>
+</blockquote>
+<blockquote>
+<p>第三个参数为一个bool类型,true表示允许通过递归新建多级目录,默认为false</p>
+</blockquote>
+</li>
+<li>
+<p>rmdir();</p>
+<blockquote>
+<p>删除文文件夹</p>
+</blockquote>
+<pre><code>  &lt;?php 
+    
+  mkdir('D:\Code\wamp\www\test\dirTest',0777,true);
+    
+  rmdir('dirTest');
+  ?&gt;
+</code></pre>
+</li>
+</ul>
+<h2 id="文件读写">文件读写</h2>
+<ul>
+<li>
+<p>fopen(文件路径,打开方式);</p>
+<blockquote>
+<p>创建文件句柄变量</p>
+</blockquote>
+</li>
+<li>
+<p>fread(文件句柄变量,读取字符长度);</p>
+<blockquote>
+<p>读取指定文件句柄指定长度内容</p>
+</blockquote>
+</li>
+<li>
+<p>fgets(文件句柄);</p>
+<blockquote>
+<p>读取文件一行内容</p>
+</blockquote>
+</li>
+<li>
+<p>fwrite(文件句柄,写入字符串);</p>
+<blockquote>
+<p>将字符串以替换原内容的方式写入到文件中</p>
+</blockquote>
+</li>
+<li>
+<p>fseek();</p>
+<blockquote>
+<p>在文件指针中定位</p>
+</blockquote>
+</li>
+<li>
+<p>flock(文件句柄,参数);</p>
+<blockquote>
+<p>给打开的文件句柄加锁</p>
+</blockquote>
+<blockquote>
+<p>第二个参数可能为:</p>
+</blockquote>
+<ul>
+<li>
+<p>LOCK_SH   &mdash;&gt;   对文件进行读操作时展开的共享锁</p>
+</li>
+<li>
+<p>LOCK_EX   &mdash;&gt;   对文件进行写操作时展开的独享锁</p>
+</li>
+<li>
+<p>LOCK_UN   &mdash;&gt;   释放锁定</p>
+</li>
+<li>
+<p>LOCK_NB   &mdash;&gt;   在给文件句柄加锁时如果不希望发生锁定堵塞,在加锁参数后面加上此参数,
+可以保证在其他用户在你之前锁定的情况下不执行加锁操作</p>
+</li>
+</ul>
+</li>
+<li>
+<p>rewind(文件句柄);</p>
+<blockquote>
+<p>倒回文件指针的位置</p>
+</blockquote>
+</li>
+<li>
+<p>fclose(文件句柄);</p>
+<blockquote>
+<p>关闭文件句柄</p>
+</blockquote>
+</li>
+<li>
+<p>file(文件路径);</p>
+<blockquote>
+<p>将文件内容保存到数组中</p>
+</blockquote>
+<pre><code>  &lt;?php 
+  $array_File = file('https://baidu.com/');
+  var_dump($array_File);
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>file_get_contents(文件路径);</p>
+<blockquote>
+<p>得到文件内容保存到字符串中</p>
+</blockquote>
+<pre><code>  &lt;?php 
+  $str_html = file_get_contents('OthersFile/text.txt');
+  echo $str_html;
+  ?&gt;
+</code></pre>
+</li>
+<li>
+<p>file_put_contents(文件路径,字符串);</p>
+<blockquote>
+<p>将字符串以替换原内容的方式写入到文件中</p>
+</blockquote>
+<pre><code>  &lt;?php 
+  file_put_contents('OthersFile/text.txt' ,'Blackburn');
+  ?&gt;
+</code></pre>
+</li>
+</ul>
+<p><code>demo81.php</code></p>
+<pre><code>    &lt;?php 
+    header('Content-type:text/html;charset=GBK');
+    echo '用户2';
+    $handle = fopen('OthersFile/text.txt','w');
+    if(flock($handle, LOCK_EX)){
+        sleep(10);
+        var_dump(fwrite($handle, '用户1的信息'));
+    }else{
+        echo '文件加锁失败!!!';
+    }
+    flock($handle,LOCK_UN);
+    // var_dump(fread($handle,10));
+    // var_dump(fgets($handle));
+    ?&gt;	
+</code></pre>
+<p><code>demo82.php</code></p>
+<pre><code>    &lt;?php 
+    header('Content-type:text/html;charset=GBK');
+    echo '用户1';
+    $handle = fopen('OthersFile/text.txt','w');
+    if(flock($handle, LOCK_EX+LOCK_NB)){
+        var_dump(fwrite($handle, '用户2的信息'));
+    }else{
+        echo '文件加锁失败!!!';
+    }
+    flock($handle,LOCK_UN);
+    // var_dump(fread($handle,10));
+    // var_dump(fgets($handle));
+    ?&gt;		
+</code></pre>
+<h2 id="文件上传">文件上传</h2>
+<ul>
+<li>与上传有关的PHP.ini文件配置选项</li>
+</ul>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>可能值</th>
+<th>参数功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>file_uploads</td>
+<td>ON</td>
+<td>确定服务器上的PHP脚本是否可以接受HTTP文件上传</td>
+</tr>
+<tr>
+<td>memory_limit</td>
+<td>3M</td>
+<td>设置脚本可以分配的最大内存量,防止脚本失控独占服务器内存</td>
+</tr>
+<tr>
+<td>post_max_size</td>
+<td>3M</td>
+<td>限制通过post的传输方式可以接收的信息最大量</td>
+</tr>
+<tr>
+<td>upload_tmp_dir</td>
+<td>D://Code</td>
+<td>上传文件存放的临时路径,可以是一个绝对路径,这个路径对于拥有此服务器进程用户必须是可写的</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p><code>上传文件实例</code></p>
+<pre><code>    &lt;?php 
+    header('Content-type:text/html;charset=utf-8');
+    var_dump($_FILES);	
+    if(isset($_POST['submit'])){
+        if(is_uploaded_file($_FILES['myfile']['tmp_name'])){
+            $file_NewName = date('YmdGis').rand(1000,9999);
+            $file_Arr = pathinfo($_FILES['myfile']['name']);
+            var_dump(move_uploaded_file($_FILES['myfile']['tmp_name'],&quot;OthersFile/upload_File/{$file_NewName}.{$file_Arr['extension']}&quot;));
+        }else{
+            exit(1);
+        }
+    }
+    ?&gt;
+
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;zh-CN&quot;&gt;
+    &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;文件上传&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;form action = &quot;&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+    &lt;input type=&quot;file&quot; name=&quot;myfile&quot; /&gt;
+    &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;点击上传&quot; /&gt;
+    &lt;/form&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+
+
+&gt; $_FILES    全局变量$_FILES可以输出
+
+&gt; isset()    检测变量是否设置
+</code></pre>
+<h2 id="文件下载">文件下载</h2>
+<pre><code>    &lt;?php 
+    if(!function_exists('finfo_open')){//function_exists判断函数是否存在
+        header('Content-type:text/html;charset=utf-8');
+        exit('请安装PHP扩展fileinfo');
+    }
+    $file;
+    if($_GET['id'] == 1){
+        $file = 'OthersFile/download_File/7z2102-x64.zip';
+    }else{
+        $file = 'OthersFile/download_File/logo.png';
+    }
+
+
+    //获取文件的信息
+    $fileinfo = finfo_open(FILEINFO_MIME_TYPE);
+
+    //返回文件的MIME类型
+    $mimeType = finfo_file($fileinfo,$file);
+
+    finfo_close($fileinfo);
+
+    //发送指定的文件MIME类型的头信息
+    header('Content-type:'.$mimeType);
+
+    //指定下载文件的描述
+    header('Content-Disposition:attachment;filename='.basename($file));
+
+    //指定文件的大小
+    header('Content-Length:'.filesize($file));
+
+    //读取文件至输出缓冲区,返回这个文件
+    readfile($file);
+    ?&gt;
+</code></pre>
+<h1 id="step19-cookie和session操作">Step19. Cookie和Session操作</h1>
+<h2 id="cookie">Cookie</h2>
+<p><code>向客户端电脑上设置cookie</code></p>
+<pre><code>    &lt;?php 
+    header('Content-type:text/html;charset=utf-8');
+    // setcookie('name','Blackburn',time()+60*60);//参数值为:cookie的名称,cookie名称的值,cookie的有效期
+    var_dump(setcookie('name','Blackburn',time()+3600));
+    var_dump(setcookie('email','2110815857@qq.com',time()+3600));
+    ?&gt;
+</code></pre>
+<p><code>获取你设置的Cookie的数据</code></p>
+<pre><code>    var_dump($_COOKIE);
+
+    &gt; 这是一个数组,如果使用二维数组存储Cookie的值,获取你设置的每个Cookie元素需要使用二维数组_COOKIE['key'];
+</code></pre>
+<p><code>将Cookie的值保存到另外一个二维数组中</code></p>
+<pre><code>    &lt;?php 
+    header('Content-type:text/html;charset=utf-8');
+    var_dump(setcookie('member[name]','Blackburn',time()+60*60));
+    var_dump(setcookie('member[email]','2110815857@qq.com',time()+60*60));
+    ?&gt;
+</code></pre>
+<p><code>删除设置的二维数组中的Cookie值</code></p>
+<pre><code>    &lt;?php 
+    setcookie('member[name]','',time()-100);
+    setcookie('member[email]','',time()-100);
+    ?&gt;
+
+    或者
+
+    &lt;?php 
+    foreach($_COOKIE['member'] as $key=&gt;$val){
+        setcookie(&quot;member[{$key}]&quot;,'',time()-100000000);
+    }
+    ?&gt;
+</code></pre>
+<h2 id="session">Session</h2>
+<p><code>创建一个Session会话或者返回一个现有的Session</code></p>
+<pre><code>    &lt;?php 
+    //开启一个会话或者返回一个已存在的会话
+    session_start();	
+
+    $_SESSION['name'] = 'Blackburn';
+    $_SESSION['email'] = '2110815857@qq.com';
+    $_SESSION['url'] = 'zhang666zyh.github.io';
+    ?&gt;
+
+&gt; 使用Session时无论进行什么操作都必须创建一个Session会话,执行session_start()语句
+</code></pre>
+<p><code>查看Session的信息</code></p>
+<pre><code>    &lt;?php 
+    //开启一个会话
+    session_start();
+
+    //查看session的信息
+    //根据客户端传来的session id,把session id对应的数据读取到$_SESSION
+    var_dump($_SESSION);
+
+    //查看当前Session会话的名称和id
+    var_dump(session_name());
+    var_dump(session_id());
+    ?&gt;
+</code></pre>
+<p><code>销毁Session</code></p>
+<pre><code>    &lt;?php 
+    session_start();
+    if(isset($_SESSION['views'])){
+        /*
+        * 使用unset($_SESSION['name'])销毁session
+        * 或者使用session_destroy()彻底删除session
+        */
+        unset($_SESSION['views']);
+        echo true;
+    }
+    ?&gt;
+</code></pre>
+<p><code>实例:统计页面访问次数</code></p>
+<pre><code>    &lt;?php 
+    session_start();
+    if(isset($_SESSION['views'])){
+        $_SESSION['views'] += 1;
+    }else{
+        $_SESSION['views'] = 1;
+    }
+
+    echo '浏览量为'.$_SESSION['views'];
+    ?&gt;
+</code></pre>
+<h2 id="分别使用cookie和session创建登陆界面">分别使用Cookie和Session创建登陆界面</h2>
+<h3 id="cookie-1">Cookie</h3>
+<p><code>Login.php</code></p>
+<pre><code>    &lt;?php 
+    header('Content-type:text/html;charset=utf-8');
+    if(isset($_COOKIE['username'])&amp;&amp;$_COOKIE['username']='Blackburn'){
+        exit('您已经登陆过了,请不要重新登录');
+    }
+
+    if(isset($_POST['submit'])){
+        if(isset($_POST['username'])&amp;&amp;isset($_POST['password'])&amp;&amp;$_POST['username']=='Blackburn'&amp;&amp;$_POST['password']=='2110815857G184'){
+            if(setcookie('username',$_POST['username'],time()+3600)){
+                header('Location:skip.php?url=index.php&amp;info=登陆成功,正在跳转中..');
+            }else{
+                echo 'cookie设置失败';
+            }
+        }else{
+            header('Location:skip.php?url=index.php&amp;info=用户名或密码填写错误,请重新输入');
+        }
+    }
+    ?&gt;
+
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;zh-CN&quot;&gt;
+    &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;用户登录界面&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;form method=&quot;post&quot; action = &quot;Login.php&quot;&gt;
+        姓名:&lt;input type=&quot;text&quot; name=&quot;username&quot; /&gt;
+        密码:&lt;input type=&quot;password&quot; name=&quot;password&quot; /&gt;
+        &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;登录&quot; /&gt;
+    &lt;/form&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+</code></pre>
+<p><code>skip.php</code></p>
+<pre><code>    &lt;?php 
+    if(!isset($_GET['url'])||!isset($_GET['info'])){
+        exit();
+    }
+    ?&gt;
+
+
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;zh-CN&quot;&gt;
+    &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;refresh&quot; content=&quot;3;URL=&lt;?php echo $_GET['url']?&gt;&quot; /&gt;
+    &lt;title&gt;正在跳转中...&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div style=&quot;text-align:center;font-size:20px;&quot;&gt;&lt;?php echo $_GET['info']?&gt;3秒后自动跳转&lt;/div&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+</code></pre>
+<p><code>index.php</code></p>
+<pre><code>    &lt;?php 
+    header('Content-type:text/html;charset=utf-8');
+    if(isset($_COOKIE['username'])&amp;&amp;$_COOKIE['username']='Blackburn'){
+        echo '亲爱的用户'.$_COOKIE['username'].'欢迎回来';
+        echo &quot;&lt;a href='Logout.php'&gt;注销&lt;/a&gt;&quot;;
+    }else{
+        echo &quot;&lt;a href='Login.php'&gt;请登录&lt;/a&gt;&quot;;
+    }
+    ?&gt;
+
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;zh-CN&quot;&gt;
+    &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;用户登录界面&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+
+    &lt;/body&gt;
+    &lt;/html&gt;
+</code></pre>
+<p><code>Logout.php</code></p>
+<pre><code>    &lt;?php 
+    if(isset($_COOKIE['username'])&amp;&amp;$_COOKIE['username']='Blackburn'){
+        if(setcookie('username','',time-100000)&amp;&amp;setcookie('password','',time()-100000)){
+            header('Location:skip.php?url=index.php&amp;info=注销成功,3秒后自动跳转');
+        }else{
+            header('Location:skip.php?url=index.php&amp;info=注销失败,请稍后重试');
+        }
+    }
+    ?&gt;
+</code></pre>
+<h3 id="session-1">Session</h3>
+<p><code>Login.php</code></p>
+<pre><code>    &lt;?php 
+    session_start();
+    header('Content-type:text/html;charset=utf-8');
+    if(isset($_SESSION['username'])&amp;&amp;$_SESSION['username']='Blackburn'){
+        exit('您已经登陆过了,请不要重新登录');
+    }
+
+    if(isset($_POST['submit'])){
+        if(isset($_POST['username'])&amp;&amp;isset($_POST['password'])&amp;&amp;$_POST['username']=='Blackburn'&amp;&amp;$_POST['password']=='2110815857G184'){
+            $_SESSION['username']=$_POST['username'];
+            header('Location:skip.php?url=index.php&amp;info=登陆成功,正在跳转中..');
+        }else{
+            header('Location:skip.php?url=index.php&amp;info=用户名或密码填写错误,请重新输入');
+        }
+    }
+    ?&gt;
+
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;zh-CN&quot;&gt;
+    &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;用户登录界面&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;form method=&quot;post&quot; action = &quot;Login.php&quot;&gt;
+        姓名:&lt;input type=&quot;text&quot; name=&quot;username&quot; /&gt;
+        密码:&lt;input type=&quot;password&quot; name=&quot;password&quot; /&gt;
+        &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;登录&quot; /&gt;
+    &lt;/form&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+</code></pre>
+<p><code>skip.php</code></p>
+<pre><code>    &lt;?php 
+    session_start();
+    if(!isset($_GET['url'])||!isset($_GET['info'])){
+        exit();
+    }
+    ?&gt;
+
+
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;zh-CN&quot;&gt;
+    &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;refresh&quot; content=&quot;3;URL=&lt;?php echo $_GET['url']?&gt;&quot; /&gt;
+    &lt;title&gt;正在跳转中...&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div style=&quot;text-align:center;font-size:20px;&quot;&gt;&lt;?php echo $_GET['info']?&gt;3秒后自动跳转&lt;/div&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+</code></pre>
+<p><code>index.php</code></p>
+<pre><code>    &lt;?php 
+    session_start();
+    header('Content-type:text/html;charset=utf-8');
+    if(isset($_SESSION['username'])&amp;&amp;$_SESSION['username']='Blackburn'){
+        echo '亲爱的用户'.$_SESSION['username'].'欢迎回来';
+        echo &quot;&lt;a href='Logout.php'&gt;注销&lt;/a&gt;&quot;;
+    }else{
+        echo &quot;&lt;a href='Login.php'&gt;请登录&lt;/a&gt;&quot;;
+    }
+    ?&gt;
+
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;zh-CN&quot;&gt;
+    &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;用户登录界面&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+
+    &lt;/body&gt;
+    &lt;/html&gt;
+</code></pre>
+<p><code>Logout.php</code></p>
+<pre><code>    &lt;?php 
+    session_start();
+    if(isset($_SESSION['username'])&amp;&amp;$_SESSION['username']='Blackburn'){
+        session_destroy();
+        header('Location:skip.php?url=index.php&amp;info=注销成功,3秒后自动跳转');
+    }else{
+        header('Location:skip.php?url=index.php&amp;info=注销失败,请稍后重试');
+    }
+    ?&gt;
+</code></pre>
+<h1 id="step20-php连接mysql">Step20. PHP连接MySQL</h1>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Zhang's Blog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-07-17
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/php/">PHP</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">计算机奇技淫巧</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/web%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/">
+            <span class="next-text nav-default">Web前端入门到放弃</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://www.google.com/" class="iconfont icon-google" title="google"></a>
+      <a href="https://github.com/" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://www.douban.com/" class="iconfont icon-douban" title="douban"></a>
+      <a href="https://getpocket.com/" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="https://www.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="https://www.instagram.com/" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="https://about.gitlab.com/" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="https://www.bilibili.com/" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://golang.org/">GoLang</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Author - 
+    <a class="theme-link" href="https://space.bilibili.com/628950169/">Mr'zhang</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Zhang's Blog</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

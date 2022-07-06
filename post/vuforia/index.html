@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Vuforia - Zhang&#39;s Blog的博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Zhang&#39;s Blog" /><meta name="description" content="工具网站 爱给网 下载Unity模型的 还可以下载很多其他东西 Step01.环境配置 安装Unity2020.1.0的unityHub 下载地址 在Un" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.67.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/vuforia/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Vuforia" />
+<meta property="og:description" content="工具网站 爱给网 下载Unity模型的 还可以下载很多其他东西 Step01.环境配置 安装Unity2020.1.0的unityHub 下载地址 在Un" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/vuforia/" />
+<meta property="article:published_time" content="2022-01-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-28T00:00:00+00:00" />
+<meta itemprop="name" content="Vuforia">
+<meta itemprop="description" content="工具网站 爱给网 下载Unity模型的 还可以下载很多其他东西 Step01.环境配置 安装Unity2020.1.0的unityHub 下载地址 在Un">
+<meta itemprop="datePublished" content="2022-01-28T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-01-28T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="5828">
+
+
+
+<meta itemprop="keywords" content="unity," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vuforia"/>
+<meta name="twitter:description" content="工具网站 爱给网 下载Unity模型的 还可以下载很多其他东西 Step01.环境配置 安装Unity2020.1.0的unityHub 下载地址 在Un"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Zhang&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/home/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">MyBlog</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Zhang&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/home/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">MyBlog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Vuforia</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-01-28 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#工具网站">工具网站</a></li>
+    <li><a href="#step01环境配置">Step01.环境配置</a>
+      <ul>
+        <li><a href="#安装unity202010的unityhub">安装<code>Unity2020.1.0</code>的unityHub</a></li>
+        <li><a href="#在unityhub中安装指定版本的unity">在UnityHub中安装指定版本的Unity</a></li>
+        <li><a href="#在unity中添加vuforia插件">在Unity中添加vuforia插件</a></li>
+        <li><a href="#到vuforia官网注册密钥以及下载图片识别包">到vuforia官网注册密钥以及下载图片识别包</a>
+          <ul>
+            <li><a href="#注册密钥">注册密钥</a></li>
+            <li><a href="#下载图片识别包">下载图片识别包</a></li>
+          </ul>
+        </li>
+        <li><a href="#环境准备">环境准备</a></li>
+        <li><a href="#导出为android包">导出为Android包</a></li>
+      </ul>
+    </li>
+    <li><a href="#step02vuforia导入寒冰模型资源包和动画预制体">Step02.Vuforia导入寒冰模型资源包和动画预制体</a></li>
+    <li><a href="#step03人物制作">Step03.人物制作</a></li>
+    <li><a href="#step04修改人物动画">Step04.修改人物动画</a></li>
+    <li><a href="#step05特效制作">Step05.特效制作</a></li>
+    <li><a href="#step06特效制作的问题">Step06.特效制作的问题</a></li>
+    <li><a href="#step07交互之点击">Step07.交互之点击</a></li>
+    <li><a href="#step08交互之长按">Step08.交互之长按</a></li>
+    <li><a href="#step09交互之旋转">Step09.交互之旋转</a></li>
+    <li><a href="#step10交互之放缩">Step10.交互之放缩</a></li>
+    <li><a href="#step11按钮">Step11.按钮</a></li>
+    <li><a href="#step12多图像识别">Step12.多图像识别</a></li>
+    <li><a href="#step13不借助图片显示物体不包含点击">Step13.不借助图片显示物体(不包含点击)</a></li>
+    <li><a href="#ar项目创业计划">AR项目创业计划</a>
+      <ul>
+        <li><a href="#电脑投屏">电脑投屏</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="工具网站">工具网站</h1>
+<p><a href="https://www.aigei.com/">爱给网</a></p>
+<blockquote>
+<p>下载Unity模型的</p>
+<p>还可以下载很多其他东西</p>
+</blockquote>
+<h1 id="step01环境配置">Step01.环境配置</h1>
+<h2 id="安装unity202010的unityhub">安装<code>Unity2020.1.0</code>的unityHub</h2>
+<p><a href="https://unity.cn/releases/full/2020">下载地址</a></p>
+<h2 id="在unityhub中安装指定版本的unity">在UnityHub中安装指定版本的Unity</h2>
+<p><img src="https://img-blog.csdnimg.cn/81886ac20a9847a1a32f6673cbd48594.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/d78407e2dd714395a79c58eeb59f8ea5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/66be4ca8909045b5b8ce707be434267f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<h2 id="在unity中添加vuforia插件">在Unity中添加vuforia插件</h2>
+<p><img src="https://img-blog.csdnimg.cn/c13e4a7bfa404e74865a6b805c745137.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<ul>
+<li>
+<p>打开package下的manifest.json</p>
+</li>
+<li>
+<p>在依赖中添加这么一行并保存</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="s2">&#34;com.ptc.vuforia.engine&#34;</span><span class="err">:</span><span class="s2">&#34;8.5.9&#34;</span><span class="err">,</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>等到unity加载完,vuforia就被集成进unity了</p>
+<p><img src="https://img-blog.csdnimg.cn/73f8c4cf9478406881f53e8a10064219.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+</ul>
+<h2 id="到vuforia官网注册密钥以及下载图片识别包">到vuforia官网注册密钥以及下载图片识别包</h2>
+<p><a href="https://developer.vuforia.com/">官网</a></p>
+<h3 id="注册密钥">注册密钥</h3>
+<p><img src="https://img-blog.csdnimg.cn/bbb94e2f07cd4f11b13700c5e9706ccf.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/117f39671da54726b590d9fc3fdded8a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<ul>
+<li>
+<p>验证后就出现了这个</p>
+<p><img src="https://img-blog.csdnimg.cn/251a2306ea954226be7012518fd507f3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+<li>
+<p>点进去,就有了密钥,左键点击就复制了</p>
+<p><img src="https://img-blog.csdnimg.cn/d7a59430d72043338320616333bb5b6e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+</ul>
+<h3 id="下载图片识别包">下载图片识别包</h3>
+<ul>
+<li>
+<p>添加数据库</p>
+<p><img src="https://img-blog.csdnimg.cn/e684e42e74d741628a3d9afa75db79b6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/0061ca8e0e084373aab262b355b9e1eb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+<li>
+<p>点进去</p>
+<p><img src="https://img-blog.csdnimg.cn/a170a84f6c374c87aa5e38ab16cd8f41.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+<li>
+<p>添加物体</p>
+<p><img src="https://img-blog.csdnimg.cn/357b4249ded94eecbb8ceaef0cb82263.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/1a6574dc4d2341f4a7b639a442a74604.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+<li>
+<p>下载包</p>
+<p><img src="https://img-blog.csdnimg.cn/b40052d4c6a24ba0b9bd64d82abc1fc2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+</ul>
+<h2 id="环境准备">环境准备</h2>
+<ul>
+<li>将刚才下载的包导入到项目</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/112d6892c225408fa5cc9142b003664a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<ul>
+<li>
+<p>将项目自带的camera删掉,新建一个ARCamera</p>
+<p><img src="https://img-blog.csdnimg.cn/a15cb5f41f6642ecac5c128b0f2071ad.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+<li>
+<p>在ARCamera下新建一个Image</p>
+<blockquote>
+<p>它就会自动的显现出在vuforia官网导入数据库的图片</p>
+</blockquote>
+</li>
+<li>
+<p>将模型放在Image下</p>
+<p><img src="https://img-blog.csdnimg.cn/8ea07bc74b6f49fa9985e7cd7899e2ba.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<blockquote>
+<p>模型下载<code>fbx</code>格式的,google直接有一堆</p>
+<p>直接导入的模型是灰白的,别忘了导入贴图(直接拖到模型上(Assets下的,因为它是预制体)就行了)</p>
+</blockquote>
+</li>
+<li>
+<p>所以现在层级为</p>
+<p>ARCamera//ImageTarget//model</p>
+</li>
+<li>
+<p>启动项目</p>
+<p><img src="https://img-blog.csdnimg.cn/d93725fda77c43e4944f062afbff7354.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+</ul>
+<h2 id="导出为android包">导出为Android包</h2>
+<ul>
+<li>
+<p>随便添加一个,反正这个没什么用(防止占用系统盘和文件夹混乱,放到工程目录下)</p>
+<p><img src="https://img-blog.csdnimg.cn/9e5905110d074151b979a6964a26d53e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+<li>
+<p>导出为apk</p>
+<p><img src="https://img-blog.csdnimg.cn/c524cdcee29b4a859aca64f9ccd28e7e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<blockquote>
+<p>导出失败可能是磁盘或文件夹权限问题</p>
+<p>放到C盘里就好了,反正到时候也删掉</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h1 id="step02vuforia导入寒冰模型资源包和动画预制体">Step02.Vuforia导入寒冰模型资源包和动画预制体</h1>
+<p><img src="https://img-blog.csdnimg.cn/4814da10e92047bf99c7231667e3bcf6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_15,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<ul>
+<li>
+<p>导入完成后,拖入人物模型发现人物没贴图</p>
+</li>
+<li>
+<p>打开<code>Character_AiXi\\Materials</code></p>
+<ul>
+<li>
+<p>里面的材料就是包内所有人物模型的材料</p>
+</li>
+<li>
+<p>将贴图赋给材料就可以了</p>
+<p><img src="https://img-blog.csdnimg.cn/5f7e5a4e151c48b8be03b3359745ef22.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="step03人物制作">Step03.人物制作</h1>
+<ul>
+<li>
+<p>正常设置AR相机\Image\模型</p>
+</li>
+<li>
+<p>Assets下创建预制体文件夹</p>
+</li>
+<li>
+<p>将模型拖入到预制体文件夹下(选Original Prefab)</p>
+<p><img src="https://img-blog.csdnimg.cn/551f690cb8c549b59af9d2e75ab38072.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+<li>
+<p>拖入人物模型后,给人物模型添加动画</p>
+</li>
+<li>
+<p>动画都在``````Character_AiXi```下的人物模型下</p>
+</li>
+<li>
+<p>有跑、攻击、跳舞等</p>
+</li>
+<li>
+<p>Assets下创建Animator文件夹用来存放行为控制器</p>
+</li>
+<li>
+<p>并在Animator下创建AiXi</p>
+<p><img src="https://img-blog.csdnimg.cn/b2a31141590c4b8e9c4595d10b4abdd8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+<li>
+<p>点开AiXi</p>
+<p><img src="https://img-blog.csdnimg.cn/449a023fa7ca4eb4bc14b4ace5495dfe.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+<li>
+<p>动画怎么排列随意规定</p>
+</li>
+<li>
+<p>设置完将AiXi行为控制器赋给人物模型</p>
+<p><img src="https://img-blog.csdnimg.cn/63fb163365dd47c2b3e7c5aeed107916.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+<li>
+<p>运行项目,就在原有Vuforia<code>卡片上显示模型</code>的基础上实现自动播放动画的效果了</p>
+</li>
+</ul>
+<h1 id="step04修改人物动画">Step04.修改人物动画</h1>
+<ul>
+<li>
+<p>虽然人物动画是有了</p>
+</li>
+<li>
+<p>但是:</p>
+</li>
+<li>
+<p>同一个动画循环中有好几个动画</p>
+</li>
+<li>
+<p>当将卡片放在摄像头上时,播放动画</p>
+</li>
+<li>
+<p>当将卡片从摄像头前移走再次放上去时,播放的动画是接着刚才的</p>
+</li>
+<li>
+<p>也就是说</p>
+<p><strong>只要将卡片移动到摄像头上,动画就一直播放不停止,直到项目停止运行</strong></p>
+</li>
+<li>
+<p>现在想要修改成将卡片移动走再次将卡片放到摄像头上时动画从头播放</p>
+</li>
+<li>
+<p>找到导入的Vuforia包下的scripts</p>
+</li>
+<li>
+<p>将下面的<code>DefaultTrackableEventHandler.cs</code>文件复制到自己Assets下的scripts目录并改名</p>
+<p><img src="https://img-blog.csdnimg.cn/2962931c045e40108ca6956541b31832.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+<li>
+<p>在前面加上<code>My</code></p>
+<p><img src="https://img-blog.csdnimg.cn/90b63e4713a44573a59e5d3af3bb2530.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_18,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+<li>
+<p>然后编辑</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="cm">/*==============================================================================
+</span><span class="cm">Copyright (c) 2019 PTC Inc. All Rights Reserved.
+</span><span class="cm">  
+</span><span class="cm">Copyright (c) 2010-2014 Qualcomm Connected Experiences, Inc.
+</span><span class="cm">All Rights Reserved.
+</span><span class="cm">Confidential and Proprietary - Protected under copyright and other laws.
+</span><span class="cm">==============================================================================*/</span>
+  
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Vuforia</span><span class="p">;</span>
+  
+<span class="c1">/// &lt;summary&gt;
+</span><span class="c1">/// A custom handler that implements the ITrackableEventHandler interface.
+</span><span class="c1">///
+</span><span class="c1">/// Changes made to this file could be overwritten when upgrading the Vuforia version.
+</span><span class="c1">/// When implementing custom event handler behavior, consider inheriting from this class instead.
+</span><span class="c1">/// &lt;/summary&gt;
+</span><span class="c1"></span><span class="k">public</span> <span class="k">class</span> <span class="nc">MyDefaultTrackableEventHandler</span> <span class="p">:</span> <span class="n">MonoBehaviour</span><span class="p">,</span> <span class="n">ITrackableEventHandler</span>
+<span class="p">{</span>
+    <span class="c1">// 人物模型
+</span><span class="c1"></span>    <span class="k">public</span> <span class="n">GameObject</span> <span class="n">aiXiPrefab</span><span class="p">;</span>
+      
+    <span class="cp">#region PROTECTED_MEMBER_VARIABLES
+</span><span class="cp"></span>  
+    <span class="k">protected</span> <span class="n">TrackableBehaviour</span> <span class="n">mTrackableBehaviour</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="n">TrackableBehaviour</span><span class="p">.</span><span class="n">Status</span> <span class="n">m_PreviousStatus</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="n">TrackableBehaviour</span><span class="p">.</span><span class="n">Status</span> <span class="n">m_NewStatus</span><span class="p">;</span>
+  
+    <span class="cp">#endregion // PROTECTED_MEMBER_VARIABLES
+</span><span class="cp"></span>  
+    <span class="cp">#region UNITY_MONOBEHAVIOUR_METHODS
+</span><span class="cp"></span>  
+    <span class="k">protected</span> <span class="k">virtual</span> <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">mTrackableBehaviour</span> <span class="p">=</span> <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">TrackableBehaviour</span><span class="p">&gt;();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">mTrackableBehaviour</span><span class="p">)</span>
+            <span class="n">mTrackableBehaviour</span><span class="p">.</span><span class="n">RegisterTrackableEventHandler</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="p">}</span>
+  
+    <span class="k">protected</span> <span class="k">virtual</span> <span class="k">void</span> <span class="n">OnDestroy</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">mTrackableBehaviour</span><span class="p">)</span>
+            <span class="n">mTrackableBehaviour</span><span class="p">.</span><span class="n">UnregisterTrackableEventHandler</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="p">}</span>
+  
+    <span class="cp">#endregion // UNITY_MONOBEHAVIOUR_METHODS
+</span><span class="cp"></span>  
+    <span class="cp">#region PUBLIC_METHODS
+</span><span class="cp"></span>  
+    <span class="c1">/// &lt;summary&gt;
+</span><span class="c1"></span>    <span class="c1">///     Implementation of the ITrackableEventHandler function called when the
+</span><span class="c1"></span>    <span class="c1">///     tracking state changes.
+</span><span class="c1"></span>    <span class="c1">/// &lt;/summary&gt;
+</span><span class="c1"></span>    <span class="k">public</span> <span class="k">void</span> <span class="n">OnTrackableStateChanged</span><span class="p">(</span>
+        <span class="n">TrackableBehaviour</span><span class="p">.</span><span class="n">Status</span> <span class="n">previousStatus</span><span class="p">,</span>
+        <span class="n">TrackableBehaviour</span><span class="p">.</span><span class="n">Status</span> <span class="n">newStatus</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">m_PreviousStatus</span> <span class="p">=</span> <span class="n">previousStatus</span><span class="p">;</span>
+        <span class="n">m_NewStatus</span> <span class="p">=</span> <span class="n">newStatus</span><span class="p">;</span>
+          
+        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;Trackable &#34;</span> <span class="p">+</span> <span class="n">mTrackableBehaviour</span><span class="p">.</span><span class="n">TrackableName</span> <span class="p">+</span> 
+                  <span class="s">&#34; &#34;</span> <span class="p">+</span> <span class="n">mTrackableBehaviour</span><span class="p">.</span><span class="n">CurrentStatus</span> <span class="p">+</span>
+                  <span class="s">&#34; -- &#34;</span> <span class="p">+</span> <span class="n">mTrackableBehaviour</span><span class="p">.</span><span class="n">CurrentStatusInfo</span><span class="p">);</span>
+  
+        <span class="k">if</span> <span class="p">(</span><span class="n">newStatus</span> <span class="p">==</span> <span class="n">TrackableBehaviour</span><span class="p">.</span><span class="n">Status</span><span class="p">.</span><span class="n">DETECTED</span> <span class="p">||</span>
+            <span class="n">newStatus</span> <span class="p">==</span> <span class="n">TrackableBehaviour</span><span class="p">.</span><span class="n">Status</span><span class="p">.</span><span class="n">TRACKED</span> <span class="p">||</span>
+            <span class="n">newStatus</span> <span class="p">==</span> <span class="n">TrackableBehaviour</span><span class="p">.</span><span class="n">Status</span><span class="p">.</span><span class="n">EXTENDED_TRACKED</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">OnTrackingFound</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">previousStatus</span> <span class="p">==</span> <span class="n">TrackableBehaviour</span><span class="p">.</span><span class="n">Status</span><span class="p">.</span><span class="n">TRACKED</span> <span class="p">&amp;&amp;</span>
+                 <span class="n">newStatus</span> <span class="p">==</span> <span class="n">TrackableBehaviour</span><span class="p">.</span><span class="n">Status</span><span class="p">.</span><span class="n">NO_POSE</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">OnTrackingLost</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="c1">// For combo of previousStatus=UNKNOWN + newStatus=UNKNOWN|NOT_FOUND
+</span><span class="c1"></span>            <span class="c1">// Vuforia is starting, but tracking has not been lost or found yet
+</span><span class="c1"></span>            <span class="c1">// Call OnTrackingLost() to hide the augmentations
+</span><span class="c1"></span>            <span class="n">OnTrackingLost</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+  
+    <span class="cp">#endregion // PUBLIC_METHODS
+</span><span class="cp"></span>  
+    <span class="cp">#region PROTECTED_METHODS
+</span><span class="cp"></span>  
+    <span class="c1">// 找到人物模型
+</span><span class="c1"></span>    <span class="k">protected</span> <span class="k">virtual</span> <span class="k">void</span> <span class="n">OnTrackingFound</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// 生成人物模型
+</span><span class="c1"></span>        <span class="n">GameObject</span> <span class="n">aiXi</span> <span class="p">=</span> <span class="n">GameObject</span><span class="p">.</span><span class="n">Instantiate</span><span class="p">(</span><span class="n">aiXiPrefab</span><span class="p">);</span>
+  
+        <span class="c1">// 将模型的位置设置成卡片的位置
+</span><span class="c1"></span>        <span class="n">aiXi</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>
+  
+        <span class="c1">// 将模型设置成卡片的子元素
+</span><span class="c1"></span>        <span class="n">aiXi</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">parent</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">transform</span><span class="p">;</span>
+    <span class="p">}</span>
+  
+  
+    <span class="k">protected</span> <span class="k">virtual</span> <span class="k">void</span> <span class="n">OnTrackingLost</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Destroy</span><span class="p">(</span><span class="n">GameObject</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="s">&#34;aiXi(Clone)&#34;</span><span class="p">));</span>
+    <span class="p">}</span>
+  
+    <span class="cp">#endregion // PROTECTED_METHODS
+</span><span class="cp"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>原理就是当发现卡片时候展示模型,同时将模型位置固定到卡片位置</p>
+</li>
+<li>
+<p>当卡片消失后,将模型销毁,销毁之前的动画也随之消失了</p>
+</li>
+<li>
+<p>然后将<code>ImageTarget</code>的<code>DefaultTrackableEventHandler.cs</code>脚本删掉,将自己的<code>MyDefaultTrackableEventHandler.cs</code>赋给<code>ImageTarget</code></p>
+</li>
+<li>
+<p>将人物模型预制体赋给<code>ImageTarget</code></p>
+<p><img src="https://img-blog.csdnimg.cn/9d7765c35c3f4d9ca6749ba8db49497b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+<li>
+<p>先取消勾选人物模型的显示</p>
+<p><img src="https://img-blog.csdnimg.cn/3a0064b5e72e41239467d6c61e177868.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+</ul>
+<h1 id="step05特效制作">Step05.特效制作</h1>
+<ul>
+<li>
+<p>和人物模型一样,动画也是模型</p>
+</li>
+<li>
+<p>在<code>\RFX\RFX_Resources\RFX1\Prefabs\Fx\V1</code>下找到42的动画模型,是个血池</p>
+</li>
+<li>
+<p>将血池移动到ImageTarget下面,和人物模型一样作为ImageTarget的子元素</p>
+</li>
+<li>
+<p>然后将它设置为预制体,命名为<code>blood</code></p>
+</li>
+<li>
+<p>然后在脚本中和人物模型一样设置血池特效&mdash;&gt;发现显示,卡片移走消失</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="cm">/*==============================================================================
+</span><span class="cm">Copyright (c) 2019 PTC Inc. All Rights Reserved.
+</span><span class="cm">  
+</span><span class="cm">Copyright (c) 2010-2014 Qualcomm Connected Experiences, Inc.
+</span><span class="cm">All Rights Reserved.
+</span><span class="cm">Confidential and Proprietary - Protected under copyright and other laws.
+</span><span class="cm">==============================================================================*/</span>
+  
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Vuforia</span><span class="p">;</span>
+  
+<span class="c1">/// &lt;summary&gt;
+</span><span class="c1">/// A custom handler that implements the ITrackableEventHandler interface.
+</span><span class="c1">///
+</span><span class="c1">/// Changes made to this file could be overwritten when upgrading the Vuforia version.
+</span><span class="c1">/// When implementing custom event handler behavior, consider inheriting from this class instead.
+</span><span class="c1">/// &lt;/summary&gt;
+</span><span class="c1"></span><span class="k">public</span> <span class="k">class</span> <span class="nc">MyDefaultTrackableEventHandler</span> <span class="p">:</span> <span class="n">MonoBehaviour</span><span class="p">,</span> <span class="n">ITrackableEventHandler</span>
+<span class="p">{</span>
+    <span class="c1">// 人物模型
+</span><span class="c1"></span>    <span class="k">public</span> <span class="n">GameObject</span> <span class="n">aiXiPrefab</span><span class="p">;</span>
+  
+    <span class="c1">// 特效模型
+</span><span class="c1"></span>    <span class="k">public</span> <span class="n">GameObject</span> <span class="n">bloodPrefab</span><span class="p">;</span>
+      
+    <span class="cp">#region PROTECTED_MEMBER_VARIABLES
+</span><span class="cp"></span>  
+    <span class="k">protected</span> <span class="n">TrackableBehaviour</span> <span class="n">mTrackableBehaviour</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="n">TrackableBehaviour</span><span class="p">.</span><span class="n">Status</span> <span class="n">m_PreviousStatus</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="n">TrackableBehaviour</span><span class="p">.</span><span class="n">Status</span> <span class="n">m_NewStatus</span><span class="p">;</span>
+  
+    <span class="cp">#endregion // PROTECTED_MEMBER_VARIABLES
+</span><span class="cp"></span>  
+    <span class="cp">#region UNITY_MONOBEHAVIOUR_METHODS
+</span><span class="cp"></span>  
+    <span class="k">protected</span> <span class="k">virtual</span> <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">mTrackableBehaviour</span> <span class="p">=</span> <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">TrackableBehaviour</span><span class="p">&gt;();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">mTrackableBehaviour</span><span class="p">)</span>
+            <span class="n">mTrackableBehaviour</span><span class="p">.</span><span class="n">RegisterTrackableEventHandler</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="p">}</span>
+  
+    <span class="k">protected</span> <span class="k">virtual</span> <span class="k">void</span> <span class="n">OnDestroy</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">mTrackableBehaviour</span><span class="p">)</span>
+            <span class="n">mTrackableBehaviour</span><span class="p">.</span><span class="n">UnregisterTrackableEventHandler</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="p">}</span>
+  
+    <span class="cp">#endregion // UNITY_MONOBEHAVIOUR_METHODS
+</span><span class="cp"></span>  
+    <span class="cp">#region PUBLIC_METHODS
+</span><span class="cp"></span>  
+    <span class="c1">/// &lt;summary&gt;
+</span><span class="c1"></span>    <span class="c1">///     Implementation of the ITrackableEventHandler function called when the
+</span><span class="c1"></span>    <span class="c1">///     tracking state changes.
+</span><span class="c1"></span>    <span class="c1">/// &lt;/summary&gt;
+</span><span class="c1"></span>    <span class="k">public</span> <span class="k">void</span> <span class="n">OnTrackableStateChanged</span><span class="p">(</span>
+        <span class="n">TrackableBehaviour</span><span class="p">.</span><span class="n">Status</span> <span class="n">previousStatus</span><span class="p">,</span>
+        <span class="n">TrackableBehaviour</span><span class="p">.</span><span class="n">Status</span> <span class="n">newStatus</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">m_PreviousStatus</span> <span class="p">=</span> <span class="n">previousStatus</span><span class="p">;</span>
+        <span class="n">m_NewStatus</span> <span class="p">=</span> <span class="n">newStatus</span><span class="p">;</span>
+          
+        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;Trackable &#34;</span> <span class="p">+</span> <span class="n">mTrackableBehaviour</span><span class="p">.</span><span class="n">TrackableName</span> <span class="p">+</span> 
+                  <span class="s">&#34; &#34;</span> <span class="p">+</span> <span class="n">mTrackableBehaviour</span><span class="p">.</span><span class="n">CurrentStatus</span> <span class="p">+</span>
+                  <span class="s">&#34; -- &#34;</span> <span class="p">+</span> <span class="n">mTrackableBehaviour</span><span class="p">.</span><span class="n">CurrentStatusInfo</span><span class="p">);</span>
+  
+        <span class="k">if</span> <span class="p">(</span><span class="n">newStatus</span> <span class="p">==</span> <span class="n">TrackableBehaviour</span><span class="p">.</span><span class="n">Status</span><span class="p">.</span><span class="n">DETECTED</span> <span class="p">||</span>
+            <span class="n">newStatus</span> <span class="p">==</span> <span class="n">TrackableBehaviour</span><span class="p">.</span><span class="n">Status</span><span class="p">.</span><span class="n">TRACKED</span> <span class="p">||</span>
+            <span class="n">newStatus</span> <span class="p">==</span> <span class="n">TrackableBehaviour</span><span class="p">.</span><span class="n">Status</span><span class="p">.</span><span class="n">EXTENDED_TRACKED</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">OnTrackingFound</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">previousStatus</span> <span class="p">==</span> <span class="n">TrackableBehaviour</span><span class="p">.</span><span class="n">Status</span><span class="p">.</span><span class="n">TRACKED</span> <span class="p">&amp;&amp;</span>
+                 <span class="n">newStatus</span> <span class="p">==</span> <span class="n">TrackableBehaviour</span><span class="p">.</span><span class="n">Status</span><span class="p">.</span><span class="n">NO_POSE</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">OnTrackingLost</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="c1">// For combo of previousStatus=UNKNOWN + newStatus=UNKNOWN|NOT_FOUND
+</span><span class="c1"></span>            <span class="c1">// Vuforia is starting, but tracking has not been lost or found yet
+</span><span class="c1"></span>            <span class="c1">// Call OnTrackingLost() to hide the augmentations
+</span><span class="c1"></span>            <span class="n">OnTrackingLost</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+  
+    <span class="cp">#endregion // PUBLIC_METHODS
+</span><span class="cp"></span>  
+    <span class="cp">#region PROTECTED_METHODS
+</span><span class="cp"></span>  
+    <span class="c1">// 找到人物模型
+</span><span class="c1"></span>    <span class="k">protected</span> <span class="k">virtual</span> <span class="k">void</span> <span class="n">OnTrackingFound</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// 生成人物模型
+</span><span class="c1"></span>        <span class="n">GameObject</span> <span class="n">aiXi</span> <span class="p">=</span> <span class="n">GameObject</span><span class="p">.</span><span class="n">Instantiate</span><span class="p">(</span><span class="n">aiXiPrefab</span><span class="p">);</span>
+        <span class="c1">// 生成特效模型
+</span><span class="c1"></span>        <span class="n">GameObject</span> <span class="n">blood</span> <span class="p">=</span> <span class="n">GameObject</span><span class="p">.</span><span class="n">Instantiate</span><span class="p">(</span><span class="n">bloodPrefab</span><span class="p">,</span> <span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">,</span> <span class="n">Quaternion</span><span class="p">.</span><span class="n">identity</span><span class="p">);</span>
+  
+        <span class="c1">// 将模型的位置设置成卡片的位置
+</span><span class="c1"></span>        <span class="n">aiXi</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>
+        <span class="c1">// 将动画的位置设置成卡片的位置
+</span><span class="c1"></span>        <span class="n">blood</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>
+          
+  
+        <span class="c1">// 将模型设置成卡片的子元素
+</span><span class="c1"></span>        <span class="n">aiXi</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">parent</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">transform</span><span class="p">;</span>
+        <span class="c1">// 将动画设置成卡片的子元素
+</span><span class="c1"></span>        <span class="n">blood</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">parent</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">transform</span><span class="p">;</span>
+    <span class="p">}</span>
+  
+  
+    <span class="k">protected</span> <span class="k">virtual</span> <span class="k">void</span> <span class="n">OnTrackingLost</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Destroy</span><span class="p">(</span><span class="n">GameObject</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="s">&#34;aiXi(Clone)&#34;</span><span class="p">));</span>
+        <span class="n">Destroy</span><span class="p">(</span><span class="n">GameObject</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="s">&#34;blood(Clone)&#34;</span><span class="p">));</span>
+    <span class="p">}</span>
+  
+    <span class="cp">#endregion // PROTECTED_METHODS
+</span><span class="cp"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>最后别忘了将ImageTarget下的blood和aiXi取消勾选,和将预制体赋给ImageTarget</p>
+</li>
+</ul>
+<hr>
+<h1 id="step06特效制作的问题">Step06.特效制作的问题</h1>
+<ul>
+<li>
+<p>运行项目后,发现人物模型虽然和卡片垂直了,但是特效没有和卡片保持一个角度甚至是和卡片垂直</p>
+</li>
+<li>
+<p>这不是预期的结果</p>
+</li>
+<li>
+<p>更改血池怎么也不行,那就换成金色龙卷风</p>
+</li>
+<li>
+<p>还是同样的结果</p>
+</li>
+<li>
+<p>更改代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp">        <span class="c1">// 生成人物模型,并将模型的位置设置成卡片的位置,transform.rotation是模型跟随卡片旋转
+</span><span class="c1"></span>        <span class="n">GameObject</span> <span class="n">aiXi</span> <span class="p">=</span> <span class="n">GameObject</span><span class="p">.</span><span class="n">Instantiate</span><span class="p">(</span><span class="n">aiXiPrefab</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">,</span><span class="n">transform</span><span class="p">.</span><span class="n">rotation</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>用这行代码代替模型的生成和定位</p>
+<p>并且还额外添加了一个transform.rotation,功能是对象随着类自身进行旋转</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h1 id="step07交互之点击">Step07.交互之点击</h1>
+<ul>
+<li>
+<p>在本节中,我将实现这样一个效果</p>
+<blockquote>
+<p>双击屏幕中的人物模型,它就会消失</p>
+</blockquote>
+</li>
+<li>
+<p>首先需要一个MainCamera,也就是普通的摄像机</p>
+</li>
+<li>
+<p>要它是为了ARCamera并不能使用Unity自带的API(可能是我不会用而且没有必要,多一个摄像头没什么,ARCamera和MainCamera并不冲突)</p>
+</li>
+<li>
+<p>这个摄像机借助Unity的API,检测对屏幕的触摸和点击事件</p>
+</li>
+<li>
+<p>创建脚本<code>TouchTap.cs</code>,并赋给MainCamera</p>
+<p><code>TouchTap.cs</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+  
+<span class="k">public</span> <span class="k">class</span> <span class="nc">TouchTap</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="c1">// Start is called before the first frame update
+</span><span class="c1"></span>    <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+          
+    <span class="p">}</span>
+  
+    <span class="c1">// Update is called once per frame
+</span><span class="c1"></span>    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// 如果点击了屏幕
+</span><span class="c1"></span>        <span class="k">if</span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetMouseButtonDown</span><span class="p">(</span><span class="m">0</span><span class="p">)){</span>
+            <span class="c1">// 从当前脚本所从属的摄像机发射一条射线到参数的位置,这里是点击的位置
+</span><span class="c1"></span>            <span class="n">Ray</span> <span class="n">ray</span> <span class="p">=</span> <span class="n">Camera</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">ScreenPointToRay</span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">mousePosition</span><span class="p">);</span>
+            <span class="c1">// RaycastHit是用来接收射线反射的信息的
+</span><span class="c1"></span>            <span class="n">RaycastHit</span> <span class="n">hitInfo</span><span class="p">;</span>
+  
+            <span class="c1">// 如果照射到了collider,则将反射的信息输出到hitInfo
+</span><span class="c1"></span>            <span class="k">if</span><span class="p">(</span><span class="n">Physics</span><span class="p">.</span><span class="n">Raycast</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span><span class="k">out</span> <span class="n">hitInfo</span><span class="p">)){</span>
+                <span class="cm">/*
+</span><span class="cm">                 * Input.GetTouch(index);index用于指定什么设备触摸屏幕---&gt;0是手指...
+</span><span class="cm">                 */</span>
+                 <span class="cm">/*
+</span><span class="cm">                  * TouchPhase用于描述触摸状态
+</span><span class="cm">                    * TouchPhase.Began ---&gt; 一根手指触摸到了屏幕
+</span><span class="cm">                    * TouchPhase.Canceled
+</span><span class="cm">                    * TouchPhase.Ended
+</span><span class="cm">                    * TouchPhase.Moved
+</span><span class="cm">                    * TouchPhase.Stationary
+</span><span class="cm">                  */</span>
+                <span class="c1">// 如果触摸一次屏幕 且 一根手指触摸到了屏幕
+</span><span class="c1"></span>                <span class="c1">// 注意:touchCount是触摸,tapCount是点击
+</span><span class="c1"></span>                <span class="k">if</span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">touchCount</span> <span class="p">==</span> <span class="m">1</span> <span class="p">&amp;&amp;</span> <span class="n">Input</span><span class="p">.</span><span class="n">GetTouch</span><span class="p">(</span><span class="m">0</span><span class="p">).</span><span class="n">phase</span> <span class="p">==</span> <span class="n">TouchPhase</span><span class="p">.</span><span class="n">Began</span><span class="p">){</span>
+                    <span class="c1">// 点击数量
+</span><span class="c1"></span>                    <span class="k">if</span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetTouch</span><span class="p">(</span><span class="m">0</span><span class="p">).</span><span class="n">tapCount</span> <span class="p">==</span> <span class="m">2</span><span class="p">){</span>
+                        <span class="c1">// 摧毁光线照射到的collider
+</span><span class="c1"></span>                        <span class="n">Destroy</span><span class="p">(</span><span class="n">hitInfo</span><span class="p">.</span><span class="n">collider</span><span class="p">.</span><span class="n">gameObject</span><span class="p">);</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h1 id="step08交互之长按">Step08.交互之长按</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">TouchTap</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="kt">float</span> <span class="n">touchTime</span><span class="p">;</span>
+    <span class="k">private</span> <span class="kt">bool</span> <span class="n">newTouch</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+
+    <span class="c1">// Start is called before the first frame update
+</span><span class="c1"></span>    <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+        
+    <span class="p">}</span>
+
+    <span class="c1">// Update is called once per frame
+</span><span class="c1"></span>    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="cm">/*
+</span><span class="cm">         * Input.GetMouseButton ---&gt; 当前鼠标点是否被按住
+</span><span class="cm">         * Input.GetMouseButtonUp ---&gt; 当前鼠标点是否被按下过(点击一下/点击了)
+</span><span class="cm">         * Input.GetMouseButtonDown ---&gt; 当前鼠标点是否被抬起
+</span><span class="cm">         * 索引依然是0代表手指,1、2、3...代表鼠标、触控笔等
+</span><span class="cm">         */</span>
+        <span class="c1">// 如果点击了一下屏幕
+</span><span class="c1"></span>        <span class="c1">// if(Input.GetMouseButtonDown(0)){
+</span><span class="c1"></span>        <span class="c1">// 返回给定的鼠标点位置是否被按住
+</span><span class="c1"></span>        <span class="k">if</span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetMouseButton</span><span class="p">(</span><span class="m">0</span><span class="p">)){</span>
+            <span class="c1">// 从当前脚本所从属的摄像机发射一条射线到参数的位置,这里是点击的位置
+</span><span class="c1"></span>            <span class="n">Ray</span> <span class="n">ray</span> <span class="p">=</span> <span class="n">Camera</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">ScreenPointToRay</span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">mousePosition</span><span class="p">);</span>
+            <span class="c1">// RaycastHit是用来接收射线反射的信息的
+</span><span class="c1"></span>            <span class="n">RaycastHit</span> <span class="n">hitInfo</span><span class="p">;</span>
+
+            <span class="c1">// 如果照射到了collider,则将反射的信息输出到hitInfo
+</span><span class="c1"></span>            <span class="k">if</span><span class="p">(</span><span class="n">Physics</span><span class="p">.</span><span class="n">Raycast</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span><span class="k">out</span> <span class="n">hitInfo</span><span class="p">)){</span>
+                <span class="cm">/* 双击 */</span>
+                <span class="cm">/*
+</span><span class="cm">                 * Input.GetTouch(index);index用于指定什么设备触摸屏幕---&gt;0是手指...
+</span><span class="cm">                 */</span>
+                 <span class="cm">/*
+</span><span class="cm">                  * TouchPhase用于描述触摸状态
+</span><span class="cm">                    * TouchPhase.Began ---&gt; 一根手指触摸到了屏幕
+</span><span class="cm">                    * TouchPhase.Canceled
+</span><span class="cm">                    * TouchPhase.Ended
+</span><span class="cm">                    * TouchPhase.Moved
+</span><span class="cm">                    * TouchPhase.Stationary ---&gt; 触摸屏幕后不松开(长按)
+</span><span class="cm">                  */</span>
+                <span class="c1">// 如果触摸一次屏幕 且 一根手指触摸到了屏幕
+</span><span class="c1"></span>                <span class="c1">// 注意:touchCount是触摸,tapCount是点击
+</span><span class="c1"></span>                <span class="c1">// if(Input.touchCount == 1 &amp;&amp; Input.GetTouch(0).phase == TouchPhase.Began){
+</span><span class="c1"></span>                    <span class="c1">// 点击数量
+</span><span class="c1"></span>                    <span class="c1">// if(Input.GetTouch(0).tapCount == 2){
+</span><span class="c1"></span>                        <span class="c1">// 摧毁光线照射到的collider
+</span><span class="c1"></span>                        <span class="c1">// Destroy(hitInfo.collider.gameObject);
+</span><span class="c1"></span>                    <span class="c1">// }
+</span><span class="c1"></span>
+                <span class="cm">/* 长按 */</span>
+                <span class="cm">/* 如果触摸一次屏幕 */</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">touchCount</span> <span class="p">==</span> <span class="m">1</span><span class="p">){</span>
+                    <span class="cm">/* 获取点击状态 */</span>
+                    <span class="n">Touch</span> <span class="n">touch</span> <span class="p">=</span> <span class="n">Input</span><span class="p">.</span><span class="n">GetTouch</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+
+                    <span class="cm">/* 如果一个手指触摸屏幕*/</span>
+                    <span class="k">if</span><span class="p">(</span><span class="n">touch</span><span class="p">.</span><span class="n">phase</span> <span class="p">==</span> <span class="n">TouchPhase</span><span class="p">.</span><span class="n">Began</span><span class="p">){</span>
+                        <span class="n">newTouch</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+                        <span class="cm">/* 获取当前系统时间 */</span>
+                        <span class="n">touchTime</span> <span class="p">=</span> <span class="n">Time</span><span class="p">.</span><span class="n">time</span><span class="p">;</span>
+                    <span class="cm">/* 触摸屏幕后不松开 */</span>
+                    <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">touch</span><span class="p">.</span><span class="n">phase</span> <span class="p">==</span> <span class="n">TouchPhase</span><span class="p">.</span><span class="n">Stationary</span><span class="p">){</span>
+                        <span class="cm">/* 如果长按时间大于1s*/</span>
+                        <span class="k">if</span><span class="p">(</span><span class="n">newTouch</span> <span class="p">==</span> <span class="k">true</span> <span class="p">&amp;&amp;</span> <span class="n">Time</span><span class="p">.</span><span class="n">time</span> <span class="p">-</span> <span class="n">touchTime</span> <span class="p">&gt;</span> <span class="m">1f</span><span class="p">){</span>
+                            <span class="n">newTouch</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+                            <span class="n">Destroy</span><span class="p">(</span><span class="n">hitInfo</span><span class="p">.</span><span class="n">collider</span><span class="p">.</span><span class="n">gameObject</span><span class="p">);</span>
+                        <span class="p">}</span>
+                    <span class="c1">// 只有一根手指点击了屏幕后还得长按才销毁,否则都是false
+</span><span class="c1"></span>                    <span class="c1">// 这样直到手指离开屏幕进行下一次的触摸点击才跳出本次失败的循环进入下一次
+</span><span class="c1"></span>                    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                        <span class="n">newTouch</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h1 id="step09交互之旋转">Step09.交互之旋转</h1>
+<p><code>PlayerRotate.cs</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">PlayerRotate</span> <span class="p">:</span> <span class="n">MonoBehaviour</span> <span class="p">{</span>
+
+    <span class="kt">float</span> <span class="n">speed</span> <span class="p">=</span> <span class="m">150.0f</span><span class="p">;</span>
+
+    <span class="c1">// Use this for initialization
+</span><span class="c1"></span>    <span class="k">void</span> <span class="n">Start</span> <span class="p">()</span> <span class="p">{</span>
+		
+	<span class="p">}</span>
+
+    <span class="c1">// Update is called once per frame
+</span><span class="c1"></span>    <span class="k">void</span> <span class="n">Update</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// 如果鼠标左键点击了物体
+</span><span class="c1"></span>        <span class="k">if</span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetMouseButton</span><span class="p">(</span><span class="m">0</span><span class="p">)){</span>
+            <span class="c1">// 如果是一个触摸点/一根手指
+</span><span class="c1"></span>            <span class="k">if</span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">touchCount</span> <span class="p">==</span> <span class="m">1</span><span class="p">){</span>
+                <span class="c1">// 如果触摸状态是移动
+</span><span class="c1"></span>                <span class="k">if</span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetTouch</span><span class="p">(</span><span class="m">0</span><span class="p">).</span><span class="n">phase</span> <span class="p">==</span> <span class="n">TouchPhase</span><span class="p">.</span><span class="n">Moved</span><span class="p">){</span>
+                    <span class="c1">// 绕着物体自身x轴旋转
+</span><span class="c1"></span>                    <span class="n">transform</span><span class="p">.</span><span class="n">Rotate</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="n">up</span> <span class="p">*</span> <span class="n">Input</span><span class="p">.</span><span class="n">GetAxis</span><span class="p">(</span><span class="s">&#34;Mouse X&#34;</span><span class="p">)</span> <span class="p">*</span> <span class="p">-</span><span class="n">speed</span> <span class="p">*</span> <span class="n">Time</span><span class="p">.</span><span class="n">deltaTime</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="step10交互之放缩">Step10.交互之放缩</h1>
+<p><code>Enlarge.cs</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Enlarge</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="c1">// 物体的两个旧位置点
+</span><span class="c1"></span>    <span class="k">private</span> <span class="n">Vector2</span> <span class="n">oldP1</span><span class="p">;</span>
+    <span class="k">private</span> <span class="n">Vector2</span> <span class="n">oldP2</span><span class="p">;</span>
+
+    <span class="c1">// Start is called before the first frame update
+</span><span class="c1"></span>    <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+        
+    <span class="p">}</span>
+
+    <span class="c1">// Update is called once per frame
+</span><span class="c1"></span>    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// 如果两根手指触碰了屏幕
+</span><span class="c1"></span>        <span class="k">if</span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">touchCount</span> <span class="p">==</span> <span class="m">2</span><span class="p">){</span>
+            <span class="c1">// 如果两根手指移动或者一根手指移动一根手指静止
+</span><span class="c1"></span>            <span class="k">if</span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetTouch</span><span class="p">(</span><span class="m">0</span><span class="p">).</span><span class="n">phase</span> <span class="p">==</span> <span class="n">TouchPhase</span><span class="p">.</span><span class="n">Moved</span> <span class="p">||</span> <span class="n">Input</span><span class="p">.</span><span class="n">GetTouch</span><span class="p">(</span><span class="m">1</span><span class="p">).</span><span class="n">phase</span> <span class="p">==</span> <span class="n">TouchPhase</span><span class="p">.</span><span class="n">Moved</span><span class="p">){</span>
+                <span class="c1">// 获取当前触摸点手指位置
+</span><span class="c1"></span>                <span class="n">Vector2</span> <span class="n">tempP1</span> <span class="p">=</span> <span class="n">Input</span><span class="p">.</span><span class="n">GetTouch</span><span class="p">(</span><span class="m">0</span><span class="p">).</span><span class="n">position</span><span class="p">;</span>
+                <span class="n">Vector2</span> <span class="n">tempP2</span> <span class="p">=</span> <span class="n">Input</span><span class="p">.</span><span class="n">GetTouch</span><span class="p">(</span><span class="m">1</span><span class="p">).</span><span class="n">position</span><span class="p">;</span>
+
+                <span class="c1">// 将获取的手指触摸点位置作为新位置,和旧位置一起传入判断放大还是缩小的方法中
+</span><span class="c1"></span>                <span class="c1">// 放大
+</span><span class="c1"></span>                <span class="k">if</span><span class="p">(</span><span class="n">isEnlarge</span><span class="p">(</span><span class="n">oldP1</span><span class="p">,</span><span class="n">oldP2</span><span class="p">,</span><span class="n">tempP1</span><span class="p">,</span><span class="n">tempP2</span><span class="p">)){</span>
+                    <span class="c1">// transform.localScale可以获取物体x、y、z三个方向的长度
+</span><span class="c1"></span>                    <span class="kt">float</span> <span class="n">oldScale</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">localScale</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+                    <span class="c1">// 在物体原有长度的基础上增长1.025倍
+</span><span class="c1"></span>                    <span class="kt">float</span> <span class="n">newScale</span> <span class="p">=</span> <span class="n">oldScale</span> <span class="p">*</span> <span class="m">1.025f</span><span class="p">;</span>
+
+                    <span class="c1">// 放大物体
+</span><span class="c1"></span>                    <span class="n">transform</span><span class="p">.</span><span class="n">localScale</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="n">newScale</span><span class="p">,</span><span class="n">newScale</span><span class="p">,</span><span class="n">newScale</span><span class="p">);</span>
+                <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                    <span class="kt">float</span> <span class="n">oldScale</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">localScale</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+                    <span class="kt">float</span> <span class="n">newScale</span> <span class="p">=</span> <span class="n">oldScale</span> <span class="p">/</span> <span class="m">1.025f</span><span class="p">;</span>
+
+                    <span class="n">transform</span><span class="p">.</span><span class="n">localScale</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="n">newScale</span><span class="p">,</span><span class="n">newScale</span><span class="p">,</span><span class="n">newScale</span><span class="p">);</span>
+                <span class="p">}</span>
+
+                <span class="n">oldP1</span> <span class="p">=</span> <span class="n">tempP1</span><span class="p">;</span>
+                <span class="n">oldP2</span> <span class="p">=</span> <span class="n">tempP2</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kt">bool</span> <span class="n">isEnlarge</span><span class="p">(</span><span class="n">Vector2</span> <span class="n">oldP1</span><span class="p">,</span><span class="n">Vector2</span> <span class="n">oldP2</span><span class="p">,</span><span class="n">Vector2</span> <span class="n">newP1</span><span class="p">,</span><span class="n">Vector2</span> <span class="n">newP2</span><span class="p">){</span>
+        <span class="kt">float</span> <span class="n">oldLength</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Sqrt</span><span class="p">((</span><span class="n">oldP1</span><span class="p">.</span><span class="n">x</span> <span class="p">-</span> <span class="n">oldP2</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="p">*</span> <span class="p">(</span><span class="n">oldP1</span><span class="p">.</span><span class="n">x</span> <span class="p">-</span> <span class="n">oldP2</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="p">+</span> <span class="p">(</span><span class="n">oldP1</span><span class="p">.</span><span class="n">y</span> <span class="p">-</span> <span class="n">oldP2</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="p">*</span> <span class="p">(</span><span class="n">oldP1</span><span class="p">.</span><span class="n">y</span> <span class="p">-</span> <span class="n">oldP2</span><span class="p">.</span><span class="n">y</span><span class="p">));</span>
+        <span class="kt">float</span> <span class="n">newLength</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Sqrt</span><span class="p">((</span><span class="n">newP1</span><span class="p">.</span><span class="n">x</span> <span class="p">-</span> <span class="n">newP2</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="p">*</span> <span class="p">(</span><span class="n">newP1</span><span class="p">.</span><span class="n">x</span> <span class="p">-</span> <span class="n">newP2</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="p">+</span> <span class="p">(</span><span class="n">newP1</span><span class="p">.</span><span class="n">y</span> <span class="p">-</span> <span class="n">newP2</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="p">*</span> <span class="p">(</span><span class="n">newP1</span><span class="p">.</span><span class="n">y</span> <span class="p">-</span> <span class="n">newP2</span><span class="p">.</span><span class="n">y</span><span class="p">));</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">oldLength</span> <span class="p">&lt;</span> <span class="n">newLength</span><span class="p">){</span>
+            <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="step11按钮">Step11.按钮</h1>
+<ul>
+<li>
+<p>正常顺序创建项目、ARCamera、ImageTarget</p>
+</li>
+<li>
+<p>然后在ImageTarget上面创建一个Cube,名字就叫做Cube<code>(起名如此严格是为了在脚本中直接通过名称就可以定位到元素)</code></p>
+</li>
+<li>
+<p>选中Cube,<code>Windows-&gt;Anmation</code></p>
+</li>
+<li>
+<p>点击<code>Create</code>,创建一个动画</p>
+<p><img src="https://img-blog.csdnimg.cn/0a42c7962ebf453aa78b52c4a757faa9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+<li>
+<p>点击<code>Add Property-&gt;Transform-&gt;Rotation</code>,创建一个旋转动画</p>
+</li>
+<li>
+<p>然后先将<code>中间的白线</code>和<code>两个小点</code>拖动到坐标为1.00的位置</p>
+</li>
+<li>
+<p>点击红色按钮,此时就会发现被选中的物体Cube的Rotation三个方向的框就会变红</p>
+</li>
+<li>
+<p>将Y改成359</p>
+<p><img src="https://img-blog.csdnimg.cn/7af6845024fc44d2b6b65365714d2f57.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+<li>
+<p>取消红色按钮</p>
+</li>
+<li>
+<p>右键左侧的两个白点,<code>Both Tangents-&gt;Linear</code></p>
+<p><img src="https://img-blog.csdnimg.cn/820d01ab19f846eab0e9d14dc8c19c02.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+<li>
+<p>点击Image Target</p>
+</li>
+<li>
+<p>在Advanced下点击<code>Add Virtual Button</code>,创建一个按钮,起名为<code>Button</code></p>
+<p><img src="https://img-blog.csdnimg.cn/d65774dcb0c3401f8b022b7a14184c77.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+<li>
+<p>按钮默认颜色是淡蓝色</p>
+</li>
+<li>
+<p>按钮上有一个<code>Virtual Button Behaviour.cs</code>,填写Name为按钮名字</p>
+</li>
+<li>
+<p>在Button下创建一个<code>Plane</code>,名称随意,这个就是用于给按钮添加颜色方便显示的</p>
+</li>
+<li>
+<p>将Plane缩小到和Button同等大小</p>
+</li>
+<li>
+<p>创建一个材料,随便颜色,看上去是按钮就行</p>
+</li>
+<li>
+<p>赋给Button下的Plane</p>
+</li>
+<li>
+<p>在Button下创建<code>3D Text</code></p>
+</li>
+<li>
+<p>随便写,然后放在比按钮稍微稍微往上一丁点的位置</p>
+</li>
+<li>
+<p>给<code>Image Target</code>添加脚本</p>
+<p><code>ClickButton.cs</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Vuforia</span><span class="p">;</span>
+  
+<span class="k">public</span> <span class="k">class</span> <span class="nc">ClickButton</span> <span class="p">:</span> <span class="n">MonoBehaviour</span><span class="p">,</span> <span class="n">IVirtualButtonEventHandler</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">GameObject</span> <span class="n">button</span><span class="p">;</span>
+    <span class="k">public</span> <span class="n">Animator</span> <span class="n">cube</span><span class="p">;</span>
+  
+  
+    <span class="c1">// Start is called before the first frame update
+</span><span class="c1"></span>    <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">button</span> <span class="p">=</span> <span class="n">GameObject</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="s">&#34;Button&#34;</span><span class="p">);</span>
+        <span class="n">button</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">VirtualButtonBehaviour</span><span class="p">&gt;().</span><span class="n">RegisterEventHandler</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="n">cube</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Animator</span><span class="p">&gt;();</span>
+    <span class="p">}</span>
+  
+    <span class="k">public</span> <span class="k">void</span> <span class="n">OnButtonPressed</span><span class="p">(</span><span class="n">VirtualButtonBehaviour</span> <span class="n">button</span><span class="p">){</span>
+        <span class="n">cube</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="s">&#34;cubeAnimation&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+  
+    <span class="k">public</span> <span class="k">void</span> <span class="n">OnButtonReleased</span><span class="p">(</span><span class="n">VirtualButtonBehaviour</span> <span class="n">button</span><span class="p">){</span>
+        <span class="n">cube</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="s">&#34;none&#34;</span><span class="p">);</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;released&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+  
+    <span class="c1">// Update is called once per frame
+</span><span class="c1"></span>    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+    <span class="p">{</span>
+          
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>点击Cube,打开动画</p>
+</li>
+<li>
+<p>可以发现Entry连着cubeAnimation,这说明是否点击按钮动画都默认播放</p>
+</li>
+<li>
+<p>将二者连线取消掉,右键创建一个空动画取名为none</p>
+</li>
+<li>
+<p>将Entry连接none<img src="https://img-blog.csdnimg.cn/e9e2eeaef0b94f37ad5bf701c6ee7acf.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+<li>
+<p>启动项目</p>
+</li>
+</ul>
+<hr>
+<h1 id="step12多图像识别">Step12.多图像识别</h1>
+<ul>
+<li>
+<p>按照正常步骤创建Unity项目,导入Vuforia资源包</p>
+</li>
+<li>
+<p>打开Vuforia配置</p>
+<blockquote>
+<p>Max Simultaneous Tracked Images             2</p>
+</blockquote>
+<ul>
+<li>这个设置是设置最大识别图像的数量</li>
+</ul>
+</li>
+<li>
+<p>创建<code>两个</code>数据库,不同数据库放置不同图片</p>
+</li>
+<li>
+<p>然后将这两个数据库对应的Unity包下载,一起导入到项目中</p>
+</li>
+<li>
+<p>创建两个ImageTarget,给它们设置不同的Database就好了</p>
+<p><img src="https://img-blog.csdnimg.cn/a88d8e7b91b3429fb3aa68d62f551afe.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+</ul>
+<hr>
+<h1 id="step13不借助图片显示物体不包含点击">Step13.不借助图片显示物体(不包含点击)</h1>
+<ul>
+<li>
+<p>创建项目,导入vuforia,创建key导入</p>
+</li>
+<li>
+<p>不需要创建数据库</p>
+</li>
+<li>
+<p>导入陀螺仪unity包</p>
+</li>
+<li>
+<p>不需要删除原有相机</p>
+</li>
+<li>
+<p>把 Main Camera 的Clear Flags 属性改为 Depth only</p>
+</li>
+<li>
+<p>创建一个材质球，将颜色设置为绿色，并把该材质赋给 Cube</p>
+</li>
+<li>
+<p>新建一个 Layer （层），命名为 SlamObjects</p>
+</li>
+<li>
+<p>然后将 Cube Layer 设置为 SlamObjects</p>
+</li>
+<li>
+<p>在ARCamera下创建Camera,在Camera下创建PlaneFinder和Ground Plane Stage</p>
+</li>
+<li>
+<p>然后设置 ARCamera 下的Camera Clear Flags为 Depth only, CullingMask 的属性改为,Default ，这样 ARCamera 将不会渲染绿色的 Cube</p>
+</li>
+<li>
+<p>新建</p>
+<p><code>CameraRotate.cs</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">UnityEngine</span> <span class="p">;</span> 
+<span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span> 
+  
+<span class="k">public</span> <span class="k">class</span> <span class="nc">CameraRotate</span> <span class="p">:</span> <span class="n">MonoBehaviour</span><span class="p">{</span>
+    <span class="k">void</span> <span class="n">Start</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">SensorHelper</span><span class="p">.</span><span class="n">ActivateRotation</span><span class="p">();</span> <span class="c1">// 激活旋转传感器
+</span><span class="c1"></span>    <span class="p">}</span> 
+  
+    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">transform</span><span class="p">.</span><span class="n">rotation</span> <span class="p">=</span> <span class="n">SensorHelper</span><span class="p">.</span><span class="n">rotation</span><span class="p">;</span> 
+        <span class="c1">// 让该物体的旋转和手机陀螺仪的旋转一致
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>赋给ARCamera</p>
+</li>
+<li>
+<p>运行项目</p>
+</li>
+</ul>
+<hr>
+<h1 id="ar项目创业计划">AR项目创业计划</h1>
+<h2 id="电脑投屏">电脑投屏</h2>
+<ul>
+<li>AR眼镜连接电脑,然后就可以在电脑没有显示器或者关闭显示器的情况下通过AR眼镜看到电脑屏幕</li>
+<li>可以正常使用电脑所有正常功能(鼠标移动、浏览网页)</li>
+<li>优点:
+<ul>
+<li>别人看不见你的操作,安全性和隐私性</li>
+<li>省去了某些台式机、笔记本下半主机买显示器的钱</li>
+<li>便携</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Zhang's Blog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2022-01-28
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/unity/">unity</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">微信小程序</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/kali/">
+            <span class="next-text nav-default">kali</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://www.google.com/" class="iconfont icon-google" title="google"></a>
+      <a href="https://github.com/" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://www.douban.com/" class="iconfont icon-douban" title="douban"></a>
+      <a href="https://getpocket.com/" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="https://www.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="https://www.instagram.com/" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="https://about.gitlab.com/" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="https://www.bilibili.com/" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://golang.org/">GoLang</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Author - 
+    <a class="theme-link" href="https://space.bilibili.com/628950169/">Mr'zhang</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Zhang's Blog</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

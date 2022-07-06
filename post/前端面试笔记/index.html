@@ -1,0 +1,2291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>前端面试笔记 - Zhang&#39;s Blog的博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Zhang&#39;s Blog" /><meta name="description" content="Step01.Vue监听器实现 首先写个数据劫持方法 vue中使用Object.defineProperty实现数据劫持 这是一个例子 1 2 3 4 5 6" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.67.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="前端面试笔记" />
+<meta property="og:description" content="Step01.Vue监听器实现 首先写个数据劫持方法 vue中使用Object.defineProperty实现数据劫持 这是一个例子 1 2 3 4 5 6" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" />
+<meta property="article:published_time" content="2022-05-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-05-30T00:00:00+00:00" />
+<meta itemprop="name" content="前端面试笔记">
+<meta itemprop="description" content="Step01.Vue监听器实现 首先写个数据劫持方法 vue中使用Object.defineProperty实现数据劫持 这是一个例子 1 2 3 4 5 6">
+<meta itemprop="datePublished" content="2022-05-30T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-05-30T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="8767">
+
+
+
+<meta itemprop="keywords" content="WEB," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="前端面试笔记"/>
+<meta name="twitter:description" content="Step01.Vue监听器实现 首先写个数据劫持方法 vue中使用Object.defineProperty实现数据劫持 这是一个例子 1 2 3 4 5 6"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Zhang&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/home/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">MyBlog</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Zhang&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/home/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">MyBlog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">前端面试笔记</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-05-30 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#step01vue监听器实现">Step01.Vue监听器实现</a>
+      <ul>
+        <li><a href="#首先写个数据劫持方法">首先写个数据劫持方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#step02js">Step02.js</a>
+      <ul>
+        <li><a href="#1相等运算符和全等运算符">1.相等运算符和全等运算符</a>
+          <ul>
+            <li><a href="#一恒等">一、===(恒等)</a></li>
+            <li><a href="#二等同">二、==（等同）</a></li>
+            <li><a href="#题目测试">题目测试</a></li>
+          </ul>
+        </li>
+        <li><a href="#2交换两个变量值">2.交换两个变量值</a>
+          <ul>
+            <li><a href="#临时变量">临时变量</a></li>
+            <li><a href="#加减法">加减法</a></li>
+            <li><a href="#数组法">数组法</a></li>
+            <li><a href="#对象法">对象法</a></li>
+            <li><a href="#数组运算法">数组运算法</a></li>
+            <li><a href="#按位异或">按位异或</a></li>
+            <li><a href="#解构法">解构法</a></li>
+          </ul>
+        </li>
+        <li><a href="#3instanceof和typeof的区别">3.instanceof和typeof的区别</a>
+          <ul>
+            <li><a href="#1typeof">1.typeof</a></li>
+            <li><a href="#2instanceof">2.instanceof</a></li>
+            <li><a href="#区别">区别</a></li>
+          </ul>
+        </li>
+        <li><a href="#4documentwrite和elementinnerhtml的区别">4.document.write和element.innerHTML的区别</a>
+          <ul>
+            <li><a href="#documentwrite">document.write</a></li>
+            <li><a href="#elementinnerhtml">element.innerHTML</a></li>
+          </ul>
+        </li>
+        <li><a href="#5123321结果为什么是truetrue">5.[1&lt;2&lt;3,3&lt;2&lt;1]<code>结果为什么是</code>[true,true]</a></li>
+        <li><a href="#6var-let">6.var let</a>
+          <ul>
+            <li><a href="#区别-1">区别</a></li>
+            <li><a href="#相同">相同</a></li>
+          </ul>
+        </li>
+        <li><a href="#7const">7.const</a></li>
+      </ul>
+    </li>
+    <li><a href="#step03算法---每天一道leetcode">Step03.算法 - 每天一道leetcode</a>
+      <ul>
+        <li><a href="#01括号匹配">01.括号匹配</a></li>
+      </ul>
+    </li>
+    <li><a href="#step04html">Step04.html</a>
+      <ul>
+        <li><a href="#1html的标签headbodydoctype---他们的作用">1.html的标签(head、body、!Doctype) - 他们的作用</a></li>
+        <li><a href="#2h5新特性">2.h5新特性</a>
+          <ul>
+            <li><a href="#新增选择器-documentqueryselectordocumentqueryselectorall">新增选择器 document.querySelector、document.querySelectorAll</a></li>
+            <li><a href="#拖拽释放drag-and-drop-api">拖拽释放(Drag and drop) API</a></li>
+            <li><a href="#媒体播放的-video-和-audio">媒体播放的 video 和 audio</a></li>
+            <li><a href="#离线应用manifest">离线应用manifest</a></li>
+            <li><a href="#桌面通知notification">桌面通知Notification</a></li>
+            <li><a href="#语义化标签">语义化标签</a></li>
+            <li><a href="#增强表单控件">增强表单控件</a></li>
+            <li><a href="#geolocation地理位置">geolocation地理位置</a></li>
+            <li><a href="#webworker">webworker</a></li>
+            <li><a href="#全双工通信协议-websocket">全双工通信协议-websocket</a></li>
+            <li><a href="#history">history</a></li>
+            <li><a href="#跨域资源共享cors-access-control-allow-origin">跨域资源共享(CORS) Access-Control-Allow-Origin</a></li>
+            <li><a href="#visibilitychange">visibilityChange</a></li>
+            <li><a href="#跨窗口通信postmessage">跨窗口通信PostMessage</a></li>
+            <li><a href="#form-data对象">Form Data对象</a></li>
+            <li><a href="#绘画canvas">绘画Canvas</a></li>
+          </ul>
+        </li>
+        <li><a href="#3伪类和伪元素">3.伪类和伪元素</a>
+          <ul>
+            <li><a href="#伪类">伪类</a></li>
+            <li><a href="#伪元素">伪元素</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#step10计算机传输方式串行传输并行传输同步传输异步传输单工半双工全双工">Step10.计算机传输方式：串行传输/并行传输、同步传输/异步传输、单工/半双工/全双工</a>
+      <ul>
+        <li><a href="#一串行传输并行传输">一、串行传输/并行传输</a>
+          <ul>
+            <li><a href="#串行传输">串行传输</a></li>
+            <li><a href="#并行传输">并行传输</a></li>
+          </ul>
+        </li>
+        <li><a href="#二同步传输异步传输">二、同步传输/异步传输</a>
+          <ul>
+            <li><a href="#同步传输">同步传输</a></li>
+            <li><a href="#异步传输">异步传输</a></li>
+          </ul>
+        </li>
+        <li><a href="#三单工双工全双工">三、单工/双工/全双工</a>
+          <ul>
+            <li><a href="#单工">单工</a></li>
+            <li><a href="#半双工">半双工</a></li>
+            <li><a href="#全双工">全双工</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#step11线程进程单线程多线程异步并行串行并发">Step11.线程进程、单线程多线程、异步、并行串行并发</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="step01vue监听器实现">Step01.Vue监听器实现</h1>
+<h2 id="首先写个数据劫持方法">首先写个数据劫持方法</h2>
+<ul>
+<li>
+<p>vue中使用Object.defineProperty实现数据劫持</p>
+</li>
+<li>
+<p>这是一个例子</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="kd">let</span> <span class="nx">val</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+  
+<span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="s2">&#34;age&#34;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">get</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`age属性被读取了!!!`</span><span class="p">);</span>
+      <span class="k">return</span> <span class="nx">val</span><span class="p">;</span>
+  <span class="p">},</span>
+  <span class="nx">set</span><span class="p">(</span><span class="nx">newVal</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`age属性被修改了,值为</span><span class="si">${</span><span class="nx">newVal</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+      <span class="nx">val</span> <span class="o">=</span> <span class="nx">newVal</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<hr>
+<h1 id="step02js">Step02.js</h1>
+<h2 id="1相等运算符和全等运算符">1.相等运算符和全等运算符</h2>
+<h3 id="一恒等">一、===(恒等)</h3>
+<ul>
+<li>1、如果类型不同，就不相等（false）；</li>
+<li>2、如果类型相同或者其他情况，分为以下几点：
+<ul>
+<li>（1）如果类型相同，并且是同一个值，那么相等（true）；</li>
+<li>（2）如果两个都是数值，并且是同一个值，那么相等（true）；</li>
+<li>（3）如果两个都是字符串，每个位置的字符都一样，那么相等（true），否则不相等（false）</li>
+<li>（4）如果两个值都是true，或者两个值都是false，那么相等（true）；</li>
+<li>（5）如果两个值都是null，或者两个值都是undefined，那么相等（true）</li>
+<li>（6）如果两个值都引用同一个对象或者函数，那么相等（true），否则不相等（false）</li>
+</ul>
+</li>
+</ul>
+<h3 id="二等同">二、==（等同）</h3>
+<ul>
+<li>1、<strong>如果两个值类型相同，进行===比较</strong></li>
+<li>2、如果两个值类型不同，他们可能相等，需要根据下面的规则进行类型转换之后再进行比较
+<ul>
+<li>（1）如果一个是null，一个是undefined，那么相等（true）；</li>
+<li>（2）如果一个是字符串，一个是数值，把字符串转换成数值再进行比较；</li>
+<li>（3）如果任一值是true，把它转化为1再进行比较；如果任一值是false，把它转换成0再比较</li>
+<li>（4）任何其他组合都不相等</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>
+<p>==</p>
+</li>
+<li>
+<p>===</p>
+</li>
+<li>
+<p>前者会进行类型的转换</p>
+</li>
+<li>
+<p>后者不会进行类型的转换</p>
+</li>
+<li>
+<p>因为javascript是弱类型语言</p>
+</li>
+<li>
+<p>使用==,会将等号两边的变量转换为相同类型并比较</p>
+</li>
+<li>
+<p>使用===,则不会进行类型转换</p>
+</li>
+<li>
+<p>所以说</p>
+<blockquote>
+<p>==只比较值,不比较类型</p>
+<p>===既比较值,又比较类型</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="题目测试">题目测试</h3>
+<ul>
+<li>
+<p>第一题</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">6</span> <span class="o">==</span> <span class="mi">6</span><span class="p">);</span> <span class="c1">// true
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">6</span> <span class="o">==</span> <span class="s2">&#34;6&#34;</span><span class="p">);</span> <span class="c1">// true
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">6</span> <span class="o">===</span> <span class="mi">6</span><span class="p">);</span> <span class="c1">// true
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">6</span> <span class="o">===</span> <span class="s2">&#34;6&#34;</span><span class="p">);</span> <span class="c1">// false
+</span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>第二个,6 == &ldquo;6&rdquo;,结果为true</p>
+<ul>
+<li>如果一个是字符串，一个是数值，把字符串转换成数值再进行比较</li>
+</ul>
+<p>第四个</p>
+<ul>
+<li>看上面,===,前提如果类型不同,则false</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>第二题</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">true</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// true
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// true
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">true</span> <span class="o">===</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// false
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">===</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// false
+</span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>==</p>
+<ul>
+<li>如果任一值是true，把它转化为1再进行比较；如果任一值是false，把它转换成0再比较</li>
+</ul>
+<p>===</p>
+<ul>
+<li>如果类型不同，就不相等(false)</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>第三题</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;&#34;</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// true
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;   &#34;</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// true
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span> <span class="c1">// true
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// false
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="s2">&#34;&#34;</span><span class="p">);</span> <span class="c1">// false
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// false
+</span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>第一个和第二个</p>
+<blockquote>
+<p>空字符串和只有空格的字符串,转换为数值为0</p>
+</blockquote>
+<p>第三个,null表示空,不应该有值;undefined表示变量未被定义或没有赋值的变量,这两个都是假值。总之都是没值,所以想等</p>
+<blockquote>
+<p>如果一个是null，一个是undefined，那么相等（true）</p>
+</blockquote>
+<p>第四个到第六个</p>
+<blockquote>
+<p>null和undefined本意就是没有值,所以不能和任何类型的值做比较,也不等于任何类型的值</p>
+<p>当然</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">)</span><span class="o">:</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>不像NaN,他俩还是可以等于自己的</p>
+</blockquote>
+</blockquote>
+</li>
+<li>
+<p>第四题</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;false&#34;</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span> <span class="c1">// false
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">NaN</span> <span class="o">==</span> <span class="kc">NaN</span><span class="p">);</span> <span class="c1">// false
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">NaN</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span> <span class="c1">// false
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">NaN</span> <span class="o">===</span> <span class="kc">false</span><span class="p">);</span> <span class="c1">// false
+</span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>第一个</p>
+<blockquote>
+<p>如果有一个值为true或false,则先将布尔值转为数值类型,然后再进行比较</p>
+</blockquote>
+<p>第二三四个,NaN不等于任何人甚至是自身</p>
+</blockquote>
+</li>
+<li>
+<p>第五个</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span>
+  
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">b</span><span class="p">);</span> <span class="c1">// false
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="nx">b</span><span class="p">);</span> <span class="c1">// false
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">c</span><span class="p">);</span> <span class="c1">// true
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="nx">c</span><span class="p">);</span> <span class="c1">// true
+</span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>还是得说一下栈和堆内存这个事情</p>
+<ul>
+<li>
+<p>对于基本数据类型</p>
+<p><img src="https://img-blog.csdnimg.cn/1d8bf0723dda4bf78bebbe429980ccc9.png" alt="1d8bf0723dda4bf78bebbe429980ccc9"></p>
+<ul>
+<li>
+<p>都存储在栈内存中</p>
+</li>
+<li>
+<p>栈内存中以键值对形式存储数据</p>
+</li>
+<li>
+<p>例如你声明并初始化了一个变量a</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>就会在栈内存中开辟一块内存空间</p>
+</li>
+<li>
+<p>这块空间中存储着变量的key和value</p>
+</li>
+<li>
+<p>key就是变量名,value就是变量数值</p>
+</li>
+</ul>
+</li>
+<li>
+<p>对于对象</p>
+<p><img src="https://img-blog.csdnimg.cn/f71b21c62bff41a09794bce4ae14d89a.png" alt="f71b21c62bff41a09794bce4ae14d89a"></p>
+<ul>
+<li>
+<p>声明对象变量,栈内存中的键值对的value存储的就不是值了,而是值的地址</p>
+</li>
+<li>
+<p>创建一个对象</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="s2">&#34;zhang&#34;</span><span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>声明后,会在堆内存开辟一块内存空间,<code>{name:&quot;zhang&quot;}</code>被存储在堆内存中</p>
+</li>
+<li>
+<p>而栈内存中,这个变量的key还是变量名,value则和基本类型不同,存储的是堆内存中这个对象的内存地址</p>
+</li>
+<li>
+<p>所以,这个变量就可以通过地址获取到这个对象的数据</p>
+</li>
+<li>
+<p>第三行代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">obj3</span> <span class="o">=</span> <span class="nx">obj2</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>赋值操作,对于基本类型</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>那么就是让b的值也为10,此时就有两个10</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">var b</th>
+<th align="center">10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">var a</td>
+<td align="center">10</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>对象赋值也是一样的,他们赋值的是内存地址</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">obj1</span> <span class="o">=</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="s2">&#34;zhang&#34;</span><span class="p">};</span>
+<span class="kd">var</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="nx">obj1</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>是将obj1在栈内存中的value,对象<code>{name:zhang&quot;}</code>的地址赋值给了obj2</p>
+</li>
+<li>
+<p>所以obj1和obj2,最后的结果都是堆内存中{name:&ldquo;zhang&rdquo;}的内存地址</p>
+</li>
+<li>
+<p>这两个对象变量通过地址共享这一个对象</p>
+</li>
+<li>
+<p>节省了内存开销</p>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="2交换两个变量值">2.交换两个变量值</h2>
+<h3 id="临时变量">临时变量</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">c</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">c</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="nx">b</span><span class="p">;</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="nx">c</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="加减法">加减法</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="nx">a</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">;</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>第一步,a = a + b</p>
+<blockquote>
+<p>让变量a里存放a和b的值</p>
+</blockquote>
+</li>
+<li>
+<p>第二步,b = a - b</p>
+<blockquote>
+<p>现在a里存放的是<code>a和b的值</code>,那么a - b就是a的值,赋值给b</p>
+</blockquote>
+</li>
+<li>
+<p>第三步,a = a - b</p>
+<blockquote>
+<p>b现在是a的值,a是a和b的值,a - b就是a的值,赋值给a</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="数组法">数组法</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">];</span>
+
+<span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="nx">a</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>疑问</p>
+<ul>
+<li>
+<p>1.a本来是个基本数据类型变量,可以直接等于一个数组,而且在等于数组后还可以等于基本数据类型值</p>
+<blockquote>
+<p>因为变量在栈内存中无非是存放值或地址</p>
+<p><strong>数组是存放在堆内存中的</strong></p>
+<p>所以a = 5;a = [a,b];无非就是做了两步操作</p>
+<blockquote>
+<p>1.在堆内存中创建了一个数组<code>[a,b]</code></p>
+<p>2.将数组地址赋值给a</p>
+</blockquote>
+</blockquote>
+</li>
+<li>
+<p>2.这种方法,在两个变量交换完毕后,会在堆内存中残留一个数组<code>[a,b]</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="对象法">对象法</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="nx">a</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="nx">a</span><span class="o">:</span> <span class="nx">b</span><span class="p">,</span>
+	<span class="nx">b</span><span class="o">:</span> <span class="nx">a</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">b</span><span class="p">;</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">a</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>同上</li>
+</ul>
+<h3 id="数组运算法">数组运算法</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="nx">b</span><span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="按位异或">按位异或</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+<span class="nx">a</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">^</span> <span class="nx">b</span><span class="p">;</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="nx">b</span> <span class="o">^</span> <span class="nx">a</span><span class="p">;</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">^</span> <span class="nx">b</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>第一步</p>
+<blockquote>
+<p>a = a ^ b;</p>
+<ul>
+<li>让a为a和b的不同</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>第二步</p>
+<blockquote>
+<p>b = b ^ a;</p>
+<ul>
+<li>此时a是a和b的差异</li>
+<li>b和a的不同,就是原本的a值,赋值给b</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>第三步</p>
+<blockquote>
+<p>a = a ^ b;</p>
+<ul>
+<li>此时a还是a和b的差异</li>
+<li>b此时是a的值,b和a的不同,就是原本b的值,赋值给a</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="解构法">解构法</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nx">b</span><span class="p">,</span> <span class="nx">a</span><span class="p">];</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="3instanceof和typeof的区别">3.instanceof和typeof的区别</h2>
+<h3 id="1typeof">1.typeof</h3>
+<ul>
+<li>
+<p>检测数据类型</p>
+</li>
+<li>
+<p>返回一个小写字母的字符串</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">typeof</span> <span class="nx">操作数</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>操作数可以为:<strong>简单数据类型、函数、对象</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="kc">undefined</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="kc">true</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="kc">NaN</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="mi">123</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="mf">123.45</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="kc">null</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="s2">&#34;zhang&#34;</span><span class="p">);</span>
+  
+<span class="c1">// function
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{});</span>
+  
+<span class="c1">// object
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="k">new</span> <span class="nb">Number</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">());</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>所有new出来的都是object</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="2instanceof">2.instanceof</h3>
+<ul>
+<li>
+<p>判断对象是否在某个类型的构造函数的原型链上</p>
+</li>
+<li>
+<p>返回一个布尔值,用来代表对象是否在某个类型的构造函数的原型链上</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">obj</span> <span class="k">instanceof</span> <span class="nx">构造函数</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>前面必须是一个对象实例,后面必须是构造函数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">((</span><span class="k">new</span> <span class="nb">Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="k">instanceof</span> <span class="nb">Array</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">new</span> <span class="nb">Number</span><span class="p">(</span><span class="mi">444</span><span class="p">)</span> <span class="k">instanceof</span> <span class="nb">Number</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">({</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;zhang&#34;</span><span class="p">}</span> <span class="k">instanceof</span> <span class="nb">Object</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>就像上面说的,如果前面不是对象之类,后面不是构造函数,则怎么判断都为false</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">true</span> <span class="k">instanceof</span> <span class="nb">Boolean</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">6</span> <span class="k">instanceof</span> <span class="nb">Number</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="区别">区别</h3>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">typeof</th>
+<th align="center">instanceof</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">作用</td>
+<td align="center">判断数据类型</td>
+<td align="center">检测对象是否在某个构造函数的原型链上</td>
+</tr>
+<tr>
+<td align="center">返回值</td>
+<td align="center">小写字母字符串(数据类型)</td>
+<td align="center">布尔值</td>
+</tr>
+<tr>
+<td align="center">操作数</td>
+<td align="center">基本数据类型、函数或者对象</td>
+<td align="center">左边必须是对象,右边必须是构造函数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4documentwrite和elementinnerhtml的区别">4.document.write和element.innerHTML的区别</h2>
+<h3 id="documentwrite">document.write</h3>
+<h4 id="普通写">普通写</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="o">&lt;!</span><span class="nx">doctype</span> <span class="nx">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">html</span> <span class="nx">lang</span><span class="o">=</span><span class="s2">&#34;en&#34;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">charset</span><span class="o">=</span><span class="s2">&#34;UTF-8&#34;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&#34;viewport&#34;</span>
+          <span class="nx">content</span><span class="o">=</span><span class="s2">&#34;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&#34;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">http</span><span class="o">-</span><span class="nx">equiv</span><span class="o">=</span><span class="s2">&#34;X-UA-Compatible&#34;</span> <span class="nx">content</span><span class="o">=</span><span class="s2">&#34;ie=edge&#34;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">write</span><span class="o">&lt;</span><span class="err">/title&gt;</span>
+<span class="o">&lt;</span><span class="err">/head&gt;</span>
+<span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;container&#34;</span><span class="o">&gt;</span>
+        <span class="nx">django</span>
+        <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;write.js&#34;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+        <span class="nx">django</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+<span class="o">&lt;</span><span class="err">/body&gt;</span>
+<span class="o">&lt;</span><span class="err">/html&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&#34;vue&#34;</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&#34;vue&#34;</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&#34;vue&#34;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>document.write(params);会将参数(多个write内容会拼接起来)写到<code>导入script脚本的位置</code>的位置</p>
+</li>
+<li>
+<p>不会覆盖页面中其他的内容</p>
+</li>
+<li>
+<p>所以结果为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">django</span> <span class="nx">vuevuevue</span> <span class="nx">django</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h4 id="页面加载完成后写">页面加载完成后写</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&#34;vue&#34;</span><span class="p">);</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&#34;vue&#34;</span><span class="p">);</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&#34;vue&#34;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>会先将write内容拼接起来</p>
+</li>
+<li>
+<p>然后使用这个内容替换页面中的全部内容</p>
+</li>
+<li>
+<p>所以内容为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">vuevuevue
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="elementinnerhtml">element.innerHTML</h3>
+<ul>
+<li>
+<p>element.innerHTML用来指定DOM元素中的内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="o">&lt;!</span><span class="nx">DOCTYPE</span> <span class="nx">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">html</span> <span class="nx">lang</span><span class="o">=</span><span class="s2">&#34;en&#34;</span><span class="o">&gt;</span>
+  
+<span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">charset</span><span class="o">=</span><span class="s2">&#34;UTF-8&#34;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">innerHTML</span><span class="o">&lt;</span><span class="err">/title&gt;</span>
+<span class="o">&lt;</span><span class="err">/head&gt;</span>
+  
+<span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;box&#34;</span><span class="o">&gt;</span>
+  
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+    <span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+        <span class="kd">let</span> <span class="nx">box</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;box&#34;</span><span class="p">);</span>
+        <span class="nx">box</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&#34;fuck&#34;</span><span class="p">;</span>
+  
+        <span class="nx">box</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&#34;you&#34;</span><span class="p">;</span>
+    <span class="o">&lt;</span><span class="err">/script&gt;</span>
+<span class="o">&lt;</span><span class="err">/body&gt;</span>
+  
+<span class="o">&lt;</span><span class="err">/html&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>如果给一个元素多次设置innerHTML,会替换掉上一次的内容</p>
+</li>
+<li>
+<p>还可以在字符串中写html标签,标签最终会被解析并渲染到页面上</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">box</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&#34;&lt;h1&gt;hhhh&lt;/h1&gt;&#34;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="5123321结果为什么是truetrue">5.[1&lt;2&lt;3,3&lt;2&lt;1]<code>结果为什么是</code>[true,true]</h2>
+<ul>
+<li><code>1 &lt; 2</code> =&gt; <code>true</code> , 然后true &lt; 3 , 所以左边的为true</li>
+<li>同理</li>
+<li><code>3 &lt; 2</code> =&gt; <code>false</code>  , 然后 <code>false &lt; 1</code> , 所以右边的也为true</li>
+</ul>
+<h2 id="6var-let">6.var let</h2>
+<ul>
+<li>var和let都是变量</li>
+</ul>
+<h3 id="区别-1">区别</h3>
+<ul>
+<li>
+<p>var是es5的,let是es6的</p>
+</li>
+<li>
+<p>声明前使用</p>
+<blockquote>
+<p>var在声明之前使用为<code>undefined</code>,let声明之前使用会报错</p>
+</blockquote>
+</li>
+<li>
+<p>作用域</p>
+<blockquote>
+<p>var是方法作用域,在函数中定义的var在整个方法中都可以使用</p>
+<p>let是块级作用域,通常比var小</p>
+</blockquote>
+</li>
+<li>
+<p>重复声明</p>
+<blockquote>
+<p>var可以重复声明,let重复声明会报错</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="相同">相同</h3>
+<ul>
+<li>let和var声明却不赋值都为undefined</li>
+</ul>
+<hr>
+<h2 id="7const">7.const</h2>
+<ul>
+<li>const为常量,声明前必须赋值初始化,否则会报错</li>
+<li>作用域和let一样,都是块级作用域</li>
+<li>和let一样,不可重复声明</li>
+<li>const不可修改的意思是</li>
+<li>当const的值是基础数据类型时,也就是栈内存,它的数据无法改变</li>
+<li>如果const是引用数据类型,即为堆内存</li>
+<li>这里所说的只是const常量中的,指向堆内存中引用数据的内存地址不可改变,如果有其他变量引用了这个对象,仍然是可以更改它的</li>
+</ul>
+<hr>
+<h1 id="step03算法---每天一道leetcode">Step03.算法 - 每天一道leetcode</h1>
+<h2 id="01括号匹配">01.括号匹配</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">isValid</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">queue</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;(&#39;</span><span class="o">:</span> <span class="s1">&#39;)&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;{&#39;</span><span class="o">:</span> <span class="s1">&#39;}&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;[&#39;</span><span class="o">:</span> <span class="s1">&#39;]&#39;</span><span class="p">,</span>
+    <span class="p">};</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">map</span><span class="p">[</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]])</span> <span class="p">{</span>
+            <span class="nx">queue</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="nx">map</span><span class="p">[</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]]);</span> <span class="c1">// 向数组最开头添加一个元素
+</span><span class="c1"></span>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">queue</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">===</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="p">{</span>
+                <span class="nx">queue</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span> <span class="c1">// 删除数组中最后一个元素
+</span><span class="c1"></span>            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">queue</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h1 id="step04html">Step04.html</h1>
+<h2 id="1html的标签headbodydoctype---他们的作用">1.html的标签(head、body、!Doctype) - 他们的作用</h2>
+<ul>
+<li>
+<p>!Doctype</p>
+<blockquote>
+<p>它是指示web浏览器关于页面使用哪个html版本进行编写的指令</p>
+</blockquote>
+</li>
+<li>
+<p>head</p>
+<blockquote>
+<p>它是所有头部元素的容器,绝大多数头部元素都不会展示给读者</p>
+</blockquote>
+</li>
+<li>
+<p>body</p>
+<blockquote>
+<p>定义文档的主体,包含了文档所有内容</p>
+<p>该标签支持html的全局属性和事件属性</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="2h5新特性">2.h5新特性</h2>
+<h3 id="新增选择器-documentqueryselectordocumentqueryselectorall">新增选择器 document.querySelector、document.querySelectorAll</h3>
+<h3 id="拖拽释放drag-and-drop-api">拖拽释放(Drag and drop) API</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/css&#34;</span><span class="p">&gt;</span>
+        <span class="p">#</span><span class="nn">time_container</span> <span class="p">{</span>
+            <span class="k">position</span><span class="p">:</span> <span class="kc">fixed</span><span class="p">;</span>
+            <span class="k">top</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+            <span class="k">left</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+            <span class="k">width</span><span class="p">:</span> <span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+            <span class="k">padding</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+            <span class="k">border</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">34</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">);</span>
+            <span class="k">border-radius</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+            <span class="k">background</span><span class="p">:</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">34</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">);</span>
+            <span class="k">color</span><span class="p">:</span> <span class="mh">#FFFFFF</span><span class="p">;</span>
+            <span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+            <span class="k">user-select</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+            <span class="k">z-index</span><span class="p">:</span> <span class="mi">20211208</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="p">#</span><span class="nn">result_box</span> <span class="p">{</span>
+            <span class="k">width</span><span class="p">:</span> <span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
+            <span class="k">height</span><span class="p">:</span> <span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
+            <span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
+            <span class="k">left</span><span class="p">:</span> <span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+            <span class="k">top</span><span class="p">:</span> <span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+            <span class="k">background-color</span><span class="p">:</span> <span class="kc">skyblue</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;time_container&#34;</span> <span class="na">draggable</span><span class="o">=</span><span class="s">&#34;true&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;result_box&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
+        <span class="kd">let</span> <span class="nx">timerContainer</span><span class="p">;</span>
+        <span class="kr">const</span> <span class="nx">origin</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="nx">x</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nx">y</span><span class="o">:</span> <span class="mi">0</span>
+        <span class="p">};</span>
+
+        <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="c1">// console.log(event);
+</span><span class="c1"></span>            <span class="nx">main</span><span class="p">();</span>
+        <span class="p">}</span>
+
+
+        <span class="c1">// 拖动开始
+</span><span class="c1"></span>        <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;dragstart&#34;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="kr">const</span> <span class="nx">target</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">;</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span> <span class="o">!==</span> <span class="nx">timerContainer</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="c1">// 记录被拖动的元素的起始坐标
+</span><span class="c1"></span>            <span class="nx">origin</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span><span class="p">;</span>
+            <span class="nx">origin</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span><span class="p">;</span>
+        <span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+
+
+        <span class="c1">// 拖拽中
+</span><span class="c1"></span>        <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;drag&#34;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;我操我在被拖拽!!!&#34;</span><span class="p">);</span>
+        <span class="p">})</span>
+
+        <span class="c1">// 拖动结束
+</span><span class="c1"></span>        <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;dragend&#34;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+
+            <span class="kr">const</span> <span class="nx">target</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">;</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span> <span class="o">!==</span> <span class="nx">timerContainer</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="c1">// 计算拖动结束之后，元素的终点坐标与起始坐标的偏移
+</span><span class="c1"></span>            <span class="kr">const</span> <span class="nx">offsetX</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span> <span class="o">-</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+            <span class="kr">const</span> <span class="nx">offsetY</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span> <span class="o">-</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+
+            <span class="c1">// 修改元素的位置
+</span><span class="c1"></span>            <span class="nx">target</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">setProperty</span><span class="p">(</span><span class="s2">&#34;top&#34;</span><span class="p">,</span> <span class="sb">`</span><span class="si">${</span><span class="nx">target</span><span class="p">.</span><span class="nx">offsetTop</span> <span class="o">+</span> <span class="nx">offsetY</span><span class="si">}</span><span class="sb">px`</span><span class="p">);</span>
+            <span class="nx">target</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">setProperty</span><span class="p">(</span><span class="s2">&#34;left&#34;</span><span class="p">,</span> <span class="nx">target</span><span class="p">.</span><span class="nx">offsetLeft</span> <span class="o">+</span> <span class="nx">offsetX</span> <span class="o">+</span> <span class="s2">&#34;px&#34;</span><span class="p">);</span>
+        <span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+
+
+
+
+        <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;dragenter&#34;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="s2">&#34;result_box&#34;</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;我进入了!!!&#34;</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">})</span>
+
+        <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;dragleave&#34;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="s2">&#34;result_box&#34;</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;我离开了!!!&#34;</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">})</span>
+
+        <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;dragover&#34;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span> <span class="c1">//取消默认事件
+</span><span class="c1"></span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="s2">&#34;result_box&#34;</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;我还在里面!!!&#34;</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+
+        <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;drag&#34;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="s2">&#34;result_box&#34;</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;鼠标被释放,本次拖拽结束!!!&#34;</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">})</span>
+
+        <span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nx">timerContainer</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;time_container&#34;</span><span class="p">);</span>
+            <span class="nx">timerContainer</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="nx">getFormatedDateTime</span><span class="p">();</span>
+
+            <span class="nb">window</span><span class="p">.</span><span class="nx">setInterval</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="nx">timerContainer</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="nx">getFormatedDateTime</span><span class="p">();</span>
+            <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="kd">function</span> <span class="nx">getFormatedDateTime</span><span class="p">()</span> <span class="p">{</span>
+            <span class="kr">const</span> <span class="nx">now</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+
+            <span class="kr">const</span> <span class="nx">fullYear</span> <span class="o">=</span> <span class="nx">now</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">();</span>
+            <span class="kr">const</span> <span class="nx">month</span> <span class="o">=</span> <span class="nx">now</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">();</span>
+            <span class="kr">const</span> <span class="nx">date</span> <span class="o">=</span> <span class="nx">now</span><span class="p">.</span><span class="nx">getDate</span><span class="p">();</span>
+            <span class="kr">const</span> <span class="nx">hour</span> <span class="o">=</span> <span class="nx">now</span><span class="p">.</span><span class="nx">getHours</span><span class="p">();</span>
+            <span class="kr">const</span> <span class="nx">minutes</span> <span class="o">=</span> <span class="nx">now</span><span class="p">.</span><span class="nx">getMinutes</span><span class="p">();</span>
+            <span class="kr">const</span> <span class="nx">seconds</span> <span class="o">=</span> <span class="nx">now</span><span class="p">.</span><span class="nx">getSeconds</span><span class="p">();</span>
+
+            <span class="kr">const</span> <span class="nx">formatedDateTime</span> <span class="o">=</span> <span class="sb">`</span><span class="si">${</span><span class="nx">fullYear</span><span class="si">}</span><span class="sb">.</span><span class="si">${</span><span class="nx">month</span><span class="si">}</span><span class="sb">.</span><span class="si">${</span><span class="nx">date</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">hour</span><span class="si">}</span><span class="sb">:</span><span class="si">${</span><span class="nx">minutes</span><span class="si">}</span><span class="sb">:</span><span class="si">${</span><span class="nx">seconds</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+
+            <span class="k">return</span> <span class="nx">formatedDateTime</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="媒体播放的-video-和-audio">媒体播放的 video 和 audio</h3>
+<h4 id="本地存储与会话存储">本地存储与会话存储</h4>
+<ul>
+<li>
+<p>本地存储</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s2">&#34;k1&#34;</span><span class="p">,</span> <span class="s2">&#34;v1&#34;</span><span class="p">);</span>
+  
+<span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;dollar&#34;</span><span class="p">,</span> <span class="s2">&#34;usaDollar&#34;</span><span class="p">,</span> <span class="s2">&#34;dollars&#34;</span><span class="p">];</span>
+<span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s2">&#34;k2&#34;</span><span class="p">,</span> <span class="nx">array</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>但是本地存储只能存储字符串键值对,即使你将数组作为值,数组中所有元素也会被连接为字符串存储</p>
+</li>
+<li>
+<p>使用<code>JSON.stringify(obj);</code>方法,将一个javascript对象转换为JSON字符串</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;dollar&#34;</span><span class="p">,</span> <span class="s2">&#34;usaDollar&#34;</span><span class="p">,</span> <span class="s2">&#34;dollars&#34;</span><span class="p">];</span>
+<span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s2">&#34;k3&#34;</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">array</span><span class="p">));</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>那么,localStorage.getItem(key);方法,取得的也是字符串值</p>
+</li>
+<li>
+<p>就上面那个,将数组转为json字符串后存储到localStorage中,将这个字符串取出来,然后使用<code>JSON.parse(string);</code>方法,解析json字符串</p>
+</li>
+<li>
+<p>有效期:长期有效</p>
+</li>
+</ul>
+</li>
+<li>
+<p>会话存储</p>
+<ul>
+<li>除了对象名是换成<code>sessionStorage</code>之外,其他的都一样</li>
+<li>再者就是,关闭浏览器窗口再重新打开,session会消失,local还存在</li>
+<li>有效期:关闭浏览器</li>
+</ul>
+</li>
+<li>
+<p>除了这两种,JS还有一种cookie,和localStorage sessionStorage共称为js三种本地存储方式</p>
+</li>
+<li>
+<p>cookie</p>
+<ul>
+<li>
+<p>js中设置cookie是键值对字符串</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="s2">&#34;key=value&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span> <span class="o">=</span> <span class="s2">&#34;username=zhangyuhang&#34;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>cookie有效期默认是,关闭浏览器就失效</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oDate</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span> <span class="c1">// 创建一个Date对象
+</span><span class="c1"></span><span class="nx">oDate</span><span class="p">.</span><span class="nx">setDate</span><span class="p">(</span><span class="nx">oDate</span><span class="p">.</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">+</span> <span class="mi">5</span><span class="p">);</span> <span class="c1">// Date.prototype.getDate(); -&gt; 获取当前时间在当前月的第几天     ｜     setDate() 方法根据本地时间来指定一个日期对象的天数。
+</span><span class="c1"></span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span> <span class="o">=</span> <span class="s2">&#34;password=123456;expires=&#34;</span> <span class="o">+</span> <span class="nx">oDate</span><span class="p">.</span><span class="nx">toGMTString</span><span class="p">();</span> <span class="c1">//Date.prototype.toGMTString();可以将一个日期对象以字符串格式返回
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>删除cookie</p>
+<blockquote>
+<p>将指定键cookie的有效期设置为昨天之类,cookie就会被删掉了</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="离线应用manifest">离线应用manifest</h3>
+<ul>
+<li>这个具体就是站点在有网络时本地缓存,然后断网也能访问</li>
+<li>以后再具体说</li>
+</ul>
+<h3 id="桌面通知notification">桌面通知Notification</h3>
+<p>&hellip;</p>
+<h3 id="语义化标签">语义化标签</h3>
+<blockquote>
+<p>article 、 header 、 footer 、 nav 、 section</p>
+</blockquote>
+<h4 id="语义化标签优点">语义化标签优点</h4>
+<ul>
+<li>使代码结构更清晰,便于开发和维护</li>
+<li>有利于seo,搜索引擎根据标签来确定上下文和各个关键字的权重</li>
+</ul>
+<h3 id="增强表单控件">增强表单控件</h3>
+<ul>
+<li>
+<p>time date url search email</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;date&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;date&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;date&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;time&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;time&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;time&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;email&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;email&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;email&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;url&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;url&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;url&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;search&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;search&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;search&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34; submit &#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;登录 &#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="geolocation地理位置">geolocation地理位置</h3>
+<ul>
+<li>通过网络ip等信息获取客户端地理位置</li>
+</ul>
+<h3 id="webworker">webworker</h3>
+<ul>
+<li>
+<p>javascript是单线程的，也就是说同一时刻页面上只能执行一个javascript函数</p>
+</li>
+<li>
+<p>如果这个函数的计算量过大，页面根本不会被加载，这个时候页面就会被卡住</p>
+</li>
+<li>
+<p>Web Worker为Web内容在后台线程中运行脚本提供了一种简单的方法。线程可以执行任务而不干扰用户界面。</p>
+</li>
+<li>
+<p><strong>web worker 是运行在后台的 JavaScript，不会影响页面的性能。</strong></p>
+</li>
+<li>
+<p>将某个计算量比较大的函数，放到某个js脚本中，通过webworker的方式，开启一个独立于web页面的子线程来执行这个js脚本</p>
+</li>
+<li>
+<p>子线程和主线程互不干扰</p>
+</li>
+<li>
+<p>主线程还可以通过webworker的api获取到js的计算数据</p>
+</li>
+<li>
+<p>js还可以通过api在子线程中向主线程发送数据</p>
+</li>
+<li>
+<p>第一步判断浏览器是否支持worker，typeof (Worker) !== “undefined”</p>
+</li>
+<li>
+<p>通过new Worker()构造方法创建一个worker线程，返回一个实例用于发送和接收数据</p>
+</li>
+<li>
+<p>onmessage() 方法监听worker线程发送的数据</p>
+</li>
+<li>
+<p>postMessage() 方法发送数据</p>
+<p><code>web.html</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>点击Start Worker按钮启动web worker，可以看到web worker开始工作，且在web worker正常工作时，我们仍然可以在input输入框中输入信息，这表示页面并没有因为web worker的运行而被阻塞：
+    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>计数: <span class="p">&lt;</span><span class="nt">output</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;result&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">output</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&#34;startWorker()&#34;</span><span class="p">&gt;</span>Start Worker<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&#34;stopWorker()&#34;</span><span class="p">&gt;</span>Stop Worker<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;&#34;</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="kd">var</span> <span class="nx">w</span><span class="p">;</span>
+  
+        <span class="kd">function</span> <span class="nx">startWorker</span><span class="p">()</span> <span class="p">{</span>
+            <span class="c1">//判断浏览器是否支持worker
+</span><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="nx">Worker</span><span class="p">)</span> <span class="o">!==</span> <span class="s2">&#34;undefined&#34;</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="nx">w</span><span class="p">)</span> <span class="o">===</span> <span class="s2">&#34;undefined&#34;</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">w</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Worker</span><span class="p">(</span><span class="s2">&#34;./worker.js&#34;</span><span class="p">);</span> <span class="c1">// 创建一个js脚本的webworker子线程
+</span><span class="c1"></span>                <span class="p">}</span>
+  
+                <span class="nx">w</span><span class="p">.</span><span class="nx">onmessage</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// onmessage方法,用于获取指定webworker子线程对象中,使用postMessage(data)发送给子线程的数据
+</span><span class="c1"></span>                    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;result&#34;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+                <span class="p">};</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;result&#34;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&#34;Sorry, your browser does not support Web Workers...&#34;</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+  
+        <span class="kd">function</span> <span class="nx">stopWorker</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nx">w</span><span class="p">.</span><span class="nx">terminate</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+  
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>worker.js</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">timedCount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10000000000</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">%</span> <span class="mi">100000</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">postMessage</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span> <span class="c1">// 将数据发送给主线程
+</span><span class="c1"></span>        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+  
+<span class="nx">timedCount</span><span class="p">();</span> <span class="c1">// 一旦被使用Worker构造函数创建了子线程,自动执行脚本
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="全双工通信协议-websocket">全双工通信协议-websocket</h3>
+<h3 id="history">history</h3>
+<blockquote>
+<p><strong>history 接口允许操作浏览器的曾经在标签页或者框架里访问的会话历史记录。window.history: 返回当前会话的 history 状态</strong></p>
+</blockquote>
+<ul>
+<li>
+<p><strong>1.history.length</strong></p>
+<blockquote>
+<p>返回当前页面所产生的历史记录个数，即在同一个浏览器tab下产生的历史记录；</p>
+</blockquote>
+</li>
+<li>
+<p><strong>2.history.pushState(state,title,URL)</strong></p>
+<blockquote>
+<p>向浏览器新增一条历史记录，但是不会刷新当前页面（不会重载），其中state为对象，可以用作携带信息用，title：目前来看没啥用一般为空或null，URL：即要更改页面的URL，且必须同源，不能跨域；</p>
+</blockquote>
+</li>
+<li>
+<p><strong>3.history.replaceState(state,title,URL)</strong></p>
+<blockquote>
+<p>更改当前浏览器的历史记录，即把当前执行此代码页面的记录给替换掉，参数与第二条相同</p>
+</blockquote>
+</li>
+<li>
+<p><strong>4.history.back()、history.forward()、history.go()</strong></p>
+<blockquote>
+<p>分别为前进一个历史，后退一个，history.go(Number)，其中Number可正可负，即向前或向后若干个记录</p>
+</blockquote>
+</li>
+<li>
+<p><strong>5.history.state</strong></p>
+<blockquote>
+<p>返回当前页面状态参数，此参数一般由history.pushState(state,title,URL);以及history.replaceState(state,title,URL);附带的state值</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="跨域资源共享cors-access-control-allow-origin">跨域资源共享(CORS) Access-Control-Allow-Origin</h3>
+<h3 id="visibilitychange">visibilityChange</h3>
+<blockquote>
+<p>visibilitychange事件是浏览器新添加的一个事件，当浏览器的某个标签页切换到后台，或从后台切换到前台时就会触发该消息，现在主流的浏览器都支持该消息了，例如Chrome, Firefox, IE10等。虽然这只是一个简单的功能，但是能够广大的采用HTML5开发游戏的开发者提供方便，比如用户正在玩游戏时，突然切换到后台去发一条短信或打一个电话，再切换到游戏，那么开发者就需要捕捉对这些突发情形进行处理，当游戏切换到后台时就暂停游戏，从后台切换回来时，又能允许用户继续游戏</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;visibilitychange&#34;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">hidden</span> <span class="o">?</span> <span class="s2">&#34;用户离开了&#34;</span> <span class="o">:</span> <span class="s2">&#34;用户回来了&#34;</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="跨窗口通信postmessage">跨窗口通信PostMessage</h3>
+<h3 id="form-data对象">Form Data对象</h3>
+<h3 id="绘画canvas">绘画Canvas</h3>
+<hr>
+<h2 id="3伪类和伪元素">3.伪类和伪元素</h2>
+<h3 id="伪类">伪类</h3>
+<ul>
+<li>给元素添加上这个类,这个类的样式只有元素处于特殊状态时候才会被处触发</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">属性</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">:active</td>
+<td align="center">向被激活的元素添加样式</td>
+</tr>
+<tr>
+<td align="center">:focus</td>
+<td align="center">向拥有键盘输入焦点的元素添加样式</td>
+</tr>
+<tr>
+<td align="center">:hover</td>
+<td align="center">当鼠标悬浮在元素上方时,向元素添加该样式</td>
+</tr>
+<tr>
+<td align="center">:link</td>
+<td align="center">向未被访问的链接添加样式</td>
+</tr>
+<tr>
+<td align="center">:visited</td>
+<td align="center">向已被访问的链接添加样式</td>
+</tr>
+<tr>
+<td align="center">:first-child</td>
+<td align="center">向元素的第一个子元素添加样式</td>
+</tr>
+<tr>
+<td align="center">:lang</td>
+<td align="center">向带有指定lang属性的元素添加样式</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>lang属性</p>
+<blockquote>
+<p>搜索引擎首先自己无法判断自己抓取的页面中的内容是什么语言</p>
+<p>因为在它看来都是二进制文件</p>
+<p>那么这时就需要我们告诉它这个页面中的内容是什么语言，进而它才能知道下一步该干嘛</p>
+<p>也就是说，当你把lang设置为”en”时，无论你网页中是什么语言的内容，在它看来都是英语</p>
+<p>如果本地浏览器的默认语言不是英语，就会提示上面的选项，问您是否需要翻译</p>
+</blockquote>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#39;en&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">html</span><span class="p">&gt;</span> <span class="c">&lt;!--英文--&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#39;zh&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">html</span><span class="p">&gt;</span> <span class="c">&lt;!--中文--&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#39;ja&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">html</span><span class="p">&gt;</span> <span class="c">&lt;!--日文--&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#39;en-us&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">html</span><span class="p">&gt;</span> <span class="c">&lt;!--美式英文--&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#39;fr&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">html</span><span class="p">&gt;</span> <span class="c">&lt;!--法文--&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#39;da&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">html</span><span class="p">&gt;</span> <span class="c">&lt;!--德文--&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#39;it&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">html</span><span class="p">&gt;</span> <span class="c">&lt;!--意大利文--&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#39;ko&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">html</span><span class="p">&gt;</span> <span class="c">&lt;!--韩文--&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#39;pl&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">html</span><span class="p">&gt;</span> <span class="c">&lt;!--波兰文--&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#39;ru&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">html</span><span class="p">&gt;</span> <span class="c">&lt;!--俄文--&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#39;es&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">html</span><span class="p">&gt;</span> <span class="c">&lt;!--西班牙文--&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="伪元素">伪元素</h3>
+<ul>
+<li>在元素上创建一些不存在于dom结构的内容，并为其添加样式</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">属性</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">::after</td>
+<td align="center">在每个元素之后添加属性</td>
+</tr>
+<tr>
+<td align="center">::before</td>
+<td align="center">在每个元素之前添加属性</td>
+</tr>
+<tr>
+<td align="center">::first-letter</td>
+<td align="center">选择元素之前的首字母</td>
+</tr>
+<tr>
+<td align="center">::first-line</td>
+<td align="center">选择元素的首行</td>
+</tr>
+<tr>
+<td align="center">::selection</td>
+<td align="center">选择用户选择的元素部分(鼠标选中)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="step10计算机传输方式串行传输并行传输同步传输异步传输单工半双工全双工">Step10.计算机传输方式：串行传输/并行传输、同步传输/异步传输、单工/半双工/全双工</h1>
+<h2 id="一串行传输并行传输">一、串行传输/并行传输</h2>
+<h3 id="串行传输">串行传输</h3>
+<p>串行通信是指计算机主机与外设之间以及主机系统与主机系统之间数据的串行传送。使用一条数据线，将数据一位一位地依次传输，每一位数据占据一个固定的时间长度。其只需要少数几条线就可以在系统间交换信息，特别适用于计算机与计算机、计算机与外设之间的远距离通信。</p>
+<ul>
+<li>使用一条数据线，将数据一位一位地依次传输。</li>
+<li>一般来说，远距离的通信都是采用串行传输，计算机之间也采用串行通信。</li>
+<li>成本低，相对简单。</li>
+</ul>
+<h3 id="并行传输">并行传输</h3>
+<p>并行传输指的是数据以成组的方式，在多条并行信道上同时进行传输，是在传输中有多个数据位同时在设备之间进行的传输。</p>
+<ul>
+<li>使用多条数据线，将数据以组的形式进行同时传输。</li>
+<li>一般来说，计算机内部，如CPU、内存之间的传输。通常采用总线形式，常见的总线宽度有8位、16位、32位、64位等</li>
+<li>成本高，适用于计算机内部通信</li>
+</ul>
+<hr>
+<h2 id="二同步传输异步传输">二、同步传输/异步传输</h2>
+<h3 id="同步传输">同步传输</h3>
+<ul>
+<li>
+<p>数据块以稳定的比特流的形式传输，字节之间没有间隔。</p>
+</li>
+<li>
+<p>接收端在每个比特信号的中间时刻进行检测，以判别接收到的是比特0还是比特1.</p>
+</li>
+<li>
+<p>由于不同设备的时钟频率存在一定差异，不可能做到完全相同，在传输大量数据的过程中，所产生的判别时刻的累计误差会导致接收端对比特信号的判别错位。因此需要采取方法使收发双方的时钟保持同步</p>
+<p><strong>实现收发双方时钟同步的方法</strong></p>
+</li>
+<li>
+<p>外同步：在收发双方之间添加一条单独的时钟信号线。发送端在发送信号的同时，另外发送一路时钟同步信号。接收端按照时钟同步信号的节奏来接收数</p>
+</li>
+<li>
+<p>内同步：发送端将时钟同步信号编码到发送数据中一起传输（例如曼切斯特编码）</p>
+</li>
+</ul>
+<blockquote>
+<p>同步传输就是说发送数据以帧的形式进行（多个字节，在一个帧内要有同步数据位，或者采用外部时钟同步）
+如果没有时钟同步，就有可能发生发送了11011，接收的时候，时钟不一致，多识别了一个1出来111011。
+同步传输指的是时钟的同步，发送数据的同步，数据块的大小是固定的，连续发送的</p>
+</blockquote>
+<h3 id="异步传输">异步传输</h3>
+<ul>
+<li>采用异步传输时，以字节为独立传输单位。字节之间的时间间隔不是固定的。</li>
+<li>接收端仅再每个字节的起始处对字节内的比特实现同步。为此，通常要在每个字节前后分别加上起始位和结束位。</li>
+<li>这里的异步是指字节之间异步（字节之间的时间间隔不固定），但是字节中的每个比特仍然要同步（各比特的持续时间是相同的）</li>
+</ul>
+<h2 id="三单工双工全双工">三、单工/双工/全双工</h2>
+<h3 id="单工">单工</h3>
+<ol>
+<li>数据只允许单向通行。</li>
+<li>如广播</li>
+</ol>
+<h3 id="半双工">半双工</h3>
+<ol>
+<li>数据可以双向通行，但是同一时间只允许一个方向。</li>
+<li>如对讲机。</li>
+</ol>
+<h3 id="全双工">全双工</h3>
+<ol>
+<li>数据可以双向通行，可以同时通行。</li>
+<li>如移动电话</li>
+</ol>
+<hr>
+<h1 id="step11线程进程单线程多线程异步并行串行并发">Step11.线程进程、单线程多线程、异步、并行串行并发</h1>
+<p>&hellip;</p>
+<hr>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Zhang's Blog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2022-05-30
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/web/">WEB</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E5%AE%9E%E6%88%98/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">前端基础实战</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/vue-&#43;-nodejs%E5%AE%9E%E7%8E%B0%E7%9A%84%E4%B8%80%E4%B8%AA%E8%8C%B6%E5%8F%B6%E7%BD%91%E7%AB%99/">
+            <span class="next-text nav-default">vue &#43; nodejs实现的一个茶叶网站</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://www.google.com/" class="iconfont icon-google" title="google"></a>
+      <a href="https://github.com/" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://www.douban.com/" class="iconfont icon-douban" title="douban"></a>
+      <a href="https://getpocket.com/" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="https://www.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="https://www.instagram.com/" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="https://about.gitlab.com/" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="https://www.bilibili.com/" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://golang.org/">GoLang</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Author - 
+    <a class="theme-link" href="https://space.bilibili.com/628950169/">Mr'zhang</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Zhang's Blog</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

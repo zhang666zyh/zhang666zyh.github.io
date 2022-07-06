@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>机器学习 - Zhang&#39;s Blog的博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Zhang&#39;s Blog" /><meta name="description" content="Step01.矩阵 A(m n),称为m×n阶矩阵 行数和列数都等于n的矩阵称为n阶矩阵,又叫做n阶方阵,可以记作A(n) 只有一行的矩阵A(1 n)叫做" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.67.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="机器学习" />
+<meta property="og:description" content="Step01.矩阵 A(m n),称为m×n阶矩阵 行数和列数都等于n的矩阵称为n阶矩阵,又叫做n阶方阵,可以记作A(n) 只有一行的矩阵A(1 n)叫做" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" />
+<meta property="article:published_time" content="2021-04-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-04-02T00:00:00+00:00" />
+<meta itemprop="name" content="机器学习">
+<meta itemprop="description" content="Step01.矩阵 A(m n),称为m×n阶矩阵 行数和列数都等于n的矩阵称为n阶矩阵,又叫做n阶方阵,可以记作A(n) 只有一行的矩阵A(1 n)叫做">
+<meta itemprop="datePublished" content="2021-04-02T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-04-02T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="3591">
+
+
+
+<meta itemprop="keywords" content="Python," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="机器学习"/>
+<meta name="twitter:description" content="Step01.矩阵 A(m n),称为m×n阶矩阵 行数和列数都等于n的矩阵称为n阶矩阵,又叫做n阶方阵,可以记作A(n) 只有一行的矩阵A(1 n)叫做"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Zhang&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/home/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">MyBlog</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Zhang&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/home/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">MyBlog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">机器学习</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-04-02 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#step01矩阵">Step01.矩阵</a></li>
+    <li><a href="#step02导数">Step02.导数</a>
+      <ul>
+        <li><a href="#导数">导数</a></li>
+        <li><a href="#偏导数">偏导数</a></li>
+        <li><a href="#方向导数">方向导数</a></li>
+        <li><a href="#梯度">梯度</a></li>
+        <li><a href="#凹函数和凸函数">凹函数和凸函数</a></li>
+      </ul>
+    </li>
+    <li><a href="#step03概率统计">Step03.概率统计</a>
+      <ul>
+        <li><a href="#常用统计变量">常用统计变量</a></li>
+        <li><a href="#常见概率分布">常见概率分布</a></li>
+        <li><a href="#常见概率公式">常见概率公式</a></li>
+      </ul>
+    </li>
+    <li><a href="#step04机器学习概述">Step04.机器学习概述</a>
+      <ul>
+        <li><a href="#机器学习的分类">机器学习的分类</a>
+          <ul>
+            <li><a href="#有监督学习">有监督学习</a></li>
+            <li><a href="#无监督学习">无监督学习</a></li>
+            <li><a href="#强化学习">强化学习</a></li>
+          </ul>
+        </li>
+        <li><a href="#监督学习">监督学习</a>
+          <ul>
+            <li><a href="#监督学习的概念">监督学习的概念</a></li>
+            <li><a href="#监督学习的三要素">监督学习的三要素</a></li>
+            <li><a href="#监督学习的基本步骤">监督学习的基本步骤</a></li>
+          </ul>
+        </li>
+        <li><a href="#模型评估策略">模型评估策略</a>
+          <ul>
+            <li><a href="#模型评估">模型评估</a></li>
+            <li><a href="#损失函数">损失函数</a></li>
+            <li><a href="#经验风险">经验风险</a></li>
+            <li><a href="#训练误差和测试误差">训练误差和测试误差</a></li>
+            <li><a href="#过拟合和欠拟合">过拟合和欠拟合</a></li>
+            <li><a href="#正则化解决过拟合问题">正则化(解决过拟合问题)</a></li>
+            <li><a href="#交叉验证">交叉验证</a></li>
+          </ul>
+        </li>
+        <li><a href="#监督学习的分类分类和回归">监督学习的分类(分类和回归)</a></li>
+        <li><a href="#image-20220103090357886cusers张宇航appdataroamingtyporatypora-user-imagesimage-20220103090357886png"><img src="C:%5CUsers%5C%E5%BC%A0%E5%AE%87%E8%88%AA%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220103090357886.png" alt="image-20220103090357886"></a>
+          <ul>
+            <li><a href="#分类">分类</a></li>
+            <li><a href="#回归">回归</a></li>
+          </ul>
+        </li>
+        <li><a href="#模型求解算法">模型求解算法</a>
+          <ul>
+            <li><a href="#梯度下降算法">梯度下降算法</a></li>
+            <li><a href="#牛顿法">牛顿法</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#step05线性回归">Step05.线性回归</a>
+      <ul>
+        <li><a href="#概念">概念</a></li>
+        <li><a href="#线性回归最小二乘法代码实现">线性回归最小二乘法代码实现</a>
+          <ul>
+            <li><a href="#全部代码">全部代码</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="step01矩阵">Step01.矩阵</h1>
+<ul>
+<li>
+<p>A(m n),称为m×n阶矩阵</p>
+<blockquote>
+<p>行数和列数都等于n的矩阵称为n阶矩阵,又叫做n阶方阵,可以记作A(n)</p>
+<p>只有一行的矩阵A(1 n)叫做行矩阵,又叫做行向量</p>
+<blockquote>
+<p>A(6 1),叫做6维列向量</p>
+</blockquote>
+<p>只有一列的矩阵A(n,1)叫做列矩阵,又叫做列向量</p>
+<blockquote>
+<p>A(1 6),叫做6维行向量</p>
+</blockquote>
+</blockquote>
+</li>
+<li>
+<p>主对角线</p>
+<blockquote>
+<p>对于<code>方阵</code>,从<code>左上角元素</code>到<code>右下角元素</code>的直线叫做方阵的左对角线,主对角线上的元素都叫做主对角线元素</p>
+</blockquote>
+</li>
+<li>
+<p>特殊矩阵</p>
+<ul>
+<li>
+<p>零矩阵</p>
+<blockquote>
+<p>矩阵元素全部为0,称为<code>0</code>矩阵,通常用<code>O</code>表示</p>
+</blockquote>
+</li>
+<li>
+<p>单位矩阵</p>
+<blockquote>
+<p><code>对于方阵</code>,如果只有对角线元素为1,其他全部为0,那么称为<code>单位矩阵</code>,一般用<code>I</code>或者<code>E</code>表示</p>
+</blockquote>
+</li>
+<li>
+<p>对角矩阵</p>
+<blockquote>
+<p><code>对于方阵</code>,如果不在对角线上的都为0,称为<code>对角矩阵</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>矩阵的运算</p>
+<ul>
+<li>
+<p>矩阵加法</p>
+<blockquote>
+<p>两个行和列都相同(即格式相同)的矩阵,将每一位都进行相加</p>
+</blockquote>
+</li>
+<li>
+<p>矩阵乘法</p>
+<ul>
+<li>
+<p>数与矩阵相乘</p>
+<blockquote>
+<p>将数和矩阵中的每一个元素都进行相乘</p>
+</blockquote>
+</li>
+<li>
+<p>矩阵与矩阵相乘</p>
+<blockquote>
+<p>A矩阵的<code>每一行</code>乘以B矩阵的<code>每一列</code></p>
+<blockquote>
+<p>也就是说,<code>A矩阵的行数</code>必须等于<code>B矩阵的列数</code>,<code>A矩阵的列数</code>必须等于<code>B矩阵的行数</code></p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/11d06c7595ab41da855997632cc2b4d6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/0fdd36bf0386458cae337e027f1c6edc.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>矩阵转置</p>
+<blockquote>
+<p>注意,<code>行变列</code>,<code>列变行</code>是将矩阵的这一列中的所有元素都变成行元素,而不仅仅是行号和列号的简单交换</p>
+<p><img src="https://img-blog.csdnimg.cn/dfb8ef61f138466eb104cc2c6f62df82.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><strong>就是将矩阵<code>顺时针旋转90度</code></strong></p>
+</blockquote>
+</li>
+<li>
+<p>矩阵的逆</p>
+<blockquote>
+<p>如果两个方阵相乘结果是<code>单位方阵</code>,就说这两个方阵是<code>互逆的</code></p>
+</blockquote>
+<blockquote>
+<p><img src="https://img-blog.csdnimg.cn/1c6c50c81f1b424fb6779a5dc23fe468.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="step02导数">Step02.导数</h1>
+<blockquote>
+<p>==导数是二维平面中，曲线上某一点沿着x轴方向变化的速率，即函数在该点的斜率==</p>
+<p>==偏导数是在三维空间中，曲面上某一点沿着x轴方向或y轴方向变化的速率==</p>
+<p>==方向导数是在三维空间中，曲面上某一点沿着任一方向的变化率（坡度）==</p>
+</blockquote>
+<h2 id="导数">导数</h2>
+<blockquote>
+<p>导数就是曲线上两个点之间连线的<code>倾斜程度/斜率</code>,当这两个点无限接近<code>(🔺x-&gt;0)</code>时,这条线段就变成了这一个点的切线斜率,斜率即为导数</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/7a8ea60c118b478a877524dc7f54d980.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<h2 id="偏导数">偏导数</h2>
+<blockquote>
+<p>所谓<strong>偏导数</strong>，简单来说是对于一个多元函数，选定一个自变量并让其他自变量保持不变，只考察因变量与选定自变量的变化关系。数学上说，是指对于多元函数y = f ( x 1 , x 2 , … x n ),假设其偏导数都存在，则该函数共有n个偏导数，可以表示为</p>
+<p><img src="https://img-blog.csdnimg.cn/134e053d6dd44984908669b06b2bff9e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_18,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</blockquote>
+<ul>
+<li>偏导数的实际含义是,二维或者多维下的图形的导数值只沿着<code>某一个坐标轴方向</code>在变(或者说只研究这一个坐标轴方向的),将其他坐标轴变量看成常数</li>
+</ul>
+<blockquote>
+<p>一维导数是曲边梯形的面积,在这个曲边梯形上加一个垂直于曲边梯形面的坐标轴,形成一个三维坐标系,曲线沿着新加的坐标轴左右平移,就形成了一个曲面</p>
+</blockquote>
+<p><strong>求偏导数相当于在曲面上做一个垂直于某一个坐标轴的垂面,<code>曲面</code>和<code>垂面</code>相交出来的<code>曲边梯形</code>就是偏导数</strong></p>
+<p><strong>所得的曲边梯形,<code>被垂直的坐标轴的坐标</code>就是被视为常量的变量,因为在这个曲边梯形上的所有点,<code>被垂直的坐标轴的坐标</code>都是一样的</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/ffdccba8bf2d45d3aa0b6c4d5a462a89.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<ul>
+<li>
+<p>偏导数的计算</p>
+<blockquote>
+<p>若对某一个自变量求导，只需将其他自变量当成常数，用一元函数微分法即可.于是，一元函数的求导公式和求导法则都可以移植到多元函数的偏导数的计算上来.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="方向导数">方向导数</h2>
+<ul>
+<li>
+<p>方向导数和偏导数的不同之处在于:</p>
+<blockquote>
+<p>方向导数是针对于坐标系内任意位置的向量</p>
+<p><strong>方向导数是多个坐标轴的导数都在变化,而偏导数是固定其他所有,只剩下一个在变化</strong></p>
+</blockquote>
+</li>
+<li>
+<p>做模型检测,是有一个目标的,往往是要制定一个<code>目标函数(向量方向导数)</code>去求<code>最大值最小值</code></p>
+</li>
+<li>
+<p>这么多条向量,如果知道哪个变化比较快哪个变化比较慢,对于求解最大值最小值是比较有好处的</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/68c97172b4c441f8aa4dae0ef5d9dc63.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<hr>
+<h2 id="梯度">梯度</h2>
+<ul>
+<li>
+<p>普通解释</p>
+<blockquote>
+<ul>
+<li>
+<p>梯度</p>
+<blockquote>
+<p>表示某一函数在该点处的所有<code>方向导数</code>的最大值的方向的向量</p>
+<ul>
+<li>这也说明了函数的方向向量是<code>数值</code>不是<code>向量</code>,就是在这些方向向量中找最大而已&hellip;</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>有梯度的条件</p>
+<blockquote>
+<p>在定义域内存在一阶连续偏导数</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>数学解释</p>
+<blockquote>
+<p>在向量微积分中，标量场的梯度是一个向量场。标量场中某一点上的梯度指向标量场增长最快的方向，梯度的长度是这个最大的变化率。也就是说我们按照某一点的梯度走，那么我们可以最快的速度得到其最值。</p>
+<p><strong>就是说梯度的意思是方向向量最大的那个<code>方向</code></strong></p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/b535efba1f1d4046bc099485f9f2a045.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/5cc5cd6d0bd44a64ba1364514269a292.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<h2 id="凹函数和凸函数">凹函数和凸函数</h2>
+<p><img src="https://img-blog.csdnimg.cn/4444b84f5ed5461dbbbee13a984c0740.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<hr>
+<h1 id="step03概率统计">Step03.概率统计</h1>
+<h2 id="常用统计变量">常用统计变量</h2>
+<p><img src="https://img-blog.csdnimg.cn/69355a56fc70424090b9794661a96569.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<h2 id="常见概率分布">常见概率分布</h2>
+<p><img src="https://img-blog.csdnimg.cn/714e42c9f13f42b0b5f6d2951c434978.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<h2 id="常见概率公式">常见概率公式</h2>
+<p><img src="https://img-blog.csdnimg.cn/557460ad9c774875b898f6981425a36d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<hr>
+<h1 id="step04机器学习概述">Step04.机器学习概述</h1>
+<p><img src="https://img-blog.csdnimg.cn/4182645e31ec40e5a79b50fdaf46cef2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/b3a252cb58744aa5a8a4268ff8ae0692.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<h2 id="机器学习的分类">机器学习的分类</h2>
+<p><img src="https://img-blog.csdnimg.cn/2a27e40ed5204aca9579a0daee5b1b31.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<h3 id="有监督学习">有监督学习</h3>
+<blockquote>
+<p>从给定的训练数据集中学习出一个<strong>函数（模型参数）</strong>，当新的数据到来时，可以根据这个函数预测结果。监督学习的训练集要求包括输入输出，也可以说是特征和目标</p>
+</blockquote>
+<blockquote>
+<p>在监督学习中，您将获得一个<strong>带标签的数据集</strong>，目的是使用该机器学习数据集来确定一个<strong>通用规则</strong>，该规则允许您标记可能遇到的任何新数据点</p>
+</blockquote>
+<h3 id="无监督学习">无监督学习</h3>
+<blockquote>
+<p>训练样本的<strong>标记信息未知，</strong> 目标是通过对无标记训练样本的学习来揭示数据的内在性质及规律，为进一步的数据分析提供基础，此类学习任务中研究最多、应用最广的是&quot;聚类&rdquo; (clustering)，聚类目的在于把<strong>相似的东西聚在一起</strong>，主要通过计算样本间和群体间距离得到</p>
+</blockquote>
+<blockquote>
+<p>在无监督学习中，您将获得一个未标记的机器学习数据集，目的是通过检查数据点之间存在的关系来得出有关数据底层结构的结论。</p>
+</blockquote>
+<ul>
+<li>就是给一堆乱数据,进行<strong>聚类</strong></li>
+<li><img src="https://img-blog.csdnimg.cn/c8030eefe87d44ee807c28368d743d33.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/59ba9d09a3be46c596e8e19f4c25e5e1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<h3 id="强化学习">强化学习</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-txt" data-lang="txt">假设你在玩一个视频游戏。你进入一个有两扇门的房间。在门1后面是100个金币，然后是通道。2号门后面是1枚金币，后面是另一个方向的通道。一旦你通过其中一扇门，就没有回头路了。你应该选择哪一扇门呢？
+
+如果您的决定完全基于最大化您的即时奖励（或分数），那么您的答案将是门1。但是，大多数视频游戏的目的不是在游戏的单个部分中最大化您的分数，而是最大化你整场比赛的得分。毕竟，在门2后面的通道尽头可能有1000枚金币。
+
+真正回答这个问题的唯一方法是多次玩游戏; 每次尝试不同的门; 然后根据您收集的信息确定最佳策略。
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>在强化学习中，不是预先展示数据集，你通常会面对一个最初未知的“环境”(比如迷宫)，您必须通过在该环境中各种操作来收集数据(例如，在电子游戏中选择两扇门中的哪扇)并观察结果</p>
+</blockquote>
+<hr>
+<h2 id="监督学习">监督学习</h2>
+<h3 id="监督学习的概念">监督学习的概念</h3>
+<blockquote>
+<p>模型目的在于通过输入海量的xy点集
+通过模型训练从而推导出x和y之间的关系模型
+然后将模型输出给预测系统
+当再次输入一个新的数据
+就可以根据x预测y的结果</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/8386c377f7804a02b8d31237f4d34894.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/4e07d0950bcb4882a233a5f155242b02.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<h3 id="监督学习的三要素">监督学习的三要素</h3>
+<p><img src="https://img-blog.csdnimg.cn/4a3224766d9a4a17aa703b4509466814.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<h3 id="监督学习的基本步骤">监督学习的基本步骤</h3>
+<p><img src="https://img-blog.csdnimg.cn/6335bc083ebb460d919767d6b0868123.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/44a58d09808e41fc9c5b94eb50623ad3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<h2 id="模型评估策略">模型评估策略</h2>
+<h3 id="模型评估">模型评估</h3>
+<p><img src="https://img-blog.csdnimg.cn/11af265ba6bf406a99fa3cde495bd26d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><strong>训练集和测试集不能是同样的数据,因为<code>使用训练集训练模型</code>就像是<code>初学做题</code>,而<code>测试集</code>就是<code>学习刷大量题后</code>再<code>考试</code></strong></p>
+<p><strong>拿做过的题考试不能说没意义,但是无法证明模型优劣</strong></p>
+<h3 id="损失函数">损失函数</h3>
+<blockquote>
+<p>输入模型的<code>xy点集</code>是确定的,只有测试集的<code>f(x)</code>是未知的变量</p>
+<p>期望<code>y</code>和测试集的<code>f(x)</code>之间的差就是模型计算的损失</p>
+<p><code>每个样本点的期望结果</code>和<code>测试集的真正结果</code>都有损失,所有样本点的损失值就构成了损失函数</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/38a643e2ad6941b48e2202eec79f64ec.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/6b0ebfccaefe487d814163d4d64da6ab.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<h3 id="经验风险">经验风险</h3>
+<p><img src="https://img-blog.csdnimg.cn/6adb8a3ca35845c897257f283f5384ea.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<h3 id="训练误差和测试误差">训练误差和测试误差</h3>
+<p><img src="https://img-blog.csdnimg.cn/4ae4eec5f6ab42cc8a51412bfc58d02c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<h3 id="过拟合和欠拟合">过拟合和欠拟合</h3>
+<ul>
+<li>
+<p><strong>过拟合</strong></p>
+<blockquote>
+<p>样本特征太多以至于训练了某些不必要的(会对模型训练结果产生某些负面效应的特征(噪音特征))</p>
+</blockquote>
+</li>
+<li>
+<p><strong>欠拟合</strong></p>
+<blockquote>
+<p>样本特征比较少,一些该训练的特征集没有收纳到训练集中导致模型不精准甚至出现错误</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/c08de668066b4052b3f089612de85e72.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/a88da240e6c54b90bf134210b9ef6a89.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/78b5f8ae5faa423bbeeb5d71200e1b79.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<h3 id="正则化解决过拟合问题">正则化(解决过拟合问题)</h3>
+<p><img src="https://img-blog.csdnimg.cn/9b90d150986c40e4abfb007c4f228e85.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<h3 id="交叉验证">交叉验证</h3>
+<p><img src="https://img-blog.csdnimg.cn/c6d82c93c7774d05a4dbcb15143924b5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<hr>
+<h2 id="监督学习的分类分类和回归">监督学习的分类(分类和回归)</h2>
+<ul>
+<li>
+<p>对于测试集结果<code>f(x)</code></p>
+<blockquote>
+<p>离散的就是<code>分类</code></p>
+</blockquote>
+<blockquote>
+<p>是连续的就是<code>回归</code></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="image-20220103090357886cusers张宇航appdataroamingtyporatypora-user-imagesimage-20220103090357886png"><img src="C:%5CUsers%5C%E5%BC%A0%E5%AE%87%E8%88%AA%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220103090357886.png" alt="image-20220103090357886"></h2>
+<h3 id="分类">分类</h3>
+<p><img src="https://img-blog.csdnimg.cn/b6ff6eb5d95e44729a21f7d84c6f51a9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<h4 id="评价分类性能指标的方法">评价分类性能指标的方法</h4>
+<p><img src="https://img-blog.csdnimg.cn/94dcf638ec664bd19a311f1d16873a6b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/0ba99da62317473da161e5bbbf5715f4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<h3 id="回归">回归</h3>
+<p><img src="https://img-blog.csdnimg.cn/c3242f6f890247e2b71cbdc1d1797f3e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/7f9d47d2e8d54664981b8c8c9a283734.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/9b49f2feba244958bcf10d9da3537346.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<h2 id="模型求解算法">模型求解算法</h2>
+<h3 id="梯度下降算法">梯度下降算法</h3>
+<ul>
+<li>就是不断在当前点寻找梯度方向(下降最快),可能也是<code>贪婪算法</code></li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/f6a6c9576a6a47c5803f912f8ea2fa80.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/ac2c09f4a4e34336a4ab7f044bff2012.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/09a7bdce03ab4159abe4d8f140cd6c2a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<h3 id="牛顿法">牛顿法</h3>
+<p><img src="https://img-blog.csdnimg.cn/65b9679543d54006a43dc022c5bba999.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<hr>
+<h1 id="step05线性回归">Step05.线性回归</h1>
+<h2 id="概念">概念</h2>
+<p><img src="https://img-blog.csdnimg.cn/3c250de508fa418b9e07a5db03137acd.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/b59c76a84b6243cda9c8bce29a7d1ab3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/8ea3dd9219fb4f92ae54ad2b5ddf75f2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/da436beff2f34ac7a1d78f7e510e976a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/932d813d9c94446ca7a34ace66ef9833.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/0108df5a2dcc4be199e06decfdc154c7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<h2 id="线性回归最小二乘法代码实现">线性回归最小二乘法代码实现</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 引入依赖</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="c1"># 导入数据</span>
+<span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s2">&#34;/content/sample_data/data.csv&#34;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s2">&#34;,&#34;</span><span class="p">)</span>
+  <span class="c1"># points是一个二维列表,每个元素都是一个一维列表(点集)</span>
+
+<span class="c1"># 提取points中的两列元素,分别作为x和y</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">points</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">points</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># 用pyplot画出散点图</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://img-blog.csdnimg.cn/0e51b84016264015bec94634e21131b4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<ul>
+<li>
+<p>可见结果精度并不是那么高</p>
+</li>
+<li>
+<p>定义损失函数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 定义损失函数</span>
+<span class="k">def</span> <span class="nf">compute_cost</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">points</span><span class="p">):</span>
+  <span class="n">total_cost</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">M</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+  
+  <span class="c1"># 逐点计算平方损失误差,然后求平均数</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">points</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">points</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">total_cost</span> <span class="o">+=</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">w</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    
+  <span class="k">return</span> <span class="n">total_cost</span><span class="o">/</span><span class="n">M</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="全部代码">全部代码</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 引入依赖</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="c1"># 导入数据</span>
+<span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s2">&#34;/content/sample_data/data.csv&#34;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s2">&#34;,&#34;</span><span class="p">)</span>
+  <span class="c1"># points是一个二维列表,每个元素都是一个一维列表(点集)</span>
+
+<span class="c1"># 提取points中的两列元素,分别作为x和y</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">points</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">points</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># 用pyplot画出散点图</span>
+<span class="c1"># plt.scatter(x,y)</span>
+<span class="c1"># plt.show()</span>
+
+<span class="c1"># 定义损失函数</span>
+<span class="k">def</span> <span class="nf">compute_cost</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">points</span><span class="p">):</span>
+  <span class="n">total_cost</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">M</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+
+  <span class="c1"># 逐点计算平方损失误差,然后求平均数</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">points</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">points</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">total_cost</span> <span class="o">+=</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">w</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+  
+  <span class="k">return</span> <span class="n">total_cost</span><span class="o">/</span><span class="n">M</span>
+
+<span class="c1"># 定义一个求平均值的函数</span>
+<span class="k">def</span> <span class="nf">average</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+  <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">num</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="nb">sum</span> <span class="o">+=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+  <span class="k">return</span> <span class="nb">sum</span> <span class="o">/</span> <span class="n">num</span>
+
+<span class="c1"># 定义核心拟合函数</span>
+<span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
+  <span class="n">M</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+  <span class="n">x_bar</span> <span class="o">=</span> <span class="n">average</span><span class="p">(</span><span class="n">points</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+
+  <span class="n">sum_up</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">sum_down</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">sum_b</span> <span class="o">=</span> <span class="mi">0</span>
+
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">points</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">points</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">sum_up</span> <span class="o">+=</span> <span class="n">y</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_bar</span><span class="p">)</span>
+    <span class="n">sum_down</span> <span class="o">+=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+  <span class="n">w</span> <span class="o">=</span> <span class="n">sum_up</span> <span class="o">/</span> <span class="p">(</span><span class="n">sum_down</span> <span class="o">-</span> <span class="n">M</span> <span class="o">*</span> <span class="p">(</span><span class="n">x_bar</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">points</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">points</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">sum_b</span> <span class="o">+=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">w</span> <span class="o">*</span> <span class="n">x</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="n">sum_b</span> <span class="o">/</span> <span class="n">M</span>
+  
+  <span class="k">return</span> <span class="n">w</span><span class="p">,</span><span class="n">b</span>
+
+<span class="c1"># 测试</span>
+<span class="n">w</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="n">fit</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+<span class="c1"># w,b,compute_cost(w,b,points)</span>
+
+<span class="c1"># 画出拟合曲线</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">pre_y</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">pre_y</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>原理是,<code>线性回归最小二乘法</code>用一条<code>拟合曲线</code>逼近乱点集的规律,<strong>使得所有点到这条线的距离最短</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/7ce0583c9a5c4c8f946dd3fa8f464a27.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p>点之间之所以不成直线排列,是因为<code>每个点</code>,不考虑x,y之间的差异比较大(这样理解是错误的,纯是为了好理解)</p>
+<p>通过<code>线性回归最小二乘法拟合函数</code>求出<code>w和b</code>,通过<code>f(x) = wx + b</code>,求出拟合曲线的点集<code>(x,f(x))</code>,点的集合是一条直线,即为<code>拟合曲线</code></p>
+<p>这个公式<img src="https://img-blog.csdnimg.cn/4f2b996c67c74521aa061031c663af4d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_15,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p>只是求损失函数的,因此,w和b代表了<code>原点集中点纵坐标相对于拟合曲线的偏离程度</code></p>
+<p><img src="https://img-blog.csdnimg.cn/7857eec462d44167831c10dfa675f7c9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p>通过这三个函数求出对应的<code>w和b</code>,再通过<code>f(x) = wx + b</code>求出拟合曲线中点的纵坐标</p>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Zhang's Blog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-04-02
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/python/">Python</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/python/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Python</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/mysql/">
+            <span class="next-text nav-default">MySQL</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://www.google.com/" class="iconfont icon-google" title="google"></a>
+      <a href="https://github.com/" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://www.douban.com/" class="iconfont icon-douban" title="douban"></a>
+      <a href="https://getpocket.com/" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="https://www.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="https://www.instagram.com/" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="https://about.gitlab.com/" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="https://www.bilibili.com/" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://golang.org/">GoLang</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Author - 
+    <a class="theme-link" href="https://space.bilibili.com/628950169/">Mr'zhang</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Zhang's Blog</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

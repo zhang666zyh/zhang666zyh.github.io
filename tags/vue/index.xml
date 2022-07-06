@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vue on Zhang&#39;s Blog的博客</title>
+    <link>http://localhost:1313/tags/vue/</link>
+    <description>Recent content in Vue on Zhang&#39;s Blog的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 11 Jun 2022 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>vue - node的云E办</title>
+      <link>http://localhost:1313/post/vue-nodejs%E7%9A%84%E4%BA%91e%E5%8A%9E/</link>
+      <pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/vue-nodejs%E7%9A%84%E4%BA%91e%E5%8A%9E/</guid>
+      <description>Step01.编写页面 阴影 阴影 1 box-shadow:1px 1px 10px #666; 第一个值是阴影水平偏移量 第二个值是阴影竖直偏移量 第三个值是阴影半径 第四个值是阴影颜色 el-form表</description>
+    </item>
+    
+    <item>
+      <title>vue &#43; nodejs实现的一个茶叶网站</title>
+      <link>http://localhost:1313/post/vue-&#43;-nodejs%E5%AE%9E%E7%8E%B0%E7%9A%84%E4%B8%80%E4%B8%AA%E8%8C%B6%E5%8F%B6%E7%BD%91%E7%AB%99/</link>
+      <pubDate>Sat, 21 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/vue-&#43;-nodejs%E5%AE%9E%E7%8E%B0%E7%9A%84%E4%B8%80%E4%B8%AA%E8%8C%B6%E5%8F%B6%E7%BD%91%E7%AB%99/</guid>
+      <description>Step01.创建远程仓库 mac下载git 1 /usr/bin/ruby -e &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;#34; gitee创建vue-tea项目,并克隆到本地 创建本地分支,并push到线上 查看本地所</description>
+    </item>
+    
+    <item>
+      <title>Vue &#43; django实现个人博客</title>
+      <link>http://localhost:1313/post/vue-&#43;-django%E5%AE%9E%E7%8E%B0%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/vue-&#43;-django%E5%AE%9E%E7%8E%B0%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <description>Step01.markdown组件 vue-meditor 示例代码 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 &amp;lt;template&amp;gt; &amp;lt;div class=&amp;#34;markdown&amp;#34;&amp;gt; &amp;lt;Markdown :height=&amp;#34;1000&amp;#34; @on-save=&amp;#34;handleOnSave&amp;#34;/&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script&amp;gt; import Markdown from &amp;#39;vue-meditor&amp;#39;; export default { name: &amp;#34;markdown&amp;#34;, components: { Markdown }, methods:{</description>
+    </item>
+    
+    <item>
+      <title>Vue通用后台管理</title>
+      <link>http://localhost:1313/post/vue%E9%80%9A%E7%94%A8%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/vue%E9%80%9A%E7%94%A8%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</guid>
+      <description>Step01.创建Vue项目 开发环境 : Ubuntu20.04 创建一个vue_manager的vue项目 1 vue init webpack vue_manager Step02.导入ElementUI和less elementui</description>
+    </item>
+    
+    <item>
+      <title>Vue-音乐app</title>
+      <link>http://localhost:1313/post/vue-%E9%9F%B3%E4%B9%90app/</link>
+      <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/vue-%E9%9F%B3%E4%B9%90app/</guid>
+      <description>Step01.创建项目 在gitee上创建仓库 clone到本地 本地创建一个和gitee上同名的vue项目 创建时是同级目录合并创建 运行 Step0</description>
+    </item>
+    
+    <item>
+      <title>Vue-PC网页端音乐网站源码解读</title>
+      <link>http://localhost:1313/post/vue-pc%E7%BD%91%E9%A1%B5%E7%AB%AF%E9%9F%B3%E4%B9%90%E7%BD%91%E7%AB%99%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/</link>
+      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/vue-pc%E7%BD%91%E9%A1%B5%E7%AB%AF%E9%9F%B3%E4%B9%90%E7%BD%91%E7%AB%99%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/</guid>
+      <description>Step01.下载源码 地址 Step02.运行项目 1 2 npm install npm run dev vue项目迁移平台可能出现的问题 坑一 .babelrc文件 ES6语法编译配置 三个</description>
+    </item>
+    
+    <item>
+      <title>Vue第一个项目-去哪网</title>
+      <link>http://localhost:1313/post/vue%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE-%E5%8E%BB%E5%93%AA%E7%BD%91/</link>
+      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/vue%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE-%E5%8E%BB%E5%93%AA%E7%BD%91/</guid>
+      <description>第一个vue项目-去哪网 项目准备 创建gitee项目 创建仓库travel 勾选 初始化仓库 设置模板 -&amp;gt; readme文件 打开个人中心,找到SSH公钥 官</description>
+    </item>
+    
+    <item>
+      <title>Vue</title>
+      <link>http://localhost:1313/post/vue/</link>
+      <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/vue/</guid>
+      <description>Step1.Vue环境配置 第一种,通过src直接引入 第二种,通过本地JavaScript文件导入 第三种,下载Vue开发者工具 Step2.编写</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,4716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>JSP - Zhang&#39;s Blog的博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Zhang&#39;s Blog" /><meta name="description" content="目录 Step 1. JSP初学 创建JavaWeb工程 通过访问Java文件实现和客户端的交互 Step2. Servlet详解 Servlet的生命周期 客户端访问Java" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.67.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/jsp/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="JSP" />
+<meta property="og:description" content="目录 Step 1. JSP初学 创建JavaWeb工程 通过访问Java文件实现和客户端的交互 Step2. Servlet详解 Servlet的生命周期 客户端访问Java" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/jsp/" />
+<meta property="article:published_time" content="2021-07-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-07-01T00:00:00+00:00" />
+<meta itemprop="name" content="JSP">
+<meta itemprop="description" content="目录 Step 1. JSP初学 创建JavaWeb工程 通过访问Java文件实现和客户端的交互 Step2. Servlet详解 Servlet的生命周期 客户端访问Java">
+<meta itemprop="datePublished" content="2021-07-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-07-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="29005">
+
+
+
+<meta itemprop="keywords" content="JavaWeb," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JSP"/>
+<meta name="twitter:description" content="目录 Step 1. JSP初学 创建JavaWeb工程 通过访问Java文件实现和客户端的交互 Step2. Servlet详解 Servlet的生命周期 客户端访问Java"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Zhang&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/home/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">MyBlog</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Zhang&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/home/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">MyBlog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">JSP</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-07-01 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#step-1-jsp初学">Step 1. JSP初学</a>
+      <ul>
+        <li><a href="#创建javaweb工程">创建JavaWeb工程</a></li>
+        <li><a href="#通过访问java文件实现和客户端的交互">通过访问Java文件实现和客户端的交互</a></li>
+      </ul>
+    </li>
+    <li><a href="#step2-servlet详解">Step2. Servlet详解</a>
+      <ul>
+        <li><a href="#servlet的生命周期">Servlet的生命周期</a></li>
+        <li><a href="#客户端访问java文件时的对象创建">客户端访问Java文件时的对象创建</a></li>
+        <li><a href="#关于servlet接口五个实现类的init方法">关于Servlet接口五个实现类的init()方法</a></li>
+        <li><a href="#initservletconfig-servletconfig方法中的servletconfig对象的各种方法">init(ServletConfig servletConfig)方法中的servletConfig对象的各种方法</a></li>
+        <li><a href="#servletcontext对象的几个常用方法">servletContext对象的几个常用方法</a></li>
+        <li><a href="#servlet接口的层次结构">Servlet接口的层次结构</a>
+          <ul>
+            <li><a href="#自定义httpservlet和genericservlet类">自定义HttpServlet和GenericServlet类</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#step3-jsp详解">Step3. jsp详解</a>
+      <ul>
+        <li><a href="#jsp是什么">JSP是什么</a></li>
+        <li><a href="#如何根据用户的不同请求response不同的html界面">如何根据用户的不同请求Response不同的HTML界面</a></li>
+        <li><a href="#如何在jsp界面编写java代码">如何在JSP界面编写Java代码</a></li>
+        <li><a href="#实例">实例:</a></li>
+        <li><a href="#jsp9个内置对象">jsp9个内置对象</a>
+          <ul>
+            <li><a href="#request">request</a></li>
+            <li><a href="#response">response</a></li>
+            <li><a href="#session">Session</a></li>
+            <li><a href="#cookie">Cookie</a></li>
+          </ul>
+        </li>
+        <li><a href="#http状态码">HTTP状态码</a></li>
+        <li><a href="#jsp作用域">jsp作用域</a></li>
+      </ul>
+    </li>
+    <li><a href="#step4-el表达式">Step4. el表达式</a>
+      <ul>
+        <li><a href="#使用el表达式简化jsp代码">使用el表达式简化jsp代码</a></li>
+        <li><a href="#取setattribute里面的值需要考虑对象作用域">取setAttribute里面的值需要考虑对象作用域</a></li>
+        <li><a href="#将对象信息输出到浏览器">将对象信息输出到浏览器</a></li>
+        <li><a href="#el执行表达式">el执行表达式</a></li>
+      </ul>
+    </li>
+    <li><a href="#step5-jstl表达式">Step5. jstl表达式</a>
+      <ul>
+        <li><a href="#普通方法将三个对象的信息输出到浏览器">普通方法将三个对象的信息输出到浏览器</a></li>
+        <li><a href="#使用jstl代码简化for循环">使用jstl代码简化for循环</a></li>
+        <li><a href="#jstl语句详解">jstl语句详解</a></li>
+      </ul>
+    </li>
+    <li><a href="#step6-实例对对象信息的增删改查">Step6. 实例:对对象信息的增删改查</a></li>
+    <li><a href="#step7-filter过滤器">Step7. Filter过滤器</a>
+      <ul>
+        <li><a href="#一通过filter过滤器拦截请求以防中文乱码">一、通过Filter过滤器拦截请求以防中文乱码</a></li>
+        <li><a href="#二filter的注意事项">二、Filter的注意事项</a></li>
+        <li><a href="#三filter的常用场景">三、Filter的常用场景</a></li>
+      </ul>
+    </li>
+    <li><a href="#step8文件上传">Step8.文件上传</a>
+      <ul>
+        <li><a href="#上传界面">上传界面</a></li>
+        <li><a href="#使用fileupload组件替换io流处理文件上传请求">使用FileUpload组件替换IO流处理文件上传请求</a></li>
+      </ul>
+    </li>
+    <li><a href="#step9文件下载">Step9.文件下载</a></li>
+    <li><a href="#step9ajax异步处理">Step9.AJAX(异步处理)</a>
+      <ul>
+        <li><a href="#ajax中的属性">AJAX中的属性</a></li>
+        <li><a href="#ajax的原理">AJAX的原理</a></li>
+        <li><a href="#通过json实现服务器和客户端之间传递数据">通过JSON实现服务器和客户端之间传递数据</a></li>
+        <li><a href="#ajax实例省市区的下拉列表">AJAX实例(省/市/区的下拉列表)</a></li>
+      </ul>
+    </li>
+    <li><a href="#step10-jdbc">Step10. JDBC</a>
+      <ul>
+        <li><a href="#使用preparedstatement替换statement">使用PreparedStatement替换Statement</a></li>
+      </ul>
+    </li>
+    <li><a href="#step11使用jdbcservlet实现一个简单的学生管理系统">Step11.使用JDBC+Servlet实现一个简单的学生管理系统</a>
+      <ul>
+        <li><a href="#配置环境">配置环境</a></li>
+        <li><a href="#源码">源码</a></li>
+      </ul>
+    </li>
+    <li><a href="#step12数据库连接池">Step12.数据库连接池</a></li>
+    <li><a href="#step13数据库实用的小工具dbutils">Step13.数据库实用的小工具DBUtils</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><code>目录</code></p>
+<!-- TOC -->
+<ul>
+<li><a href="#step-1-jsp%E5%88%9D%E5%AD%A6">Step 1. JSP初学</a>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BAjavaweb%E5%B7%A5%E7%A8%8B">创建JavaWeb工程</a></li>
+<li><a href="#%E9%80%9A%E8%BF%87%E8%AE%BF%E9%97%AEjava%E6%96%87%E4%BB%B6%E5%AE%9E%E7%8E%B0%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84%E4%BA%A4%E4%BA%92">通过访问Java文件实现和客户端的交互</a></li>
+</ul>
+</li>
+<li><a href="#step2-servlet%E8%AF%A6%E8%A7%A3">Step2. Servlet详解</a>
+<ul>
+<li><a href="#servlet%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">Servlet的生命周期</a></li>
+<li><a href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AE%BF%E9%97%AEjava%E6%96%87%E4%BB%B6%E6%97%B6%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA">客户端访问Java文件时的对象创建</a></li>
+<li><a href="#%E5%85%B3%E4%BA%8Eservlet%E6%8E%A5%E5%8F%A3%E4%BA%94%E4%B8%AA%E5%AE%9E%E7%8E%B0%E7%B1%BB%E7%9A%84init%E6%96%B9%E6%B3%95">关于Servlet接口五个实现类的init方法</a></li>
+<li><a href="#initservletconfig-servletconfig%E6%96%B9%E6%B3%95%E4%B8%AD%E7%9A%84servletconfig%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%90%84%E7%A7%8D%E6%96%B9%E6%B3%95">initServletConfig servletConfig方法中的servletConfig对象的各种方法</a></li>
+<li><a href="#servletcontext%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E4%B8%AA%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95">servletContext对象的几个常用方法</a></li>
+<li><a href="#servlet%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84">Servlet接口的层次结构</a>
+<ul>
+<li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89httpservlet%E5%92%8Cgenericservlet%E7%B1%BB">自定义HttpServlet和GenericServlet类</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#step3-jsp%E8%AF%A6%E8%A7%A3">Step3. jsp详解</a>
+<ul>
+<li><a href="#jsp%E6%98%AF%E4%BB%80%E4%B9%88">JSP是什么</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E6%A0%B9%E6%8D%AE%E7%94%A8%E6%88%B7%E7%9A%84%E4%B8%8D%E5%90%8C%E8%AF%B7%E6%B1%82response%E4%B8%8D%E5%90%8C%E7%9A%84html%E7%95%8C%E9%9D%A2">如何根据用户的不同请求Response不同的HTML界面</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E5%9C%A8jsp%E7%95%8C%E9%9D%A2%E7%BC%96%E5%86%99java%E4%BB%A3%E7%A0%81">如何在JSP界面编写Java代码</a></li>
+<li><a href="#%E5%AE%9E%E4%BE%8B">实例:</a></li>
+<li><a href="#jsp9%E4%B8%AA%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1">jsp9个内置对象</a>
+<ul>
+<li><a href="#request">request</a></li>
+<li><a href="#response">response</a></li>
+<li><a href="#session">Session</a></li>
+<li><a href="#cookie">Cookie</a></li>
+</ul>
+</li>
+<li><a href="#http%E7%8A%B6%E6%80%81%E7%A0%81">HTTP状态码</a></li>
+<li><a href="#jsp%E4%BD%9C%E7%94%A8%E5%9F%9F">jsp作用域</a></li>
+</ul>
+</li>
+<li><a href="#step4-el%E8%A1%A8%E8%BE%BE%E5%BC%8F">Step4. el表达式</a>
+<ul>
+<li><a href="#%E4%BD%BF%E7%94%A8el%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%AE%80%E5%8C%96jsp%E4%BB%A3%E7%A0%81">使用el表达式简化jsp代码</a></li>
+<li><a href="#%E5%8F%96setattribute%E9%87%8C%E9%9D%A2%E7%9A%84%E5%80%BC%E9%9C%80%E8%A6%81%E8%80%83%E8%99%91%E5%AF%B9%E8%B1%A1%E4%BD%9C%E7%94%A8%E5%9F%9F">取setAttribute里面的值需要考虑对象作用域</a></li>
+<li><a href="#%E5%B0%86%E5%AF%B9%E8%B1%A1%E4%BF%A1%E6%81%AF%E8%BE%93%E5%87%BA%E5%88%B0%E6%B5%8F%E8%A7%88%E5%99%A8">将对象信息输出到浏览器</a></li>
+<li><a href="#el%E6%89%A7%E8%A1%8C%E8%A1%A8%E8%BE%BE%E5%BC%8F">el执行表达式</a></li>
+</ul>
+</li>
+<li><a href="#step5-jstl%E8%A1%A8%E8%BE%BE%E5%BC%8F">Step5. jstl表达式</a>
+<ul>
+<li><a href="#%E6%99%AE%E9%80%9A%E6%96%B9%E6%B3%95%E5%B0%86%E4%B8%89%E4%B8%AA%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%BF%A1%E6%81%AF%E8%BE%93%E5%87%BA%E5%88%B0%E6%B5%8F%E8%A7%88%E5%99%A8">普通方法将三个对象的信息输出到浏览器</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8jstl%E4%BB%A3%E7%A0%81%E7%AE%80%E5%8C%96for%E5%BE%AA%E7%8E%AF">使用jstl代码简化for循环</a></li>
+<li><a href="#jstl%E8%AF%AD%E5%8F%A5%E8%AF%A6%E8%A7%A3">jstl语句详解</a></li>
+</ul>
+</li>
+<li><a href="#step6-%E5%AE%9E%E4%BE%8B%E5%AF%B9%E5%AF%B9%E8%B1%A1%E4%BF%A1%E6%81%AF%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5">Step6. 实例:对对象信息的增删改查</a></li>
+<li><a href="#step7-filter%E8%BF%87%E6%BB%A4%E5%99%A8">Step7. Filter过滤器</a>
+<ul>
+<li><a href="#%E4%B8%80%E9%80%9A%E8%BF%87filter%E8%BF%87%E6%BB%A4%E5%99%A8%E6%8B%A6%E6%88%AA%E8%AF%B7%E6%B1%82%E4%BB%A5%E9%98%B2%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81">一、通过Filter过滤器拦截请求以防中文乱码</a></li>
+<li><a href="#%E4%BA%8Cfilter%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">二、Filter的注意事项</a></li>
+<li><a href="#%E4%B8%89filter%E7%9A%84%E5%B8%B8%E7%94%A8%E5%9C%BA%E6%99%AF">三、Filter的常用场景</a></li>
+</ul>
+</li>
+<li><a href="#step8%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0">Step8.文件上传</a>
+<ul>
+<li><a href="#%E4%B8%8A%E4%BC%A0%E7%95%8C%E9%9D%A2">上传界面</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8fileupload%E7%BB%84%E4%BB%B6%E6%9B%BF%E6%8D%A2io%E6%B5%81%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E8%AF%B7%E6%B1%82">使用FileUpload组件替换IO流处理文件上传请求</a></li>
+</ul>
+</li>
+<li><a href="#step9%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD">Step9.文件下载</a></li>
+<li><a href="#step9ajax%E5%BC%82%E6%AD%A5%E5%A4%84%E7%90%86">Step9.AJAX异步处理</a>
+<ul>
+<li><a href="#ajax%E4%B8%AD%E7%9A%84%E5%B1%9E%E6%80%A7">AJAX中的属性</a></li>
+<li><a href="#ajax%E7%9A%84%E5%8E%9F%E7%90%86">AJAX的原理</a></li>
+<li><a href="#%E9%80%9A%E8%BF%87json%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%B9%8B%E9%97%B4%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE">通过JSON实现服务器和客户端之间传递数据</a></li>
+<li><a href="#ajax%E5%AE%9E%E4%BE%8B%E7%9C%81%E5%B8%82%E5%8C%BA%E7%9A%84%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8">AJAX实例省/市/区的下拉列表</a></li>
+</ul>
+</li>
+<li><a href="#step10-jdbc">Step10. JDBC</a>
+<ul>
+<li><a href="#%E4%BD%BF%E7%94%A8preparedstatement%E6%9B%BF%E6%8D%A2statement">使用PreparedStatement替换Statement</a></li>
+</ul>
+</li>
+<li><a href="#step11%E4%BD%BF%E7%94%A8jdbcservlet%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%AD%A6%E7%94%9F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F">Step11.使用JDBC+Servlet实现一个简单的学生管理系统</a>
+<ul>
+<li><a href="#%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83">配置环境</a></li>
+<li><a href="#%E6%BA%90%E7%A0%81">源码</a></li>
+</ul>
+</li>
+<li><a href="#step12%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0">Step12.数据库连接池</a></li>
+<li><a href="#step13%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%9E%E7%94%A8%E7%9A%84%E5%B0%8F%E5%B7%A5%E5%85%B7dbutils">Step13.数据库实用的小工具DBUtils</a></li>
+</ul>
+<!-- /TOC -->
+<p><img src="https://img-blog.csdnimg.cn/20210825040434353.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_Q1NETiBA5a2k5ZCNQA==,size_68,color_FFFFFF,t_70,g_se,x_16" alt="Photo-Head"></p>
+<h1 id="step-1-jsp初学">Step 1. JSP初学</h1>
+<h2 id="创建javaweb工程">创建JavaWeb工程</h2>
+<blockquote>
+<p>操作步骤随着编译器版本不同而不同</p>
+</blockquote>
+<blockquote>
+<p>IDEA 2020.2及以下的请自行百度</p>
+</blockquote>
+<blockquote>
+<p>IDEA 2020.3或者最新版本的百度方法普遍不支持</p>
+</blockquote>
+<ul>
+<li>创建项目不再是Java Enterprise了,而是先New 一个普通Java项目</li>
+<li>创建项目后,选择Run-&gt;Edit Configuration-&gt;左上角加号-&gt;Tomcat Server(注意不是TomEE)-&gt;Local
+<img src="https://img-blog.csdnimg.cn/20200810142620715.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNDQxMDc4,size_16,color_FFFFFF,t_70" alt="step 1">
+<img src="https://img-blog.csdnimg.cn/2020081020331619.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNDQxMDc4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>点击Application右边的Configure,找到你放置的Tomcat的目录,点击OK
+<img src="https://img-blog.csdnimg.cn/2020081014310520.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNDQxMDc4,size_16,color_FFFFFF,t_70" alt="step3"></li>
+<li>选择你运行项目调试项目的浏览器,我的电脑安装的是Chrome,你可以自行选择,然后ok
+<img src="https://img-blog.csdnimg.cn/20200810143231503.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNDQxMDc4,size_16,color_FFFFFF,t_70" alt="step4"></li>
+<li>回到项目界面,右键项目名称-&gt;add framwork support-&gt;选中Web Application-&gt;默认勾选创建web.xml
+<img src="https://img-blog.csdnimg.cn/20200810143446948.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNDQxMDc4,size_16,color_FFFFFF,t_70" alt="step5">
+<img src="https://img-blog.csdnimg.cn/20200810143511221.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNDQxMDc4,size_16,color_FFFFFF,t_70" alt="step5.2"></li>
+<li>回到刚刚配置Tomcat的页面,选择第二个选项卡Deployment-&gt;右边的加号-&gt;选择Artifact…
+<img src="https://img-blog.csdnimg.cn/20200810143757262.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNDQxMDc4,size_16,color_FFFFFF,t_70" alt="step6"></li>
+<li>项目就添加完成了,下面的Application context表示虚拟路径,你可以改成&rdquo;/&quot;,不写项目名,这样在后面开发测试时就不用频繁的填写路径了,当然不一定要改,个人喜好.点击OK,配置部分完成
+<img src="https://img-blog.csdnimg.cn/20200810143822822.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNDQxMDc4,size_16,color_FFFFFF,t_70" alt="step7"></li>
+<li>项目默认创建了一个index.jsp,你可以尝试启动看一下,右键run,启动需要时间
+<img src="https://img-blog.csdnimg.cn/20200810144225812.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNDQxMDc4,size_16,color_FFFFFF,t_70" alt="step8"></li>
+<li>页面访问成功,项目创建完成
+<img src="https://img-blog.csdnimg.cn/20210718204414392.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="step9"></li>
+</ul>
+<hr>
+<h2 id="通过访问java文件实现和客户端的交互">通过访问Java文件实现和客户端的交互</h2>
+<ul>
+<li>
+<p><code>编写Java文件</code></p>
+<blockquote>
+<p>src文件夹下新建package</p>
+</blockquote>
+<blockquote>
+<p>新建MyServlet.java文件</p>
+</blockquote>
+<pre><code>      package com.zhang.servlet;
+
+
+      import javax.servlet.*;
+      import java.io.IOException;
+
+      public class MyServlet implements Servlet {
+
+          @Override
+          public void init(ServletConfig servletConfig) throws ServletException {
+              //初始化
+          }
+
+
+          @Override
+          public ServletConfig getServletConfig() {
+              //返回Servlet本身信息
+              return null;
+          }
+
+          @Override
+          public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
+              //核心,处理客户端请求
+              String id = servletRequest.getParameter(&quot;id&quot;);//获取请求参数(客户端传过来的参数),例如是http://localhost:8080/JavaWeb_war_exploded/myservlet?id=1,那Servlet获取的参数就是1
+              System.out.println(&quot;我是Servlet,我已经接收到信息!!!,参数是:&quot;+id);
+                
+              //收到请求后,如果直接返回中文会乱码,所以这里需要在返回信息之前就设置好信息文本的格式
+              servletResponse.setContentType(&quot;text/html;charset=UTF-8&quot;);
+                
+              servletResponse.getWriter().write(&quot;客户端你好,我已成功接收到你的请求!!!&quot;);
+          }
+
+          @Override
+          public String getServletInfo() {
+              //返回一个字符串信息
+              return null;
+          }
+
+          @Override
+          public void destroy() {
+              //销毁,释放程序运行结束时占用的资源
+          }
+      }
+</code></pre>
+<blockquote>
+<p>这里可以通过servletRequest.getParameter(&ldquo;String&rdquo;)方法获取用户的请求参数</p>
+</blockquote>
+</li>
+<li>
+<p><code>在客户端访问本地Java文件</code></p>
+<p>1.通过xml文件映射的方法访问</p>
+<pre><code>          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+          &lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
+              xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+              xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;
+              version=&quot;4.0&quot;&gt;
+              &lt;servlet&gt;
+                  &lt;servlet-name&gt;MyServlet&lt;/servlet-name&gt;
+                  &lt;servlet-class&gt;com.zhang.servlet.MyServlet&lt;/servlet-class&gt;
+              &lt;/servlet&gt;
+
+              &lt;servlet-mapping&gt;
+                  &lt;servlet-name&gt;MyServlet&lt;/servlet-name&gt;
+                  &lt;url-pattern&gt;/myservlet&lt;/url-pattern&gt;
+              &lt;/servlet-mapping&gt;
+          &lt;/web-app&gt;
+</code></pre>
+<p>2.通过WebServlet类注解的方式实现客户端访问本地Java文件</p>
+<blockquote>
+<p>在本类的上面加上@WebServlet(&quot;/test&rdquo;),类就被映射成了/test,就可以直接通过/test访问本地Java文件,访问后运行的是service()方法</p>
+</blockquote>
+<pre><code>          package com.zhang.servlet;
+
+          import javax.servlet.*;
+          import javax.servlet.annotation.WebServlet;
+          import java.io.IOException;
+
+          @WebServlet(&quot;/test&quot;)
+          public class MyServlet implements Servlet {
+              //这里的代码省略
+              ...
+          }
+</code></pre>
+</li>
+</ul>
+<hr>
+<h1 id="step2-servlet详解">Step2. Servlet详解</h1>
+<h2 id="servlet的生命周期">Servlet的生命周期</h2>
+<p>Servlet接口的五个实现方法中,只有init()、service()以及destory()方法是属于Servlet的生命周期,剩余两个不属于Servlet的生命周期</p>
+<hr>
+<h2 id="客户端访问java文件时的对象创建">客户端访问Java文件时的对象创建</h2>
+<p><code>Servlet对象是如何创建的</code></p>
+<blockquote>
+<p>这个Java文件中添加了一个无参构造方法,用于创建Servlet对象</p>
+</blockquote>
+<blockquote>
+<p>你在客户端访问本地Java文件时刷新一次就会运行一次service方法,这也说明每运行一次就创建一个Servlet对象</p>
+</blockquote>
+<blockquote>
+<p>在构造方法中添加System.out.println(&ldquo;创建了Servlet对象&rdquo;);客户端访问这个文件时每刷新一次就会打印一次&quot;创建了Servlet对象&rdquo;,刷新一次就创建了一个Servlet对象</p>
+</blockquote>
+<p><code>Tomcat服务器自动调用无参构造器,创建Servlet对象</code></p>
+<blockquote>
+<p>模拟Tomcat容器创建Servlet对象</p>
+</blockquote>
+<pre><code>    package com.zhang.servlet;
+   
+    import java.lang.reflect.Constructor;
+
+    public class TomcatTest {
+        public static void main(String[] args) {
+
+            //获取全包名
+            String str = &quot;com.zhang.servlet.MyServlet&quot;;
+            try {
+                //根据全类名映射出&quot;运行时类&quot;,运行时类包含原有类的全部信息(属性、构造器以及方法)
+                Class classzz = Class.forName(str);
+
+                /*
+                    获取运行时类的构造方法
+                    这里如果是class.getConstructor(String.class)说明构造器是带有参数的
+                */
+                Constructor constructor = classzz.getConstructor();
+
+
+                //通过constructor.newInstance()方法调用运行时类的构造方法
+                Object obj = constructor.newInstance();
+                System.out.println(obj);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+</code></pre>
+<hr>
+<h2 id="关于servlet接口五个实现类的init方法">关于Servlet接口五个实现类的init()方法</h2>
+<blockquote>
+<p>init(ServletConfig servletConfig)方法很少被使用,而且它还有参数ServletConfig servletConfig</p>
+</blockquote>
+<blockquote>
+<p>它就是对Servlet对象信息进行初始化</p>
+</blockquote>
+<blockquote>
+<p>但是如果你有程序运行之前就需要处理的情况,例如默认用户名和密码</p>
+</blockquote>
+<blockquote>
+<p>它还专门提供了一个方法用于获取servletConfig对象的信息,就是init(ServletConfig servletConfig)方法的参数</p>
+</blockquote>
+<blockquote>
+<p>用处是:如果你在其他方法中需要获取这个对象的信息,就可以直接调用这个方法</p>
+</blockquote>
+<blockquote>
+<p>示例:通过servlet对象获取Servlet信息</p>
+</blockquote>
+<pre><code>    @Override
+        public void init(ServletConfig servletConfig) throws ServletException {
+            System.out.println(&quot;初始化Servlet!!!&quot;);
+            System.out.println(servletConfig.getServletName());
+        }
+</code></pre>
+<p>这之后再次运行Tomcat,访问本地文件,就可以看到Terminal下面打印出了全类名</p>
+<p><img src="https://img-blog.csdnimg.cn/20210718210346106.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-1"></p>
+<p>你在IDEA里面敲出servletConfig.后就会出现它的所有属性和方法,以及继承来的信息等</p>
+<hr>
+<h2 id="initservletconfig-servletconfig方法中的servletconfig对象的各种方法">init(ServletConfig servletConfig)方法中的servletConfig对象的各种方法</h2>
+<p><code>servletConfig.getServletName()</code></p>
+<p>获取它所映射的Servlet的名称,返回结果为类名</p>
+<p><code>servletConfig.getInitParameter(&quot;username&quot;)</code></p>
+<p>这个方法是如果你的系统有默认的用户名和密码,参数为servlet-name里的内容,返回内容为 它所映射的servlet-&gt;init-param-&gt;param-name对应的param-value</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
+        xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;
+        version=&quot;4.0&quot;&gt;
+    &lt;servlet&gt;
+        &lt;servlet-name&gt;MyServlet&lt;/servlet-name&gt;
+        &lt;servlet-class&gt;com.zhang.servlet.MyServlet&lt;/servlet-class&gt;
+
+        &lt;init-param&gt;
+            &lt;param-name&gt;
+                username
+            &lt;/param-name&gt;
+            &lt;param-value&gt;
+                value
+            &lt;/param-value&gt;
+        &lt;/init-param&gt;
+    &lt;/servlet&gt;
+
+    &lt;servlet-mapping&gt;
+        &lt;servlet-name&gt;MyServlet&lt;/servlet-name&gt;
+        &lt;url-pattern&gt;/test&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
+
+&lt;/web-app&gt;
+</code></pre>
+<p>init()方法运行时会根据web.xml文件初始化用户名和密码,这个方法就是用来获取这些信息的</p>
+<p>key-value,servletConfig.getInitParameter(&ldquo;username&rdquo;),你获得的返回值就是value</p>
+<p>这个方法没什么用,但是如果你想要在service()方法里判断用户输入的用户名和密码和你的是否一致</p>
+<p>可以这样:</p>
+<pre><code>package com.zhang.servlet;
+
+import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
+import java.io.IOException;
+
+
+public class MyServlet implements Servlet {
+
+    private String username;
+    
+    public MyServlet(){
+    }
+
+    @Override
+    public void init(ServletConfig servletConfig) throws ServletException {
+        this.username = servletConfig.getInitParameter(&quot;username&quot;);
+    }
+
+    @Override
+    public ServletConfig getServletConfig() {
+        return null;
+    }
+
+    @Override
+    public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
+    }
+
+    @Override
+    public String getServletInfo() {
+        return null;
+    }
+
+    @Override
+    public void destroy() {
+    }
+}
+</code></pre>
+<p>然后在service()方法中调用username变量进行判断</p>
+<p><code>servletConfig.getInitParameterNames()</code></p>
+<p>这个方法是返回Enumeration<String>类型的  web.xml文件-&gt;它所映射的servlet-&gt;init-param-&gt;param-name 的值</p>
+<p>意思就是:</p>
+<p>servletConfig.getInitParameter();只可以取一个指定servlet-&gt;servlet-name-&gt;init-param-&gt;param-name-&gt;param-value</p>
+<p>servletConfig.getInitParameterNames();可以取所有的servlet-&gt;servlet-name-&gt;init-param的param-name</p>
+<pre><code>Enumeration&lt;String&gt; enumeration = servletConfig.getInitParameterNames();
+while(enumeration.hasMoreElements()){
+    String element = enumeration.nextElement();
+    System.out.println(element);
+}
+
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
+        xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;
+        version=&quot;4.0&quot;&gt;
+
+    &lt;servlet&gt;
+    &lt;servlet-name&gt;MyServlet&lt;/servlet-name&gt;&lt;servlet-class&gt;com.zhang.servlet.MyServlet&lt;/servlet-class&gt;
+    &lt;init-param&gt;&lt;param-name&gt;username&lt;/param-name&gt;&lt;param-value&gt;Blackburn&lt;/param-value&gt;&lt;/init-param&gt;
+    &lt;init-param&gt;&lt;param-name&gt;password&lt;/param-name&gt;&lt;param-value&gt;123456&lt;/param-value&gt;&lt;/init-param&gt;
+    &lt;init-param&gt;&lt;param-name&gt;type&lt;/param-name&gt;&lt;param-value&gt;super&lt;/param-value&gt;&lt;/init-param&gt;
+    &lt;/servlet&gt;
+    &lt;servlet-mapping&gt;
+        &lt;servlet-name&gt;MyServlet&lt;/servlet-name&gt;
+        &lt;url-pattern&gt;/test01&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
+
+    &lt;servlet&gt;
+        &lt;servlet-name&gt;TestServlet&lt;/servlet-name&gt;&lt;servlet-class&gt;com.zhang.servlet.TestServlet&lt;/servlet-class&gt;
+        &lt;init-param&gt;&lt;param-name&gt;username&lt;/param-name&gt;&lt;param-value&gt;张长领&lt;/param-value&gt;&lt;/init-param&gt;
+    &lt;/servlet&gt;
+    &lt;servlet-mapping&gt;
+        &lt;servlet-name&gt;TestServlet&lt;/servlet-name&gt;
+        &lt;url-pattern&gt;/test02&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
+&lt;/web-app&gt;
+</code></pre>
+<p><code>servletConfig.getServletContext();</code></p>
+<p>返回ServletContext类型的对象</p>
+<p>我们重新编写web.xml文件:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+    &lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
+            xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+            xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;
+            version=&quot;4.0&quot;&gt;
+            
+        &lt;context-param&gt;&lt;param-name&gt;username&lt;/param-name&gt;&lt;param-value&gt;all&lt;/param-value&gt;&lt;/context-param&gt;
+
+        &lt;servlet&gt;
+        &lt;servlet-name&gt;MyServlet&lt;/servlet-name&gt;&lt;servlet-class&gt;com.zhang.servlet.MyServlet&lt;/servlet-class&gt;
+        &lt;init-param&gt;&lt;param-name&gt;username&lt;/param-name&gt;&lt;param-value&gt;Blackburn&lt;/param-value&gt;&lt;/init-param&gt;
+        &lt;init-param&gt;&lt;param-name&gt;password&lt;/param-name&gt;&lt;param-value&gt;123456&lt;/param-value&gt;&lt;/init-param&gt;
+        &lt;init-param&gt;&lt;param-name&gt;type&lt;/param-name&gt;&lt;param-value&gt;super&lt;/param-value&gt;&lt;/init-param&gt;
+        &lt;/servlet&gt;
+        &lt;servlet-mapping&gt;
+            &lt;servlet-name&gt;MyServlet&lt;/servlet-name&gt;
+            &lt;url-pattern&gt;/test01&lt;/url-pattern&gt;
+        &lt;/servlet-mapping&gt;
+
+        &lt;servlet&gt;
+            &lt;servlet-name&gt;TestServlet&lt;/servlet-name&gt;&lt;servlet-class&gt;com.zhang.servlet.TestServlet&lt;/servlet-class&gt;
+            &lt;init-param&gt;&lt;param-name&gt;username&lt;/param-name&gt;&lt;param-value&gt;张长领&lt;/param-value&gt;&lt;/init-param&gt;
+        &lt;/servlet&gt;
+        &lt;servlet-mapping&gt;
+            &lt;servlet-name&gt;TestServlet&lt;/servlet-name&gt;
+            &lt;url-pattern&gt;/test02&lt;/url-pattern&gt;
+        &lt;/servlet-mapping&gt;
+    &lt;/web-app&gt;
+</code></pre>
+<p>content-param是全局的param,而init-param只是一个Servlet的局部param</p>
+<p>到此为止,servletContext.getInitParameter(&ldquo;username&rdquo;);</p>
+<p>取到的是content-param的param-name的值,取的是全局param</p>
+<p>servletConfig.getInitParam(&ldquo;username&rdquo;);取的只是一个单独的servlet映射的名字</p>
+<p>这就说明了servletConfig对象和servletContext对象的范围不同</p>
+<p>servletConfig只是它所映射的那一个servlet的init-param,而servletContext是整个web.xml文件的content-param,也就是整个JavaWeb项目</p>
+<hr>
+<h2 id="servletcontext对象的几个常用方法">servletContext对象的几个常用方法</h2>
+<ul>
+<li>
+<p>servletContext.getContextPath();   获取Tomcat容器的路径</p>
+</li>
+<li>
+<p>servletContext.getServerInfo();    获取的是当前服务端的名称,Apache</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20210720204524340.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-2"></p>
+<hr>
+<h2 id="servlet接口的层次结构">Servlet接口的层次结构</h2>
+<p><img src="https://img-blog.csdnimg.cn/20210721011901360.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-3"></p>
+<blockquote>
+<p>通常我们编写Java代码,然后通过映射实现浏览器访问本地资源,我们要实现Servlet的五个方法</p>
+</blockquote>
+<blockquote>
+<p>而且当我们想要知道请求方式的时候,最主要的方法service不能做到</p>
+</blockquote>
+<blockquote>
+<p>然而,我们可以通过Servlet的子类HttpServlet重新编写Java代码</p>
+</blockquote>
+<blockquote>
+<p>实现既能区分请求方式,又能减少代码冗余</p>
+</blockquote>
+<p><code>代码重构</code></p>
+<pre><code>package com.zhang.code;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+public class Demo extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.getWriter().write(&quot;GET&quot;);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.getWriter().write(&quot;POST&quot;);
+    }
+}
+</code></pre>
+<blockquote>
+<p>如此,我们就可以区分请求方式是是POST还是GET了</p>
+</blockquote>
+<blockquote>
+<p>还有两个方法,分别是doPut和doDelete,这里就不做演示了</p>
+</blockquote>
+<h3 id="自定义httpservlet和genericservlet类">自定义HttpServlet和GenericServlet类</h3>
+<blockquote>
+<p>GenericServlet类是继承Servlet类,将除了service之外的四个方法排除掉,减少代码冗余</p>
+</blockquote>
+<blockquote>
+<p>HttpServlet类是继承GenericServlet类,在GenericServlet类减少代码冗余的基础上获取请求方式</p>
+</blockquote>
+<p><code>MyGenericServlet.java</code></p>
+<pre><code>package com.zhang.code;
+
+import javax.servlet.*;
+import java.io.IOException;
+
+public class MyGenericServlet implements Servlet {
+    @Override
+    public void init(ServletConfig servletConfig) throws ServletException {
+
+    }
+
+    @Override
+    public ServletConfig getServletConfig() {
+        return null;
+    }
+
+    @Override
+    public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
+
+    }
+
+    @Override
+    public String getServletInfo() {
+        return null;
+    }
+
+    @Override
+    public void destroy() {
+
+    }
+}
+</code></pre>
+<p><code>MyHttpServlet.java</code></p>
+<pre><code>package com.zhang.code;
+
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+public class MyHttpServlet extends MyGenericServlet{
+    @Override
+    public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
+        HttpServletRequest request = (HttpServletRequest)servletRequest;//将ServletRequest类强转为HttpServletRquest类,这样的request对象才能调用判断请求方式的方法
+        HttpServletResponse response = (HttpServletResponse)servletResponse;//同上,不然某些方法没法调用
+        String method = request.getMethod();
+        switch(method){
+            case &quot;GET&quot;:
+                doGet(request,response);
+                break;
+            case &quot;POST&quot;:
+                doPost(request,response);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void doGet(HttpServletRequest request,HttpServletResponse response){
+        try {
+            response.getWriter().write(&quot;HelloGet&quot;);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void doPost(HttpServletRequest request,HttpServletResponse response){
+        try {
+            response.getWriter().write(&quot;HelloPost&quot;);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+<p><code>HelloServlet.java</code></p>
+<pre><code>package com.zhang.code;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+@WebServlet(&quot;/demo&quot;)
+public class HelloServlet extends MyHttpServlet{
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response) {
+        super.doGet(request, response);
+    }
+
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) {
+        super.doPost(request, response);
+    }
+}
+</code></pre>
+<h1 id="step3-jsp详解">Step3. jsp详解</h1>
+<h2 id="jsp是什么">JSP是什么</h2>
+<blockquote>
+<p>jsp,就是你可以在HTML代码里写Java代码,这就是jsp</p>
+</blockquote>
+<blockquote>
+<p>你可以打开Apache Tomcat安装目录,找到works文件夹,随便打开一个,里面的文件都是成对存在的</p>
+</blockquote>
+<blockquote>
+<p>例如,Demo.java和Demo.java.jsp</p>
+</blockquote>
+<blockquote>
+<p>为什么呢,请往下看:</p>
+</blockquote>
+<h2 id="如何根据用户的不同请求response不同的html界面">如何根据用户的不同请求Response不同的HTML界面</h2>
+<blockquote>
+<p>传统做法是这样,通过HttpResponse对象的getWriter().write()方法向客户端Response字符串</p>
+</blockquote>
+<pre><code>package com.zhang.code;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+
+@WebServlet(&quot;/test&quot;)
+public class Demo extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.getWriter().write(&quot;&lt;!DOCTYPE html&gt;&quot;);
+        resp.getWriter().write(&quot;&lt;html lang=\&quot;en\&quot;&gt;&quot;);
+        resp.getWriter().write(&quot;&lt;head&gt;&quot;);
+        resp.getWriter().write(&quot;&lt;meta charset=\&quot;UTF-8\&quot;&gt;&quot;);
+        resp.getWriter().write(&quot;&lt;meta http-equiv=\&quot;X-UA-Compatible\&quot; content=\&quot;IE=edge\&quot;&gt;&quot;);
+        resp.getWriter().write(&quot;&lt;title&gt;Document&lt;/title&gt;&quot;);
+        resp.getWriter().write(&quot;&lt;/head&gt;&quot;);
+        resp.getWriter().write(&quot;&lt;body&gt;&quot;);
+        resp.getWriter().write(&quot;&lt;h1&gt;Hello&lt;/h1&gt;&quot;);
+        resp.getWriter().write(&quot;&lt;h2&gt;World&lt;/h2&gt;&quot;);
+        resp.getWriter().write(&quot;&lt;/body&gt;&quot;);
+        resp.getWriter().write(&quot;&lt;/html&gt;&quot;);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.getWriter().write(&quot;POST&quot;);
+    }
+}
+</code></pre>
+<blockquote>
+<p>但是如果HTML代码有几百行,你还要这样写吗?程序员不都英年早逝了</p>
+</blockquote>
+<blockquote>
+<p>于是,JSP文件诞生了,它可以在HTML文件中编写Java代码</p>
+</blockquote>
+<pre><code>&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;$Title$&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;%System.out.println(&quot;HelloWorld&quot;);%&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<blockquote>
+<p>那么,为什么work文件夹里面的代码是成对存在的呢</p>
+</blockquote>
+<blockquote>
+<p>一图了然:</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20210721173250808.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-4"></p>
+<blockquote>
+<p>jsp引擎,将我们编写的jsp代码编译成原来的传统模式,这样既能实现响应客户端请求,又能节省编码时间,提高编码效率</p>
+</blockquote>
+<blockquote>
+<p>其实JSP就是,利用JSP引擎,将我们编写的HTML代码转换成Java的Servlet代码,实现数据交互</p>
+</blockquote>
+<blockquote>
+<p>将</p>
+</blockquote>
+<pre><code>&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;$Title$&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;%System.out.println(&quot;HelloWorld&quot;);%&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+</code></pre>
+<blockquote>
+<p>转换成</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20210721173250808.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-5"></p>
+<h2 id="如何在jsp界面编写java代码">如何在JSP界面编写Java代码</h2>
+<p><img src="https://img-blog.csdnimg.cn/20210721174429130.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-6"></p>
+<p><code>test1.jsp</code></p>
+<pre><code>&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+    &lt;html&gt;
+        &lt;head&gt;
+            &lt;title&gt;$Title$&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;%System.out.println(&quot;HelloWorld&quot;);%&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;
+</code></pre>
+<blockquote>
+<p>这串代码是在你访问此jsp文件时,会在控制台打印一个HelloWorld字符串</p>
+</blockquote>
+<p><code>test2.jsp</code></p>
+<pre><code>&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+    &lt;html&gt;
+        &lt;head&gt;
+            &lt;title&gt;$Title$&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;%String str = &quot;HelloWorld!!!&quot;;%&gt;
+            &lt;%=str&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;
+</code></pre>
+<blockquote>
+<p>这串代码是将HelloWorld!!!字符串Response到客户端显示</p>
+</blockquote>
+<p><code>test3.jsp</code></p>
+<pre><code>&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+    &lt;html&gt;
+        &lt;head&gt;
+            &lt;title&gt;$Title$&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;%!
+                public String test(){
+                    return &quot;HelloWorld!!!&quot;;
+                }
+            %&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;
+</code></pre>
+<blockquote>
+<p>这串代码声明了一个方法</p>
+</blockquote>
+<h2 id="实例">实例:</h2>
+<blockquote>
+<p>在客户端上显示出姓名和年龄的表格</p>
+</blockquote>
+<blockquote>
+<p>先定义泛型</p>
+</blockquote>
+<p><code>User.java</code></p>
+<pre><code>package com.zhang.entity;
+
+public class User {
+    private String name;
+    private Integer age;
+
+    public User() {
+
+    }
+
+    public User(String name,Integer age){
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+}
+</code></pre>
+<p><code>index.jsp</code></p>
+<h2 id="jsp9个内置对象">jsp9个内置对象</h2>
+<blockquote>
+<p>Java的内置对象是Servlet已经定义好的,不需要声明new XXX();直接调用即可</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20210722152731759.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-7"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210722152731638.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-8"></p>
+<h3 id="request">request</h3>
+<ul>
+<li>
+<p>获取客户端请求参数</p>
+<pre><code>  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Title&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;%
+      String idStr = request.getParameter(&quot;id&quot;);
+      Integer id = Integer.parseInt(idStr);
+  %&gt;
+  &lt;%=id%&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+</li>
+<li>
+<p>将客户端的请求参数在不同的jsp文件之间传递</p>
+<blockquote>
+<p>虽然在Servlet的内置对象可以直接调用,不需要new来创建新对象</p>
+</blockquote>
+<blockquote>
+<p>但是如果你想要在不同的jsp文件中使用同一对象,你需要使用request.getRequestDispatcher(&ldquo;文件名&rdquo;).forward(request,response);</p>
+</blockquote>
+<blockquote>
+<p>将对象传到另外一个文件中.</p>
+</blockquote>
+<p><code>test01.jsp</code></p>
+<pre><code>      &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+      &lt;html&gt;
+      &lt;head&gt;
+          &lt;title&gt;Title&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+      &lt;%
+          String idStr = request.getParameter(&quot;id&quot;);
+          Integer id = Integer.parseInt(idStr);
+          id++;
+          request.setAttribute(&quot;id&quot;,id);
+          request.getRequestDispatcher(&quot;test02.jsp&quot;).forward(request,response);
+      %&gt;
+      &lt;/body&gt;
+      &lt;/html&gt;
+</code></pre>
+<p><code>test02.jsp</code></p>
+<pre><code>      &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+      &lt;html&gt;
+      &lt;head&gt;
+          &lt;title&gt;Title&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+      &lt;h1&gt;test2.jsp&lt;/h1&gt;
+      &lt;%
+          Integer id = (Integer) request.getAttribute(&quot;id&quot;);
+          id++;
+          request.setAttribute(&quot;id&quot;,id);
+          request.getRequestDispatcher(&quot;test03.jsp&quot;).forward(request,response);
+      %&gt;
+
+      &lt;%=id%&gt;
+      &lt;/body&gt;
+      &lt;/html&gt;
+</code></pre>
+<p><code>test03.jsp</code></p>
+<pre><code>      &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+      &lt;html&gt;
+      &lt;head&gt;
+          &lt;title&gt;Title&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+      &lt;%
+          Integer id = (Integer) request.getAttribute(&quot;id&quot;);
+
+      %&gt;
+      &lt;%=id%&gt;
+      &lt;/body&gt;
+      &lt;/html&gt;
+</code></pre>
+</li>
+<li>
+<p>获取传入的多个数值</p>
+<p><code>test04.jsp</code></p>
+<blockquote>
+<p>request.getParameterValues()方法会返回String类型的数组</p>
+</blockquote>
+<blockquote>
+<p>然后使用Arrays.toString(null);将获取的字符串数组中的字符串连接起来</p>
+</blockquote>
+<pre><code>  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Title&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;h1&gt;test04.jsp&lt;/h1&gt;
+  &lt;%
+      request.setCharacterEncoding(&quot;UTF-8&quot;);
+      String[] names = request.getParameterValues(&quot;name&quot;);
+  %&gt;
+  &lt;%=Arrays.toString(names)%&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+</li>
+</ul>
+<h3 id="response">response</h3>
+<ul>
+<li>response.sendRedirect(filepath);</li>
+</ul>
+<blockquote>
+<p>转移操作,request.getRequestDispatcher(filepath).forward(request,response);</p>
+</blockquote>
+<blockquote>
+<p>是将来自客户端的同一请求在服务器之间传递</p>
+</blockquote>
+<blockquote>
+<p>而response.sendRedirect(filepath);</p>
+</blockquote>
+<blockquote>
+<p>重定向操作,是新创建一个请求,在客户端之间传播,将原来的请求生命周期销毁</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20210731023324998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-9"></p>
+<ul>
+<li>
+<p>编写一个登录界面</p>
+<p><code>Login.jsp</code></p>
+<pre><code>  &lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/7/31
+  Time: 1:18
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;用户登录界面&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;form action = &quot;Check.jsp&quot; method = &quot;post&quot;&gt;
+      用户名:&lt;input type = &quot;text&quot; name = &quot;username&quot; /&gt;
+      密码:&lt;input type = &quot;password&quot; name = &quot;password&quot; /&gt;
+      &lt;input type = &quot;submit&quot; value = &quot;登录&quot; /&gt;
+
+  &lt;/form&gt;
+
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+<p><code>Check.jsp</code></p>
+<pre><code>  &lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/7/31
+  Time: 1:18
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;跳转中&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;%
+      String username = (String) request.getParameter(&quot;username&quot;);
+      String password = (String) request.getParameter(&quot;password&quot;);
+      if(username.equals(&quot;admin&quot;) &amp;&amp; password.equals(&quot;123456&quot;)){
+          request.setAttribute(&quot;username&quot;,username);
+          request.getRequestDispatcher(&quot;Welcome.jsp&quot;).forward(request,response);
+      }else{
+          response.sendRedirect(&quot;Login.jsp&quot;);
+      }
+
+  %&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+<p><code>Welcome.jsp</code></p>
+<pre><code>  &lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/7/31
+  Time: 1:18
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;网站主页&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;%
+      String username = (String) request.getAttribute(&quot;username&quot;);
+      out.write(username+&quot;欢迎回来!!!&quot;);
+  %&gt;
+
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+</li>
+</ul>
+<h3 id="session">Session</h3>
+<blockquote>
+<p>使用request和response对象模拟登录只能成功访问Welcome.jsp一次</p>
+</blockquote>
+<blockquote>
+<p>因为request和response对象从访问网页成功那一刻起生命周期就结束了</p>
+</blockquote>
+<blockquote>
+<p>所以使用request和response传递username是不可行的</p>
+</blockquote>
+<blockquote>
+<p>而Session的生命周期是从打开浏览器开始到关闭浏览器结束</p>
+</blockquote>
+<blockquote>
+<p>而且可以设置储存username的时间</p>
+</blockquote>
+<blockquote>
+<p>所以使用Session比request/response更方便</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20210801004619831.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-10"></p>
+<ul>
+<li>
+<p>下面使用Session实现网页多次登录</p>
+<p><code>Login.jsp</code></p>
+<pre><code>  &lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/7/31
+  Time: 15:31
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;登录界面&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;%--&lt;form&gt;&lt;/form&gt;标签的action属性的内容可以为Java文件映射--%&gt;
+      &lt;form action = &quot;/LoginServlet&quot; method = &quot;post&quot;&gt;
+          &lt;table border = &quot;0&quot;&gt;
+              &lt;tr&gt;
+                  &lt;td&gt;用户名&lt;/td&gt;
+                  &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;username&quot; /&gt;&lt;/td&gt;
+              &lt;/tr&gt;
+              &lt;tr&gt;
+                  &lt;td&gt;密码&lt;/td&gt;
+                  &lt;td&gt;&lt;input type=&quot;password&quot; name=&quot;password&quot; /&gt;&lt;/td&gt;
+              &lt;/tr&gt;
+              &lt;tr&gt;
+                  &lt;td&gt;&lt;input type=&quot;submit&quot; value = &quot;登录&quot; /&gt;&lt;/td&gt;
+              &lt;/tr&gt;
+          &lt;/table&gt;
+      &lt;/form&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+<p><code>Welcome.jsp</code></p>
+<pre><code>  &lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/7/31
+  Time: 15:29
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;登录成功&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;%
+      /*
+       * 获得session.setAttribute(&quot;username&quot;,username);的信息             
+       * 因为你使用session.setAttribute(&quot;username&quot;,username);储存的请求信息,只能使用session对象来取出来
+       * 如果你使用request.getAttribute(&quot;username&quot;);就会为null
+       */
+      String username = (String) session.getAttribute(&quot;username&quot;);
+      //将字符串输出到浏览器网页上
+      out.write(username+&quot;欢迎回来!!!&quot;);
+  %&gt;
+
+  &lt;%--&lt;a&gt;&lt;/a&gt;标签的超链接内容可以为映射--%&gt;
+  &lt;a href = &quot;/LogoutServlet&quot;&gt;退出登录&lt;/a&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+<p><code>LoginServlet.java</code></p>
+<pre><code>  package com.zhang.code;
+
+  import javax.servlet.ServletConfig;
+  import javax.servlet.ServletException;
+  import javax.servlet.annotation.WebServlet;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+  import javax.servlet.http.HttpSession;
+  import java.io.IOException;
+
+  /*
+   * 实现映射的另一种方法,比web.xml文件方便得多
+   * 只是如果你想要设置username或者password的值的话
+   * 就需要使用init-param这样的标签来储存相关key-value
+   */
+    
+  public class LoginServlet extends HttpServlet {
+
+      private String username = null;
+      private String password = null;
+
+      /* 
+       * 原本重写HttpServlet类是没有init(ServletConfig config);方法的
+       * 但是如果你在这个文件里需要获取username和password这类请求参数
+       * 就需要使用init方法
+       * 因为无论如何它都会执行
+       * 因为HttpServlet是Servlet的子类
+       */
+      @Override
+      public void init(ServletConfig config) throws ServletException {
+          /*
+           * this表示当前请求访问此Java文件
+           * 程序要运行,就要创建对象
+           * 例如创建了当前的username对象来储存你访问Login.jsp文件的post参数
+           * 这个对象只在你访问这个文件时有效,访问结束就消失了
+           * 不过别担心,这里只是拿来用于和web.xml设置的默认用户名和密码进行比较
+           * 而且Welcome.jsp文件要用到的username已经通过session.setAttribute(&quot;username&quot;,username);储存起来了只等待Welcome.jsp文件使用session.getAttribute(&quot;username&quot;);访问
+           */
+            
+          this.username = config.getInitParameter(&quot;username&quot;);//获取web.xml文件中servlet标签中的init-param中的param-value的值
+          this.password = config.getInitParameter(&quot;password&quot;);
+      }
+
+      @Override
+      protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+      }
+
+      @Override
+      protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+          //这里用于post请求是因为它有用户名和密码参数,这些参数不是明文访问的,需要通过内部对象等传送
+          String name = req.getParameter(&quot;username&quot;);//用于获取form表单的提交信息,就是请求参数,?后面的那几对key-value
+          String pwd = req.getParameter(&quot;password&quot;);
+          if(name.equals(this.username)&amp;&amp;pwd.equals(this.password)){
+              /*
+               * session对象是HttpSession类型,因为session本身就隶属于Http协议
+               * 使用req.getSession();方法创建session对象,就是说session可能是HttpServletRequest的子类
+               * setAttribute();的功能比父类强大
+               * 就像HttpServletRequest具有区分post和get两种请求方式的功能,比Servlet的request更加强大
+               * 使用req.getSession();创建session对象,由于session具有HttpServlet没有的可以长时间储存请求参数的功能
+               * 生命周期较长,而HttpSession(假设)是HttpServletRequest的子类,可以使用req的所有方法
+               * 所以我们可以使用session.setAttribute(&quot;username&quot;,username);替换req.setAttribute(&quot;username&quot;,username);
+               */
+                
+              HttpSession session = req.getSession();
+
+              /*
+               * 既然username是储存在session当中,整个项目启动后一次访问只有一个session对象
+               * 而这个session对象在浏览器未关闭之前不同页面的访问都是通用的,
+               * 信息已经储存在session当中,所以和req无关
+               * 使用resp.sendRedirect(&quot;welcome.jsp&quot;);也一样
+               * 因为你在另外一个页面使用session.getAttribute(&quot;username&quot;);获取username也一样,是同一个session对象
+               */
+              session.setAttribute(&quot;username&quot;,username);
+              resp.sendRedirect(&quot;Welcome.jsp&quot;);
+          }else{
+              resp.sendRedirect(&quot;Login.jsp&quot;);
+          }
+      }
+  }
+</code></pre>
+<p><code>LogoutServlet.jsp</code></p>
+<pre><code>  package com.zhang.code;
+
+  import javax.servlet.ServletException;
+  import javax.servlet.annotation.WebServlet;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+  import javax.servlet.http.HttpSession;
+  import java.io.IOException;
+
+
+  @WebServlet(&quot;/LogoutServlet&quot;)
+  public class LogoutServlet extends HttpServlet {
+      @Override
+      protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+          /*
+           * 这里设置成get请求方式是因为这次没有暗文的username和password,没有任何参数
+           * 就像直接在浏览器输入栏里面输入网址localhost:8080/Login.jsp一样
+           * 我他妈也不太懂
+           */
+          HttpSession session = req.getSession();
+          session.invalidate();
+          resp.sendRedirect(&quot;Login.jsp&quot;);
+      }
+
+      @Override
+      protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+      }
+  }
+</code></pre>
+<p><code>web.xml</code></p>
+<pre><code>  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+  &lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
+      xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+      xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;
+      version=&quot;4.0&quot;&gt;
+      &lt;servlet&gt;
+          &lt;servlet-name&gt;LoginServlet&lt;/servlet-name&gt;
+          &lt;servlet-class&gt;com.zhang.code.LoginServlet&lt;/servlet-class&gt;
+          &lt;init-param&gt;
+              &lt;param-name&gt;username&lt;/param-name&gt;
+              &lt;param-value&gt;admin&lt;/param-value&gt;
+          &lt;/init-param&gt;
+          &lt;init-param&gt;
+              &lt;param-name&gt;password&lt;/param-name&gt;
+              &lt;param-value&gt;123456&lt;/param-value&gt;
+          &lt;/init-param&gt;
+      &lt;/servlet&gt;
+      &lt;servlet-mapping&gt;
+          &lt;servlet-name&gt;LoginServlet&lt;/servlet-name&gt;
+          &lt;url-pattern&gt;/LoginServlet&lt;/url-pattern&gt;
+      &lt;/servlet-mapping&gt;
+  &lt;/web-app&gt;
+</code></pre>
+</li>
+</ul>
+<h3 id="cookie">Cookie</h3>
+<blockquote>
+<p>浏览器原本就带有Cookie</p>
+</blockquote>
+<blockquote>
+<p>Cookie从客户端发送到服务器,服务器做出响应也会发送一个Cookie的值</p>
+</blockquote>
+<blockquote>
+<p>客户端向服务器发送Cookie时,浏览器可能会使用response.addCookie(&ldquo;name&rdquo;,value);重新设置Cookie</p>
+</blockquote>
+<blockquote>
+<p>之后服务器进行响应的时候会将新设置的Cookie值返回给客户端</p>
+</blockquote>
+<blockquote>
+<p>以此实现定点交流的目的</p>
+</blockquote>
+<ul>
+<li>
+<p>设置Cookie</p>
+<p><code>Cookie01.jsp</code></p>
+<pre><code>  &lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/1
+  Time: 13:36
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;CookieTest&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;%
+  //    Cookie cookie = new Cookie(&quot;name&quot;,&quot;Blackburn&quot;);
+      Cookie cookie = new Cookie(&quot;name&quot;,&quot;Wife&quot;);
+      response.addCookie(cookie);
+  %&gt;
+
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+<blockquote>
+<p>第一次访问localhost:8080/Login.jsp打开NetWork,Cookie值里面不会有name=Blackburn出现</p>
+</blockquote>
+<blockquote>
+<p>当你访问localhost:8080/Cookie.jsp打开NetWork,response里面就会有set-Cookie,而且Cookie值里面就会有name=Blackburn出现</p>
+</blockquote>
+<blockquote>
+<p>这是因为客户端将它自己默认的Cookie发送给服务器</p>
+</blockquote>
+<blockquote>
+<p>如果你访问的是Login.jsp,Login.jsp里面没有设置Cookie的代码</p>
+</blockquote>
+<blockquote>
+<p>所以响应给客户端的Cookie值就是客户端默认的Cookie值</p>
+</blockquote>
+<blockquote>
+<p>而当访问Cookie.jsp时,由于Cookie.jsp文件使得服务器更改了Cookie的值</p>
+</blockquote>
+<blockquote>
+<p>所以响应给客户端的Cookie是一个基于客户端默认Cookie值之上新设置的Cookie</p>
+</blockquote>
+<blockquote>
+<p>等到你继续访问同一个服务器的另外一个页面,Cookie值还是刚才设置好的</p>
+</blockquote>
+<blockquote>
+<p>但是如果关闭浏览器再次访问,那刚才设置的Cookie值就都不见了</p>
+</blockquote>
+<blockquote>
+<p>新的Cookie值还是客户端默认的Cookie值</p>
+</blockquote>
+<blockquote>
+<p>这就是说Cookie的生命周期是从打开网页开始到关闭浏览器结束</p>
+</blockquote>
+<blockquote>
+<p>而Session则有所不同,Session的生命周期是打开服务器开始到关闭服务器结束</p>
+</blockquote>
+</li>
+<li>
+<p>获取Cookie的key-value值</p>
+<p><code>Cookie02.jsp</code></p>
+<pre><code>  &lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/1
+  Time: 13:36
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;CookieTest&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;%
+      Cookie[] cookies = request.getCookies();
+      for(Cookie cookie : cookies){
+          out.write(cookie.getName()+&quot;:&quot;+cookie.getValue()+&quot;&lt;br /&gt;&quot;);
+      }
+  %&gt;
+
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20210801142348721.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-11"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210801142456817.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-12"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210801143606824.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-13"></p>
+<ul>
+<li>
+<p>使用Cookie模拟登陆访问界面</p>
+<p><code>CookieLogin.jsp</code></p>
+<pre><code>  &lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/1
+  Time: 22:36
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;登录界面&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;form action = &quot;/CookieLogin&quot; method = &quot;post&quot;&gt;
+      &lt;table border = &quot;0&quot;&gt;
+          &lt;tr&gt;
+              &lt;td&gt;用户名:&lt;/td&gt;
+              &lt;td&gt;&lt;input type = &quot;text&quot; name = &quot;username&quot; /&gt;&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+              &lt;td&gt;密码&lt;/td&gt;
+              &lt;td&gt;&lt;input type = &quot;password&quot; name = &quot;password&quot; /&gt;&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+              &lt;td&gt;&lt;input type = &quot;submit&quot; value = &quot;登录&quot; /&gt;&lt;/td&gt;
+          &lt;/tr&gt;
+
+      &lt;/table&gt;
+  &lt;/form&gt;
+
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+<p><code>CookieLogin.java</code></p>
+<pre><code>  package com.zhang.code;
+
+  import javax.servlet.ServletConfig;
+  import javax.servlet.ServletException;
+  import javax.servlet.http.Cookie;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+  import java.io.IOException;
+
+  public class CookieLogin extends HttpServlet {
+      private String username = null;
+      private String password = null;
+
+      @Override
+      public void init(ServletConfig config) throws ServletException {
+          this.username = config.getInitParameter(&quot;username&quot;);
+          this.password = config.getInitParameter(&quot;password&quot;);
+      }
+
+      @Override
+      protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+          String myUsername = req.getParameter(&quot;username&quot;);
+          String myPassword = req.getParameter(&quot;password&quot;);
+          if(username.equals(myUsername) &amp;&amp; password.equals(myPassword)){
+              Cookie cookie = new Cookie(&quot;username&quot;,myUsername);
+              resp.addCookie(cookie);
+              resp.sendRedirect(&quot;CookieWelcome.jsp&quot;);
+          }else{
+              resp.sendRedirect(&quot;CookieLogin.jsp&quot;);
+          }
+      }
+  }
+</code></pre>
+<p><code>CookieWelcome.jsp</code></p>
+<pre><code>  &lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/1
+  Time: 22:36
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Title&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;%
+      Cookie[] cookies = request.getCookies();
+      for(Cookie cookie : cookies){
+          if(cookie.getName().equals(&quot;username&quot;)){
+              out.write(cookie.getValue()+&quot;,欢迎回来!!!&quot;);
+              out.write(&quot;&lt;a href = '/CookieLogout'&gt;退出登录&lt;/a&gt;&quot;);
+          }
+      }
+  %&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+<p><code>CookieLogout.java</code></p>
+<pre><code>  package com.zhang.code;
+
+  import javax.servlet.ServletException;
+  import javax.servlet.annotation.WebServlet;
+  import javax.servlet.http.Cookie;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+  import java.io.IOException;
+
+  @WebServlet(&quot;/CookieLogout&quot;)
+  public class CookieLogout extends HttpServlet {
+      @Override
+      protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+          Cookie[] cookies = req.getCookies();
+          for(Cookie cookie : cookies){
+              if(cookie.getName().equals(&quot;username&quot;)){
+                  cookie.setMaxAge(0);
+                  resp.addCookie(cookie);
+                  resp.sendRedirect(&quot;CookieLogin.jsp&quot;);
+              }
+          }
+      }
+  }
+</code></pre>
+<p><code>web.xml</code></p>
+<pre><code>  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+  &lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
+          xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+          xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;
+          version=&quot;4.0&quot;&gt;
+      &lt;servlet&gt;
+          &lt;servlet-name&gt;CookieLogin&lt;/servlet-name&gt;
+          &lt;servlet-class&gt;com.zhang.code.CookieLogin&lt;/servlet-class&gt;
+          &lt;init-param&gt;
+              &lt;param-name&gt;username&lt;/param-name&gt;
+              &lt;param-value&gt;admin&lt;/param-value&gt;
+          &lt;/init-param&gt;
+          &lt;init-param&gt;
+              &lt;param-name&gt;password&lt;/param-name&gt;
+              &lt;param-value&gt;123456&lt;/param-value&gt;
+          &lt;/init-param&gt;
+      &lt;/servlet&gt;
+      &lt;servlet-mapping&gt;
+          &lt;servlet-name&gt;CookieLogin&lt;/servlet-name&gt;
+          &lt;url-pattern&gt;/CookieLogin&lt;/url-pattern&gt;
+      &lt;/servlet-mapping&gt;
+  &lt;/web-app&gt;
+</code></pre>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20210802025222202.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-14"></p>
+<h2 id="http状态码">HTTP状态码</h2>
+<ul>
+<li>
+<p>200   &mdash;&gt;    正常</p>
+</li>
+<li>
+<p>404   &mdash;&gt;    找不到资源</p>
+</li>
+<li>
+<p>400   &mdash;&gt;    请求类型不匹配</p>
+</li>
+<li>
+<p>500   &mdash;&gt;    Java程序抛出异常</p>
+</li>
+</ul>
+<h2 id="jsp作用域">jsp作用域</h2>
+<p><img src="https://img-blog.csdnimg.cn/20210803014849975.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-15"></p>
+<p>**如果你在jstl表达式中直接写</p>
+<pre><code>&lt;%@ taglib prefix = &quot;c&quot; uri = &quot;http://java.sun.com/jsp/jstl/core&quot;%&gt;
+&lt;c:set var = &quot;name&quot; value = &quot;Blackburn&quot;&gt;
+&lt;c:out value = ${name} default = &quot;404&quot;&gt;
+</code></pre>
+<p>这里name的作用域默认为page</p>
+<ul>
+<li>
+<p>page</p>
+<blockquote>
+<p>只在当前页面有效</p>
+</blockquote>
+<blockquote>
+<p>虽然是page,但是它在jsp里面的内置对象是pageContext</p>
+</blockquote>
+</li>
+<li>
+<p>request</p>
+<blockquote>
+<p>只在当前请求有效</p>
+</blockquote>
+</li>
+<li>
+<p>session</p>
+<blockquote>
+<p>在当前会话里面有效</p>
+</blockquote>
+</li>
+<li>
+<p>application</p>
+<blockquote>
+<p>在整个Tomcat服务器中都有效</p>
+</blockquote>
+<blockquote>
+<p>就是你这个Tomcat服务器只要一运行,无论是使用Chrome还是EDGE等浏览器都可以访问</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>page,request,session以及application都可以调用setAttribute和getAttribute方法</p>
+</blockquote>
+<p><code>main.jsp</code></p>
+<pre><code>&lt;%--
+Created by IntelliJ IDEA.
+User: Blackburn
+Date: 2021/8/2
+Time: 23:23
+To change this template use File | Settings | File Templates.
+--%&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;测试Page对象&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;%
+    /*
+    pageContext.setAttribute(&quot;name&quot;,&quot;Blackburn&quot;);
+    String name = (String) pageContext.getAttribute(&quot;name&quot;);
+    */
+
+    /*
+    request.setAttribute(&quot;name&quot;,&quot;Blackburn&quot;);
+    request.getRequestDispatcher(&quot;target.jsp&quot;).forward(request,response);
+    */
+
+    /*
+    request.setAttribute(&quot;name&quot;,&quot;Blackburn&quot;);
+    response.sendRedirect(&quot;target.jsp&quot;);
+    */
+
+    /*
+    session.setAttribute(&quot;name&quot;,&quot;Blackburn&quot;);
+    response.sendRedirect(&quot;target.jsp&quot;);
+    */
+
+    application.setAttribute(&quot;name&quot;,&quot;Blackburn&quot;);
+    response.sendRedirect(&quot;target.jsp&quot;);
+%&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><code>target.jsp</code></p>
+<pre><code>&lt;%--
+Created by IntelliJ IDEA.
+User: Blackburn
+Date: 2021/8/3
+Time: 0:14
+To change this template use File | Settings | File Templates.
+--%&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Page之外的其他界面&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;%
+//    String name = (String) pageContext.getAttribute(&quot;name&quot;);
+//    String name = (String) request.getAttribute(&quot;name&quot;);
+//    String name = (String) session.getAttribute(&quot;name&quot;);
+    String name = (String) application.getAttribute(&quot;name&quot;);
+%&gt;
+
+&lt;%=name%&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li>
+<p>利用内置对象的作用域实现统计网页访问次数</p>
+<blockquote>
+<p>这里如果使用request就永远都是1了</p>
+</blockquote>
+<blockquote>
+<p>因为request的作用域只限于一次请求</p>
+</blockquote>
+<blockquote>
+<p>所以当你第二次访问的时候上一次的request对象已经被释放掉了</p>
+</blockquote>
+<blockquote>
+<p>所以如果使用request对象,那么程序就没进过else</p>
+</blockquote>
+<pre><code>  &lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/3
+  Time: 1:34
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;统计页面访问次数&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;%
+      Integer count = (Integer) session.getAttribute(&quot;count&quot;);
+      if(count == null){
+          count = 1;
+          session.setAttribute(&quot;count&quot;,count);
+      }else{
+          count = (Integer) session.getAttribute(&quot;count&quot;);
+          count++;
+          session.setAttribute(&quot;count&quot;,count);
+      }
+      out.write(&quot;第&quot;+count.toString()+&quot;次访问此页面&quot;);
+  %&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+</li>
+</ul>
+<h1 id="step4-el表达式">Step4. el表达式</h1>
+<h2 id="使用el表达式简化jsp代码">使用el表达式简化jsp代码</h2>
+<p><img src="https://img-blog.csdnimg.cn/2021080323582658.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-16"></p>
+<pre><code>&lt;%
+    request.setAttribute(&quot;name&quot;,&quot;Blackburn&quot;);
+    String name = request.getAttribute(&quot;name&quot;);
+%&gt;
+&lt;%=name%&gt;
+</code></pre>
+<blockquote>
+<p>将其变为:</p>
+</blockquote>
+<pre><code>&lt;%
+    request.setAttribute(&quot;name&quot;,&quot;Blackburn&quot;);
+%&gt;
+${name}
+</code></pre>
+<blockquote>
+<p>显然,${}运算符就是用来取对象的</p>
+</blockquote>
+<h2 id="取setattribute里面的值需要考虑对象作用域">取setAttribute里面的值需要考虑对象作用域</h2>
+<ul>
+<li>
+<p>如果是下面这样,查找值的优先级与对象的作用于相反</p>
+</li>
+<li>
+<p>就是pageContext &gt; request &gt; session &gt; application</p>
+<p><code>el.jsp</code></p>
+<pre><code>  &lt;%@ page import=&quot;com.zhang.code.User&quot; %&gt;
+  &lt;%@ page import=&quot;com.zhang.code.Address&quot; %&gt;&lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/3
+  Time: 14:40
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;测试el表达式&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;%
+      pageContext.setAttribute(&quot;name&quot;,&quot;page&quot;);
+      request.setAttribute(&quot;name&quot;,&quot;request&quot;);
+      session.setAttribute(&quot;name&quot;,&quot;session&quot;);
+      application.setAttribute(&quot;name&quot;,&quot;session&quot;);
+  %&gt;
+  &lt;%--${name}--%&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+</li>
+<li>
+<p>但我们可以指定取值空间</p>
+<pre><code>  &lt;%@ page import=&quot;com.zhang.code.User&quot; %&gt;
+  &lt;%@ page import=&quot;com.zhang.code.Address&quot; %&gt;&lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/3
+  Time: 14:40
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;测试el表达式&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;%
+      pageContext.setAttribute(&quot;name&quot;,&quot;page&quot;);
+      request.setAttribute(&quot;name&quot;,&quot;request&quot;);
+      session.setAttribute(&quot;name&quot;,&quot;session&quot;);
+      application.setAttribute(&quot;name&quot;,&quot;session&quot;);
+  %&gt;
+  ${sessionScope.name}
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+</li>
+<li>
+<p>就是这样,指名道姓的,说明白到哪里取值</p>
+</li>
+<li>
+<p>如果是在不同文件之间通过转发的方式向浏览器输入对象信息,</p>
+</li>
+<li>
+<p>如果你是使用getAttribute获取这个对象,再使用${}输出就大错特错了,因为${}就是用来代替getAttribute方法的</p>
+</li>
+<li>
+<p>它同样可以取setAttribute存储的值</p>
+</li>
+</ul>
+<h2 id="将对象信息输出到浏览器">将对象信息输出到浏览器</h2>
+<p><img src="https://img-blog.csdnimg.cn/20210803235907170.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-17"></p>
+<ul>
+<li>
+<p>setAttribute方法中储存的是对象</p>
+<p><code>User.java</code></p>
+<pre><code>      package com.zhang.code;
+
+      public class User {
+
+          private String name;
+          private Integer id;
+          private Integer age;
+          private Integer score;
+          private Address address;
+
+          public User(String name, Integer id, Integer age, Integer score, Address address) {
+              this.name = name;
+              this.id = id;
+              this.age = age;
+              this.score = score;
+              this.address = address;
+          }
+
+          public User() {
+
+          }
+
+          public String getName() {
+              return name;
+          }
+
+          public void setName(String name) {
+              this.name = name;
+          }
+
+          public Integer getId() {
+              return id;
+          }
+
+          public void setId(Integer id) {
+              this.id = id;
+          }
+
+          public Integer getAge() {
+              return age;
+          }
+
+          public void setAge(Integer age) {
+              this.age = age;
+          }
+
+          public Integer getScore() {
+              return score;
+          }
+
+          public void setScore(Integer score) {
+              this.score = score;
+          }
+
+          public Address getAddress() {
+              return address;
+          }
+
+          public void setAddress(Address address) {
+              this.address = address;
+          }
+
+          @Override
+          public String toString() {
+              return &quot;User{&quot; +
+                      &quot;name='&quot; + name + '\'' +
+                      &quot;, id=&quot; + id +
+                      &quot;, age=&quot; + age +
+                      &quot;, score=&quot; + score +
+                      &quot;, address=&quot; + address +
+                      '}';
+          }
+      }
+</code></pre>
+<p><code>Address.java</code></p>
+<pre><code>  package com.zhang.code;
+
+  public class Address {
+      private Integer id;
+      private String address;
+
+      public Address(Integer id, String address) {
+          this.id = id;
+          this.address = address;
+      }
+
+      public Address() {
+
+      }
+
+      public Integer getId() {
+          return id;
+      }
+
+      public void setId(Integer id) {
+          this.id = id;
+      }
+
+      public String getAddress() {
+          return address;
+      }
+
+      public void setAddress(String address) {
+          this.address = address;
+      }
+  }
+</code></pre>
+<p><code>el.jsp</code></p>
+<pre><code>  &lt;%@ page import=&quot;com.zhang.code.User&quot; %&gt;
+  &lt;%@ page import=&quot;com.zhang.code.Address&quot; %&gt;&lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/3
+  Time: 14:40
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;测试el表达式&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;%
+      User user = new User(&quot;Blackburn&quot;,18,1,100,new Address(1,&quot;墨尔本&quot;));
+      pageContext.setAttribute(&quot;user&quot;,user);
+  %&gt;
+  &lt;table border = &quot;0&quot;&gt;
+      &lt;tr&gt;
+          &lt;th&gt;姓名&lt;/th&gt;
+          &lt;th&gt;年龄&lt;/th&gt;
+          &lt;th&gt;id&lt;/th&gt;
+          &lt;th&gt;成绩&lt;/th&gt;
+          &lt;th&gt;地址&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;${user.name}&lt;/td&gt;
+          &lt;td&gt;${user.age}&lt;/td&gt;
+          &lt;td&gt;${user.id}&lt;/td&gt;
+          &lt;td&gt;${user.score}&lt;/td&gt;
+          &lt;td&gt;${user.address}&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/table&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+</li>
+</ul>
+<h2 id="el执行表达式">el执行表达式</h2>
+<p><img src="https://img-blog.csdnimg.cn/20210804000842930.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-18"></p>
+<p><code>el2.jsp</code></p>
+<pre><code>&lt;%--
+Created by IntelliJ IDEA.
+User: Blackburn
+Date: 2021/8/3
+Time: 14:42
+To change this template use File | Settings | File Templates.
+--%&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;使用el表达式替换输出到浏览器&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;%
+    request.setAttribute(&quot;Demo01&quot;,true);
+    request.setAttribute(&quot;Demo02&quot;,false);
+%&gt;
+
+${Demo01&amp;&amp;Demo02}
+&lt;%--这里如果使用and的话,你需要注意key和and之间的空格,如果没有空格将会出错
+    但是如果你使用&amp;&amp;就可以避免连在一起的情况--%&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h1 id="step5-jstl表达式">Step5. jstl表达式</h1>
+<blockquote>
+<p>作用:用来简化jsp代码</p>
+</blockquote>
+<blockquote>
+<p>使用jstl表达式需要导入对应的jar包</p>
+</blockquote>
+<p><code>教程</code></p>
+<pre><code>下载这两个包:
+
+Apache Tomcat安装JSTL 库步骤如下：
+
+从Apache的标准标签库中下载的二进包(jakarta-taglibs-standard-current.zip)。
+
+-   官方下载地址：[http://MyBlog.apache.org/dist/jakarta/taglibs/standard/binaries/](http://MyBlog.apache.org/dist/jakarta/taglibs/standard/binaries/)
+-   本站下载地址：[jakarta-taglibs-standard-1.1.2.zip](http://static.runoob.com/download/jakarta-taglibs-standard-1.1.2.tar.gz)
+
+下载 **jakarta-taglibs-standard-1.1.2.zip** 包并解压，将 **jakarta-taglibs-standard-1.1.2/lib/** 下的两个 jar 文件：**standard.jar** 和 **jstl.jar** 文件拷贝到 **/WEB-INF/lib/** 下。
+
+将 tld 下的需要引入的 tld 文件复制到 WEB-INF 目录下。
+
+然后在idea中右键lib文件夹,添加为库
+</code></pre>
+<h2 id="普通方法将三个对象的信息输出到浏览器">普通方法将三个对象的信息输出到浏览器</h2>
+<ul>
+<li>
+<p>在Java文件中创建三个对象,将他们添加到List,使用转发将对象传到jsp代码,最后通过jsp输出到浏览器</p>
+<p><code>UserServlet.java</code></p>
+<pre><code>  package com.zhang.code;
+
+  import javax.servlet.ServletException;
+  import javax.servlet.annotation.WebServlet;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+  import java.io.IOException;
+  import java.util.ArrayList;
+  import java.util.List;
+
+  @WebServlet(&quot;/User&quot;)
+  public class UserServlet extends HttpServlet {
+      @Override
+      protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+          List&lt;User&gt; lists = new ArrayList&lt;&gt;();
+          lists.add(new User(&quot;Blackburn&quot;,1,18,100,new Address(1,&quot;墨尔本&quot;)));
+          lists.add(new User(&quot;张长领&quot;,2,45,100,new Address(1,&quot;拉斯维加斯&quot;)));
+          lists.add(new User(&quot;张长全&quot;,3,35,100,new Address(1,&quot;加利福尼亚&quot;)));
+          req.setAttribute(&quot;lists&quot;,lists);
+          req.getRequestDispatcher(&quot;index.jsp&quot;).forward(req,resp);
+      }
+  }
+</code></pre>
+<p><code>index.jsp</code></p>
+<pre><code>  &lt;%@ page import=&quot;com.zhang.code.User&quot; %&gt;
+  &lt;%@ page import=&quot;java.util.List&quot; %&gt;
+  &lt;%@ page import=&quot;com.zhang.code.UserServlet&quot; %&gt;&lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/2
+  Time: 17:28
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;$Title$&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;%--  &lt;table border = &quot;0&quot;&gt;--%&gt;
+  &lt;%--    &lt;tr&gt;&lt;th&gt;姓名&lt;/th&gt;&lt;th&gt;ID&lt;/th&gt;&lt;th&gt;年龄&lt;/th&gt;&lt;th&gt;成绩&lt;/th&gt;&lt;/tr&gt;--%&gt;
+  &lt;%--    &lt;tr&gt;--%&gt;
+  &lt;%--      &lt;td&gt;${requestScope.lists[0].name}&lt;/td&gt;--%&gt;
+  &lt;%--      &lt;td&gt;${requestScope.lists[0].id}&lt;/td&gt;--%&gt;
+  &lt;%--      &lt;td&gt;${requestScope.lists[0].age}&lt;/td&gt;--%&gt;
+  &lt;%--      &lt;td&gt;${requestScope.lists[0].address.address}&lt;/td&gt;--%&gt;
+  &lt;%--    &lt;/tr&gt;--%&gt;
+  &lt;%--    &lt;tr&gt;--%&gt;
+  &lt;%--      &lt;td&gt;${requestScope.lists[1].name}&lt;/td&gt;--%&gt;
+  &lt;%--      &lt;td&gt;${requestScope.lists[1].id}&lt;/td&gt;--%&gt;
+  &lt;%--      &lt;td&gt;${requestScope.lists[1].age}&lt;/td&gt;--%&gt;
+  &lt;%--      &lt;td&gt;${requestScope.lists[1].address.address}&lt;/td&gt;--%&gt;
+  &lt;%--    &lt;/tr&gt;--%&gt;
+  &lt;%--    &lt;tr&gt;--%&gt;
+  &lt;%--      &lt;td&gt;${requestScope.lists[2].name}&lt;/td&gt;--%&gt;
+  &lt;%--      &lt;td&gt;${requestScope.lists[2].id}&lt;/td&gt;--%&gt;
+  &lt;%--      &lt;td&gt;${requestScope.lists[2].age}&lt;/td&gt;--%&gt;
+  &lt;%--      &lt;td&gt;${requestScope.lists[2].address.address}&lt;/td&gt;--%&gt;
+  &lt;%--    &lt;/tr&gt;--%&gt;
+  &lt;%--  &lt;/table&gt;--%&gt;
+
+
+  &lt;%--  &lt;table border = &quot;0&quot;&gt;--%&gt;
+  &lt;%--    &lt;tr&gt;&lt;th&gt;姓名&lt;/th&gt;&lt;th&gt;ID&lt;/th&gt;&lt;th&gt;年龄&lt;/th&gt;&lt;th&gt;成绩&lt;/th&gt;&lt;/tr&gt;--%&gt;
+  &lt;%--    &lt;%--%&gt;
+  &lt;%--      List&lt;User&gt; lists = (List&lt;User&gt;) request.getAttribute(&quot;lists&quot;);--%&gt;
+  &lt;%--      for(User list : lists){--%&gt;
+  &lt;%--        request.setAttribute(&quot;list&quot;,list);--%&gt;
+  &lt;%--        这里你必须将使用增强型for循环取出的User对象储存到request中,因为就算你request里面有lists,也没有list   --%&gt;
+  &lt;%--    &lt;tr&gt;--%&gt;
+  &lt;%--      &lt;td&gt;${list.name}&lt;/td&gt;--%&gt;
+  &lt;%--      &lt;td&gt;${list.id}&lt;/td&gt;--%&gt;
+  &lt;%--      &lt;td&gt;${list.age}&lt;/td&gt;--%&gt;
+  &lt;%--      &lt;td&gt;${list.score}&lt;/td&gt;--%&gt;
+  &lt;%--      &lt;td&gt;${list.address.address}&lt;/td&gt;--%&gt;
+  &lt;%--    &lt;/tr&gt;--%&gt;
+  &lt;%--    &lt;%--%&gt;
+  &lt;%--      }--%&gt;
+  &lt;%--    %&gt;--%&gt;
+  &lt;%--  &lt;/table&gt;--%&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+</li>
+</ul>
+<blockquote>
+<p>代码中有两种方法,其实也没什么区别,只是利用了for循环减少了一下代码量而已</p>
+</blockquote>
+<h2 id="使用jstl代码简化for循环">使用jstl代码简化for循环</h2>
+<ul>
+<li>
+<p>使用jstl代码之前,需要导入相关资源</p>
+<pre><code>  &lt;%@ taglib prefix = &quot;c&quot; uri = &quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+  &lt;%--    taglib是标签的意思,prefix是前缀的意思,和Python中的import tensorflow as ts是一个道理,就是起个别名用于简化代码 uri的内容也就是导入相关资源,链接最后的core是核心的意思,意思就是导入核心资源    --%&gt;
+</code></pre>
+</li>
+<li>
+<p>于是我们就可以这样写代码:</p>
+<p><code>index.jsp</code></p>
+<pre><code>  &lt;%@ page import=&quot;com.zhang.code.User&quot; %&gt;
+  &lt;%@ page import=&quot;java.util.List&quot; %&gt;
+  &lt;%@ page import=&quot;com.zhang.code.UserServlet&quot; %&gt;&lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/2
+  Time: 17:28
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;$Title$&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;%--    forEach就是for循环,这个可以参照一下PHP里面的东西    --%&gt;
+  &lt;%--    items是用来取出你要遍历的对象,但是一定要使用${}去取出来    --%&gt;
+  &lt;%--    var就是每次遍历取出的单个对象变量,其实也是变量的名字(你想,声明一个变量的同时就已经给他起了个名字)    --%&gt;
+  &lt;c:forEach items = &quot;${lists}&quot; var = &quot;list&quot;&gt;
+      &lt;table border = &quot;0&quot;&gt;
+      &lt;tr&gt;&lt;th&gt;姓名&lt;/th&gt;&lt;th&gt;ID&lt;/th&gt;&lt;th&gt;年龄&lt;/th&gt;&lt;th&gt;成绩&lt;/th&gt;&lt;/tr
+      &lt;tr&gt;
+          &lt;td&gt;${list.name}&lt;/td&gt;
+          &lt;td&gt;${list.id}&lt;/td&gt;
+          &lt;td&gt;${list.age}&lt;/td&gt;
+          &lt;td&gt;${list.score}&lt;/td&gt;
+          &lt;td&gt;${list.address.address}&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;/table&gt;
+  &lt;/c:forEach&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+</li>
+</ul>
+<h2 id="jstl语句详解">jstl语句详解</h2>
+<ul>
+<li>
+<p>使用jstl代码创建的变量如果没有使用scope属性声明变量的作用域,也就是储存在哪个对象里面,就根据对象的优先级来断定,所以默认为pageContext</p>
+<p><code>set.jsp</code></p>
+<blockquote>
+<p>使用jstl表达式的set标签声明变量</p>
+</blockquote>
+<pre><code>  &lt;%@ page import=&quot;com.zhang.code.User&quot; %&gt;
+  &lt;%@ page import=&quot;com.zhang.code.Address&quot; %&gt;&lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/4
+  Time: 16:42
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot;%&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;测试jstl&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;%--    var是变量的意思,声明一个名叫name的变量;value是这个变量的值,所以下面可以直接使用el表达式响应变量值  --%&gt;
+  &lt;c:set var = &quot;name&quot; value = &quot;Blackburn&quot;&gt;
+  &lt;/c:set&gt;
+  ${name}
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+<p><code>setADDscope.jsp</code></p>
+<blockquote>
+<p>在jstl表达式中声明变量的储存空间</p>
+</blockquote>
+<pre><code>  &lt;%@ page import=&quot;com.zhang.code.User&quot; %&gt;
+  &lt;%@ page import=&quot;com.zhang.code.Address&quot; %&gt;&lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/4
+  Time: 16:42
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot;%&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;测试jstl&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;%--    scope就是具体说明变量储存在哪个对象中,然后你就可以使用el表达式那一套响应这个值(request.name/pageContext.name/session.name,application.name)   --%&gt;
+  &lt;c:set var = &quot;name&quot; value = &quot;Blackburn&quot; scope = &quot;request&quot;&gt;&lt;/c:set&gt;
+  ${requestScope.name}
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+<p><code>setANDobject.jsp</code></p>
+<blockquote>
+<p>向浏览器输出对象信息的注意事项</p>
+</blockquote>
+<pre><code>  &lt;%@ page import=&quot;com.zhang.code.User&quot; %&gt;
+  &lt;%@ page import=&quot;com.zhang.code.Address&quot; %&gt;&lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/4
+  Time: 16:42
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot;%&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;测试jstl&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;%
+      User user = new User(&quot;张长全&quot;,1,19,100,new Address(1,&quot;墨尔本&quot;));
+      &lt;%--    这个事就是要说明一下,如果你想要使用el表达式向浏览器中输出对象的属性,必须要将它储存在四种对象的其中一个  --%&gt;
+      request.setAttribute(&quot;user&quot;,user);
+  %&gt;
+  ${user.name}
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+<p><code>setANDchange.jsp</code></p>
+<blockquote>
+<p>使用jstl表达式更改对象中的某个属性</p>
+</blockquote>
+<pre><code>  &lt;%@ page import=&quot;com.zhang.code.User&quot; %&gt;
+  &lt;%@ page import=&quot;com.zhang.code.Address&quot; %&gt;&lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/4
+  Time: 16:42
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot;%&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;测试jstl&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;%
+      User user = new User(&quot;Blackburn&quot;,1,19,100,new Address(1,&quot;墨尔本&quot;));
+      request.setAttribute(&quot;user&quot;,user);
+  %&gt;
+  &lt;%--    property是你要更改的对象的属性名,value是更改后的属性值  --%&gt;
+  &lt;c:set target = &quot;${user}&quot; property = &quot;name&quot; value = &quot;Blackburn&quot;&gt;
+  &lt;/c:set&gt;
+  ${user.name}
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+<p><code>out.jsp</code></p>
+<blockquote>
+<p>将变量输出到浏览器中</p>
+</blockquote>
+<pre><code>  &lt;%@ page import=&quot;com.zhang.code.User&quot; %&gt;
+  &lt;%@ page import=&quot;com.zhang.code.Address&quot; %&gt;&lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/4
+  Time: 16:42
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot;%&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;测试jstl&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;c:set var = &quot;name&quot; value = &quot;Blackburn&quot;&gt;&lt;/c:set&gt;
+  &lt;%--out可以将四个对象中的变量输出到浏览器中,而且value取值必须要使用el表达式这种,如果你没声明默认为pageContext,default的值是如果out value为空或者什么都没有的默认输出值,这是相较于el表达式直接输出的一个优点,不会报错--%&gt;
+  &lt;c:out value = &quot;${name}&quot; default = &quot;404&quot;&gt;&lt;/c:out&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+<p><code>remove.jsp</code></p>
+<blockquote>
+<p>移除某个对象中的名为var的值的变量</p>
+</blockquote>
+<pre><code>  &lt;%@ page import=&quot;com.zhang.code.User&quot; %&gt;
+  &lt;%@ page import=&quot;com.zhang.code.Address&quot; %&gt;&lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/4
+  Time: 16:42
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot;%&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;测试jstl&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;c:set var = &quot;name&quot; value = &quot;Blackburn&quot;&gt;&lt;/c:set&gt;
+  &lt;c:remove var = &quot;name&quot; scope = &quot;page&quot;&gt;&lt;/c:remove&gt;
+  &lt;c:out value = &quot;${name}&quot; default = &quot;404&quot;&gt;&lt;/c:out&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+<p><code>catch.jsp</code></p>
+<blockquote>
+<p>检测程序异常</p>
+</blockquote>
+<pre><code>  &lt;%@ page import=&quot;com.zhang.code.User&quot; %&gt;
+  &lt;%@ page import=&quot;com.zhang.code.Address&quot; %&gt;&lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/4
+  Time: 16:42
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot;%&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;测试jstl&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;%--    catch var的值为异常变量,程序会将异常内容储存在这个变量中    --%&gt;
+  &lt;c:catch var = &quot;error&quot;&gt;
+      &lt;%int i = 10/0;%&gt;
+  &lt;/c:catch&gt;
+  ${error}
+
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20210804213159414.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-19"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210804213313448.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-20"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210804213401313.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-21"></p>
+<h1 id="step6-实例对对象信息的增删改查">Step6. 实例:对对象信息的增删改查</h1>
+<ul>
+<li>
+<p>将多个用户对象的信息显示在浏览器页面上,并且可以进行增删改查操作</p>
+<p><code>UserServlet.java</code></p>
+<pre><code>  package com.zhang.code;
+
+  import javax.servlet.ServletException;
+  import javax.servlet.annotation.WebServlet;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+  import java.io.IOException;
+  import java.util.ArrayList;
+  import java.util.HashMap;
+  import java.util.List;
+  import java.util.Map;
+
+  @WebServlet(&quot;/user&quot;)
+  public class UserServlet extends HttpServlet {
+      /*
+          这里使用Map是因为想要对对象信息进行删除操作
+          需要获取到它的一个id,也就是key值
+          设定一个Integer为key,User对象为value
+          这样你就可以通过map.remove(key)来指定删除某一个对象
+          这是后端,放到前端去就是,你将你这个map.values()放到req.setAttribute中
+          这样你在前端代码中想对其进行什么操作都可以
+
+          如果用list,由于list里面只能有一个泛型
+          你获取到的id是对象中的一个属性id而已
+      */
+
+
+      //静态代码块中必须放置静态变量
+      private static Map&lt;Integer,User&gt; maps = new HashMap&lt;&gt;();
+
+      static{
+          maps.put(1,new User(&quot;Blackburn&quot;,1,100));
+          maps.put(2,new User(&quot;张长领&quot;,2,100));
+          maps.put(3,new User(&quot;张长全&quot;,3,100));
+      }
+
+      @Override
+      protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+          req.setCharacterEncoding(&quot;UTF-8&quot;);//将req对象操作的所有字符转为UTF-8格式
+          String username = null;
+          String idStr = null;
+          String scoreStr = null;
+          Integer score = null;
+          Integer id = null;
+          User user = null;
+          String method = req.getParameter(&quot;method&quot;);//获取当前页面请求参数
+          if(method == null){
+              method = &quot;save&quot;;
+          }
+
+          switch (method) {
+              //增强型switch语句
+              case &quot;add&quot; -&gt; {
+                  username = req.getParameter(&quot;username&quot;);
+                  idStr = req.getParameter(&quot;id&quot;);
+                  scoreStr = req.getParameter(&quot;score&quot;);
+                  /*
+                      如果你想将String类型转换为int类型,那么就使用idStr.parseInt();
+                      就是parse后面是什么类型,就会将目标变量转换为这个类型
+                  */
+                  score = Integer.parseInt(scoreStr);
+                  id = Integer.parseInt(idStr);
+                  user = new User(username, id, score);
+                  maps.put(id, user);
+                  resp.sendRedirect(&quot;/user&quot;);//重定向
+              }
+              case &quot;update&quot; -&gt; {
+                  username = req.getParameter(&quot;username&quot;);
+                  idStr = req.getParameter(&quot;id&quot;);
+                  scoreStr = req.getParameter(&quot;score&quot;);
+                  score = Integer.parseInt(scoreStr);
+                  id = Integer.parseInt(idStr);
+                  user = new User(username, id, score);
+                  maps.put(id, user);
+                  resp.sendRedirect(&quot;/user&quot;);
+              }
+          }
+
+      }
+
+      @Override
+      protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+          req.setCharacterEncoding(&quot;UTF-8&quot;);
+          String idStr = null;
+          Integer id = null;
+
+          String method = req.getParameter(&quot;method&quot;);
+          if(method == null){
+              method = &quot;findAll&quot;;
+          }
+
+          switch(method){
+              case &quot;findAll&quot;:
+                  req.setAttribute(&quot;maps&quot;,maps.values());
+                  req.getRequestDispatcher(&quot;index.jsp&quot;).forward(req,resp);
+                  break;
+              case &quot;delete&quot;:
+                  idStr = req.getParameter(&quot;id&quot;);
+                  id = Integer.parseInt(idStr);
+                  maps.remove(id);
+                  resp.sendRedirect(&quot;/user&quot;);
+                  break;
+              case &quot;findById&quot;:
+                  idStr = req.getParameter(&quot;id&quot;);
+                  id = Integer.parseInt(idStr);
+                  req.setAttribute(&quot;user&quot;,maps.get(id));
+                  req.getRequestDispatcher(&quot;update.jsp&quot;).forward(req,resp);
+                  break;
+          }
+
+      }
+  }
+</code></pre>
+<p><code>index.jsp</code></p>
+<pre><code>  &lt;%@ page import=&quot;com.zhang.code.User&quot; %&gt;
+  &lt;%@ page import=&quot;java.util.List&quot; %&gt;
+  &lt;%@ page import=&quot;com.zhang.code.UserServlet&quot; %&gt;&lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/2
+  Time: 17:28
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+  &lt;title&gt;$Title$&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;table border = &quot;0&quot;&gt;
+      &lt;tr&gt;
+      &lt;th&gt;姓名&lt;/th&gt;
+      &lt;th&gt;编号&lt;/th&gt;
+      &lt;th&gt;成绩&lt;/th&gt;
+      &lt;/tr&gt;
+
+      &lt;%--    UserServlet.java中doGet方法默认的是findAll,将map放到request对象中,在这里可以通过el表达式直接取出并使用  --%&gt;
+      &lt;c:forEach items = &quot;${maps}&quot; var = &quot;map&quot;&gt;
+      &lt;tr&gt;
+          &lt;td&gt;${map.name}&lt;/td&gt;
+          &lt;td&gt;${map.id}&lt;/td&gt;
+          &lt;td&gt;${map.score}&lt;/td&gt;
+          &lt;%--    通过这次点击转到case delete:,通过map.remove()将对象移除,然后通过重定向回到首页,速度之快,相当于你点击就直接删除一样  --%&gt;
+          &lt;td&gt;&lt;a href = &quot;/user?method=delete&amp;id=${map.id}&quot;&gt;删除&lt;/a&gt;&lt;/td&gt;
+
+          &lt;%--    通过这次点击转到case findById,通过getParameter获取到它的id,然后跳转到update.jsp页面进行修改,修改成功之后将修改的信息提交到doPost中的case update:进行数据的处理&gt;
+          &lt;td&gt;&lt;a href = &quot;/user?method=findById&amp;id=${map.id}&quot;&gt;修改&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;/c:forEach&gt;
+  &lt;/table&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+<p><code>update.jsp</code></p>
+<pre><code>  &lt;%@ page import=&quot;com.zhang.code.User&quot; %&gt;&lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/6
+  Time: 15:15
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;修改操作&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;form action = &quot;/user?method=update&quot; method = &quot;post&quot;&gt;
+      姓名:&lt;input type = &quot;text&quot; name = &quot;username&quot; value = &quot;${user.name}&quot; /&gt;&lt;br /&gt;
+      &lt;%--    readonly设置输入框里默认的内容为只读    --%&gt;
+      编号:&lt;input type = &quot;text&quot; name = &quot;id&quot; value = &quot;${user.id}&quot; readonly/&gt;&lt;br /&gt;
+      成绩:&lt;input type = &quot;text&quot; name = &quot;score&quot; value = &quot;${user.score}&quot;/&gt;&lt;br /&gt;
+      &lt;button type = &quot;submit&quot;&gt;修改&lt;/button&gt;
+  &lt;/form&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+<p><code>add.jsp</code></p>
+<pre><code>  &lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/6
+  Time: 15:15
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;添加操作&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;form action = &quot;/user?method=add&quot; method = &quot;post&quot;&gt;
+      姓名:&lt;input type = &quot;text&quot; name = &quot;username&quot; /&gt;&lt;br /&gt;
+      编号:&lt;input type = &quot;text&quot; name = &quot;id&quot; /&gt;&lt;br /&gt;
+      成绩:&lt;input type = &quot;text&quot; name = &quot;score&quot; /&gt;&lt;br /&gt;
+      &lt;button type = &quot;submit&quot;&gt;添加&lt;/button&gt;
+  &lt;/form&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+<p><code>user.java</code></p>
+<pre><code>  package com.zhang.code;
+
+  public class User {
+
+      private String name;
+      private Integer id;
+      private Integer score;
+
+      public String getName() {
+          return name;
+      }
+
+      public void setName(String name) {
+          this.name = name;
+      }
+
+      public Integer getId() {
+          return id;
+      }
+
+      public void setId(Integer age) {
+          this.id = id;
+      }
+
+      public Integer getScore() {
+          return score;
+      }
+
+      public void setScore(Integer score) {
+          this.score = score;
+      }
+
+      public User(String name, Integer id, Integer score) {
+          this.name = name;
+          this.id = id;
+          this.score = score;
+      }
+
+      public User(){
+
+      }
+
+      @Override
+      public String toString() {
+          return &quot;User{&quot; +
+                  &quot;name='&quot; + name + '\'' +
+                  &quot;, id=&quot; + id +
+                  &quot;, score=&quot; + score +
+                  '}';
+      }
+
+
+  }
+</code></pre>
+</li>
+</ul>
+<h1 id="step7-filter过滤器">Step7. Filter过滤器</h1>
+<p><img src="https://img-blog.csdnimg.cn/20210808002320311.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-22"></p>
+<h2 id="一通过filter过滤器拦截请求以防中文乱码">一、通过Filter过滤器拦截请求以防中文乱码</h2>
+<ul>
+<li>
+<p>我们在编写很多个界面时,都需要使用req.setCharacterEncoding(&ldquo;utf-8&rdquo;);来防止中文乱码</p>
+</li>
+<li>
+<p>但是当我们在开发一个大型项目时,如果在每个java文件中都写这句代码,就会造成代码冗余</p>
+</li>
+<li>
+<p>这时候我们就可以通过Filter过滤器将请求过滤一遍再传递给服务器</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20210808021515572.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo-23"></p>
+<ul>
+<li>
+<p>编写Java代码时获取请求post请求参数不加req.setCharacterEncoding(&ldquo;utf-8&rdquo;);</p>
+<p><code>LoginServlet.java</code></p>
+<pre><code>  package com.zhang.code;
+
+  import javax.servlet.ServletException;
+  import javax.servlet.annotation.WebServlet;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+  import java.io.IOException;
+
+  @WebServlet(&quot;/login&quot;)
+  public class LoginServlet extends HttpServlet {
+      @Override
+      protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+          String username = req.getParameter(&quot;username&quot;);
+          System.out.println(username);
+      }
+  }
+</code></pre>
+<p><code>TestServlet.java</code></p>
+<pre><code>  package com.zhang.code;
+
+  import javax.servlet.ServletException;
+  import javax.servlet.annotation.WebServlet;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+  import java.io.IOException;
+
+  @WebServlet(&quot;/test&quot;)
+  public class TestServlet extends HttpServlet {
+      @Override
+      protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+          //必须先设置编码再取出来,因为你取出来的数据是从req对象中取出来的,如果你先取出来再设置,取出来的字符串储存在String对象中,你再更改req也没用了
+          String value = req.getParameter(&quot;value&quot;);
+          System.out.println(value);
+      }
+  }
+</code></pre>
+<p><code>index.jsp</code></p>
+<pre><code>  &lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/7
+  Time: 16:14
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;$Title$&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;form action = &quot;/test&quot; method = &quot;post&quot;&gt;
+      &lt;input type = &quot;text&quot; name = &quot;value&quot; /&gt;
+      &lt;input type = &quot;submit&quot; value = &quot;提交&quot; &gt;
+  &lt;/form&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+<p><code>Login.jsp</code></p>
+<pre><code>  &lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/7
+  Time: 23:41
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;登录界面&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;form action = &quot;/login&quot; method = &quot;post&quot; /&gt;
+      &lt;input type = &quot;text&quot; name = &quot;username&quot; /&gt;
+      &lt;input type = &quot;submit&quot; value = &quot;提交&quot; /&gt;
+  &lt;/form&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+</li>
+<li>
+<p>编写Filter过滤器文件</p>
+<p><code>CharacterFilter.java</code></p>
+<pre><code>  package com.zhang.code;
+
+  import javax.servlet.*;
+  import java.io.IOException;
+
+  public class CharacterFilter implements Filter {
+
+      @Override
+      public void init(FilterConfig filterConfig) throws ServletException {
+
+      }
+
+      @Override
+      public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+          servletRequest.setCharacterEncoding(&quot;UTF-8&quot;);
+          /*
+           * Filter它就像一种链式结构,不同文件的Filter形成类似链表的结构
+           * 要想让不同文件中的Filter连着运行下去,就需要这条指令
+           * 也就是说当前运行的doFilter方法中必须要有filterChain.doFilter(servletRequest,setvletResponse);
+           * 才能进入下一个资源中的doFilter
+           */
+          filterChain.doFilter(servletRequest,servletResponse);
+      }
+
+      @Override
+      public void destroy() {
+
+      }
+  }
+</code></pre>
+</li>
+<li>
+<p>在web.xml文件中向这两个映射映射过滤器</p>
+<p><code>web.xml</code></p>
+<pre><code>  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+  &lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
+          xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+          xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;
+          version=&quot;4.0&quot;&gt;
+      &lt;filter&gt;
+          &lt;filter-name&gt;CharacterEncoding&lt;/filter-name&gt;
+          &lt;filter-class&gt;com.zhang.code.CharacterFilter&lt;/filter-class&gt;
+      &lt;/filter&gt;
+      &lt;filter-mapping&gt;
+          &lt;filter-name&gt;CharacterEncoding&lt;/filter-name&gt;
+          &lt;!--添加多个文件的映射--&gt;
+          &lt;url-pattern&gt;/login&lt;/url-pattern&gt;
+          &lt;url-pattern&gt;/test&lt;/url-pattern&gt;
+      &lt;/filter-mapping&gt;
+  &lt;/web-app&gt;
+</code></pre>
+</li>
+<li>
+<p><img src="https://img-blog.csdnimg.cn/20210821163846364.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo"></p>
+</li>
+</ul>
+<h2 id="二filter的注意事项">二、Filter的注意事项</h2>
+<ul>
+<li>
+<p>Filter中有多个过滤器时</p>
+<ul>
+<li>
+<p>如果你想指定过滤器对请求的过滤顺序,那请在web.xml文件中匹配
+因为代码通常逻辑是从上向下读取,哪个映射在上哪个就先执行</p>
+</li>
+<li>
+<p><img src="https://img-blog.csdnimg.cn/20210821213700522.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="三filter的常用场景">三、Filter的常用场景</h2>
+<ul>
+<li>
+<p>1.统一过滤中文乱码</p>
+<blockquote>
+<p>上面已经给出详细步骤</p>
+</blockquote>
+</li>
+<li>
+<p>2.屏蔽敏感词</p>
+<blockquote>
+<p>我们通过三个文件来实现用户输入敏感词过滤功能</p>
+</blockquote>
+<blockquote>
+<p>分别是test.jsp、TestServlet.java以及WordFilter.java</p>
+</blockquote>
+<p><code>test.jsp</code></p>
+<pre><code>  &lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/21
+  Time: 22:08
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Title&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;form action = &quot;/test&quot; method = &quot;post&quot;&gt;
+      &lt;input type = &quot;text&quot; name = &quot;name&quot; /&gt;
+      &lt;input type = &quot;submit&quot; value = &quot;提交&quot; /&gt;
+  &lt;/form&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+<p><code>TestServlet.java</code></p>
+<pre><code>  package com.zhang.Servlet;
+
+  import javax.servlet.ServletException;
+  import javax.servlet.annotation.WebServlet;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+  import java.io.IOException;
+
+  @WebServlet(&quot;/test&quot;)
+  public class TestServlet extends HttpServlet {
+      @Override
+      protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+          //必须先设置编码再取出来,因为你取出来的数据是从req对象中取出来的,如果你先取出来再设置,取出来的字符串储存在String对象中,你再更改req也没用了
+          String name = req.getParameter(&quot;name&quot;);
+      }
+  }
+</code></pre>
+<p><code>WordFilter.java</code></p>
+<pre><code>  package com.zhang.Filter;
+
+  import javax.servlet.*;
+  import javax.servlet.annotation.WebFilter;
+  import java.io.IOException;
+
+  @WebFilter(&quot;/test&quot;)
+  public class WordFilter implements Filter {
+      @Override
+      public void init(FilterConfig filterConfig) throws ServletException {
+
+      }
+
+      @Override
+      public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+          servletRequest.setCharacterEncoding(&quot;utf-8&quot;);
+          String name = servletRequest.getParameter(&quot;name&quot;);
+          name = name.replaceAll(&quot;敏感词&quot;,&quot;***&quot;);
+          System.out.println(name);
+          filterChain.doFilter(servletRequest,servletResponse);
+      }
+
+      @Override
+      public void destroy() {
+
+      }
+  }
+</code></pre>
+<blockquote>
+<p>这里其实也就是使用String的APIreplaceAll实现敏感词的替换</p>
+</blockquote>
+</li>
+<li>
+<p>控制资源的访问权限</p>
+<blockquote>
+<p>我们的网站通常有资源下载界面,为了控制用户如果想下载资源必须登录注册,我们可以使用Filter过滤器筛选用户的账号情况</p>
+</blockquote>
+<blockquote>
+<p>如果用户未登录就把它重定向到登录界面</p>
+</blockquote>
+<blockquote>
+<p>如果用户已经登录就让访问在Filter、资源之间继续传递下去</p>
+</blockquote>
+<p><code>login.jsp</code></p>
+<pre><code>  &lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/7
+  Time: 23:41
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;登录界面&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;form action = &quot;/login&quot; method = &quot;post&quot; &gt;
+      &lt;input type = &quot;text&quot; name = &quot;name&quot; /&gt;
+      &lt;input type = &quot;password&quot; name = &quot;password&quot; /&gt;
+      &lt;input type = &quot;submit&quot; value = &quot;提交&quot; /&gt;
+  &lt;/form&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+<p><code>LoginServlet.java</code></p>
+<pre><code>  package com.zhang.Servlet;
+
+  import javax.servlet.ServletException;
+  import javax.servlet.annotation.WebServlet;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+  import javax.servlet.http.HttpSession;
+  import java.io.IOException;
+
+  @WebServlet(&quot;/login&quot;)
+  public class LoginServlet extends HttpServlet {
+      @Override
+      protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+          String name = req.getParameter(&quot;name&quot;);
+          String password = req.getParameter(&quot;password&quot;);
+          if(name.equals(&quot;admin&quot;) &amp;&amp; password.equals(&quot;123&quot;)){
+              HttpSession session = req.getSession();
+              session.setAttribute(&quot;name&quot;,name);
+              resp.sendRedirect(&quot;/download.jsp&quot;);
+          }
+      }
+  }
+</code></pre>
+<p><code>DownloadFilter.java</code></p>
+<pre><code>  package com.zhang.Filter;
+
+  import javax.servlet.*;
+  import javax.servlet.annotation.WebFilter;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+  import javax.servlet.http.HttpSession;
+  import java.io.IOException;
+
+  @WebFilter(&quot;/download.jsp&quot;)
+  public class DownloadFilter implements Filter {
+
+      @Override
+      public void init(FilterConfig filterConfig) throws ServletException {
+
+      }
+
+      @Override
+      public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+          HttpServletRequest request = (HttpServletRequest) servletRequest;
+          HttpServletResponse response = (HttpServletResponse) servletResponse;
+          HttpSession session = request.getSession();
+          String name = (String) session.getAttribute(&quot;name&quot;);
+          if(name == null){
+              response.sendRedirect(&quot;/login.jsp&quot;);
+          }else{
+              filterChain.doFilter(servletRequest,servletResponse);
+          }
+      }
+
+      @Override
+      public void destroy() {
+
+      }
+  }
+</code></pre>
+<p><code>download.jsp</code></p>
+<pre><code>  &lt;%--
+  Created by IntelliJ IDEA.
+  User: Blackburn
+  Date: 2021/8/21
+  Time: 22:34
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Title&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;a href = &quot;&quot;&gt;资源1&lt;/a&gt;
+  &lt;a href = &quot;&quot;&gt;资源2&lt;/a&gt;
+  &lt;a href = &quot;&quot;&gt;资源3&lt;/a&gt;
+
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+</li>
+</ul>
+<h1 id="step8文件上传">Step8.文件上传</h1>
+<h2 id="上传界面">上传界面</h2>
+<p><code>upload.jsp</code></p>
+<pre><code>&lt;%--
+Created by IntelliJ IDEA.
+User: 张宇航
+Date: 2021/8/22
+Time: 15:28
+To change this template use File | Settings | File Templates.
+--%&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form enctype = &quot;multipart/form-data&quot; action = &quot;/upload&quot; method  = &quot;post&quot;&gt;
+    &lt;input type = &quot;file&quot; name = &quot;txtFile&quot;/&gt;
+&lt;%--    &lt;input type = &quot;file&quot; name = &quot;img&quot;/&gt;--%&gt;
+    &lt;input type = &quot;submit&quot; value = &quot;上传&quot; /&gt;
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><code>UploadServlet.java</code></p>
+<pre><code>package com.zhang.Servlet;
+
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@WebServlet(&quot;/upload&quot;)
+public class UploadServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        String img = req.getParameter(&quot;img&quot;);
+//        System.out.println(img);
+
+
+//        InputStream inputStream = req.getInputStream();
+//        int temp = -1;
+//        while((temp = inputStream.read())!=-1){
+//            System.out.print((char) temp);
+//        }
+
+
+//        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(req.getInputStream()));
+//        String str = &quot;&quot;;
+//        while((str = bufferedReader.readLine())!=null){
+//            System.out.println(str);
+//        }
+
+//        String str = &quot;&quot;;
+//        String path = req.getServletContext().getRealPath(&quot;File/text.txt&quot;);
+//        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(req.getInputStream()));
+//        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path)));
+//        while((str = bufferedReader.readLine())!=null){
+//            bufferedWriter.write(str);
+//        }
+//        bufferedReader.close();
+//        bufferedWriter.close();
+
+
+//        DiskFileItemFactory diskFileItem = new DiskFileItemFactory();
+//        ServletFileUpload servletFileUpload = new ServletFileUpload(diskFileItem);
+//        List&lt;FileItem&gt; lists = null;
+//        try {
+//            lists = servletFileUpload.parseRequest(req);
+//        } catch (FileUploadException e) {
+//            e.printStackTrace();
+//        }
+//        for(FileItem fileItem : lists){
+//            System.out.println(fileItem.getName());
+//            System.out.println(fileItem.getFieldName());
+//        }
+
+
+        DiskFileItemFactory diskFileItem = null;
+        ServletFileUpload servletFileUpload = null;
+        List&lt;FileItem&gt; lists = null;
+        try {
+            diskFileItem = new DiskFileItemFactory();
+            servletFileUpload = new ServletFileUpload(diskFileItem);
+            lists = servletFileUpload.parseRequest(req);
+            //FileItem就是将每一个input框抽象成一个FileItem对象
+            for(FileItem fileItem : lists){
+                if(fileItem.isFormField()){
+                    String name = fileItem.getFieldName();
+                    String value = fileItem.getString();
+                    System.out.println(name+&quot;:&quot;+value);
+                }else{
+                    String fileName = fileItem.getName();
+                    long size = fileItem.getSize();
+                    System.out.println(fileItem+&quot;:&quot;+size+&quot;Byte&quot;);
+                    String path = req.getServletContext().getRealPath(&quot;File/&quot;+fileName);
+                    InputStream inputStream = fileItem.getInputStream();
+                    OutputStream outputStream = new FileOutputStream(path);
+                    int temp = 0;
+                    while((temp = inputStream.read())!=-1){
+                        outputStream.write(temp);
+                    }
+                    outputStream.close();
+                    inputStream.close();
+                    System.out.println(&quot;上传成功!!!&quot;);
+                }
+            }
+        } catch (FileUploadException e) {
+            e.printStackTrace();
+            System.out.println(&quot;上传错误!!!&quot;);
+        }
+    }
+}
+</code></pre>
+<h2 id="使用fileupload组件替换io流处理文件上传请求">使用FileUpload组件替换IO流处理文件上传请求</h2>
+<ul>
+<li>
+<p>下载下图这两个jar包</p>
+</li>
+<li>
+<p><img src="https://img-blog.csdnimg.cn/20210823040959206.png" alt="Photo"></p>
+</li>
+<li>
+<p>将它们添加到web/WEB-INF中的lib文件夹中并将lib文件夹重新添加为库</p>
+</li>
+<li>
+<p>编辑库的方法:</p>
+<blockquote>
+<p>File-&gt;Project Structure-&gt;lib</p>
+</blockquote>
+<blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20210823041302490.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pZSDE4NDE0NzQ2MTQ=,size_16,color_FFFFFF,t_70" alt="Photo"></p>
+</blockquote>
+</li>
+</ul>
+<h1 id="step9文件下载">Step9.文件下载</h1>
+<p><code>DownloadServlet.java</code></p>
+<pre><code>package com.zhang.Servlet;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+
+@WebServlet(&quot;/download&quot;)
+public class DownloadFile extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //调用浏览器自带的下载器
+        resp.setContentType(&quot;application/x-msdownload&quot;);
+
+        //设置下载后的文件名
+        String fileName = &quot;jstl.jar&quot;;
+        resp.setHeader(&quot;Content-Disposition&quot;,&quot;attachment;filename=&quot;+fileName);
+
+        //获取服务器中待下载资源的绝对路径,路径必须是web下的相对路径
+        String path = req.getServletContext().getRealPath(&quot;File/jstl.jar&quot;);
+
+        InputStream inputStream = new FileInputStream(path);
+        OutputStream outputStream = resp.getOutputStream();
+
+        int temp = 0;
+        while((temp = inputStream.read())!=-1){
+            outputStream.write(temp);
+        }
+
+        //先使用的后关闭
+        outputStream.close();
+        inputStream.close();
+    }
+}
+</code></pre>
+<p><code>index.jsp</code></p>
+<pre><code>&lt;%--
+Created by IntelliJ IDEA.
+User: 张宇航
+Date: 2021/8/24
+Time: 4:12
+To change this template use File | Settings | File Templates.
+--%&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;$Title$&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;a href = &quot;/download&quot;&gt;1.png&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<blockquote>
+<p>如果你第一次运行Tomcat服务器下载的是一张图片,第二次下载的是其他文件(比如jar包等)</p>
+</blockquote>
+<blockquote>
+<p>那你需要在Idea中,Build-&gt;Rebuild Project,重新部署一下服务器即可</p>
+</blockquote>
+<h1 id="step9ajax异步处理">Step9.AJAX(异步处理)</h1>
+<ul>
+<li>下面我们通过一个例子了解异步处理</li>
+</ul>
+<blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20210825031956353.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_Q1NETiBA5a2k5ZCNQA==,size_29,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+</blockquote>
+<blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20210825031729459.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_Q1NETiBA5a2k5ZCNQA==,size_51,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+</blockquote>
+<ul>
+<li>启动Tomcat服务器</li>
+</ul>
+<blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20210825031830515.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_Q1NETiBA5a2k5ZCNQA==,size_19,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+</blockquote>
+<ul>
+<li>输入字符串提交,可以看到输入框中的字符串被清除了</li>
+</ul>
+<blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20210825032041176.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_Q1NETiBA5a2k5ZCNQA==,size_16,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+</blockquote>
+<ul>
+<li>
+<p>这是因为form表单提交方式为刷新<strong>整个页面</strong>,也就是同步处理</p>
+</li>
+<li>
+<p>这样看也许不直观</p>
+</li>
+<li>
+<p>我们现在在服务器代码中为请求响应添加一个3秒的延迟</p>
+</li>
+</ul>
+<blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20210825032100985.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_Q1NETiBA5a2k5ZCNQA==,size_49,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+</blockquote>
+<ul>
+<li>然后再次启动Tomcat服务器,在输入框中不停输入字符,然后点击提交,在延迟3秒的过程中继续向输入框中输入字符</li>
+</ul>
+<blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20210825032030485.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_Q1NETiBA5a2k5ZCNQA==,size_19,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+</blockquote>
+<ul>
+<li>
+<p>延迟结束,提交成功后,会发现输入框中还是被清空了</p>
+</li>
+<li>
+<p>我们的目的是点击提交的同时还可以继续输入,提交信息不影响输入框中的内容</p>
+</li>
+<li>
+<p>因为form表单是刷新整个界面的,这叫同步处理</p>
+</li>
+<li>
+<p>我们现在需要换成异步处理的方式将代码重构,达到提交过程中可以继续输入,并且提交完成后输入框中的内容不变(提交过程中输入的内容也算在内)的效果</p>
+</li>
+<li>
+<p>这里我们通过JavaScript的框架jQuery进行异步处理</p>
+</li>
+<li>
+<p>要想使用jQuery,我们需要下载并导入jQuery资源包</p>
+</li>
+<li>
+<p>下载地址:<a href="https://www.jq22.com/jquery/jquery-3.5.1.zip">https://www.jq22.com/jquery/jquery-3.5.1.zip</a></p>
+</li>
+<li>
+<p>然后在web文件夹下新建js文件夹,将jquery-3.5.1.min.js文件放到js文件夹中</p>
+</li>
+<li>
+<p>不用添加为lib,和jar包不同,它本身就是一个js文件,直接在script标签中通过src相对路径引用即可</p>
+</li>
+<li>
+<blockquote>
+<p>注:在JavaWeb中所有在web文件夹下面的内容都可以直接视为根目录
+例如:<img src="https://img-blog.csdnimg.cn/20210825035942247.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_Q1NETiBA5a2k5ZCNQA==,size_57,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20210825035410807.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_Q1NETiBA5a2k5ZCNQA==,size_47,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+</blockquote>
+<p><code>test.jsp</code></p>
+<pre><code>&lt;%--
+Created by IntelliJ IDEA.
+User: 张宇航
+Date: 2021/8/24
+Time: 21:20
+To change this template use File | Settings | File Templates.
+--%&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;%--    导入jQuery资源--%&gt;
+    &lt;script type = &quot;text/javascript&quot; src = &quot;js/jquery-3.5.1.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script type = &quot;text/javascript&quot;&gt;
+        $(function(){
+            // 通过id绑定input对象
+            var btn = $(&quot;#btn&quot;);
+
+            //为它绑定一个点击事件
+            btn.click(function(){
+
+                //异步处理
+                $.ajax({
+                    //替换掉form提交方式
+                    url:'/test',
+                    type:'post',
+                    data:'id=1',//请求参数
+                    dataType:'text',
+                    /*
+                    * 这里的data就是响应的数据
+                    * 如果你在服务器后端是通过重定向文件的方式响应的
+                    * 返回数据就是被返回文件的所有内容
+                    */
+                    success:function(data){
+                        // alert(data)
+                        var text = $(&quot;#text&quot;);
+                        text.before(&quot;&lt;span&gt;&quot;+data+&quot;&lt;/span&gt;&quot;)
+                    }
+                })
+            });
+        })
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;%--${str}--%&gt;
+&lt;%--&lt;form action = &quot;/test&quot; method = &quot;post&quot; &gt;--%&gt;
+    &lt;input type = &quot;text&quot; id = &quot;text&quot;/&gt;
+    &lt;input type = &quot;submit&quot; id = &quot;btn&quot; value = &quot;提交&quot; /&gt;
+&lt;%--&lt;/form&gt;--%&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><code>TestServlet.java</code></p>
+<pre><code>package com.zhang.Servlet;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet(&quot;/test&quot;)
+public class TestServlet extends HttpServlet {
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        String str = &quot;HelloWorld&quot;;
+
+        resp.getWriter().write(str);
+
+
+//        req.setAttribute(&quot;str&quot;,str);
+//        req.getRequestDispatcher(&quot;test.jsp&quot;).forward(req,resp);
+    }
+}
+</code></pre>
+<blockquote>
+<p><img src="https://img-blog.csdnimg.cn/2021082503464278.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_Q1NETiBA5a2k5ZCNQA==,size_61,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+</blockquote>
+<h2 id="ajax中的属性">AJAX中的属性</h2>
+<ul>
+<li>
+<p><img src="https://img-blog.csdnimg.cn/20210827020051701.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+<p><code>test.jsp</code></p>
+<pre><code>  &lt;%--
+      Created by IntelliJ IDEA.
+      User: 张宇航
+      Date: 2021/8/24
+      Time: 21:20
+      To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Title&lt;/title&gt;
+  &lt;%--    导入jQuery资源--%&gt;
+      &lt;script type = &quot;text/javascript&quot; src = &quot;js/jquery-3.5.1.min.js&quot;&gt;&lt;/script&gt;
+      &lt;script type = &quot;text/javascript&quot;&gt;
+          $(function(){
+              // 通过id绑定input对象
+              var btn = $(&quot;#btn&quot;);
+
+              //为它绑定一个点击事件
+              btn.click(function(){
+
+                  //异步处理
+                  $.ajax({
+                      //替换掉form提交方式
+                      url:'/test',
+                      type:'post',
+                      data:'id=1',//请求参数
+                      dataType:'json',
+                      /*
+                      * 这里的data就是响应的数据
+                      * 如果你在服务器后端是通过重定向文件的方式响应的
+                      * 返回数据就是被返回文件的所有内容
+                      */
+                      success:function(data){
+                          // alert(data)
+                            
+                          var text = $(&quot;#text&quot;);
+                          text.before(&quot;&lt;span style = 'color:orange'&gt;&quot;+data+&quot;&lt;/span&gt;&quot;)
+                            
+                          // console.log(data);
+                      },
+                      error:function (){
+                          alert('服务器维护中!!!');
+                      },
+                      complete:function (){
+                          alert('请求完成!!!');
+                      }
+                  })
+              });
+          })
+      &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;%--${str}--%&gt;
+  &lt;%--&lt;form action = &quot;/test&quot; method = &quot;post&quot; &gt;--%&gt;
+      &lt;input type = &quot;text&quot; id = &quot;text&quot;/&gt;
+      &lt;input type = &quot;submit&quot; id = &quot;btn&quot; value = &quot;提交&quot; /&gt;
+  &lt;%--&lt;/form&gt;--%&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+</li>
+</ul>
+<h2 id="ajax的原理">AJAX的原理</h2>
+<p><img src="https://img-blog.csdnimg.cn/20210827022407257.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+<h2 id="通过json实现服务器和客户端之间传递数据">通过JSON实现服务器和客户端之间传递数据</h2>
+<p><img src="https://img-blog.csdnimg.cn/2021082702244774.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+<ul>
+<li>
+<p>简单来说如果你只是想传递字符串对象,你只需要使用普通的AJAX语法就好了;</p>
+</li>
+<li>
+<p>但是如果你想要传递的数据为对象,那就需要使用JSON</p>
+</li>
+<li>
+<p>使用JSON需要下载它的6个jar包,然后导入为lib库(WEB-INF下的lib文件夹)</p>
+</li>
+<li>
+<p>新建一个实体类User.java</p>
+<p><code>User.java</code></p>
+<pre><code>  package com.zhang.JSON;
+
+  public class User {
+      private Integer id;
+      private String name;
+      private double score;
+
+      public User() {
+
+      }
+
+      public User(Integer id, String name, double score) {
+          this.id = id;
+          this.name = name;
+          this.score = score;
+      }
+
+      public Integer getId() {
+          return id;
+      }
+
+      public void setId(Integer id) {
+          this.id = id;
+      }
+
+      public String getName() {
+          return name;
+      }
+
+      public void setName(String name) {
+          this.name = name;
+      }
+
+      public double getScore() {
+          return score;
+      }
+
+      public void setScore(double score) {
+          this.score = score;
+      }
+
+      @Override
+      public String toString() {
+          return &quot;User{&quot; +
+                  &quot;id=&quot; + id +
+                  &quot;, name='&quot; + name + '\'' +
+                  &quot;, score=&quot; + score +
+                  '}';
+      }
+  }
+</code></pre>
+<p><code>TestServlet.java</code></p>
+<pre><code>  package com.zhang.Servlet;
+
+  import com.zhang.JSON.User;
+  import net.sf.json.JSONObject;
+  import javax.servlet.ServletException;
+  import javax.servlet.annotation.WebServlet;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+  import java.io.IOException;
+
+  @WebServlet(&quot;/test&quot;)
+  public class TestServlet extends HttpServlet {
+      @Override
+      protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+          resp.setCharacterEncoding(&quot;UTF-8&quot;);
+          try {
+              Thread.sleep(3000);
+          } catch (InterruptedException e) {
+              e.printStackTrace();
+          }   
+          User user = new User(1,&quot;张宇航&quot;,100.0);
+          JSONObject jsonObject = JSONObject.fromObject(user);
+          resp.getWriter().write(jsonObject.toString());
+      }
+  }
+</code></pre>
+<p><code>test.jsp</code></p>
+<pre><code>  &lt;%--
+      Created by IntelliJ IDEA.
+      User: 张宇航
+      Date: 2021/8/24
+      Time: 21:20
+      To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Title&lt;/title&gt;
+      &lt;%--导入jQuery资源--%&gt;
+      &lt;script type = &quot;text/javascript&quot; src = &quot;js/jquery-3.5.1.min.js&quot;&gt;&lt;/script&gt;
+      &lt;script type = &quot;text/javascript&quot;&gt;
+          $(function(){
+              // 通过id绑定input对象
+              var btn = $(&quot;#btn&quot;);
+              //为它绑定一个点击事件
+              btn.click(function(){
+                  //异步处理
+                  $.ajax({
+                      //替换掉form提交方式
+                      url:'/test',
+                      type:'post',
+                      data:'id=1',//请求参数
+                      dataType:'json',
+                      /*
+                      * 这里的data就是响应的数据
+                      * 如果你在服务器后端是通过重定向文件的方式响应的
+                      * 返回数据就是被返回文件的所有内容
+                      */
+                      success:function(data){
+                          console.log(data);
+                      },
+                      error:function (){
+                          alert('服务器维护中!!!');
+                      },
+                      complete:function (){
+                          alert('请求完成!!!');
+                      }
+                  })
+              });
+          })
+      &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;%--${str}--%&gt;
+  &lt;%--&lt;form action = &quot;/test&quot; method = &quot;post&quot; &gt;--%&gt;
+      &lt;input type = &quot;text&quot; id = &quot;text&quot;/&gt;
+      &lt;input type = &quot;submit&quot; id = &quot;btn&quot; value = &quot;提交&quot; /&gt;
+  &lt;%--&lt;/form&gt;--%&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+</li>
+<li>
+<p>打开console,提交,可以看到结果</p>
+</li>
+</ul>
+<h2 id="ajax实例省市区的下拉列表">AJAX实例(省/市/区的下拉列表)</h2>
+<ul>
+<li>
+<p>异步加载,除了以上这几种,还有一种三级联动下拉菜单的界面需要异步加载</p>
+</li>
+<li>
+<p><img src="https://img-blog.csdnimg.cn/20210830150600509.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+</li>
+<li>
+<p>但这种我们通常都是通过数据库的方式将数据显示到前端</p>
+</li>
+<li>
+<p>这里我们就直接通过列表的方式储存少量的数据用于测试</p>
+</li>
+<li>
+<p>需要创建一个界面Location.jsp</p>
+<p><code>Location.jsp</code></p>
+<pre><code>  &lt;%--
+  Created by IntelliJ IDEA.
+  User: 张宇航
+  Date: 2021/8/29
+  Time: 16:39
+  To change this template use File | Settings | File Templates.
+  --%&gt;
+  &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Title&lt;/title&gt;
+      &lt;script type = &quot;text/javascript&quot; src = &quot;js/jquery-3.5.1.min.js&quot;&gt;&lt;/script&gt;
+      &lt;script type = &quot;text/javascript&quot;&gt;
+          $(function() {
+              $(&quot;#province&quot;).change(function () {
+                  var id = $(this).val();
+                  $.ajax({
+                      url:&quot;/location&quot;,
+                      type:&quot;POST&quot;,
+                      data:&quot;id=&quot;+id+&quot;&amp;type=province&quot;,
+                      dataType:&quot;JSON&quot;,
+                      success:function(data){
+                          var content = &quot;&quot;;
+                          var cities = data.cities;
+                          for(var i = 0;i &lt; cities.length;i++){
+                              content += &quot;&lt;option&gt;&quot; + cities[i] + &quot;&lt;/option&gt;&quot;;
+                          }
+                          $(&quot;#city&quot;).html(content);
+
+                          content = &quot;&quot;;
+                          var cityAreas = data.cityAreas;
+                          for(var i = 0;i &lt; cityAreas.length;i++){
+                              content += &quot;&lt;option&gt;&quot; + cityAreas[i] + &quot;&lt;/option&gt;&quot;;
+                          }
+                          $(&quot;#area&quot;).html(content);
+                          console.log(data);
+                      }
+                  })
+              });
+          });
+          $(function() {
+              $(&quot;#city&quot;).change(function () {
+                  // alert(&quot;更改了城市!!!&quot;);
+                  var id = $(this).val();
+                  $.ajax({
+                      url:&quot;/location&quot;,
+                      type:&quot;POST&quot;,
+                      data:&quot;id=&quot;+id+&quot;&amp;type=city&quot;,
+                      dataType:&quot;JSON&quot;,
+                      success:function(data){
+                          console.log(data);
+                          var content = &quot;&quot;;
+                          for(var i = 0;i &lt; data.length;i++){
+                              content += &quot;&lt;option&gt;&quot; + data[i] + &quot;&lt;/option&gt;&quot;;
+                          }
+                          // alert(content);
+                          $(&quot;#area&quot;).html(content);
+                      }
+                  })
+              });
+          });
+
+
+      &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  省:&lt;select id = &quot;province&quot;&gt;
+      &lt;option value = &quot;黑龙江省&quot;&gt;黑龙江省&lt;/option&gt;
+      &lt;option value = &quot;广东省&quot;&gt;广东省&lt;/option&gt;
+      &lt;option value = &quot;江苏省&quot;&gt;江苏省&lt;/option&gt;
+  &lt;/select&gt;
+  市:&lt;select id = &quot;city&quot;&gt;
+      &lt;option value = &quot;绥化市&quot;&gt;绥化市&lt;/option&gt;
+      &lt;option value = &quot;哈尔滨市&quot;&gt;哈尔滨市&lt;/option&gt;
+      &lt;option value = &quot;大庆市&quot;&gt;大庆市&lt;/option&gt;
+      &lt;option value = &quot;东莞市&quot;&gt;东莞市&lt;/option&gt;
+      &lt;option value = &quot;广州市&quot;&gt;广州市&lt;/option&gt;
+      &lt;option value = &quot;深圳市&quot;&gt;深圳市&lt;/option&gt;
+      &lt;option value = &quot;无锡市&quot;&gt;无锡市&lt;/option&gt;
+      &lt;option value = &quot;南京市&quot;&gt;南京市&lt;/option&gt;
+  &lt;/select&gt;
+  区:&lt;select id = &quot;area&quot;&gt;
+      &lt;option&gt;绥化市A区&lt;/option&gt;
+      &lt;option&gt;绥化市B区&lt;/option&gt;
+      &lt;option&gt;绥化市C区&lt;/option&gt;
+      &lt;option&gt;哈尔滨市A区&lt;/option&gt;
+      &lt;option&gt;哈尔滨市B区&lt;/option&gt;
+      &lt;option&gt;哈尔滨市C区&lt;/option&gt;
+      &lt;option&gt;大庆市A区&lt;/option&gt;
+      &lt;option&gt;大庆市B区&lt;/option&gt;
+      &lt;option&gt;大庆市C区&lt;/option&gt;
+      &lt;option&gt;东莞市A区&lt;/option&gt;
+      &lt;option&gt;东莞市B区&lt;/option&gt;
+      &lt;option&gt;东莞市C区&lt;/option&gt;
+      &lt;option&gt;广州市A区&lt;/option&gt;
+      &lt;option&gt;广州市B区&lt;/option&gt;
+      &lt;option&gt;广州市C区&lt;/option&gt;
+      &lt;option&gt;深圳市A区&lt;/option&gt;
+      &lt;option&gt;深圳市B区&lt;/option&gt;
+      &lt;option&gt;深圳市C区&lt;/option&gt;
+      &lt;option&gt;无锡市A区&lt;/option&gt;
+      &lt;option&gt;无锡市B区&lt;/option&gt;
+      &lt;option&gt;南京市A区&lt;/option&gt;
+      &lt;option&gt;无锡市B区&lt;/option&gt;
+
+  &lt;/select&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+</li>
+<li>
+<p>然后创建Servlet类</p>
+<p><code>LocationServlet.java</code></p>
+<pre><code>  package com.zhang.Servlet;
+
+  import com.zhang.User.Location;
+  import net.sf.json.JSONArray;
+  import net.sf.json.JSONObject;
+
+  import javax.servlet.ServletException;
+  import javax.servlet.annotation.WebServlet;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+  import java.io.IOException;
+  import java.util.ArrayList;
+  import java.util.HashMap;
+  import java.util.List;
+  import java.util.Map;
+
+  @WebServlet(&quot;/location&quot;)
+  public class LocationServlet extends HttpServlet {
+      private static Map&lt;String, List&lt;String&gt;&gt; provinceMap;
+      private static Map&lt;String, List&lt;String&gt;&gt; citiesMap;
+
+      static{
+          provinceMap = new HashMap&lt;&gt;();
+          List&lt;String&gt; cities = new ArrayList&lt;&gt;();
+          cities.add(&quot;绥化市&quot;);
+          cities.add(&quot;大庆市&quot;);
+          cities.add(&quot;哈尔滨市&quot;);
+          provinceMap.put(&quot;黑龙江省&quot;,cities);
+          cities = new ArrayList&lt;&gt;();
+          cities.add(&quot;深圳市&quot;);
+          cities.add(&quot;广州市&quot;);
+          cities.add(&quot;东莞市&quot;);
+          provinceMap.put(&quot;广东省&quot;,cities);
+          cities = new ArrayList&lt;&gt;();
+          cities.add(&quot;无锡市&quot;);
+          cities.add(&quot;南京市&quot;);
+          provinceMap.put(&quot;江苏省&quot;,cities);
+
+
+          citiesMap = new HashMap&lt;&gt;();
+          List&lt;String&gt; areas = new ArrayList&lt;&gt;();
+          areas.add(&quot;绥化市A区&quot;);
+          areas.add(&quot;绥化市B区&quot;);
+          areas.add(&quot;绥化市C区&quot;);
+          citiesMap.put(&quot;绥化市&quot;,areas);
+          areas = new ArrayList&lt;&gt;();
+          areas.add(&quot;大庆市A区&quot;);
+          areas.add(&quot;大庆市B区&quot;);
+          areas.add(&quot;大庆市C区&quot;);
+          citiesMap.put(&quot;大庆市&quot;,areas);
+          areas = new ArrayList&lt;&gt;();
+          areas.add(&quot;哈尔滨市A区&quot;);
+          areas.add(&quot;哈尔滨市B区&quot;);
+          areas.add(&quot;哈尔滨市C区&quot;);
+          citiesMap.put(&quot;哈尔滨市&quot;,areas);
+          areas = new ArrayList&lt;&gt;();
+          areas.add(&quot;深圳市A区&quot;);
+          areas.add(&quot;深圳市B区&quot;);
+          areas.add(&quot;深圳市C区&quot;);
+          citiesMap.put(&quot;深圳市&quot;,areas);
+          areas = new ArrayList&lt;&gt;();
+          areas.add(&quot;广州市A区&quot;);
+          areas.add(&quot;广州市B区&quot;);
+          areas.add(&quot;广州市C区&quot;);
+          citiesMap.put(&quot;广州市&quot;,areas);
+          areas = new ArrayList&lt;&gt;();
+          areas.add(&quot;东莞市A区&quot;);
+          areas.add(&quot;东莞市B区&quot;);
+          areas.add(&quot;东莞市C区&quot;);
+          citiesMap.put(&quot;东莞市&quot;,areas);
+          areas = new ArrayList&lt;&gt;();
+          areas.add(&quot;无锡市A区&quot;);
+          areas.add(&quot;无锡市B区&quot;);
+          citiesMap.put(&quot;无锡市&quot;,areas);
+          areas = new ArrayList&lt;&gt;();
+          areas.add(&quot;南京市A区&quot;);
+          areas.add(&quot;南京市B区&quot;);
+          citiesMap.put(&quot;南京市&quot;,areas);
+      }
+
+      @Override
+      protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+          String type = req.getParameter(&quot;type&quot;);
+          req.setCharacterEncoding(&quot;UTF-8&quot;);
+          resp.setCharacterEncoding(&quot;UTF-8&quot;);
+          String id = req.getParameter(&quot;id&quot;);
+          switch(type) {
+              case &quot;province&quot;:
+                  List&lt;String&gt; cities = provinceMap.get(id);
+                  String city = cities.get(0);
+                  List&lt;String&gt; cityAreas = citiesMap.get(city);
+                  Location location = new Location();
+                  location.setCities(cities);
+                  location.setCityAreas(cityAreas);
+  //                int i = 0;
+                  JSONObject jsonObject = JSONObject.fromObject(location);
+                  resp.getWriter().write(jsonObject.toString());
+                  break;
+              case &quot;city&quot;:
+                  List&lt;String&gt; areas = citiesMap.get(id);
+                  JSONArray jsonArray = JSONArray.fromObject(areas);
+                  resp.getWriter().write(jsonArray.toString());
+                  break;
+          }
+      }
+  }
+</code></pre>
+</li>
+<li>
+<p>LocationServlet.java中用到的实例类</p>
+</li>
+<li>
+<p>因为如果你更改省份,那么市区都需要更改,这时ajax中的data中是市和区两个List对象</p>
+</li>
+<li>
+<p>而ajax中的data只有一个,不符合select-option的代码</p>
+</li>
+<li>
+<p>所以我们还需要另外一个类将这两个对象合并成一个对象</p>
+<p><code>Location.java</code></p>
+<pre><code>  package com.zhang.User;
+
+  import java.util.List;
+
+  public class Location {
+      private List&lt;String&gt; cities;
+      private List&lt;String&gt; cityAreas;
+
+      public List&lt;String&gt; getCities() {
+          return cities;
+      }
+
+      public void setCities(List&lt;String&gt; cities) {
+          this.cities = cities;
+      }
+
+      public List&lt;String&gt; getCityAreas() {
+          return cityAreas;
+      }
+
+      public void setCityAreas(List&lt;String&gt; cityAreas) {
+          this.cityAreas = cityAreas;
+      }
+
+  }
+</code></pre>
+</li>
+</ul>
+<h1 id="step10-jdbc">Step10. JDBC</h1>
+<ul>
+<li>
+<p>JDBC原理图</p>
+</li>
+<li>
+<p><img src="https://img-blog.csdnimg.cn/20210830162330805.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+</li>
+<li>
+<p><img src="https://img-blog.csdnimg.cn/20210830162330805.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+</li>
+</ul>
+<p><code>Test.java</code></p>
+<pre><code>package com.zhang.JDBC;
+
+import java.sql.*;
+
+public class Test {
+    public static void main(String[] args) {
+        try {
+            /*
+            * 通过映射机制获取数据库连接
+            * 老版本是没有cj的,直接写com.mysql.jdbc.Driver
+            * 新版本你将jdbc的jar包添加为库后,在/lib/mysql-connector-java-8.0.24.jar/com.mysql路径下会发现有两个文件夹
+            * 分别是cj和jdbc
+            * 这里建议使用新版本
+            */
+            Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+
+            /*
+            * 链接地址,内容包括:你要访问的数据库、是否使用字符集以及字符编码
+            * 链接前面的jdbc:mysql:就像https:一样
+            * localhost:3306就和端口是一样的
+            * 至于后面的参数test之类的都是类似Servlet中的req.getParameter这种的参数
+            * 区别就是这些参数会交给jdbc中的库自动处理
+            */
+            String url = &quot;jdbc:mysql://localhost:3306/test?useUnicode=true&amp;CharacterEncoding=UTF-8&quot;;
+            //用户名
+            String user = &quot;root&quot;;
+            //密码
+            String password = &quot;123456&quot;;
+
+            //建立连接,这里能使用DriverManager类完全是因为上面的映射机制导入了这个类
+            Connection connection = DriverManager.getConnection(url,user,password);
+//            System.out.println(connection);//这里你可以将这个类打印一下,你会发现...它还是个类
+
+            /*
+            * 创建处理类,用于处理SQL语句
+            * connection.createStatement();JetBrain自动补全的好处就是,不用忘记createStatement开头的c是大写还是小写
+            */
+            Statement statement = connection.createStatement();
+
+            //使用字符串保存一下sql语句
+//            String sql = &quot;insert into test01 (id,name,salary) values (4,'隋艳萍',15000000.00)&quot;;
+            /*
+            * 增删改使用Update,查询使用executeQuery();
+            * 因为Update是更新,而查询不需要更新
+            * query是询问的意思
+            */
+//            statement.executeUpdate(sql);
+            String sql = &quot;select * from test01&quot;;
+            //查询结果会返回一个ResultSet对象,里面以链式方式存储着数据库中的数据
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            //遍历返回的ResultSet类中所有节点
+            while(resultSet.next()){
+                /*
+                * ResultSet有诸多接收各种数据类型的方法
+                * 前提是参数要和字段名称对应上
+                */
+                Integer id = resultSet.getInt(&quot;id&quot;);
+                String name = resultSet.getString(&quot;name&quot;);
+                Float salary = resultSet.getFloat(&quot;salary&quot;);
+                System.out.println(id+&quot;-&gt;&quot;+name+&quot;-&gt;&quot;+salary);
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            //用于处理MySQL语句异常的catch
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+<ul>
+<li>
+<p>模拟登录</p>
+<p><code>Login.java</code></p>
+<pre><code>  package com.zhang.JDBC;
+
+  import java.sql.*;
+
+  public class Login {
+      public static void main(String[] args) {
+          try {
+              Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+              String url = &quot;jdbc:mysql://localhost:3306/test?useUnicode=true&amp;charset=UTF-8&quot;;
+              String username = &quot;root&quot;;
+              String password = &quot;123456&quot;;
+              String name = &quot;张宇航&quot;;
+              String pwd = &quot;123&quot;;
+              Connection connection = DriverManager.getConnection(url,username,password);
+              Statement statement = connection.createStatement();
+              String sql = &quot;select * from test02 where name='&quot;+name+&quot;'and password='&quot;+pwd+&quot;'&quot;;
+              ResultSet resultSet = statement.executeQuery(sql);
+              if(resultSet.next()){
+                  System.out.println(&quot;登陆成功!!!&quot;);
+              }else{
+                  System.out.println(&quot;登陆失败!!!&quot;);
+              }
+          } catch (ClassNotFoundException e) {
+              e.printStackTrace();
+          } catch (SQLException e){
+              e.printStackTrace();
+          }
+      }
+  }
+</code></pre>
+</li>
+</ul>
+<h2 id="使用preparedstatement替换statement">使用PreparedStatement替换Statement</h2>
+<ul>
+<li>
+<p>当你使用普通的Statement进行登录界面的后台管理时,可能发生SQL注入的情况</p>
+</li>
+<li>
+<p>因为普通的Statement没有对SQL语句进行详细有效的处理</p>
+</li>
+<li>
+<p>而且Statement类是先创建再处理你后面的SQL语句</p>
+</li>
+<li>
+<p>sql注入,就诸如下面:</p>
+<p><code>Login.java</code></p>
+<pre><code>  package com.zhang.JDBC;
+
+  import java.sql.*;
+
+  public class Login {
+      public static void main(String[] args) {
+          try {
+              Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+              String url = &quot;jdbc:mysql://localhost:3306/test?useUnicode=true&amp;charset=UTF-8&quot;;
+              String username = &quot;root&quot;;
+              String password = &quot;123456&quot;;
+              String name = &quot;张长全' or '1' = '1&quot;;
+              String pwd = &quot;123&quot;;
+              Connection connection = DriverManager.getConnection(url,username,password);
+              Statement statement = connection.createStatement();
+              String sql = &quot;select * from test02 where name='&quot;+name+&quot;'and password='&quot;+pwd+&quot;'&quot;;
+              ResultSet resultSet = statement.executeQuery(sql);
+              if(resultSet.next()){
+                  System.out.println(&quot;登陆成功!!!&quot;);
+              }else{
+                  System.out.println(&quot;登陆失败!!!&quot;);
+              }
+          } catch (ClassNotFoundException e) {
+              e.printStackTrace();
+          } catch (SQLException e){
+              e.printStackTrace();
+          }
+      }
+  }
+</code></pre>
+</li>
+<li>
+<p>因为代码中的SQL语句中有or 1 = 1,这句话就将整句话转变为了true,所以无论你填写什么结果都是对的,你可以随便填写,无限登录</p>
+</li>
+<li>
+<p>这就需要我们将sql语句进行更详细的解析筛选</p>
+</li>
+<li>
+<p>这时候就需要用到PreparedStatement</p>
+<p><code>LoginPreparedStatement.java</code></p>
+<pre><code>  package com.zhang.JDBC;
+
+  import java.sql.*;
+
+  public class LoginPreparation {
+      public static void main(String[] args) {
+          try {
+              Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+              String url = &quot;jdbc:mysql://localhost:3306/test?useUnicode=true&amp;charset=UTF-8&quot;;
+              String user = &quot;root&quot;;
+              String pwd = &quot;123456&quot;;
+
+
+              String username = &quot;张宇航&quot;;
+              String password = &quot;123&quot;;
+              Connection connection = DriverManager.getConnection(url,user,pwd);
+
+              /*
+              * 和Statement不同,Statement是先创建再解析SQL语句
+              * 而PreparedStatement是创建的同事就对SQL语句进行解析
+              * 而且PreparedStatement对SQL语句的解析程度比Statement更详细
+              */
+              String sql = &quot;select * from test02 where username=? and password=?&quot;;
+              PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                
+              /*
+              * PreparedStatement允许用户在SQL语句中设置占位符?
+              * 创建后进行占位符中参数的设置
+              */
+              preparedStatement.setString(1,username);
+              preparedStatement.setString(2,password);
+                
+              //下面就和Statement是一样的
+              ResultSet resultSet = preparedStatement.executeQuery();
+              if(resultSet.next()){   
+                  System.out.println(&quot;登陆成功!!!&quot;);
+              }else{
+                  System.out.println(&quot;登陆失败!!!&quot;);
+              }
+          } catch (ClassNotFoundException e) {
+              e.printStackTrace();
+          } catch (SQLException e){
+              e.printStackTrace();
+          }
+      }
+  }
+</code></pre>
+</li>
+</ul>
+<h1 id="step11使用jdbcservlet实现一个简单的学生管理系统">Step11.使用JDBC+Servlet实现一个简单的学生管理系统</h1>
+<h2 id="配置环境">配置环境</h2>
+<ul>
+<li>
+<p>在WEB-INF下创建一个lib文件夹,将jdbc的jar包复制到lib文件夹下</p>
+</li>
+<li>
+<p><img src="https://img-blog.csdnimg.cn/20210831184701524.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+</li>
+<li>
+<p>打开库配置</p>
+</li>
+<li>
+<p>将web/WEB-INF/lib下的jdbc的jar包导入为库</p>
+</li>
+<li>
+<p>然后将jstl的两个jar包导入作为刚才导入jdbc的子集</p>
+</li>
+<li>
+<p><img src="https://img-blog.csdnimg.cn/20210831184749366.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+</li>
+</ul>
+<h2 id="源码">源码</h2>
+<ul>
+<li>见数据库连接池</li>
+</ul>
+<h1 id="step12数据库连接池">Step12.数据库连接池</h1>
+<ul>
+<li>
+<p>传统的数据库操作通常伴随着每调用一次就将资源释放一次,这样随着我们功能的增加,请求的增多,来来回回的创建资源、释放资源</p>
+</li>
+<li>
+<p>这样的成本是非常大的</p>
+</li>
+<li>
+<p>就比如你给别人打电话,你买了一个手机,打完一通电话就把手机扔了;</p>
+</li>
+<li>
+<p>又打了一次电话,打完电话之后又把手机扔了</p>
+</li>
+<li>
+<p>这样是极大的浪费资源的</p>
+</li>
+<li>
+<p>所以我们就需要数据库连接池</p>
+</li>
+<li>
+<p><img src="https://img-blog.csdnimg.cn/20210901173908422.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+</li>
+<li>
+<p>c3p0相关jar包导入方式和导入jdbc的jar包之后再导入jstl的jar包的方式是一样的</p>
+</li>
+<li>
+<p>导入之后,我们原来基础的jdbc代码可以改为</p>
+<p><code>JDBCTest.java</code></p>
+<pre><code>  package com.zhang.JDBC;
+
+  import com.mchange.v2.c3p0.ComboPooledDataSource;
+
+  import java.beans.PropertyVetoException;
+  import java.sql.Connection;
+  import java.sql.SQLException;
+
+  public class DataSourceTest {
+      public static void main(String[] args) {
+          try {
+              //创建DataSource类型的对象
+              ComboPooledDataSource dataSource = new ComboPooledDataSource();
+                
+              //通过DataSource的相关方法将jar包库加载进来
+              dataSource.setDriverClass(&quot;com.mysql.cj.jdbc.Driver&quot;);
+              dataSource.setJdbcUrl(&quot;jdbc:mysql://localhost:3306/test?useUnicode=true&amp;CharacterEncoding=UTF-8&quot;);
+              dataSource.setUser(&quot;root&quot;);
+              dataSource.setPassword(&quot;123456&quot;);
+                
+              //设置连接数据库时的初始连接数量
+              dataSource.setInitialPoolSize(20);
+              //连接数据库时的最大连接数量
+              dataSource.setMaxPoolSize(40);
+              //连接数据库时的最小连接数量
+              dataSource.setMinPoolSize(2);
+              //实际连接数量超过最大连接数量时向系统再次申请的连接数量
+              dataSource.setAcquireIncrement(10);
+              Connection connection = dataSource.getConnection();
+              System.out.println(connection);
+              connection.close();//和传统的Connection.close();不同,这个close方法其实是将创建的connection对象重新回收到数据库连接池中以便下次再用
+          } catch (SQLException e) {
+              e.printStackTrace();
+          } catch (PropertyVetoException e) {
+              e.printStackTrace();
+          }
+      }
+  }
+</code></pre>
+</li>
+<li>
+<p>然而,上面那一坨还是不够完美</p>
+</li>
+<li>
+<p>因为如果程序中间出了错,你更改java代码,之后是需要重新编译的</p>
+</li>
+<li>
+<p>但是更改xml文件是不需要编译的,没有成本消耗</p>
+</li>
+<li>
+<p>这里我们将导入资源的参数放到xml文件中</p>
+</li>
+<li>
+<p>而DataSource类可以解析xml文件</p>
+</li>
+<li>
+<p>在src目录下新建一个名为c3p0-config.xml的文件夹,这个名称是写死的</p>
+<p><code>c3p0-config.xml</code></p>
+<pre><code>  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+  &lt;c3p0-config&gt;
+      &lt;named-config name = &quot;DataSourceFile&quot;&gt;
+          &lt;property name = &quot;driverClass&quot;&gt;com.mysql.cj.jdbc.Driver&lt;/property&gt;
+          &lt;property name = &quot;jdbcUrl&quot;&gt;jdbc:mysql://localhost:3306/test?useUnicode=true&amp;amp;CharacterEncoding=UTF-8&lt;/property&gt;
+          &lt;property name = &quot;user&quot;&gt;root&lt;/property&gt;
+          &lt;property name = &quot;password&quot;&gt;123456&lt;/property&gt;
+
+          &lt;property name = &quot;initialPoolSize&quot;&gt;20&lt;/property&gt;
+          &lt;property name = &quot;maxPoolSize&quot;&gt;40&lt;/property&gt;
+          &lt;property name = &quot;minPoolSize&quot;&gt;2&lt;/property&gt;
+          &lt;property name = &quot;acquireIncrement&quot;&gt;5&lt;/property&gt;
+      &lt;/named-config&gt;
+  &lt;/c3p0-config&gt;
+</code></pre>
+</li>
+<li>
+<p>源代码改成:</p>
+<p><code>JDBCTest.java</code></p>
+<pre><code>  package com.zhang.JDBC;
+
+  import com.mchange.v2.c3p0.ComboPooledDataSource;
+
+  import java.beans.PropertyVetoException;
+  import java.sql.Connection;
+  import java.sql.SQLException;
+
+  public class DataSourceTest {
+      public static void main(String[] args) {
+          try {
+              //创建DataSource类型的对象
+              ComboPooledDataSource dataSource = new ComboPooledDataSource(&quot;DataSourceFile&quot;);
+              Connection connection = dataSource.getConnection();
+              System.out.println(connection);
+              connection.close();//和传统的Connection.close();
+          } catch (SQLException e) {
+              e.printStackTrace();
+          }
+      }
+  }
+</code></pre>
+</li>
+<li>
+<p>这样,学生管理系统中的代码也需要改动</p>
+</li>
+<li>
+<p><a href="https://github.com/zhang666zyh/JavaResource/blob/main/WriteCode/Student.zip">点击下载</a></p>
+</li>
+</ul>
+<h1 id="step13数据库实用的小工具dbutils">Step13.数据库实用的小工具DBUtils</h1>
+<ul>
+<li>
+<p>我们与数据库创建连接是使用Connection,用PreparedStatement处理sql语句,用ResultSet获取字段,但这样做代码量比较大</p>
+</li>
+<li>
+<p>这里我们就可以使用DBUtils去简化代码</p>
+</li>
+<li>
+<p>使用DBUtils当然需要导入jar包</p>
+<p><code>Main.java</code></p>
+<pre><code>  package com.zhang.JDBC;
+
+  import com.mchange.v2.c3p0.ComboPooledDataSource;
+  import org.apache.commons.dbutils.QueryRunner;
+  import org.apache.commons.dbutils.handlers.BeanHandler;
+
+  import java.sql.Connection;
+  import java.sql.SQLException;
+
+  public class Main {
+      private static ComboPooledDataSource dataSource;
+
+      static{
+          //静态代码块,只运行一次,避免浪费内存资源
+          dataSource = new ComboPooledDataSource(&quot;DataSourceFile&quot;);
+      }
+
+      public static void main(String[] args) {
+          Student student = findByDBUtils(2);
+          System.out.println(student);
+      }
+
+      public static Student findByDBUtils(Integer id){
+          Connection connection = null;
+          Student student = null;
+          try {
+              connection = dataSource.getConnection();
+              String sql = &quot;select * from test01 where id = ?&quot;;
+              QueryRunner queryRunner = new QueryRunner();
+              //参数:Connection,SQL语句,一个对象(如下),相当于resultSet.setInt这种的设置参数
+              student = queryRunner.query(connection,sql,new BeanHandler&lt;&gt;(Student.class),id);
+          } catch (SQLException throwables) {
+              throwables.printStackTrace();
+          } finally {
+              try {
+                  connection.close();
+              } catch (SQLException throwables) {
+                  throwables.printStackTrace();
+              }
+          }
+          return student;
+      }
+  }
+</code></pre>
+<p><code>c3p0-config.xml</code></p>
+<pre><code>  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+  &lt;c3p0-config&gt;
+      &lt;named-config name = &quot;DataSourceFile&quot;&gt;
+          &lt;property name = &quot;driverClass&quot;&gt;com.mysql.cj.jdbc.Driver&lt;/property&gt;
+          &lt;property name = &quot;jdbcUrl&quot;&gt;jdbc:mysql://localhost:3306/test?useUnicode=true&amp;amp;CharacterEncoding=UTF-8&lt;/property&gt;
+          &lt;property name = &quot;user&quot;&gt;root&lt;/property&gt;
+          &lt;property name = &quot;password&quot;&gt;123456&lt;/property&gt;
+
+          &lt;property name = &quot;initialPoolSize&quot;&gt;20&lt;/property&gt;
+          &lt;property name = &quot;maxPoolSize&quot;&gt;40&lt;/property&gt;
+          &lt;property name = &quot;minPoolSize&quot;&gt;2&lt;/property&gt;
+          &lt;property name = &quot;acquireIncrement&quot;&gt;5&lt;/property&gt;
+      &lt;/named-config&gt;
+  &lt;/c3p0-config&gt;
+</code></pre>
+<p><code>Student.java</code></p>
+<pre><code>  package com.zhang.JDBC;
+
+  import java.util.Date;
+
+  public class Student {
+      private Integer id;
+      private String name;
+      private Float salary;
+
+      public Integer getId() {
+          return id;
+      }
+
+      public void setId(Integer id) {
+          this.id = id;
+      }
+
+      public String getName() {
+          return name;
+      }
+
+      public void setName(String name) {
+          this.name = name;
+      }
+
+      public Float getSalary() {
+          return salary;
+      }
+
+      public void setSalary(Float salary) {
+          this.salary = salary;
+      }
+
+      public Student(Integer id, String name, Float salary) {
+          this.id = id;
+          this.name = name;
+          this.salary = salary;
+      }
+
+      public Student() {
+
+      }
+
+      @Override
+      public String toString() {
+          return &quot;Student{&quot; +
+                  &quot;id=&quot; + id +
+                  &quot;, name='&quot; + name + '\'' +
+                  &quot;, salary=&quot; + salary +
+                  '}';
+      }
+  }
+</code></pre>
+</li>
+<li>
+<p>使用DBUtils代替了Connection下面的所有代码</p>
+</li>
+<li>
+<p>关于Main.java中findByDBUtils方法中的QueryRunner.query()的参数中的new BeanHandler</p>
+</li>
+<li>
+<p><img src="https://img-blog.csdnimg.cn/20210901205031948.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+</li>
+<li>
+<p><img src="https://img-blog.csdnimg.cn/20210901205247714.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+</li>
+<li>
+<p>因为这里是Student学生对象,所以这里使用BeanHandler类</p>
+</li>
+<li>
+<p>如果你使用MapHandler对象也可以,但是使用之后返回结果就是一个HashMap对象了</p>
+</li>
+<li>
+<p>就是这样:{id:1,username:&lsquo;张宇航&rsquo;,salary:1000000.00};</p>
+</li>
+<li>
+<p>你可以直接使用HashMap类中的get(id);方法,通过字段获取到这个数据项中的值</p>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Zhang's Blog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-07-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/javaweb/">JavaWeb</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/csharp%E6%96%87%E6%A1%A3/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">C#文档</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/python/">
+            <span class="next-text nav-default">Python</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://www.google.com/" class="iconfont icon-google" title="google"></a>
+      <a href="https://github.com/" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://www.douban.com/" class="iconfont icon-douban" title="douban"></a>
+      <a href="https://getpocket.com/" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="https://www.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="https://www.instagram.com/" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="https://about.gitlab.com/" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="https://www.bilibili.com/" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://golang.org/">GoLang</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Author - 
+    <a class="theme-link" href="https://space.bilibili.com/628950169/">Mr'zhang</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Zhang's Blog</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

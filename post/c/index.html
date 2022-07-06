@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>C - Zhang&#39;s Blog的博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Zhang&#39;s Blog" /><meta name="description" content="Step4. 十六进制转八进制 Step5. C语言进制转换 使用数组的形式进行存储 使用栈的方式实现 Step 1. TimeStamp 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;time.h&amp;gt; int main(){ struct tm* p; time_t timep; time(&amp;amp;timep); p =" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.67.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/c/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="C" />
+<meta property="og:description" content="Step4. 十六进制转八进制 Step5. C语言进制转换 使用数组的形式进行存储 使用栈的方式实现 Step 1. TimeStamp 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 #include &lt;stdio.h&gt; #include &lt;time.h&gt; int main(){ struct tm* p; time_t timep; time(&amp;timep); p =" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/c/" />
+<meta property="article:published_time" content="2020-07-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-29T00:00:00+00:00" />
+<meta itemprop="name" content="C">
+<meta itemprop="description" content="Step4. 十六进制转八进制 Step5. C语言进制转换 使用数组的形式进行存储 使用栈的方式实现 Step 1. TimeStamp 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 #include &lt;stdio.h&gt; #include &lt;time.h&gt; int main(){ struct tm* p; time_t timep; time(&amp;timep); p =">
+<meta itemprop="datePublished" content="2020-07-29T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-07-29T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="3780">
+
+
+
+<meta itemprop="keywords" content="C," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="C"/>
+<meta name="twitter:description" content="Step4. 十六进制转八进制 Step5. C语言进制转换 使用数组的形式进行存储 使用栈的方式实现 Step 1. TimeStamp 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 #include &lt;stdio.h&gt; #include &lt;time.h&gt; int main(){ struct tm* p; time_t timep; time(&amp;timep); p ="/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Zhang&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/home/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">MyBlog</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Zhang&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/home/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">MyBlog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">C</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-07-29 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#step-1-timestamp">Step 1. TimeStamp</a></li>
+    <li><a href="#step-2-关于斐波那契数列的递归">Step 2. 关于斐波那契数列的递归</a></li>
+    <li><a href="#step-3-switch-case语句">Step 3. switch-case语句</a></li>
+    <li><a href="#step-4-十六进制转八进制">Step 4. 十六进制转八进制</a></li>
+    <li><a href="#step-5-十进制转二进制">Step 5. 十进制转二进制</a>
+      <ul>
+        <li><a href="#方法一itoa函数">方法一：itoa函数</a></li>
+        <li><a href="#方法二短除法">方法二：短除法</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-6c语言实现字符串切片">Step 6.C语言实现字符串切片</a></li>
+    <li><a href="#step-7c语言-编译密码按规则将电文译成密码a-z-a-z-b-y-b-y-c-x-c-x--即第一个字母变成第26个字母第i个">Step 7.“C语言” 编译密码：按规则将电文译成密码”A-&gt;Z a-&gt;z B-&gt;Y b-&gt;y C-&gt;X c-&gt;x … 即第一个字母变成第26个字母，第i个</a></li>
+    <li><a href="#step-8字符串的全排列">Step 8.字符串的全排列</a></li>
+    <li><a href="#step9二进制转十进制">Step9.二进制转十进制</a></li>
+    <li><a href="#step10实现c语言的strlen">Step10.实现C语言的strlen()</a></li>
+    <li><a href="#step11实现c语言的strcpy函数">Step11.实现C语言的strcpy()函数</a></li>
+    <li><a href="#step12assert">Step12.assert()</a></li>
+    <li><a href="#step13memcpy">Step13.memcpy()</a></li>
+    <li><a href="#step14while循环中使用scanf函数导致执行两次printf函数的问题">Step14.while循环中使用scanf函数导致执行两次printf函数的问题</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <!-- TOC -->
+<ul>
+<li><a href="#step4-%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E8%BD%AC%E5%85%AB%E8%BF%9B%E5%88%B6">Step4. 十六进制转八进制</a></li>
+<li><a href="#step5-c%E8%AF%AD%E8%A8%80%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2">Step5. C语言进制转换</a>
+<ul>
+<li><a href="#%E4%BD%BF%E7%94%A8%E6%95%B0%E7%BB%84%E7%9A%84%E5%BD%A2%E5%BC%8F%E8%BF%9B%E8%A1%8C%E5%AD%98%E5%82%A8">使用数组的形式进行存储</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E6%A0%88%E7%9A%84%E6%96%B9%E5%BC%8F%E5%AE%9E%E7%8E%B0">使用栈的方式实现</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h1 id="step-1-timestamp">Step 1. TimeStamp</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="k">struct</span> <span class="n">tm</span><span class="o">*</span> <span class="n">p</span><span class="p">;</span>
+    <span class="n">time_t</span> <span class="n">timep</span><span class="p">;</span>
+    <span class="n">time</span><span class="p">(</span><span class="o">&amp;</span><span class="n">timep</span><span class="p">);</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">gmtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">timep</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">tm_sec</span><span class="p">);</span><span class="c1">//Second
+</span><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">tm_min</span><span class="p">);</span><span class="c1">//Minute
+</span><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">tm_hour</span><span class="p">);</span><span class="c1">//Hour
+</span><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">tm_mday</span><span class="p">);</span><span class="c1">//Day
+</span><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">tm_mon</span><span class="p">);</span><span class="c1">//Month
+</span><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="mi">1900</span><span class="o">+</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">tm_year</span><span class="p">);</span><span class="c1">//Year
+</span><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">tm_yday</span><span class="p">);</span><span class="c1">//Get the total number of days from January 1 to today
+</span><span class="c1"></span>    <span class="n">system</span><span class="p">(</span><span class="s">&#34;pause&#34;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>    
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="step-2-关于斐波那契数列的递归">Step 2. 关于斐波那契数列的递归</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="kt">int</span> <span class="nf">getTop</span><span class="p">(</span><span class="kt">int</span> <span class="n">position</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">position</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="mi">2</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">position</span> <span class="o">==</span> <span class="mi">2</span><span class="p">){</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="mi">3</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">getTop</span><span class="p">(</span><span class="n">position</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">getTop</span><span class="p">(</span><span class="n">position</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">getBottom</span><span class="p">(</span><span class="kt">int</span> <span class="n">position</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">position</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">position</span> <span class="o">==</span> <span class="mi">2</span><span class="p">){</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="mi">2</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">getBottom</span><span class="p">(</span><span class="n">position</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">getBottom</span><span class="p">(</span><span class="n">position</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">float</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="kt">float</span> <span class="n">top</span> <span class="o">=</span> <span class="n">getTop</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+        <span class="kt">float</span> <span class="n">bottom</span> <span class="o">=</span> <span class="n">getBottom</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">top</span><span class="o">/</span><span class="n">bottom</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%f&#34;</span><span class="p">,</span><span class="n">total</span><span class="p">);</span>
+    <span class="n">system</span><span class="p">(</span><span class="s">&#34;pause&#34;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>原理:</code></p>
+<ul>
+<li>
+<p>main()的for循环里,i每次迭代一次,传到顶和底函数时,i<strong>的值</strong>就会被递归</p>
+</li>
+<li>
+<p>递归需要有一个返回值,斐波那契数列的起始数字就是1,无非终止条件返回的是1(那这里题目是2/1+3/2+5/3+8/5+&hellip;,就是说底函数的起始值是头为1的斐波那契数列,头函数的起始值是头为2的斐波那契数列)</p>
+</li>
+<li>
+<p>因为它就像一个Map
+|  1   | 2  | 3  | 4  | 5  |
+|  &mdash;-  | &mdash;-  | &mdash;-  | &mdash;-  | &mdash;-  |
+|  1  |  1  |  2  |  3  |  5   |
+|  2  |  3  |  5  |  8  |  13  |</p>
+</li>
+<li>
+<p>利用它的key,他的position,传入<em>fib(n-1)+fib(n-2)</em>  ,记录每一个位置的值.</p>
+</li>
+<li>
+<p>比如你向fib()函数传入3,那么他就是fib(3) = fib(2) + fib(1)为2</p>
+</li>
+<li>
+<p>又或者你向fib()函数传入5,那么他就是fib(5) = fib(4)+fib(3),而fib(4) = fib(3)+fib(2)&hellip;以此类推,直到fib()函数里的参数满足退出递归条件就会获得返回值,这个返回值为1,当所有的子节点函数被分解成的树的叶节点都<strong>可以</strong>或得返回之后,就可以向着根节点的方向一个节点一个节点的计算回去了,这时候你是加减乘除取模也好,看你个人的代码</p>
+</li>
+</ul>
+<h1 id="step-3-switch-case语句">Step 3. switch-case语句</h1>
+<p><code>switch-case语句的本质:</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c">    <span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp"></span>    <span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span><span class="cp"></span>    <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+        <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+        <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+        <span class="k">switch</span><span class="p">(</span><span class="n">x</span><span class="p">){</span>
+            <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&#34;1</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&#34;2</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&#34;3</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="mi">4</span><span class="o">:</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&#34;4</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">default</span><span class="o">:</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Other</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">system</span><span class="p">(</span><span class="s">&#34;pause&#34;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>每一句case结尾都会有break;是因为switch-case语句,switch语句会判断传入的值,然后自动找到和这个值相等的case语句(例如x=1,switch-case语句就自动&gt;找到case 1:),如果所有的case语句都没有break;那么就会从找到的这一句case开始往下执行,这一句下面的所有语句也都执行,一直到遇到break或者执行到&gt;default结束.</p>
+</blockquote>
+<h1 id="step-4-十六进制转八进制">Step 4. 十六进制转八进制</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="cm">/*
+</span><span class="cm">* _______________#########_______________________ 
+</span><span class="cm">* ______________############_____________________ 
+</span><span class="cm">* ______________#############____________________ 
+</span><span class="cm">* _____________##__###########___________________ 
+</span><span class="cm">* ____________###__######_#####__________________ 
+</span><span class="cm">* ____________###_#######___####_________________ 
+</span><span class="cm">* ___________###__##########_####________________ 
+</span><span class="cm">* __________####__###########_####_______________ 
+</span><span class="cm">* ________#####___###########__#####_____________ 
+</span><span class="cm">* _______######___###_########___#####___________ 
+</span><span class="cm">* _______#####___###___########___######_________ 
+</span><span class="cm">* ______######___###__###########___######_______ 
+</span><span class="cm">* _____######___####_##############__######______ 
+</span><span class="cm">* ____#######__#####################_#######_____ 
+</span><span class="cm">* ____#######__##############################____ 
+</span><span class="cm">* ___#######__######_#################_#######___ 
+</span><span class="cm">* ___#######__######_######_#########___######___ 
+</span><span class="cm">* ___#######____##__######___######_____######___ 
+</span><span class="cm">* ___#######________######____#####_____#####____ 
+</span><span class="cm">* ____######________#####_____#####_____####_____ 
+</span><span class="cm">* _____#####________####______#####_____###______ 
+</span><span class="cm">* ______#####______;###________###______#________ 
+</span><span class="cm">
+</span><span class="cm">* ________##_______####________####______________ 
+</span><span class="cm">*/</span>
+
+<span class="cm">/*
+</span><span class="cm">* @Author: your name
+</span><span class="cm">* @Date: 2021-05-30 22:01:03
+</span><span class="cm">* @LastEditTime: 2021-06-18 08:52:27
+</span><span class="cm">* @LastEditors: Please set LastEditors
+</span><span class="cm">* @Description: In User Settings Edit
+</span><span class="cm">* @FilePath: \VscodeForWindows\C\Algorithm\蓝桥杯\十六进制转八进制.c
+</span><span class="cm">*/</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="cm">/* 将十六进制字符转换为数值 */</span> 
+<span class="kt">int</span> <span class="nf">get_value</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="n">c</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">&gt;=</span> <span class="sc">&#39;0&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="sc">&#39;9&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">c</span> <span class="o">-</span> <span class="sc">&#39;0&#39;</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="k">return</span> <span class="n">c</span> <span class="o">-</span> <span class="sc">&#39;A&#39;</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">input</span><span class="p">,</span> <span class="o">*</span><span class="n">output</span><span class="p">,</span> <span class="o">*</span><span class="n">output2</span><span class="p">,</span> <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">len</span><span class="p">;</span>
+    
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+    <span class="n">input</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mi">100000</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span><span class="cm">/* 储存输入的十六进制数 */</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mi">100000</span><span class="o">*</span><span class="mi">4</span><span class="o">+</span><span class="mi">4</span><span class="p">);</span><span class="cm">/* 储存过度用的二进制数 */</span>
+    <span class="n">output2</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mi">100000</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mi">3</span><span class="p">);</span><span class="cm">/* 储存最终结果八进制数 */</span>
+
+    <span class="k">while</span><span class="p">(</span><span class="n">n</span><span class="o">--</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">gets</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+        <span class="n">len</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+        <span class="n">ptr</span> <span class="o">=</span> <span class="n">input</span><span class="p">;</span>
+        <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+        <span class="cm">/* 首先将十六进制转换为二进制，1位十六进制数对应4位二进制数 */</span> 
+        <span class="k">while</span><span class="p">(</span><span class="o">*</span><span class="n">ptr</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">get_value</span><span class="p">(</span><span class="o">*</span><span class="n">ptr</span><span class="p">);</span>
+            <span class="n">output</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">tmp</span><span class="o">&gt;&gt;</span><span class="mi">3</span><span class="p">)</span><span class="o">&amp;</span><span class="mh">0x1</span><span class="p">);</span><span class="cm">/* bit3 */</span>
+            <span class="n">output</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">tmp</span><span class="o">&gt;&gt;</span><span class="mi">2</span><span class="p">)</span><span class="o">&amp;</span><span class="mh">0x1</span><span class="p">);</span><span class="cm">/* bit2 */</span>
+            <span class="n">output</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">tmp</span><span class="o">&gt;&gt;</span><span class="mi">1</span><span class="p">)</span><span class="o">&amp;</span><span class="mh">0x1</span><span class="p">);</span><span class="cm">/* bit1 */</span>
+            <span class="n">output</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">tmp</span><span class="o">&gt;&gt;</span><span class="mi">0</span><span class="p">)</span><span class="o">&amp;</span><span class="mh">0x1</span><span class="p">);</span><span class="cm">/* bit0 */</span>
+            <span class="n">ptr</span> <span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="cm">/* 将二进制转换为八进制，3位二进制数对应1位八进制数，从低位开始转 */</span>
+        <span class="cm">/* j为二进制数组下标，每个循环减3 */</span>
+        <span class="cm">/* i为八进制数组下标，每个循环减1 */</span> 
+        <span class="n">j</span><span class="o">=</span><span class="n">len</span><span class="o">*</span><span class="mi">4</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="n">i</span><span class="o">=</span><span class="p">(</span><span class="n">len</span><span class="o">*</span><span class="mi">4</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">output2</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(;</span><span class="n">j</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">;)</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">output2</span><span class="p">[</span><span class="n">i</span><span class="o">--</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="mi">2</span> <span class="o">|</span> <span class="n">output</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="mi">1</span> <span class="o">|</span> <span class="n">output</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">+</span> <span class="sc">&#39;0&#39;</span><span class="p">;</span>
+            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">output2</span><span class="p">[</span><span class="n">i</span><span class="o">--</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="mi">1</span> <span class="o">|</span> <span class="n">output</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="o">+</span><span class="sc">&#39;0&#39;</span><span class="p">;</span>
+            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">output2</span><span class="p">[</span><span class="n">i</span><span class="o">--</span><span class="p">]</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="sc">&#39;0&#39;</span><span class="p">;</span>
+
+            <span class="n">j</span> <span class="o">-=</span> <span class="mi">3</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="cm">/* 八进制数组的有效下标从 i+1 开始 */</span> 
+        <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+        <span class="cm">/* 去除前导的&#39;0&#39;字符(可能会影响判定结果) */</span> 
+        <span class="k">while</span><span class="p">(</span><span class="n">output2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">==</span><span class="sc">&#39;0&#39;</span><span class="p">)</span> <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+        <span class="cm">/* 如果整个字符串都是&#39;0&#39;，则直接输出结果&#39;0&#39;，否则从首位非&#39;0&#39;开始输出 */</span> 
+        <span class="k">if</span><span class="p">(</span> <span class="n">output2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39;\0&#39;</span><span class="p">)</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;0</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+        <span class="k">else</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">output2</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+    <span class="p">}</span>
+    
+    <span class="n">free</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">output</span><span class="p">);</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">output2</span><span class="p">);</span>
+    <span class="n">system</span><span class="p">(</span><span class="s">&#34;pause&#34;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="step-5-十进制转二进制">Step 5. 十进制转二进制</h1>
+<h2 id="方法一itoa函数">方法一：itoa函数</h2>
+<blockquote>
+<p>itoa函数将数值转换为字符串，通过规定转换进制实现。（还是用了C自带的代码块hh)</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="c1">//注意必须调用stdlib.h函数库
+</span><span class="c1"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">1000</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">30</span><span class="p">];</span>
+    <span class="n">itoa</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">str</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="c1">//2即是代表转换为2进制
+</span><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span><span class="n">str</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="方法二短除法">方法二：短除法</h2>
+<blockquote>
+<p>短除法，将十进制转换为二进制的笔算过程通过简单的代码实现。没走捷径哦。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">i</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">remainder</span><span class="p">[</span><span class="mi">30</span><span class="p">];</span>
+    <span class="c1">//定义了一个remainder数组，用来收集短除法除得的余数，栈倒序输出。
+</span><span class="c1"></span>    <span class="n">a</span><span class="o">=</span><span class="mi">1000</span><span class="p">;</span>
+    <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">a</span><span class="o">!=</span><span class="mi">0</span><span class="p">){</span>
+        <span class="n">b</span><span class="o">=</span><span class="n">a</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+        <span class="n">k</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">remainder</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="mi">2</span><span class="p">;</span>
+        <span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="n">k</span><span class="p">;</span><span class="n">i</span><span class="o">&gt;=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">--</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span><span class="n">remainder</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span> 
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="step-6c语言实现字符串切片">Step 6.C语言实现字符串切片</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span><span class="cp"></span> 
+<span class="kt">char</span><span class="o">*</span> <span class="nf">substring</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">ch</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="p">,</span> <span class="kt">int</span> <span class="n">length</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">ch</span><span class="p">;</span><span class="c1">//定义一个字符指针，指向传递进来的ch地址。  
+</span><span class="c1"></span>    <span class="kt">char</span><span class="o">*</span> <span class="n">subch</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">calloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span> <span class="n">length</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span><span class="c1">//通过calloc来分配一个length长度的字符数组，返回的是字符指针。  
+</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">p</span> <span class="o">+</span> <span class="n">pos</span><span class="p">;</span><span class="c1">//是p指针指向pos位置。  
+</span><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">subch</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">++</span><span class="p">);</span><span class="c1">//循环遍历赋值数组。  
+</span><span class="c1"></span>    <span class="p">}</span>
+    <span class="n">subch</span><span class="p">[</span><span class="n">length</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span><span class="c1">//加上字符串结束符。  
+</span><span class="c1"></span>    <span class="k">return</span> <span class="n">subch</span><span class="p">;</span>       <span class="c1">//返回分配的字符数组地址。  
+</span><span class="c1"></span><span class="p">}</span>
+ 
+<span class="kt">char</span><span class="o">*</span> <span class="n">G</span><span class="p">;</span><span class="c1">//G1
+</span><span class="c1"></span><span class="kt">char</span><span class="o">*</span> <span class="n">X</span><span class="p">;</span><span class="c1">//x
+</span><span class="c1"></span><span class="kt">char</span><span class="o">*</span> <span class="n">Ex</span><span class="p">;</span><span class="c1">//目的地x坐标
+</span><span class="c1"></span><span class="kt">char</span><span class="o">*</span> <span class="n">Y</span><span class="p">;</span><span class="c1">//y
+</span><span class="c1"></span><span class="kt">char</span><span class="o">*</span> <span class="n">Ey</span><span class="p">;</span><span class="c1">//目的地y坐标
+</span><span class="c1"></span><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">string</span> <span class="o">=</span> <span class="s">&#34;G1 X148.981 Y103.950 E8.76037&#34;</span><span class="p">;</span><span class="c1">//3D切片软件生成的G代码
+</span><span class="c1"></span>    <span class="kt">char</span><span class="o">*</span> <span class="n">tstStr</span> <span class="o">=</span> <span class="n">string</span><span class="p">;</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">substring</span><span class="p">(</span><span class="n">tstStr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">substring</span><span class="p">(</span><span class="n">tstStr</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">Ex</span> <span class="o">=</span> <span class="n">substring</span><span class="p">(</span><span class="n">tstStr</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">);</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">substring</span><span class="p">(</span><span class="n">tstStr</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">Ey</span> <span class="o">=</span> <span class="n">substring</span><span class="p">(</span><span class="n">tstStr</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">7</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">string</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">G</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">X</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">Ex</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">Y</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">Ey</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h1 id="step-7c语言-编译密码按规则将电文译成密码a-z-a-z-b-y-b-y-c-x-c-x--即第一个字母变成第26个字母第i个">Step 7.“C语言” 编译密码：按规则将电文译成密码”A-&gt;Z a-&gt;z B-&gt;Y b-&gt;y C-&gt;X c-&gt;x … 即第一个字母变成第26个字母，第i个</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="kt">char</span> <span class="n">arr</span><span class="p">[</span><span class="mi">128</span><span class="p">],</span><span class="n">arr1</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
+	<span class="kt">int</span> <span class="n">len</span><span class="p">,</span> <span class="n">i</span><span class="p">;</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;please input the array</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+	<span class="n">gets</span><span class="p">(</span><span class="n">arr</span><span class="p">);</span>
+	<span class="n">strcpy</span><span class="p">(</span><span class="n">arr1</span><span class="p">,</span> <span class="n">arr</span><span class="p">);</span>
+	<span class="n">len</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">arr</span><span class="p">);</span>
+	<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="sc">&#39;a&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="sc">&#39;z&#39;</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;a&#39;</span> <span class="o">+</span> <span class="sc">&#39;z&#39;</span> <span class="o">-</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="sc">&#39;A&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="sc">&#39;Z&#39;</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;A&#39;</span> <span class="o">+</span> <span class="sc">&#39;Z&#39;</span> <span class="o">-</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+		<span class="p">}</span>
+		<span class="k">else</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">puts</span><span class="p">(</span><span class="n">arr1</span><span class="p">);</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+	<span class="n">puts</span><span class="p">(</span><span class="n">arr</span><span class="p">);</span>
+	<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="step-8字符串的全排列">Step 8.字符串的全排列</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+   <span class="kt">void</span> <span class="n">func</span><span class="p">(</span><span class="kt">char</span> <span class="n">a</span><span class="p">[],</span><span class="kt">int</span> <span class="n">k</span><span class="p">);</span>
+   <span class="kt">char</span> <span class="n">a</span><span class="p">[</span><span class="mi">26</span><span class="p">];</span>
+   <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+   <span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+ 
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+ 
+<span class="kt">void</span> <span class="nf">func</span><span class="p">(</span><span class="kt">char</span> <span class="n">a</span><span class="p">[],</span><span class="kt">int</span> <span class="n">k</span><span class="p">){</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="p">,</span><span class="n">temp</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">k</span> <span class="o">==</span> <span class="n">strlen</span><span class="p">(</span><span class="n">a</span><span class="p">)){</span>
+       <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s &#34;</span><span class="p">,</span><span class="n">a</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="n">k</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">strlen</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+       <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+       <span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+       <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+    
+       <span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+    
+       <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+       <span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+       <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h1 id="step9二进制转十进制">Step9.二进制转十进制</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="cm">/*
+</span><span class="cm"> * 程序名：book.c，此程序用于把二进制的字符串转换为十进制的整数。
+</span><span class="cm"> * 作者：C语言技术网(www.freecplus.net) 日期：20190525。
+</span><span class="cm">*/</span>
+<span class="cp">#include</span> <span class="cpf">&#34;stdio.h&#34;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="c1">// 把二进制字符串转换为十进制。
+</span><span class="c1">// pbin：待转换的二进制字符串。
+</span><span class="c1">// 返回值：二进制字符串转换为十进制整数的结果。
+</span><span class="c1"></span><span class="kt">long</span> <span class="nf">bintodec</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">pbin</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">ii</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="kt">long</span> <span class="n">result</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+
+  <span class="k">while</span> <span class="p">(</span><span class="n">pbin</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">result</span><span class="o">=</span><span class="n">result</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">pbin</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">-</span><span class="sc">&#39;0&#39;</span><span class="p">);</span>
+    <span class="n">ii</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">65</span><span class="p">];</span>
+
+  <span class="n">memset</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">str</span><span class="p">));</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&#34;请输入一个二进制的字符串（只能由0和1组成）：&#34;</span><span class="p">);</span>  
+  <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span><span class="n">str</span><span class="p">);</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s转换为十进制的结果是：%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">str</span><span class="p">,</span><span class="n">bintodec</span><span class="p">(</span><span class="n">str</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="step10实现c语言的strlen">Step10.实现C语言的strlen()</h1>
+<ul>
+<li>作用:计算字符数组长度</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">50</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span><span class="n">str</span><span class="p">);</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">str</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">!=</span><span class="sc">&#39;\0&#39;</span><span class="p">;</span><span class="n">n</span><span class="o">++</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="step11实现c语言的strcpy函数">Step11.实现C语言的strcpy()函数</h1>
+<ul>
+<li>作用:将后面的参数代表的字符串复制到前面参数代表的字符串</li>
+</ul>
+<p><code>流行写法</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">char</span> <span class="o">*</span><span class="nf">my_strcpy</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">dst</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">src</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">assert</span><span class="p">(</span><span class="n">dst</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">);</span>
+	<span class="n">assert</span><span class="p">(</span><span class="n">src</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">);</span>
+	<span class="kt">char</span> <span class="o">*</span><span class="n">ret</span> <span class="o">=</span> <span class="n">dst</span><span class="p">;</span>
+	<span class="k">while</span><span class="p">((</span><span class="o">*</span> <span class="n">dst</span><span class="o">++</span> <span class="o">=</span> <span class="o">*</span> <span class="n">src</span><span class="o">++</span><span class="p">)</span> <span class="o">!=</span> <span class="sc">&#39;\0&#39;</span><span class="p">)</span> 
+		<span class="p">;</span>
+	<span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>如果注意到</code></p>
+<blockquote>
+<p>1，检查指针有效性；</p>
+</blockquote>
+<blockquote>
+<p>2，返回目的指针des；</p>
+</blockquote>
+<blockquote>
+<p>3，源字符串的末尾 &lsquo;\0&rsquo; 需要拷贝。</p>
+</blockquote>
+<p>写出上面实现函数就不在话下</p>
+<p>然而这样的实现没有考虑拷贝时内存重叠的情况，下面的测试用例就能使调用my_strcp函数的程序崩溃：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="o">=</span><span class="s">&#34;abc&#34;</span><span class="p">;</span>
+<span class="n">my_strcpy</span><span class="p">(</span><span class="n">str</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">str</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>然而调用系统的strcpy函数程序正常运行，打印str结果为“aabc”！可见系统strcpy函数的实现不是这样的
+<code>strcpy的正确实现应为</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">char</span> <span class="o">*</span><span class="nf">my_strcpy</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">dst</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">src</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">assert</span><span class="p">(</span><span class="n">dst</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">);</span>
+	<span class="n">assert</span><span class="p">(</span><span class="n">src</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">);</span>
+	<span class="kt">char</span> <span class="o">*</span><span class="n">ret</span> <span class="o">=</span> <span class="n">dst</span><span class="p">;</span>
+	<span class="n">memcpy</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span><span class="n">src</span><span class="p">,</span><span class="n">strlen</span><span class="p">(</span><span class="n">src</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+	<span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>memcpy函数实现时考虑到了内存重叠的情况，可以完成指定大小的内存拷贝</strong></p>
+<h1 id="step12assert">Step12.assert()</h1>
+<ul>
+<li>assert宏的原型定义在&lt;assert.h&gt;中，其作用是如果它的条件返回错误，则终止程序执行。</li>
+</ul>
+<p><code>原型定义</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;assert.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="kt">void</span> <span class="nf">assert</span><span class="p">(</span> <span class="kt">int</span> <span class="n">expression</span> <span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>assert的作用是先计算表达式 expression</p>
+<p>如果其值为假（即为0）,那么它先向stderr打印一条出错信息,然后通过调用 abort 来终止程序运行</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="n">assert</span><span class="p">(</span><span class="n">str</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="step13memcpy">Step13.memcpy()</h1>
+<blockquote>
+<p>memcpy函数是C/C++语言中的一个用于内存复制的函数，声明在 string.h 中（C++是 cstring）</p>
+</blockquote>
+<p><code>其原型是</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">memcpy</span><span class="p">(</span><span class="kt">void</span> <span class="n">destin</span><span class="p">,</span> <span class="kt">void</span> <span class="n">source</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="n">n</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>作用是</code></p>
+<blockquote>
+<p>以source指向的地址为起点，将连续的n个字节数据，复制到以destin指向的地址为起点的内存中。
+函数有三个参数，第一个是目标地址，第二个是源地址，第三个是数据长度。</p>
+</blockquote>
+<hr>
+<h1 id="step14while循环中使用scanf函数导致执行两次printf函数的问题">Step14.while循环中使用scanf函数导致执行两次printf函数的问题</h1>
+<ul>
+<li>
+<p>看一段程序</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp"></span>  
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">char</span> <span class="n">i</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;输入:&#34;</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%c&#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+  
+    <span class="k">while</span><span class="p">(</span><span class="n">i</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;输入:&#34;</span><span class="p">);</span>
+        <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%c&#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+  
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>执行结果</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">输入:1
+输入:输入: 
+输入:1
+输入:输入:
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>这是因为</p>
+<blockquote>
+<p>第一次输入字符串之后回车，最后<code>'\n'</code>没有给<code>i</code>,而是保存在缓存中，当第二次需要输入时，直接把缓存中的字符赋值</p>
+</blockquote>
+</li>
+<li>
+<p>解决方法</p>
+<blockquote>
+<p>在while循环中加入</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">while</span><span class="p">(</span><span class="n">getchar</span><span class="p">()</span> <span class="o">!=</span> <span class="sc">&#39;\n&#39;</span><span class="p">){</span>
+  <span class="k">continue</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//消耗掉\n(具体内容视情况修改）
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp"></span>  
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">char</span> <span class="n">i</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;输入:&#34;</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%c&#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+  
+    <span class="k">while</span><span class="p">(</span><span class="n">i</span><span class="p">){</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">getchar</span><span class="p">()</span> <span class="o">!=</span> <span class="sc">&#39;\n&#39;</span><span class="p">){</span>
+            <span class="k">continue</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;输入:&#34;</span><span class="p">);</span>
+        <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%c&#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+  
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Zhang's Blog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-07-29
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/c/">C</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/mysql/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">MySQL</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/unity/">
+            <span class="next-text nav-default">Unity</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://www.google.com/" class="iconfont icon-google" title="google"></a>
+      <a href="https://github.com/" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://www.douban.com/" class="iconfont icon-douban" title="douban"></a>
+      <a href="https://getpocket.com/" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="https://www.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="https://www.instagram.com/" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="https://about.gitlab.com/" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="https://www.bilibili.com/" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://golang.org/">GoLang</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Author - 
+    <a class="theme-link" href="https://space.bilibili.com/628950169/">Mr'zhang</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Zhang's Blog</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

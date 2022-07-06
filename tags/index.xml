@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Zhang&#39;s Blog的博客</title>
+    <link>http://localhost:1313/tags/</link>
+    <description>Recent content in Tags on Zhang&#39;s Blog的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 06 Jul 2022 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python</title>
+      <link>http://localhost:1313/tags/python/</link>
+      <pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vue</title>
+      <link>http://localhost:1313/tags/vue/</link>
+      <pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/vue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Flutter</title>
+      <link>http://localhost:1313/tags/flutter/</link>
+      <pubDate>Mon, 30 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/flutter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WEB</title>
+      <link>http://localhost:1313/tags/web/</link>
+      <pubDate>Mon, 30 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>http://localhost:1313/tags/java/</link>
+      <pubDate>Thu, 19 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JavaScript</title>
+      <link>http://localhost:1313/tags/javascript/</link>
+      <pubDate>Thu, 19 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GoLang</title>
+      <link>http://localhost:1313/tags/golang/</link>
+      <pubDate>Sun, 01 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>前端</title>
+      <link>http://localhost:1313/tags/%E5%89%8D%E7%AB%AF/</link>
+      <pubDate>Tue, 29 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/%E5%89%8D%E7%AB%AF/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>http://localhost:1313/tags/git/</link>
+      <pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Unity</title>
+      <link>http://localhost:1313/tags/unity/</link>
+      <pubDate>Fri, 28 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/unity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>http://localhost:1313/tags/linux/</link>
+      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Database</title>
+      <link>http://localhost:1313/tags/database/</link>
+      <pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/database/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AR</title>
+      <link>http://localhost:1313/tags/ar/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/ar/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>网络安全</title>
+      <link>http://localhost:1313/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</link>
+      <pubDate>Sun, 19 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C</title>
+      <link>http://localhost:1313/tags/c/</link>
+      <pubDate>Sat, 04 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>http://localhost:1313/tags/c&#43;&#43;/</link>
+      <pubDate>Sat, 04 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scala</title>
+      <link>http://localhost:1313/tags/scala/</link>
+      <pubDate>Sun, 07 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/scala/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kotlin</title>
+      <link>http://localhost:1313/tags/kotlin/</link>
+      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/kotlin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>中间件</title>
+      <link>http://localhost:1313/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
+      <pubDate>Sun, 31 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PC</title>
+      <link>http://localhost:1313/tags/pc/</link>
+      <pubDate>Tue, 26 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/pc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>All</title>
+      <link>http://localhost:1313/tags/all/</link>
+      <pubDate>Mon, 04 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/all/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SoftWare</title>
+      <link>http://localhost:1313/tags/software/</link>
+      <pubDate>Mon, 04 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/software/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Others</title>
+      <link>http://localhost:1313/tags/others/</link>
+      <pubDate>Sun, 03 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/others/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Android</title>
+      <link>http://localhost:1313/tags/android/</link>
+      <pubDate>Sat, 02 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JavaWeb</title>
+      <link>http://localhost:1313/tags/javaweb/</link>
+      <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/javaweb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>算法</title>
+      <link>http://localhost:1313/tags/%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>分布式</title>
+      <link>http://localhost:1313/tags/%E5%88%86%E5%B8%83%E5%BC%8F/</link>
+      <pubDate>Fri, 17 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/%E5%88%86%E5%B8%83%E5%BC%8F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTML</title>
+      <link>http://localhost:1313/tags/html/</link>
+      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rust</title>
+      <link>http://localhost:1313/tags/rust/</link>
+      <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/rust/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PHP</title>
+      <link>http://localhost:1313/tags/php/</link>
+      <pubDate>Sat, 17 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>xml</title>
+      <link>http://localhost:1313/tags/xml/</link>
+      <pubDate>Thu, 15 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/xml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C#</title>
+      <link>http://localhost:1313/tags/c#/</link>
+      <pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/c#/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

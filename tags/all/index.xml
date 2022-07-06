@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>All on Zhang&#39;s Blog的博客</title>
+    <link>http://localhost:1313/tags/all/</link>
+    <description>Recent content in All on Zhang&#39;s Blog的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 04 Oct 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/all/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>算法</title>
+      <link>http://localhost:1313/post/%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Mon, 04 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E7%AE%97%E6%B3%95/</guid>
+      <description>ACM Step01.1-10 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;string.h&amp;gt; int main(){ int n; printf(&amp;#34;请输入数字数量:&amp;#34;); scanf(&amp;#34;%d&amp;#34;,&amp;amp;n); char array1[10][5] = {{&amp;#34;zero&amp;#34;},{&amp;#34;one&amp;#34;},{&amp;#34;two&amp;#34;},{&amp;#34;three&amp;#34;},{&amp;#34;four&amp;#34;},{&amp;#34;five&amp;#34;},{&amp;#34;six&amp;#34;},{&amp;#34;seven&amp;#34;},{&amp;#34;eight&amp;#34;},{&amp;#34;nine&amp;#34;},{&amp;#34;ten&amp;#34;}}; char array2[10][5] =</description>
+    </item>
+    
+  </channel>
+</rss>

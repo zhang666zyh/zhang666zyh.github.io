@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Unity on Zhang&#39;s Blog的博客</title>
+    <link>http://localhost:1313/tags/unity/</link>
+    <description>Recent content in Unity on Zhang&#39;s Blog的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 28 Jan 2022 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/unity/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vuforia</title>
+      <link>http://localhost:1313/post/vuforia/</link>
+      <pubDate>Fri, 28 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/vuforia/</guid>
+      <description>工具网站 爱给网 下载Unity模型的 还可以下载很多其他东西 Step01.环境配置 安装Unity2020.1.0的unityHub 下载地址 在Un</description>
+    </item>
+    
+    <item>
+      <title>EasyAR</title>
+      <link>http://localhost:1313/post/easyar/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/easyar/</guid>
+      <description>Step01.Unity中导入EasyAR资源并运行第一个项目 导入SDK 注册账号 下载Unity的EasyAR插件 点击下载 点击Unity Plugin 下载</description>
+    </item>
+    
+    <item>
+      <title>Unity</title>
+      <link>http://localhost:1313/post/unity/</link>
+      <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/unity/</guid>
+      <description>Step1. Unity开发工具技巧以及相关文档 Step2. 小球项目 通过C#为游戏物体添加日志 使小球朝着指定方向移动 物体的向量 Unity监听键盘事件 控制小球左右移</description>
+    </item>
+    
+  </channel>
+</rss>

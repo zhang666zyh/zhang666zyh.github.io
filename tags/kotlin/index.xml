@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kotlin on Zhang&#39;s Blog的博客</title>
+    <link>http://localhost:1313/tags/kotlin/</link>
+    <description>Recent content in Kotlin on Zhang&#39;s Blog的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 01 Nov 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/kotlin/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Android</title>
+      <link>http://localhost:1313/post/android/</link>
+      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/android/</guid>
+      <description>Step1.安装AndroidStudio 别搞压缩包exe了,安卓配置坑爹的要死 直接官网下载exe执行下载 打开后它说没有SDK,就在软件中下</description>
+    </item>
+    
+  </channel>
+</rss>

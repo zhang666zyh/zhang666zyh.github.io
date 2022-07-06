@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C# on Zhang&#39;s Blog的博客</title>
+    <link>http://localhost:1313/tags/c#/</link>
+    <description>Recent content in C# on Zhang&#39;s Blog的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 10 Jul 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/c#/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>C#</title>
+      <link>http://localhost:1313/post/csharp/</link>
+      <pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/csharp/</guid>
+      <description>Step1. C#的第一个程序 Step2.C#求1-1/2+1/3-1/4+&amp;hellip;-1/100的值 Step3. 银行管理系统 Step1. C#的第一个程序 1 2 3 4 5 6</description>
+    </item>
+    
+    <item>
+      <title>C#文档</title>
+      <link>http://localhost:1313/post/csharp%E6%96%87%E6%A1%A3/</link>
+      <pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/csharp%E6%96%87%E6%A1%A3/</guid>
+      <description>监听键盘事件 Debug.Log(&amp;ldquo;String&amp;rdquo;); 向Unity控制台输出字符或字符串 监听键盘事件 Input.GetAxis(&amp;ldquo;Horizontal&amp;rdquo;); 获取左右方向上的键盘事件 Input.GetAxis(&amp;ldquo;Vertical&amp;rdquo;); 获取前后方向上的键盘事件 这个方法有一个float类型</description>
+    </item>
+    
+  </channel>
+</rss>

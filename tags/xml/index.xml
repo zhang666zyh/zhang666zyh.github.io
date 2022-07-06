@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>xml on Zhang&#39;s Blog的博客</title>
+    <link>http://localhost:1313/tags/xml/</link>
+    <description>Recent content in xml on Zhang&#39;s Blog的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 15 Jul 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/xml/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>xml</title>
+      <link>http://localhost:1313/post/xml/</link>
+      <pubDate>Thu, 15 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/xml/</guid>
+      <description>Step1. jsp映射本地类 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;web-app xmlns=&amp;#34;http://xmlns.jcp.org/xml/ns/javaee&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&amp;#34; version=&amp;#34;4.0&amp;#34;&amp;gt; &amp;lt;servlet&amp;gt; &amp;lt;servlet-name&amp;gt;Demo&amp;lt;/servlet-name&amp;gt; &amp;lt;servlet-class&amp;gt;com.zhang.code.Demo&amp;lt;/servlet-class&amp;gt; &amp;lt;/servlet&amp;gt; &amp;lt;servlet-mapping&amp;gt; &amp;lt;servlet-name&amp;gt;Demo&amp;lt;/servlet-name&amp;gt; &amp;lt;url-pattern&amp;gt;/demo&amp;lt;/url-pattern&amp;gt; &amp;lt;/servlet-mapping&amp;gt; &amp;lt;/web-app&amp;gt; 通过servlet-name将全类名映射成一个链接 还有</description>
+    </item>
+    
+  </channel>
+</rss>

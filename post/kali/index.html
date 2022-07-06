@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>kali - Zhang&#39;s Blog的博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Zhang&#39;s Blog" /><meta name="description" content="Step01.安装kali macos 官网 下载vmvare版本的压缩包 下载好解压,运行解压出的vmvare文件即可自动挂载镜像 1 2 用户名:kali 密码" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.67.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/kali/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="kali" />
+<meta property="og:description" content="Step01.安装kali macos 官网 下载vmvare版本的压缩包 下载好解压,运行解压出的vmvare文件即可自动挂载镜像 1 2 用户名:kali 密码" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/kali/" />
+<meta property="article:published_time" content="2022-01-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-20T00:00:00+00:00" />
+<meta itemprop="name" content="kali">
+<meta itemprop="description" content="Step01.安装kali macos 官网 下载vmvare版本的压缩包 下载好解压,运行解压出的vmvare文件即可自动挂载镜像 1 2 用户名:kali 密码">
+<meta itemprop="datePublished" content="2022-01-20T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-01-20T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1515">
+
+
+
+<meta itemprop="keywords" content="Linux," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="kali"/>
+<meta name="twitter:description" content="Step01.安装kali macos 官网 下载vmvare版本的压缩包 下载好解压,运行解压出的vmvare文件即可自动挂载镜像 1 2 用户名:kali 密码"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Zhang&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/home/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">MyBlog</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Zhang&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/home/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">MyBlog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">kali</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-01-20 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#step01安装kali">Step01.安装kali</a>
+      <ul>
+        <li><a href="#macos">macos</a></li>
+        <li><a href="#ubuntu">Ubuntu</a></li>
+      </ul>
+    </li>
+    <li><a href="#step02kali安装java">Step02.kali安装java</a></li>
+    <li><a href="#step03kali更换国内源">Step03.kali更换国内源</a></li>
+    <li><a href="#step04dns信息收集">Step04.DNS信息收集</a>
+      <ul>
+        <li><a href="#将域名解析为ip地址">将域名解析为ip地址</a></li>
+        <li><a href="#dns信息收集">DNS信息收集</a></li>
+      </ul>
+    </li>
+    <li><a href="#step05查询域名的注册和备案信息">Step05.查询域名的注册和备案信息</a></li>
+    <li><a href="#step06收集子域名信息">Step06.收集子域名信息</a></li>
+    <li><a href="#step07shodan">Step07.shodan</a></li>
+    <li><a href="#step08常见漏洞公布网站">Step08.常见漏洞公布网站</a></li>
+    <li><a href="#step09traceroute追踪路由">Step09.traceroute(追踪路由)</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="step01安装kali">Step01.安装kali</h1>
+<h2 id="macos">macos</h2>
+<ul>
+<li>
+<p><a href="https://www.kali.org">官网</a></p>
+</li>
+<li>
+<p>下载vmvare版本的压缩包</p>
+</li>
+<li>
+<p>下载好解压,运行解压出的vmvare文件即可自动挂载镜像</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">用户名:kali
+密码:kali
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="ubuntu">Ubuntu</h2>
+<ul>
+<li>下载kali的vmvare版本镜像</li>
+<li>解压</li>
+<li>vmvare中<code>打开虚拟机</code></li>
+<li>打开解压的文件夹</li>
+</ul>
+<hr>
+<h1 id="step02kali安装java">Step02.kali安装java</h1>
+<ul>
+<li>
+<p>下载linux的压缩包</p>
+</li>
+<li>
+<p>解压</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 移动压缩包至opt目录</span>
+mv jdk-11.0.5_linux-x64_bin.tar.gz /opt
+   
+<span class="c1">#切换至opt目录进行解压</span>
+<span class="nb">cd</span> /opt
+   
+<span class="c1">#解压</span>
+tar -zxvf jdk-11.0.5_linux-x64_bin.tar.gz
+   
+<span class="c1">#拷贝解压后Java文件夹至/usr/bin</span>
+cp -r jdk-11.0.5/ /usr/bin
+   
+<span class="c1">#安装并注册</span>
+update-alternatives --install /usr/bin/java java /opt/jdk-11.0.5/bin/java 1
+update-alternatives --install /usr/bin/javac javac /opt/jdk-11.0.5/bin/javac 1
+update-alternatives --set java /opt/jdk-11.0.5/bin/java
+update-alternatives --set javac /opt/jdk-11.0.5/bin/javac
+   
+<span class="c1">#检查是否成功配置Java环境</span>
+java -version
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<hr>
+<h1 id="step03kali更换国内源">Step03.kali更换国内源</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">vim /etc/apt/sources.list
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># See https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/</span>
+deb http://http.kali.org/kali kali-rolling main contrib non-free
+
+<span class="c1"># Additional line for source packages</span>
+<span class="c1"># deb-src http://http.kali.org/kali kali-rolling main contrib non-free</span>
+deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
+deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="step04dns信息收集">Step04.DNS信息收集</h1>
+<h2 id="将域名解析为ip地址">将域名解析为ip地址</h2>
+<ul>
+<li>
+<p>ping</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">ping www.baidu.com
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>nslookup</p>
+<ul>
+<li>
+<p>download the nslookup tool</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo apt-get install dnsutils
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">nslookup www.baidu.com
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="dns信息收集">DNS信息收集</h2>
+<ul>
+<li>
+<p>dig <a href="http://www.baidu.com">www.baidu.com</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">┌──<span class="o">(</span>kali㉿kali<span class="o">)</span>-<span class="o">[</span>/<span class="o">]</span>
+└─$ dig www.baidu.com                 
+  
+<span class="p">;</span> &lt;&lt;&gt;&gt; DiG 9.18.0-2-Debian &lt;&lt;&gt;&gt; www.baidu.com
+<span class="p">;;</span> global options: +cmd
+<span class="p">;;</span> Got answer:
+<span class="p">;;</span> -&gt;&gt;HEADER<span class="s">&lt;&lt;- opco</span>de: QUERY, status: NOERROR, id: 42429
+<span class="p">;;</span> flags: qr rd ra<span class="p">;</span> QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 1
+  
+<span class="p">;;</span> OPT PSEUDOSECTION:
+<span class="p">;</span> EDNS: version: 0, flags:<span class="p">;</span> udp: 512
+<span class="p">;;</span> QUESTION SECTION:
+<span class="p">;</span>www.baidu.com.                 IN      A
+  
+<span class="p">;;</span> ANSWER SECTION:
+www.baidu.com.          <span class="m">1100</span>    IN      CNAME   www.a.shifen.com.
+www.a.shifen.com.       <span class="m">222</span>     IN      A       36.152.44.96
+www.a.shifen.com.       <span class="m">222</span>     IN      A       36.152.44.95
+  
+<span class="p">;;</span> Query time: <span class="m">236</span> msec
+<span class="p">;;</span> SERVER: 192.168.1.1#53<span class="o">(</span>192.168.1.1<span class="o">)</span> <span class="o">(</span>UDP<span class="o">)</span>
+<span class="p">;;</span> WHEN: Fri Apr <span class="m">22</span> 02:27:19 EDT 2022
+<span class="p">;;</span> MSG SIZE  rcvd: 101
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>对于这里的<code>www.a.shifen.com</code>,可以使用<a href="https://mseo.chinaz.com/">站长工具</a>查询,直接用搜索引擎搜索是没法解析的</li>
+</ul>
+</li>
+<li>
+<p>dig @114.114.114.114 <a href="http://www.baidu.com">www.baidu.com</a> 或 8.8.8.8</p>
+<blockquote>
+<p>使用公共DNS服务器解析</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">┌──<span class="o">(</span>kali㉿kali<span class="o">)</span>-<span class="o">[</span>/<span class="o">]</span>
+└─$ dig @114.114.114.114 www.baidu.com           
+  
+<span class="p">;</span> &lt;&lt;&gt;&gt; DiG 9.18.0-2-Debian &lt;&lt;&gt;&gt; @114.114.114.114 www.baidu.com
+<span class="p">;</span> <span class="o">(</span><span class="m">1</span> server found<span class="o">)</span>
+<span class="p">;;</span> global options: +cmd
+<span class="p">;;</span> Got answer:
+<span class="p">;;</span> -&gt;&gt;HEADER<span class="s">&lt;&lt;- opco</span>de: QUERY, status: NOERROR, id: 53082
+<span class="p">;;</span> flags: qr rd ra<span class="p">;</span> QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 1
+  
+<span class="p">;;</span> OPT PSEUDOSECTION:
+<span class="p">;</span> EDNS: version: 0, flags:<span class="p">;</span> udp: 512
+<span class="p">;;</span> QUESTION SECTION:
+<span class="p">;</span>www.baidu.com.                 IN      A
+  
+<span class="p">;;</span> ANSWER SECTION:
+www.baidu.com.          <span class="m">662</span>     IN      CNAME   www.a.shifen.com.
+www.a.shifen.com.       <span class="m">83</span>      IN      A       36.152.44.95
+www.a.shifen.com.       <span class="m">83</span>      IN      A       36.152.44.96
+  
+<span class="p">;;</span> Query time: <span class="m">16</span> msec
+<span class="p">;;</span> SERVER: 114.114.114.114#53<span class="o">(</span>114.114.114.114<span class="o">)</span> <span class="o">(</span>UDP<span class="o">)</span>
+<span class="p">;;</span> WHEN: Fri Apr <span class="m">22</span> 02:30:10 EDT 2022
+<span class="p">;;</span> MSG SIZE  rcvd: 101
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>dig -x 36.152.44.96</p>
+<blockquote>
+<p>-x命令:通过ip反向DNS解析域名</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">┌──<span class="o">(</span>kali㉿kali<span class="o">)</span>-<span class="o">[</span>/<span class="o">]</span>
+└─$ dig -x 114.114.114.114                                                                                                                                                                                                    
+<span class="p">;</span> &lt;&lt;&gt;&gt; DiG 9.18.0-2-Debian &lt;&lt;&gt;&gt; -x 114.114.114.114
+<span class="p">;;</span> global options: +cmd
+<span class="p">;;</span> Got answer:
+<span class="p">;;</span> -&gt;&gt;HEADER<span class="s">&lt;&lt;- opco</span>de: QUERY, status: NOERROR, id: 27479
+<span class="p">;;</span> flags: qr rd ra<span class="p">;</span> QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+  
+<span class="p">;;</span> OPT PSEUDOSECTION:
+<span class="p">;</span> EDNS: version: 0, flags:<span class="p">;</span> udp: 512
+<span class="p">;;</span> QUESTION SECTION:
+<span class="p">;</span>114.114.114.114.in-addr.arpa.  IN      PTR
+  
+<span class="p">;;</span> ANSWER SECTION:
+114.114.114.114.in-addr.arpa. <span class="m">543</span> IN    PTR     public1.114dns.com.
+  
+<span class="p">;;</span> Query time: <span class="m">147</span> msec
+<span class="p">;;</span> SERVER: 192.168.1.1#53<span class="o">(</span>192.168.1.1<span class="o">)</span> <span class="o">(</span>UDP<span class="o">)</span>
+<span class="p">;;</span> WHEN: Fri Apr <span class="m">22</span> 03:06:37 EDT 2022
+<span class="p">;;</span> MSG SIZE  rcvd: 89
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>dig txt chaos VERSION.BIND @ns3.dnsv4.com</p>
+<blockquote>
+<p>查看dns域名服务器使用bind的版本号</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">┌──<span class="o">(</span>kali㉿kali<span class="o">)</span>-<span class="o">[</span>/<span class="o">]</span>
+└─$ dig txt chaos VERSION.BIND @ns3.dnsv4.com
+<span class="p">;;</span> Warning: query response not <span class="nb">set</span>
+<span class="p">;;</span> Warning: Message parser reports malformed message packet.
+  
+<span class="p">;</span> &lt;&lt;&gt;&gt; DiG 9.18.0-2-Debian &lt;&lt;&gt;&gt; txt chaos VERSION.BIND @ns3.dnsv4.com
+<span class="p">;;</span> global options: +cmd
+<span class="p">;;</span> Got answer:
+<span class="p">;;</span> -&gt;&gt;HEADER<span class="s">&lt;&lt;- opco</span>de: QUERY, status: NOERROR, id: 14047
+<span class="p">;;</span> flags: rd ad<span class="p">;</span> QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+<span class="p">;;</span> WARNING: recursion requested but not available
+  
+<span class="p">;;</span> QUESTION SECTION:
+<span class="p">;</span>VERSION.BIND.                  CH      TXT
+  
+<span class="p">;;</span> ANSWER SECTION:
+VERSION.BIND.           <span class="m">0</span>       CH      TXT     <span class="s2">&#34;DNSPod AUTHORITY DNS 7.2.2203.00&#34;</span>
+  
+<span class="p">;;</span> Query time: <span class="m">99</span> msec
+<span class="p">;;</span> SERVER: 162.14.25.247#53<span class="o">(</span>ns3.dnsv4.com<span class="o">)</span> <span class="o">(</span>UDP<span class="o">)</span>
+<span class="p">;;</span> WHEN: Fri Apr <span class="m">22</span> 03:11:38 EDT 2022
+<span class="p">;;</span> MSG SIZE  rcvd: 75
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<hr>
+<h1 id="step05查询域名的注册和备案信息">Step05.查询域名的注册和备案信息</h1>
+<ul>
+<li>
+<p>whois 域名</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">┌──<span class="o">(</span>kali㉿kali<span class="o">)</span>-<span class="o">[</span>~<span class="o">]</span>
+└─$ whois xuegod.cn        
+Domain Name: xuegod.cn
+ROID: 20140908s10001s72166376-cn
+Domain Status: ok
+Registrant: 北京跳动未来科技有限公司
+Registrant Contact Email: jianmingbasic@163.com
+Sponsoring Registrar: 阿里云计算有限公司（万网）
+Name Server: dns7.hichina.com
+Name Server: dns8.hichina.com
+Registration Time: 2014-09-08 10:52:31
+Expiration Time: 2022-09-08 10:52:31
+DNSSEC: unsigned
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<hr>
+<h1 id="step06收集子域名信息">Step06.收集子域名信息</h1>
+<ul>
+<li>common tool
+<ul>
+<li><a href="https://dnsdumpster.com/">https://dnsdumpster.com/</a></li>
+<li><a href="https://crt.sh/">https://crt.sh/</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="step07shodan">Step07.shodan</h1>
+<ul>
+<li>据说<a href="https://account.shodan.io/">shodan</a>是最可怕的搜索引擎</li>
+</ul>
+<hr>
+<h1 id="step08常见漏洞公布网站">Step08.常见漏洞公布网站</h1>
+<p><a href="https://www.exploit-db.com/">美国著名安全公司</a></p>
+<p><a href="https://bugtraq.securityfocus.com/archive">赛门铁克</a></p>
+<p><a href="https://www.cnvd.org.cn/">国家信息安全漏洞共享平台</a></p>
+<p><a href="http://www.nsfocus.net/index.php?act=sec_bug">国内-绿盟科技</a></p>
+<p><a href="https://www.securitylab.ru/vulnerability/">俄罗斯知名安全实验室</a></p>
+<p><a href="http://cve.mitre.org/">cve常见漏洞和披露</a></p>
+<p><a href="http://vulhub.org.cn/index">信息安全漏洞门户</a></p>
+<p><a href="https://www.anquanke.com/">安全客</a></p>
+<p><a href="https://nvd.nist.gov/">美国国家信息安全漏洞库</a></p>
+<p><a href="https://www.seebug.org/">知道创宇漏洞库</a></p>
+<hr>
+<h1 id="step09traceroute追踪路由">Step09.traceroute(追踪路由)</h1>
+<ul>
+<li>
+<p>查看访问一个服务器的过程中</p>
+</li>
+<li>
+<p>经过了哪些ip</p>
+</li>
+<li>
+<p>下载traceroute</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo apt-get install traceroute
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>使用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">zhangyuhang@ZhangUbuntu:~$ traceroute xuegod.cn
+traceroute to xuegod.cn <span class="o">(</span>39.105.151.35<span class="o">)</span>, <span class="m">30</span> hops max, <span class="m">60</span> byte packets
+ <span class="m">1</span>  _gateway <span class="o">(</span>192.168.0.1<span class="o">)</span>  16.404 ms  16.336 ms  16.306 ms
+ <span class="m">2</span>  192.168.1.1 <span class="o">(</span>192.168.1.1<span class="o">)</span>  9.747 ms  9.717 ms  9.687 ms
+ <span class="m">3</span>  * * *
+ <span class="m">4</span>  211.103.22.113 <span class="o">(</span>211.103.22.113<span class="o">)</span>  12.853 ms  12.823 ms  12.803 ms
+ <span class="m">5</span>  112.4.15.165 <span class="o">(</span>112.4.15.165<span class="o">)</span>  16.053 ms 233.64.207.183.static.js.chinamobile.com <span class="o">(</span>183.207.64.233<span class="o">)</span>  16.037 ms 173.22.207.183.static.js.chinamobile.com <span class="o">(</span>183.207.22.173<span class="o">)</span>  16.005 ms
+ <span class="m">6</span>  110.66.207.183.static.js.chinamobile.com <span class="o">(</span>183.207.66.110<span class="o">)</span>  15.978 ms 226.24.207.183.static.js.chinamobile.com <span class="o">(</span>183.207.24.226<span class="o">)</span>  9.661 ms 102.66.207.183.static.js.chinamobile.com <span class="o">(</span>183.207.66.102<span class="o">)</span>  12.892 ms
+ <span class="m">7</span>  36.155.156.194 <span class="o">(</span>36.155.156.194<span class="o">)</span>  9.616 ms  9.653 ms 36.155.156.202 <span class="o">(</span>36.155.156.202<span class="o">)</span>  22.558 ms
+ <span class="m">8</span>  10.102.47.90 <span class="o">(</span>10.102.47.90<span class="o">)</span>  26.715 ms *  29.445 ms
+ <span class="m">9</span>  11.94.130.162 <span class="o">(</span>11.94.130.162<span class="o">)</span>  26.151 ms * *
+<span class="m">10</span>  10.102.248.201 <span class="o">(</span>10.102.248.201<span class="o">)</span>  35.834 ms 11.73.0.121 <span class="o">(</span>11.73.0.121<span class="o">)</span>  39.095 ms 11.73.0.73 <span class="o">(</span>11.73.0.73<span class="o">)</span>  152.878 ms
+<span class="m">11</span>  39.105.151.35 <span class="o">(</span>39.105.151.35<span class="o">)</span>  152.851 ms  152.833 ms 11.73.0.121 <span class="o">(</span>11.73.0.121<span class="o">)</span>  145.236 ms
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>***</code>,可能是没得到数据包,也可能是请求被防火墙给墙了</p>
+</li>
+<li>
+<p>总之就是这步没成功</p>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Zhang's Blog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2022-01-20
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">Linux</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/vuforia/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Vuforia</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/mongodb/">
+            <span class="next-text nav-default">MongoDB</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://www.google.com/" class="iconfont icon-google" title="google"></a>
+      <a href="https://github.com/" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://www.douban.com/" class="iconfont icon-douban" title="douban"></a>
+      <a href="https://getpocket.com/" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="https://www.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="https://www.instagram.com/" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="https://about.gitlab.com/" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="https://www.bilibili.com/" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://golang.org/">GoLang</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Author - 
+    <a class="theme-link" href="https://space.bilibili.com/628950169/">Mr'zhang</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Zhang's Blog</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

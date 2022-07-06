@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>scala on Zhang&#39;s Blog的博客</title>
+    <link>http://localhost:1313/tags/scala/</link>
+    <description>Recent content in scala on Zhang&#39;s Blog的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 07 Nov 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/scala/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>scala</title>
+      <link>http://localhost:1313/post/scala/</link>
+      <pubDate>Sun, 07 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/scala/</guid>
+      <description>Step01.scala的第一个程序 在IDEA中创建一个scala的IDEA项目 然后创建包com.zhang.code和com.zhang.</description>
+    </item>
+    
+  </channel>
+</rss>

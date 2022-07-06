@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JavaWeb on Zhang&#39;s Blog的博客</title>
+    <link>http://localhost:1313/tags/javaweb/</link>
+    <description>Recent content in JavaWeb on Zhang&#39;s Blog的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 24 Sep 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/javaweb/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>React</title>
+      <link>http://localhost:1313/post/react/</link>
+      <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/react/</guid>
+      <description>&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>JSP</title>
+      <link>http://localhost:1313/post/jsp/</link>
+      <pubDate>Thu, 01 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/jsp/</guid>
+      <description>目录 Step 1. JSP初学 创建JavaWeb工程 通过访问Java文件实现和客户端的交互 Step2. Servlet详解 Servlet的生命周期 客户端访问Java</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C on Zhang&#39;s Blog的博客</title>
+    <link>http://localhost:1313/tags/c/</link>
+    <description>Recent content in C on Zhang&#39;s Blog的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 04 Dec 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/c/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>数据结构</title>
+      <link>http://localhost:1313/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Thu, 15 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+      <description>Step01.数据结构 Step02.算法 Step03.线性表 线性表包括顺序表和链表 顺序表(代码还没写完,还没写合并、排序、循环表等,先放着,</description>
+    </item>
+    
+    <item>
+      <title>C</title>
+      <link>http://localhost:1313/post/c/</link>
+      <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/c/</guid>
+      <description>Step4. 十六进制转八进制 Step5. C语言进制转换 使用数组的形式进行存储 使用栈的方式实现 Step 1. TimeStamp 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;time.h&amp;gt; int main(){ struct tm* p; time_t timep; time(&amp;amp;timep); p =</description>
+    </item>
+    
+  </channel>
+</rss>

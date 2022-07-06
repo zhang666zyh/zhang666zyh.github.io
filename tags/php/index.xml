@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PHP on Zhang&#39;s Blog的博客</title>
+    <link>http://localhost:1313/tags/php/</link>
+    <description>Recent content in PHP on Zhang&#39;s Blog的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 17 Jul 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PHP</title>
+      <link>http://localhost:1313/post/php/</link>
+      <pubDate>Sat, 17 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/php/</guid>
+      <description>Step1. 安装PHP运行环境wampServer Step2. 使用运行环境 Step3. 安装PHP编译器Zend Studio Step4. 使用Zend Studio编写第一个PHP脚本 Step5. PHP脚本</description>
+    </item>
+    
+  </channel>
+</rss>

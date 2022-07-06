@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Zhang&#39;s Blog的博客</title>
+    <link>http://localhost:1313/tags/linux/</link>
+    <description>Recent content in Linux on Zhang&#39;s Blog的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 20 Jan 2022 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>kali</title>
+      <link>http://localhost:1313/post/kali/</link>
+      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/kali/</guid>
+      <description>Step01.安装kali macos 官网 下载vmvare版本的压缩包 下载好解压,运行解压出的vmvare文件即可自动挂载镜像 1 2 用户名:kali 密码</description>
+    </item>
+    
+  </channel>
+</rss>

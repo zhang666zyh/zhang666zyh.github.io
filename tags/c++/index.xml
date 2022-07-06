@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C&#43;&#43; on Zhang&#39;s Blog的博客</title>
+    <link>http://localhost:1313/tags/c&#43;&#43;/</link>
+    <description>Recent content in C&#43;&#43; on Zhang&#39;s Blog的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 04 Dec 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>http://localhost:1313/post/c&#43;&#43;/</link>
+      <pubDate>Sat, 04 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/c&#43;&#43;/</guid>
+      <description>Step01.HelloWorld 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 /* Created by 张宇航. * NAME:HelloWorld * DATE:2021/12/4 * MyWeb:zhang666zyh.github.io * Talk is cheap,show me the code!!! */ #include &amp;lt;iostream&amp;gt; using namespace std; int main(){ cout &amp;lt;&amp;lt; &amp;#34;Hello World&amp;#34; &amp;lt;&amp;lt; endl; system(&amp;#34;pause&amp;#34;); return 0; } Step02.变量的意义 给一定</description>
+    </item>
+    
+  </channel>
+</rss>

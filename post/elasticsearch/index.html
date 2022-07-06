@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>ElasticSearch - Zhang&#39;s Blog的博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Zhang&#39;s Blog" /><meta name="description" content="Step01.Ubuntu下安装ElasticSearch 安装ElasticSearch压缩包 1 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.3.tar.gz 解压 1 tar -zxvf elasticsearch-6.2.3.tar.gz 修改配置文件 1 vim elasticsearch-6.2.3/config/elasticsearch.yml 将 network.host 注释去" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.67.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/elasticsearch/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="ElasticSearch" />
+<meta property="og:description" content="Step01.Ubuntu下安装ElasticSearch 安装ElasticSearch压缩包 1 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.3.tar.gz 解压 1 tar -zxvf elasticsearch-6.2.3.tar.gz 修改配置文件 1 vim elasticsearch-6.2.3/config/elasticsearch.yml 将 network.host 注释去" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/elasticsearch/" />
+<meta property="article:published_time" content="2021-11-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-11-15T00:00:00+00:00" />
+<meta itemprop="name" content="ElasticSearch">
+<meta itemprop="description" content="Step01.Ubuntu下安装ElasticSearch 安装ElasticSearch压缩包 1 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.3.tar.gz 解压 1 tar -zxvf elasticsearch-6.2.3.tar.gz 修改配置文件 1 vim elasticsearch-6.2.3/config/elasticsearch.yml 将 network.host 注释去">
+<meta itemprop="datePublished" content="2021-11-15T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-11-15T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="656">
+
+
+
+<meta itemprop="keywords" content="Database," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ElasticSearch"/>
+<meta name="twitter:description" content="Step01.Ubuntu下安装ElasticSearch 安装ElasticSearch压缩包 1 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.3.tar.gz 解压 1 tar -zxvf elasticsearch-6.2.3.tar.gz 修改配置文件 1 vim elasticsearch-6.2.3/config/elasticsearch.yml 将 network.host 注释去"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Zhang&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/home/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">MyBlog</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Zhang&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/home/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">MyBlog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">ElasticSearch</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-11-15 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#step01ubuntu下安装elasticsearch">Step01.Ubuntu下安装ElasticSearch</a></li>
+    <li><a href="#step02安装elasticsearchhead">Step02.安装ElasticSearchHead</a></li>
+    <li><a href="#step03安装kibana">Step03.安装Kibana</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="step01ubuntu下安装elasticsearch">Step01.Ubuntu下安装ElasticSearch</h1>
+<ul>
+<li>
+<p>安装ElasticSearch压缩包</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.3.tar.gz
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>解压</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">tar -zxvf elasticsearch-6.2.3.tar.gz
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>修改配置文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vim elasticsearch-6.2.3/config/elasticsearch.yml
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>将 <code>network.host</code> 注释去掉，改为 <code>network.host: 0.0.0.0</code></p>
+<p>将 <code>http.port: 9200</code> 注释去掉</p>
+</blockquote>
+</li>
+<li>
+<p>修改 /etc/security/limits.conf</p>
+<blockquote>
+<p>在 <code>root</code> 账号下，修改 <code>/etc/security/limits.conf</code></p>
+<p>打开文件后内容如下：</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200206172718436.png" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>修改为</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">* soft nofile <span class="m">65536</span>
+* hard nofile <span class="m">65536</span>
+* soft nofile <span class="m">65536</span>
+* hard nofile <span class="m">65536</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>修改<code>/etc/sysctl.conf</code>,添加</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vm.max_map_count<span class="o">=</span><span class="m">262144</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>执行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sysctl -p
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>启动ElasticSearch</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> elasticsearch-6.2.3/bin
+./elasticsearch
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>访问localhost:9200</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/17b7872a14154b45b8103c18ad3e902b.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+</ul>
+<hr>
+<h1 id="step02安装elasticsearchhead">Step02.安装ElasticSearchHead</h1>
+<ul>
+<li>
+<p>这东西就是用来可视化操作ElasticSearch集群的</p>
+</li>
+<li>
+<p>安装head的压缩包解压</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git clone git://github.com/mobz/elasticsearch-head.git
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>下载npm(mongoose中有)</p>
+</li>
+<li>
+<p>下载node.js</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">apt-get install -y nodejs
+<span class="c1">#node -v</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>配置 ElasticSearch，使得HTTP对外提供服务</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#修改ElasticSearch安装目录中的配置文件</span>
+vim elasticsearch-6.2.3/config/elasticsearch.yml
+<span class="c1">#添加一下内容</span>
+http.cors.enabled: <span class="nb">true</span>
+http.cors.allow-origin: <span class="s2">&#34;*&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>修改Head插件配置文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vim elasticsearch-head-master/Gruntfile.js
+<span class="c1">#添加</span>
+connect: <span class="o">{</span>
+  server: <span class="o">{</span>
+      options: <span class="o">{</span>
+          hostname: <span class="s1">&#39;0.0.0.0&#39;</span>,
+          port: 9100,
+          base: <span class="s1">&#39;.&#39;</span>,
+          keepalive: <span class="nb">true</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>进入elasticsearch-head，安装依赖包</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">npm install
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>6.在elasticsearch-head下开启elasticsearch-head服务</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">npm run start
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>启动elasticsearch服务</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">zhangyuhang-BOHK-WAX9X% <span class="nb">cd</span> elasticsearch-6.2.3
+zhangyuhang-BOHK-WAX9X% <span class="nb">cd</span> bin
+zhangyuhang-BOHK-WAX9X% ./elasticsearch
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>访问<code>localhost:9100</code></p>
+<p><img src="https://img-blog.csdnimg.cn/cde77eeb604246ab90cc5583c276713d.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+</ul>
+<hr>
+<h1 id="step03安装kibana">Step03.安装Kibana</h1>
+<ul>
+<li>
+<p><a href="https://www.elastic.co/cn/downloads/past-releases#kibana">官网</a></p>
+<p><img src="https://img-blog.csdnimg.cn/68c615ace9c84002b3549be569cdeed4.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<blockquote>
+<p>注意:kibana版本要和elasticsearch一致</p>
+</blockquote>
+</li>
+<li>
+<p>解压到和elasticsearch同目录下</p>
+</li>
+<li>
+<p>先启动elasticsearch</p>
+</li>
+<li>
+<p>启动kibana,进入bin,启动shell脚本</p>
+<blockquote>
+<p>kibana启动端口为5601</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/1539f4b272fc4340ac5261d13f16412d.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Zhang's Blog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-11-15
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/database/">Database</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/c&#43;&#43;/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">C&#43;&#43;</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/springmvc/">
+            <span class="next-text nav-default">SpringMVC</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://www.google.com/" class="iconfont icon-google" title="google"></a>
+      <a href="https://github.com/" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://www.douban.com/" class="iconfont icon-douban" title="douban"></a>
+      <a href="https://getpocket.com/" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="https://www.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="https://www.instagram.com/" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="https://about.gitlab.com/" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="https://www.bilibili.com/" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://golang.org/">GoLang</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Author - 
+    <a class="theme-link" href="https://space.bilibili.com/628950169/">Mr'zhang</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Zhang's Blog</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Database on Zhang&#39;s Blog的博客</title>
+    <link>http://localhost:1313/tags/database/</link>
+    <description>Recent content in Database on Zhang&#39;s Blog的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 10 Jan 2022 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/database/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MongoDB</title>
+      <link>http://localhost:1313/post/mongodb/</link>
+      <pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/mongodb/</guid>
+      <description>Step1.安装MongoDB以及卸载 安装 Ubuntu 1 sudo apt-get install mongodb CentOS 先允许vim /etc/yum.repos.d/mongodb-org-4.0.repo 创建一个文件里面的内容为 1 2 3 4 5 6 [mongodb-org-4.0] name=MongoDB Repository baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.0/x86_64/ gpgcheck=1 enabled=1 gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc 运行 sudo yum install -y mongodb-org 进行安</description>
+    </item>
+    
+    <item>
+      <title>ElasticSearch</title>
+      <link>http://localhost:1313/post/elasticsearch/</link>
+      <pubDate>Mon, 15 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/elasticsearch/</guid>
+      <description>Step01.Ubuntu下安装ElasticSearch 安装ElasticSearch压缩包 1 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.3.tar.gz 解压 1 tar -zxvf elasticsearch-6.2.3.tar.gz 修改配置文件 1 vim elasticsearch-6.2.3/config/elasticsearch.yml 将 network.host 注释去</description>
+    </item>
+    
+    <item>
+      <title>Redis</title>
+      <link>http://localhost:1313/post/redis/</link>
+      <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/redis/</guid>
+      <description>Step1. 安装 Step2. 基础命令 Step3. String Step4. List Step5. Set Step6.Hash Step7.zset有序集合 Step8.Geospatial Step9.HypperLogLog Step10.Redis的事务 执行事务 错误与异常 Step11.使用Jedis操</description>
+    </item>
+    
+    <item>
+      <title>MyBatis</title>
+      <link>http://localhost:1313/post/mybatis/</link>
+      <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/mybatis/</guid>
+      <description>Step1. 创建项目 Step2. 编写mybatis的第一个程序 Step3.增删改查 getUserByIdint id; updateUserUser user; addUserUser user; deleteUserint id; 总结 增删改查的所有源码不给出mybatis-config.xm</description>
+    </item>
+    
+    <item>
+      <title>MySQL</title>
+      <link>http://localhost:1313/post/mysql/</link>
+      <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/mysql/</guid>
+      <description>Step01.管理数据库 创建数据库 1 create database 数据库名; 数据库名命名规范 数字 字母 下划线 但不能以数字开头 不能使用mysql关键字命名数据库 1 2 db_mrbbs db_MRBBS 创</description>
+    </item>
+    
+  </channel>
+</rss>

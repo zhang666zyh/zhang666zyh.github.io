@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SoftWare on Zhang&#39;s Blog的博客</title>
+    <link>http://localhost:1313/tags/software/</link>
+    <description>Recent content in SoftWare on Zhang&#39;s Blog的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 04 Oct 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/software/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JetBrain开发小技巧</title>
+      <link>http://localhost:1313/post/jetbrain%E5%BC%80%E5%8F%91%E5%B0%8F%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Mon, 04 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/jetbrain%E5%BC%80%E5%8F%91%E5%B0%8F%E6%8A%80%E5%B7%A7/</guid>
+      <description>Step1.快捷键 Alt + Insert Java类中&amp;quot;生成&amp;rdquo; 不过项目开发中一般用lombok Alt + 鼠标左键垂直滑动 多行同时编辑 Ctrl + Alt + S</description>
+    </item>
+    
+  </channel>
+</rss>

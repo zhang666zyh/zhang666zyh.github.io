@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Vue-PC网页端音乐网站源码解读 - Zhang&#39;s Blog的博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Zhang&#39;s Blog" /><meta name="description" content="Step01.下载源码 地址 Step02.运行项目 1 2 npm install npm run dev vue项目迁移平台可能出现的问题 坑一 .babelrc文件 ES6语法编译配置 三个" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.67.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/vue-pc%E7%BD%91%E9%A1%B5%E7%AB%AF%E9%9F%B3%E4%B9%90%E7%BD%91%E7%AB%99%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Vue-PC网页端音乐网站源码解读" />
+<meta property="og:description" content="Step01.下载源码 地址 Step02.运行项目 1 2 npm install npm run dev vue项目迁移平台可能出现的问题 坑一 .babelrc文件 ES6语法编译配置 三个" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/vue-pc%E7%BD%91%E9%A1%B5%E7%AB%AF%E9%9F%B3%E4%B9%90%E7%BD%91%E7%AB%99%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/" />
+<meta property="article:published_time" content="2022-03-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-03-10T00:00:00+00:00" />
+<meta itemprop="name" content="Vue-PC网页端音乐网站源码解读">
+<meta itemprop="description" content="Step01.下载源码 地址 Step02.运行项目 1 2 npm install npm run dev vue项目迁移平台可能出现的问题 坑一 .babelrc文件 ES6语法编译配置 三个">
+<meta itemprop="datePublished" content="2022-03-10T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-03-10T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="526">
+
+
+
+<meta itemprop="keywords" content="Vue," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vue-PC网页端音乐网站源码解读"/>
+<meta name="twitter:description" content="Step01.下载源码 地址 Step02.运行项目 1 2 npm install npm run dev vue项目迁移平台可能出现的问题 坑一 .babelrc文件 ES6语法编译配置 三个"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Zhang&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/home/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">MyBlog</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Zhang&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/home/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">MyBlog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Vue-PC网页端音乐网站源码解读</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-03-10 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#step01下载源码">Step01.下载源码</a></li>
+    <li><a href="#step02运行项目">Step02.运行项目</a>
+      <ul>
+        <li><a href="#vue项目迁移平台可能出现的问题">vue项目迁移平台可能出现的问题</a>
+          <ul>
+            <li><a href="#坑一-babelrc文件-es6语法编译配置">坑一 .babelrc文件 ES6语法编译配置</a></li>
+            <li><a href="#坑二--postcssrcjs文件-post-css-配置文件">坑二  .postcssrc.js文件 post css 配置文件</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="step01下载源码">Step01.下载源码</h1>
+<ul>
+<li><a href="https://github.com/XiangZi7/Glassesgirl">地址</a></li>
+</ul>
+<hr>
+<h1 id="step02运行项目">Step02.运行项目</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">npm install 
+npm run dev
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="vue项目迁移平台可能出现的问题">vue项目迁移平台可能出现的问题</h2>
+<h3 id="坑一-babelrc文件-es6语法编译配置">坑一 .babelrc文件 ES6语法编译配置</h3>
+<ul>
+<li><code>三个点</code>错误</li>
+</ul>
+<h4 id="错误原因">错误原因</h4>
+<ul>
+<li>1、ES6 新增了不少标识符，但浏览器大多无法直接识别，需要借助 babel 对 ES6 代码进行转义</li>
+<li>2、项目启动时抛出如下错误，表示 &hellip; 运算符没能被识别，该运算符属于 ES6 的解构运算符</li>
+<li>3、出现该问题的原因基本上可以定位是项目没有配置 babel</li>
+<li>4、即时 package.json 文件中已经引入 babel ，但仍然需要在项目根目录创建一个 .balbelrc 文件进行配置</li>
+</ul>
+<h4 id="解决方式">解决方式</h4>
+<ul>
+<li>在项目根目录创建 .babelrc 文件即可实现对 babel 的基本配置</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&#34;presets&#34;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&#34;env&#34;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nt">&#34;modules&#34;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}],</span>
+    <span class="s2">&#34;stage-2&#34;</span>
+  <span class="p">],</span>
+  <span class="nt">&#34;plugins&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;transform-runtime&#34;</span><span class="p">,</span> <span class="s2">&#34;transform-vue-jsx&#34;</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="坑二--postcssrcjs文件-post-css-配置文件">坑二  .postcssrc.js文件 post css 配置文件</h3>
+<h4 id="错误代码">错误代码</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">error</span>  <span class="k">in</span> <span class="p">.</span><span class="o">/</span><span class="nx">node_modules</span><span class="o">/</span><span class="nx">element</span><span class="o">-</span><span class="nx">ui</span><span class="o">/</span><span class="nx">lib</span><span class="o">/</span><span class="nx">theme</span><span class="o">-</span><span class="nx">chalk</span><span class="o">/</span><span class="nx">index</span><span class="p">.</span><span class="nx">css</span>
+
+<span class="nx">Module</span> <span class="nx">build</span> <span class="nx">failed</span><span class="o">:</span> <span class="nb">Error</span><span class="o">:</span> <span class="nx">No</span> <span class="nx">PostCSS</span> <span class="nx">Config</span> <span class="nx">found</span> <span class="k">in</span><span class="o">:</span> <span class="err">/Users/shandikeji/Desktop/国密/GM/node_modules/element-</span>
+<span class="nx">ui</span><span class="o">/</span><span class="nx">lib</span><span class="o">/</span><span class="nx">theme</span><span class="o">-</span><span class="nx">chalk</span>
+    <span class="nx">at</span> <span class="nx">config</span><span class="p">.</span><span class="nx">load</span><span class="p">.</span><span class="nx">then</span> <span class="p">(</span><span class="err">/Users/shandikeji/Desktop/国密/GM/node_modules/postcss-load-config/src/index.js:55:15)</span>
+
+ <span class="err">@</span> <span class="p">.</span><span class="o">/</span><span class="nx">node_modules</span><span class="o">/</span><span class="nx">element</span><span class="o">-</span><span class="nx">ui</span><span class="o">/</span><span class="nx">lib</span><span class="o">/</span><span class="nx">theme</span><span class="o">-</span><span class="nx">chalk</span><span class="o">/</span><span class="nx">index</span><span class="p">.</span><span class="nx">css</span> <span class="mi">4</span><span class="o">:</span><span class="mi">14</span><span class="o">-</span><span class="mi">124</span> <span class="mi">13</span><span class="o">:</span><span class="mi">3</span><span class="o">-</span><span class="mi">17</span><span class="o">:</span><span class="mi">5</span> <span class="mi">14</span><span class="o">:</span><span class="mi">22</span><span class="o">-</span><span class="mi">132</span>
+ <span class="err">@</span> <span class="p">.</span><span class="o">/</span><span class="nx">src</span><span class="o">/</span><span class="nx">main</span><span class="p">.</span><span class="nx">js</span>
+ <span class="err">@</span> <span class="nx">multi</span> <span class="p">(</span><span class="nx">webpack</span><span class="p">)</span><span class="o">-</span><span class="nx">dev</span><span class="o">-</span><span class="nx">server</span><span class="o">/</span><span class="nx">client</span><span class="o">?</span><span class="nx">http</span><span class="o">:</span><span class="c1">//localhost:8088 webpack/hot/dev-server ./src/main.js
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="错误原因-1">错误原因</h4>
+<ul>
+<li>这是因为缺少了一个配置文件，postcss.config.js，配置内容如下</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">module</span><span class="o">.</span><span class="na">exports</span> <span class="o">=</span> <span class="o">{</span>  
+    <span class="n">plugins</span><span class="o">:</span> <span class="o">{</span>  
+      <span class="err">&#39;</span><span class="n">autoprefixer</span><span class="err">&#39;</span><span class="o">:</span> <span class="o">{</span><span class="n">browsers</span><span class="o">:</span> <span class="err">&#39;</span><span class="n">last</span> <span class="n">5</span> <span class="n">version</span><span class="err">&#39;</span><span class="o">}</span>  
+    <span class="o">}</span>  
+  <span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Zhang's Blog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2022-03-10
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/vue/">Vue</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/django/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Django</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/vue%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE-%E5%8E%BB%E5%93%AA%E7%BD%91/">
+            <span class="next-text nav-default">Vue第一个项目-去哪网</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://www.google.com/" class="iconfont icon-google" title="google"></a>
+      <a href="https://github.com/" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://www.douban.com/" class="iconfont icon-douban" title="douban"></a>
+      <a href="https://getpocket.com/" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="https://www.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="https://www.instagram.com/" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="https://about.gitlab.com/" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="https://www.bilibili.com/" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://golang.org/">GoLang</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Author - 
+    <a class="theme-link" href="https://space.bilibili.com/628950169/">Mr'zhang</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Zhang's Blog</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android on Zhang&#39;s Blog的博客</title>
+    <link>http://localhost:1313/tags/android/</link>
+    <description>Recent content in Android on Zhang&#39;s Blog的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 02 Oct 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Kotlin</title>
+      <link>http://localhost:1313/post/kotlin/</link>
+      <pubDate>Sat, 02 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/kotlin/</guid>
+      <description>Step1.创建第一个Kotlin项目 Step2. 变量 普通变量var 变量名:变量类型=value 只读变量也就是常量 省略变量类型的变量 Step3.编译时</description>
+    </item>
+    
+  </channel>
+</rss>

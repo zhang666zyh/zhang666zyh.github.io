@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Spark - Zhang&#39;s Blog的博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Zhang&#39;s Blog" /><meta name="description" content="Step1.Spark简介 Hadoop MapperReduce 一次性存储计算 框架在处理数据的时候,会从存储设备中读取数据,进行逻辑操作,最后再将处理后的结果重新储存到介质中" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.67.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/spark/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Spark" />
+<meta property="og:description" content="Step1.Spark简介 Hadoop MapperReduce 一次性存储计算 框架在处理数据的时候,会从存储设备中读取数据,进行逻辑操作,最后再将处理后的结果重新储存到介质中" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/spark/" />
+<meta property="article:published_time" content="2021-10-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-10-15T00:00:00+00:00" />
+<meta itemprop="name" content="Spark">
+<meta itemprop="description" content="Step1.Spark简介 Hadoop MapperReduce 一次性存储计算 框架在处理数据的时候,会从存储设备中读取数据,进行逻辑操作,最后再将处理后的结果重新储存到介质中">
+<meta itemprop="datePublished" content="2021-10-15T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-10-15T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="3735">
+
+
+
+<meta itemprop="keywords" content="Java,Python," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spark"/>
+<meta name="twitter:description" content="Step1.Spark简介 Hadoop MapperReduce 一次性存储计算 框架在处理数据的时候,会从存储设备中读取数据,进行逻辑操作,最后再将处理后的结果重新储存到介质中"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Zhang&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/home/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">MyBlog</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Zhang&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/home/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">MyBlog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Spark</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-10-15 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#step1spark简介">Step1.Spark简介</a>
+      <ul>
+        <li><a href="#hadoop-mapperreduce">Hadoop MapperReduce</a></li>
+        <li><a href="#spark">Spark</a></li>
+      </ul>
+    </li>
+    <li><a href="#step2spark核心模块介绍">Step2.Spark核心模块介绍</a></li>
+    <li><a href="#step3spark开发环境配置">Step3.Spark开发环境配置</a></li>
+    <li><a href="#step4wordcount项目分析">Step4.wordCount项目分析</a></li>
+    <li><a href="#step5张毅恒老师讲解推荐系统插入">Step5.张毅恒老师讲解推荐系统插入</a></li>
+    <li><a href="#step6spark和scala开发环境配置">Step6.Spark和Scala开发环境配置</a>
+      <ul>
+        <li><a href="#scala">Scala</a></li>
+        <li><a href="#spark-1">Spark</a></li>
+      </ul>
+    </li>
+    <li><a href="#step7wordcount项目环境">Step7.WordCount项目环境</a></li>
+    <li><a href="#step8wordcount项目实战">Step8.WordCount项目实战</a></li>
+    <li><a href="#step9wordcount实现聚合">Step9.WordCount实现聚合</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="step1spark简介">Step1.Spark简介</h1>
+<h2 id="hadoop-mapperreduce">Hadoop MapperReduce</h2>
+<ul>
+<li>一次性存储计算</li>
+</ul>
+<blockquote>
+<p>框架在处理数据的时候,会从存储设备中读取数据,进行逻辑操作,最后再将处理后的结果重新储存到介质中</p>
+</blockquote>
+<p>​	<img src="https://img-blog.csdnimg.cn/07e1ccbe6b234aa79877c58b671fc182.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+<blockquote>
+<p>从内存中读取内容-&gt;打散数据-&gt;聚合数据-&gt;重新存储到介质中</p>
+</blockquote>
+<blockquote>
+<p>但是这种一次性存储计算有一种不足之处,就是无法处理复杂数据</p>
+</blockquote>
+<blockquote>
+<p>因为<code>MapperReduce</code>只有两个Mapper和Reducer两个计算模型,无法进行复杂计算</p>
+</blockquote>
+<blockquote>
+<p>这样就需要迭代式的计算</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/598f372211764c1596bbe2b99703eac7.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+<blockquote>
+<p>这就需要将上一次的计算结果当成下一次的计算初始值</p>
+<p>上一次的计算结果<code>File</code>和下一次Job的<code>Mapper</code>之间的连通靠的是磁盘之间的IO交互,这种交互是非常影响性能的</p>
+</blockquote>
+<blockquote>
+<p>显然,<code>Hadoop MapperReduce</code>创建的初衷就不是用于迭代式计算的</p>
+</blockquote>
+<h2 id="spark">Spark</h2>
+<blockquote>
+<p>而反观Spark,提供了更多的数据计算模型,可以基于内存进行多次迭代计算.这样它就会更好的进行数字挖掘和图形计算</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/f87db6ef577646b6a10f5a36d4340756.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+<blockquote>
+<p>其实他就是将<code>Hadoop</code>计算结果存储在磁盘中,变成存储在内存中,使得下一次的计算更加便捷</p>
+</blockquote>
+<blockquote>
+<p>一句话:Spark是基于内存的,而<code>Hadoop</code>是基于磁盘的</p>
+</blockquote>
+<blockquote>
+<p>带来的问题是,如果将Spark部署在共享集群时,会存在资源不足的问题</p>
+</blockquote>
+<blockquote>
+<p>它所占用的资源是比较多的</p>
+</blockquote>
+<blockquote>
+<p>而且它还会对其他进程任务产生影响</p>
+</blockquote>
+<h1 id="step2spark核心模块介绍">Step2.Spark核心模块介绍</h1>
+<p><img src="https://img-blog.csdnimg.cn/e254f135f1b24e28957418c6e2840016.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+<ul>
+<li>
+<p><code>Apacke Spark Core</code></p>
+<blockquote>
+<p>Spark的核心模块,下面四个都是它的组成部分</p>
+</blockquote>
+</li>
+<li>
+<p><code>Spark SQL</code></p>
+<blockquote>
+<p>结构化语言处理模块</p>
+</blockquote>
+</li>
+<li>
+<p><code>Spark Streaming</code></p>
+<blockquote>
+<p>流式数据处理模块</p>
+</blockquote>
+</li>
+<li>
+<p><code>Spark MLlin</code></p>
+<blockquote>
+<p>机器学习相关模块和库</p>
+</blockquote>
+</li>
+<li>
+<p><code>Spark GraphX</code></p>
+<blockquote>
+<p>图形处理相关模块</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="step3spark开发环境配置">Step3.Spark开发环境配置</h1>
+<ul>
+<li>
+<p>IDEA中安装scale插件</p>
+</li>
+<li>
+<p>但是windows里面太多垃圾事</p>
+</li>
+<li>
+<p>所以就用Ubuntu的了</p>
+</li>
+<li>
+<p>创建一个maven项目,然后删除src文件夹,在父工程下新建一个子模块,命名为spark-core</p>
+</li>
+<li>
+<p>进入项目结构</p>
+<p><img src="https://img-blog.csdnimg.cn/12875e02122a44e9a2f973d65db901f9.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+</li>
+<li>
+<p>进入Global Libraries</p>
+</li>
+<li>
+<p>点击加号,添加scala的sdk,IDEA可以自动安装</p>
+</li>
+<li>
+<p>安装完成有提示将安装的sdk应用到哪个项目,选择应用到spack-core就可以了</p>
+</li>
+<li>
+<p>然后就可以编写代码测试</p>
+</li>
+<li>
+<p>在子项目下新建com.zhang.code</p>
+</li>
+<li>
+<p>新建Scala文件(Object类型)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">package</span> <span class="nn">com.zhang.code</span>
+  
+<span class="k">object</span> <span class="nc">Test</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">main</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="n">println</span><span class="o">(</span><span class="s">&#34;test&#34;</span><span class="o">)</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>然后运行</p>
+</li>
+</ul>
+<h1 id="step4wordcount项目分析">Step4.wordCount项目分析</h1>
+<ul>
+<li>
+<p>就是说这里有两个文件1.txt和2.txt,然后想找出这两个文件里面关键词的个数,不同文件中相同的字符串也要加在一起</p>
+<p><img src="https://img-blog.csdnimg.cn/7d01589a631e49c1ac63b6740f7fd0b2.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+</li>
+</ul>
+<h1 id="step5张毅恒老师讲解推荐系统插入">Step5.张毅恒老师讲解推荐系统插入</h1>
+<ul>
+<li>猜你喜欢</li>
+<li>知你所想</li>
+<li>物以类聚</li>
+<li>人以群分</li>
+</ul>
+<h1 id="step6spark和scala开发环境配置">Step6.Spark和Scala开发环境配置</h1>
+<h2 id="scala">Scala</h2>
+<ul>
+<li>
+<p>官网下载Unix版本的Scala SDK</p>
+</li>
+<li>
+<p>然后新建目录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo mkdir /usr/local/scala
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>然后将解压好的Scala SDK文件夹拷贝到<code>/usr/local/scala</code>目录下</p>
+</li>
+<li>
+<p>然后配置环境变量</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo vim /etc/profile
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>在环境变量最后加上</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">SCALA_HOME</span><span class="o">=</span>/usr/local/scala/scala-2.12.3
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">SCALA_HOME</span><span class="si">}</span>/bin:<span class="nv">$PATH</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>然后退到用户根目录</p>
+</li>
+<li>
+<p>启动环境变量控制台</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">source</span> /etc/profile
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>进入它那个$,然后输入scala,启动成功</p>
+</li>
+<li>
+<p>其实不启动profile也可以,直接在终端输入scala,也可以启动</p>
+</li>
+</ul>
+<h2 id="spark-1">Spark</h2>
+<ul>
+<li>
+<p>官网下载最新的spark压缩包</p>
+</li>
+<li>
+<p>然后新建目录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo mkdir /usr/local/spark
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>将解压好的spark压缩包复制到/usr/local/spark</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cp spark-3.2.0-bin-hadoop3.2 -r /usr/local/bin/spark
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>然后配置环境变量</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo vim /etc/profile
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>在环境变量最后加上</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">SPARK_HOME</span><span class="o">=</span>/usr/local/spark/spark-2.2.0-bin-hadoop2.7
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin:<span class="nv">$PATH</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>启动环境变量</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">source</span> /etc/profile
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>其实不启动profile也可以,直接在终端输入scala,也可以启动</p>
+</li>
+</ul>
+<hr>
+<h1 id="step7wordcount项目环境">Step7.WordCount项目环境</h1>
+<ul>
+<li>
+<p>创建一个包<code>com.zhang.wordcount</code></p>
+</li>
+<li>
+<p>在包下创建Spark01_WorkCount.scala文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">package</span> <span class="nn">com.zhang.wordcount</span>
+  
+<span class="k">import</span> <span class="nn">org.apache.spark.</span><span class="o">{</span><span class="nc">SparkConf</span><span class="o">,</span> <span class="nc">SparkContext</span><span class="o">}</span>
+  
+<span class="k">object</span> <span class="nc">Spark01_WorkCount</span><span class="o">{</span>
+  <span class="k">def</span> <span class="n">main</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="c1">//Application 
+</span><span class="c1"></span>    <span class="c1">//spark框架是一套环境,我们的应用(功能)是要运行在spark环境当中
+</span><span class="c1"></span>  
+    <span class="c1">// TODO 建立和spark框架的连接
+</span><span class="c1"></span>      <span class="c1">// spark框架的基础配置:setMaster是运行环境,setAppName是app的名称
+</span><span class="c1"></span>    <span class="k">val</span> <span class="n">sparkConf</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">SparkConf</span><span class="o">().</span><span class="n">setMaster</span><span class="o">(</span><span class="s">&#34;local&#34;</span><span class="o">).</span><span class="n">setAppName</span><span class="o">(</span><span class="s">&#34;WordCount&#34;</span><span class="o">)</span>
+        <span class="c1">//将配置添加到连接对象的配置器中
+</span><span class="c1"></span>    <span class="k">val</span> <span class="n">sparkContext</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">SparkContext</span><span class="o">(</span><span class="n">sparkConf</span><span class="o">)</span>
+        
+    <span class="c1">//TODO 关闭连接
+</span><span class="c1"></span>    <span class="n">sparkContext</span><span class="o">.</span><span class="n">stop</span><span class="o">()</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>这里使用spark肯定是无法使用的,需要导入相关的jar包</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.spark<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spark-core_2.12<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>3.0.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<hr>
+<h1 id="step8wordcount项目实战">Step8.WordCount项目实战</h1>
+<ul>
+<li>
+<p>在项目根目录下新建datas文件夹,然后在文件夹下创建两个文件</p>
+<p><code>1.txt</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-txt" data-lang="txt">Hello spark
+Hellp scala
+</code></pre></td></tr></table>
+</div>
+</div><p><code>2.txt</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-txt" data-lang="txt">Hello spark
+Hello scala
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p><code>Spark01_WordCount.scala</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">package</span> <span class="nn">com.zhang.wordcount</span>
+
+<span class="k">import</span> <span class="nn">org.apache.spark.rdd.RDD</span>
+<span class="k">import</span> <span class="nn">org.apache.spark.</span><span class="o">{</span><span class="nc">SparkConf</span><span class="o">,</span> <span class="nc">SparkContext</span><span class="o">}</span>
+
+<span class="k">object</span> <span class="nc">Spark01_WorkCount</span><span class="o">{</span>
+  <span class="k">def</span> <span class="n">main</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="c1">//Application
+</span><span class="c1"></span>    <span class="c1">//spark框架是一套环境,我们的应用(功能)是要运行在spark环境当中
+</span><span class="c1"></span>
+    <span class="c1">// TODO 建立和spark框架的连接
+</span><span class="c1"></span>    <span class="c1">// spark框架的基础配置:setMaster是运行环境,setAppName是app的名称
+</span><span class="c1"></span>    <span class="k">val</span> <span class="n">sparkConf</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">SparkConf</span><span class="o">().</span><span class="n">setMaster</span><span class="o">(</span><span class="s">&#34;local&#34;</span><span class="o">).</span><span class="n">setAppName</span><span class="o">(</span><span class="s">&#34;WordCount&#34;</span><span class="o">)</span>
+    <span class="c1">//将配置添加到连接对象的配置器中
+</span><span class="c1"></span>    <span class="k">val</span> <span class="n">sparkContext</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">SparkContext</span><span class="o">(</span><span class="n">sparkConf</span><span class="o">)</span>
+
+    <span class="c1">//-----------------------------------------------------------------------------&gt;
+</span><span class="c1"></span>
+    <span class="c1">// 1.读取文件,获取一行一行的数据
+</span><span class="c1"></span>    <span class="c1">// Hello scala
+</span><span class="c1"></span>    <span class="k">var</span> <span class="n">linesData</span><span class="k">:</span> <span class="kt">RDD</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="n">sparkContext</span><span class="o">.</span><span class="n">textFile</span><span class="o">(</span><span class="s">&#34;datas&#34;</span><span class="o">)</span>
+
+    <span class="c1">// 2.将一行一行数据进行拆分,形成一个个单词
+</span><span class="c1"></span>    <span class="c1">// Hello scala Hello World =&gt; Hello,scala,Hello,World
+</span><span class="c1"></span>    <span class="k">val</span> <span class="n">words</span><span class="k">:</span> <span class="kt">RDD</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="n">linesData</span><span class="o">.</span><span class="n">flatMap</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">split</span><span class="o">(</span><span class="s">&#34; &#34;</span><span class="o">))</span>
+
+    <span class="c1">//3.将数据根据单词进行分组,便于统计
+</span><span class="c1"></span>    <span class="c1">//(Hello,Hello,Hello) (scala,scala,scala) (spark,spark,spark)
+</span><span class="c1"></span>    <span class="k">val</span> <span class="n">wordGroup</span><span class="k">:</span> <span class="kt">RDD</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">Iterable</span><span class="o">[</span><span class="kt">String</span><span class="o">])]</span> <span class="k">=</span> <span class="n">words</span><span class="o">.</span><span class="n">groupBy</span><span class="o">(</span><span class="n">word</span><span class="k">=&gt;</span><span class="n">word</span><span class="o">)</span>
+
+    <span class="c1">//4.对分组后数据进行转换
+</span><span class="c1"></span>    <span class="c1">//(Hello,3) (scala,2) (spark,2)
+</span><span class="c1"></span>    <span class="k">val</span> <span class="n">wordCountMap</span> <span class="k">=</span> <span class="n">wordGroup</span><span class="o">.</span><span class="n">map</span><span class="o">{</span>
+      <span class="k">case</span> <span class="o">(</span><span class="n">word</span><span class="o">,</span><span class="n">list</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">{</span>
+        <span class="o">(</span><span class="n">word</span><span class="o">,</span><span class="n">list</span><span class="o">.</span><span class="n">size</span><span class="o">)</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="c1">//5.将转换结果提取出来打印到控制台
+</span><span class="c1"></span>    <span class="k">val</span> <span class="n">result</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">Int</span><span class="o">)]</span> <span class="k">=</span> <span class="n">wordCountMap</span><span class="o">.</span><span class="n">collect</span><span class="o">()</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">foreach</span><span class="o">(</span><span class="n">println</span><span class="o">)</span>
+
+    <span class="c1">//TODO 关闭连接
+</span><span class="c1"></span>    <span class="n">sparkContext</span><span class="o">.</span><span class="n">stop</span><span class="o">()</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>运行可能会出现以下错误</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">scala illegal cyclic inheritance involving trait iterable
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>这是因为scala-SDK的版本比较高,自身的bug</p>
+</li>
+<li>
+<p>将SDK从2.13降成2.12.5就可以了(2.13要删除)</p>
+</li>
+<li>
+<p>运行结果</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Using Spark<span class="s1">&#39;s default log4j profile: org/apache/spark/log4j-defaults.properties
+</span><span class="s1">21/11/07 02:04:12 WARN Utils: Your hostname, zhangyuhang-BOHK-WAX9X resolves to a loopback address: 127.0.1.1; using 192.168.43.121 instead (on interface wlp2s0)
+</span><span class="s1">21/11/07 02:04:12 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+</span><span class="s1">21/11/07 02:04:12 INFO SparkContext: Running Spark version 3.0.0
+</span><span class="s1">21/11/07 02:04:13 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+</span><span class="s1">21/11/07 02:04:13 INFO ResourceUtils: ==============================================================
+</span><span class="s1">21/11/07 02:04:13 INFO ResourceUtils: Resources for spark.driver:
+</span><span class="s1">  
+</span><span class="s1">21/11/07 02:04:13 INFO ResourceUtils: ==============================================================
+</span><span class="s1">21/11/07 02:04:13 INFO SparkContext: Submitted application: WordCount
+</span><span class="s1">21/11/07 02:04:13 INFO SecurityManager: Changing view acls to: zhangyuhang
+</span><span class="s1">21/11/07 02:04:13 INFO SecurityManager: Changing modify acls to: zhangyuhang
+</span><span class="s1">21/11/07 02:04:13 INFO SecurityManager: Changing view acls groups to: 
+</span><span class="s1">21/11/07 02:04:13 INFO SecurityManager: Changing modify acls groups to: 
+</span><span class="s1">21/11/07 02:04:13 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(zhangyuhang); groups with view permissions: Set(); users  with modify permissions: Set(zhangyuhang); groups with modify permissions: Set()
+</span><span class="s1">21/11/07 02:04:14 INFO Utils: Successfully started service &#39;</span>sparkDriver<span class="s1">&#39; on port 35887.
+</span><span class="s1">21/11/07 02:04:14 INFO SparkEnv: Registering MapOutputTracker
+</span><span class="s1">21/11/07 02:04:14 INFO SparkEnv: Registering BlockManagerMaster
+</span><span class="s1">21/11/07 02:04:14 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+</span><span class="s1">21/11/07 02:04:14 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+</span><span class="s1">21/11/07 02:04:14 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+</span><span class="s1">21/11/07 02:04:14 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-618935a0-6dc0-436b-9393-4f5f8a1bf769
+</span><span class="s1">21/11/07 02:04:14 INFO MemoryStore: MemoryStore started with capacity 1812.6 MiB
+</span><span class="s1">21/11/07 02:04:14 INFO SparkEnv: Registering OutputCommitCoordinator
+</span><span class="s1">21/11/07 02:04:14 INFO Utils: Successfully started service &#39;</span>SparkUI<span class="s1">&#39; on port 4040.
+</span><span class="s1">21/11/07 02:04:14 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://192.168.43.121:4040
+</span><span class="s1">21/11/07 02:04:14 INFO Executor: Starting executor ID driver on host 192.168.43.121
+</span><span class="s1">21/11/07 02:04:14 INFO Utils: Successfully started service &#39;</span>org.apache.spark.network.netty.NettyBlockTransferService<span class="err">&#39;</span> on port 36663.
+21/11/07 02:04:14 INFO NettyBlockTransferService: Server created on 192.168.43.121:36663
+21/11/07 02:04:14 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy <span class="k">for</span> block replication policy
+21/11/07 02:04:14 INFO BlockManagerMaster: Registering BlockManager BlockManagerId<span class="o">(</span>driver, 192.168.43.121, 36663, None<span class="o">)</span>
+21/11/07 02:04:14 INFO BlockManagerMasterEndpoint: Registering block manager 192.168.43.121:36663 with 1812.6 MiB RAM, BlockManagerId<span class="o">(</span>driver, 192.168.43.121, 36663, None<span class="o">)</span>
+21/11/07 02:04:14 INFO BlockManagerMaster: Registered BlockManager BlockManagerId<span class="o">(</span>driver, 192.168.43.121, 36663, None<span class="o">)</span>
+21/11/07 02:04:14 INFO BlockManager: Initialized BlockManager: BlockManagerId<span class="o">(</span>driver, 192.168.43.121, 36663, None<span class="o">)</span>
+21/11/07 02:04:15 INFO MemoryStore: Block broadcast_0 stored as values in memory <span class="o">(</span>estimated size 241.5 KiB, free 1812.4 MiB<span class="o">)</span>
+21/11/07 02:04:15 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory <span class="o">(</span>estimated size 23.4 KiB, free 1812.3 MiB<span class="o">)</span>
+21/11/07 02:04:15 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 192.168.43.121:36663 <span class="o">(</span>size: 23.4 KiB, free: 1812.6 MiB<span class="o">)</span>
+21/11/07 02:04:15 INFO SparkContext: Created broadcast <span class="m">0</span> from textFile at Spark01_WorkCount.scala:21
+21/11/07 02:04:16 INFO FileInputFormat: Total input paths to process : <span class="m">2</span>
+21/11/07 02:04:16 INFO SparkContext: Starting job: collect at Spark01_WorkCount.scala:40
+21/11/07 02:04:16 INFO DAGScheduler: Registering RDD <span class="m">3</span> <span class="o">(</span>groupBy at Spark01_WorkCount.scala:29<span class="o">)</span> as input to shuffle <span class="m">0</span>
+21/11/07 02:04:16 INFO DAGScheduler: Got job <span class="m">0</span> <span class="o">(</span>collect at Spark01_WorkCount.scala:40<span class="o">)</span> with <span class="m">2</span> output partitions
+21/11/07 02:04:16 INFO DAGScheduler: Final stage: ResultStage <span class="m">1</span> <span class="o">(</span>collect at Spark01_WorkCount.scala:40<span class="o">)</span>
+21/11/07 02:04:16 INFO DAGScheduler: Parents of final stage: List<span class="o">(</span>ShuffleMapStage 0<span class="o">)</span>
+21/11/07 02:04:16 INFO DAGScheduler: Missing parents: List<span class="o">(</span>ShuffleMapStage 0<span class="o">)</span>
+21/11/07 02:04:16 INFO DAGScheduler: Submitting ShuffleMapStage <span class="m">0</span> <span class="o">(</span>MapPartitionsRDD<span class="o">[</span>3<span class="o">]</span> at groupBy at Spark01_WorkCount.scala:29<span class="o">)</span>, which has no missing parents
+21/11/07 02:04:16 INFO MemoryStore: Block broadcast_1 stored as values in memory <span class="o">(</span>estimated size 7.6 KiB, free 1812.3 MiB<span class="o">)</span>
+21/11/07 02:04:16 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory <span class="o">(</span>estimated size 4.1 KiB, free 1812.3 MiB<span class="o">)</span>
+21/11/07 02:04:16 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 192.168.43.121:36663 <span class="o">(</span>size: 4.1 KiB, free: 1812.6 MiB<span class="o">)</span>
+21/11/07 02:04:16 INFO SparkContext: Created broadcast <span class="m">1</span> from broadcast at DAGScheduler.scala:1200
+21/11/07 02:04:16 INFO DAGScheduler: Submitting <span class="m">2</span> missing tasks from ShuffleMapStage <span class="m">0</span> <span class="o">(</span>MapPartitionsRDD<span class="o">[</span>3<span class="o">]</span> at groupBy at Spark01_WorkCount.scala:29<span class="o">)</span> <span class="o">(</span>first <span class="m">15</span> tasks are <span class="k">for</span> partitions Vector<span class="o">(</span>0, 1<span class="o">))</span>
+21/11/07 02:04:16 INFO TaskSchedulerImpl: Adding task <span class="nb">set</span> 0.0 with <span class="m">2</span> tasks
+21/11/07 02:04:16 INFO TaskSetManager: Starting task 0.0 in stage 0.0 <span class="o">(</span>TID 0, 192.168.43.121, executor driver, partition 0, PROCESS_LOCAL, <span class="m">7400</span> bytes<span class="o">)</span>
+21/11/07 02:04:16 INFO Executor: Running task 0.0 in stage 0.0 <span class="o">(</span>TID 0<span class="o">)</span>
+21/11/07 02:04:16 INFO HadoopRDD: Input split: file:/home/zhangyuhang/IdeaProjects/SparkStudyAtUbuntuIDEA/datas/2.txt:0+23
+21/11/07 02:04:17 INFO Executor: Finished task 0.0 in stage 0.0 <span class="o">(</span>TID 0<span class="o">)</span>. <span class="m">1207</span> bytes result sent to driver
+21/11/07 02:04:17 INFO TaskSetManager: Starting task 1.0 in stage 0.0 <span class="o">(</span>TID 1, 192.168.43.121, executor driver, partition 1, PROCESS_LOCAL, <span class="m">7400</span> bytes<span class="o">)</span>
+21/11/07 02:04:17 INFO Executor: Running task 1.0 in stage 0.0 <span class="o">(</span>TID 1<span class="o">)</span>
+21/11/07 02:04:17 INFO TaskSetManager: Finished task 0.0 in stage 0.0 <span class="o">(</span>TID 0<span class="o">)</span> in <span class="m">768</span> ms on 192.168.43.121 <span class="o">(</span>executor driver<span class="o">)</span> <span class="o">(</span>1/2<span class="o">)</span>
+21/11/07 02:04:17 INFO HadoopRDD: Input split: file:/home/zhangyuhang/IdeaProjects/SparkStudyAtUbuntuIDEA/datas/1.txt:0+23
+21/11/07 02:04:17 INFO Executor: Finished task 1.0 in stage 0.0 <span class="o">(</span>TID 1<span class="o">)</span>. <span class="m">1121</span> bytes result sent to driver
+21/11/07 02:04:17 INFO TaskSetManager: Finished task 1.0 in stage 0.0 <span class="o">(</span>TID 1<span class="o">)</span> in <span class="m">41</span> ms on 192.168.43.121 <span class="o">(</span>executor driver<span class="o">)</span> <span class="o">(</span>2/2<span class="o">)</span>
+21/11/07 02:04:17 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+21/11/07 02:04:17 INFO DAGScheduler: ShuffleMapStage <span class="m">0</span> <span class="o">(</span>groupBy at Spark01_WorkCount.scala:29<span class="o">)</span> finished in 0.932 s
+21/11/07 02:04:17 INFO DAGScheduler: looking <span class="k">for</span> newly runnable stages
+21/11/07 02:04:17 INFO DAGScheduler: running: Set<span class="o">()</span>
+21/11/07 02:04:17 INFO DAGScheduler: waiting: Set<span class="o">(</span>ResultStage 1<span class="o">)</span>
+21/11/07 02:04:17 INFO DAGScheduler: failed: Set<span class="o">()</span>
+21/11/07 02:04:17 INFO DAGScheduler: Submitting ResultStage <span class="m">1</span> <span class="o">(</span>MapPartitionsRDD<span class="o">[</span>5<span class="o">]</span> at map at Spark01_WorkCount.scala:33<span class="o">)</span>, which has no missing parents
+21/11/07 02:04:17 INFO MemoryStore: Block broadcast_2 stored as values in memory <span class="o">(</span>estimated size 8.7 KiB, free 1812.3 MiB<span class="o">)</span>
+21/11/07 02:04:17 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory <span class="o">(</span>estimated size 4.5 KiB, free 1812.3 MiB<span class="o">)</span>
+21/11/07 02:04:17 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 192.168.43.121:36663 <span class="o">(</span>size: 4.5 KiB, free: 1812.6 MiB<span class="o">)</span>
+21/11/07 02:04:17 INFO SparkContext: Created broadcast <span class="m">2</span> from broadcast at DAGScheduler.scala:1200
+21/11/07 02:04:17 INFO DAGScheduler: Submitting <span class="m">2</span> missing tasks from ResultStage <span class="m">1</span> <span class="o">(</span>MapPartitionsRDD<span class="o">[</span>5<span class="o">]</span> at map at Spark01_WorkCount.scala:33<span class="o">)</span> <span class="o">(</span>first <span class="m">15</span> tasks are <span class="k">for</span> partitions Vector<span class="o">(</span>0, 1<span class="o">))</span>
+21/11/07 02:04:17 INFO TaskSchedulerImpl: Adding task <span class="nb">set</span> 1.0 with <span class="m">2</span> tasks
+21/11/07 02:04:17 INFO TaskSetManager: Starting task 0.0 in stage 1.0 <span class="o">(</span>TID 2, 192.168.43.121, executor driver, partition 0, NODE_LOCAL, <span class="m">7143</span> bytes<span class="o">)</span>
+21/11/07 02:04:17 INFO Executor: Running task 0.0 in stage 1.0 <span class="o">(</span>TID 2<span class="o">)</span>
+21/11/07 02:04:17 INFO ShuffleBlockFetcherIterator: Getting <span class="m">2</span> <span class="o">(</span>144.0 B<span class="o">)</span> non-empty blocks including <span class="m">2</span> <span class="o">(</span>144.0 B<span class="o">)</span> <span class="nb">local</span> and <span class="m">0</span> <span class="o">(</span>0.0 B<span class="o">)</span> host-local and <span class="m">0</span> <span class="o">(</span>0.0 B<span class="o">)</span> remote blocks
+21/11/07 02:04:17 INFO ShuffleBlockFetcherIterator: Started <span class="m">0</span> remote fetches in <span class="m">15</span> ms
+21/11/07 02:04:17 INFO BlockManagerInfo: Removed broadcast_1_piece0 on 192.168.43.121:36663 in memory <span class="o">(</span>size: 4.1 KiB, free: 1812.6 MiB<span class="o">)</span>
+21/11/07 02:04:17 INFO Executor: Finished task 0.0 in stage 1.0 <span class="o">(</span>TID 2<span class="o">)</span>. <span class="m">1480</span> bytes result sent to driver
+21/11/07 02:04:17 INFO TaskSetManager: Starting task 1.0 in stage 1.0 <span class="o">(</span>TID 3, 192.168.43.121, executor driver, partition 1, NODE_LOCAL, <span class="m">7143</span> bytes<span class="o">)</span>
+21/11/07 02:04:17 INFO Executor: Running task 1.0 in stage 1.0 <span class="o">(</span>TID 3<span class="o">)</span>
+21/11/07 02:04:17 INFO TaskSetManager: Finished task 0.0 in stage 1.0 <span class="o">(</span>TID 2<span class="o">)</span> in <span class="m">219</span> ms on 192.168.43.121 <span class="o">(</span>executor driver<span class="o">)</span> <span class="o">(</span>1/2<span class="o">)</span>
+21/11/07 02:04:17 INFO ShuffleBlockFetcherIterator: Getting <span class="m">2</span> <span class="o">(</span>120.0 B<span class="o">)</span> non-empty blocks including <span class="m">2</span> <span class="o">(</span>120.0 B<span class="o">)</span> <span class="nb">local</span> and <span class="m">0</span> <span class="o">(</span>0.0 B<span class="o">)</span> host-local and <span class="m">0</span> <span class="o">(</span>0.0 B<span class="o">)</span> remote blocks
+21/11/07 02:04:17 INFO ShuffleBlockFetcherIterator: Started <span class="m">0</span> remote fetches in <span class="m">1</span> ms
+21/11/07 02:04:17 INFO Executor: Finished task 1.0 in stage 1.0 <span class="o">(</span>TID 3<span class="o">)</span>. <span class="m">1413</span> bytes result sent to driver
+21/11/07 02:04:17 INFO TaskSetManager: Finished task 1.0 in stage 1.0 <span class="o">(</span>TID 3<span class="o">)</span> in <span class="m">23</span> ms on 192.168.43.121 <span class="o">(</span>executor driver<span class="o">)</span> <span class="o">(</span>2/2<span class="o">)</span>
+21/11/07 02:04:17 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+21/11/07 02:04:17 INFO DAGScheduler: ResultStage <span class="m">1</span> <span class="o">(</span>collect at Spark01_WorkCount.scala:40<span class="o">)</span> finished in 0.258 s
+21/11/07 02:04:17 INFO DAGScheduler: Job <span class="m">0</span> is finished. Cancelling potential speculative or zombie tasks <span class="k">for</span> this job
+21/11/07 02:04:17 INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+21/11/07 02:04:17 INFO DAGScheduler: Job <span class="m">0</span> finished: collect at Spark01_WorkCount.scala:40, took 1.292093 s
+<span class="o">(</span>scala,2<span class="o">)</span>
+<span class="o">(</span>Hello,4<span class="o">)</span>
+<span class="o">(</span>spark,2<span class="o">)</span>
+21/11/07 02:04:17 INFO SparkUI: Stopped Spark web UI at http://192.168.43.121:4040
+21/11/07 02:04:17 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+21/11/07 02:04:17 INFO MemoryStore: MemoryStore cleared
+21/11/07 02:04:17 INFO BlockManager: BlockManager stopped
+21/11/07 02:04:17 INFO BlockManagerMaster: BlockManagerMaster stopped
+21/11/07 02:04:17 INFO OutputCommitCoordinator<span class="nv">$OutputCommitCoordinatorEndpoint</span>: OutputCommitCoordinator stopped!
+21/11/07 02:04:17 INFO SparkContext: Successfully stopped SparkContext
+21/11/07 02:04:17 INFO ShutdownHookManager: Shutdown hook called
+21/11/07 02:04:17 INFO ShutdownHookManager: Deleting directory /tmp/spark-f4f7d5cc-3b1d-4c16-9920-c165d8e7b6f9
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<hr>
+<h1 id="step9wordcount实现聚合">Step9.WordCount实现聚合</h1>
+<ul>
+<li>前面的只是将所有单词提取出来然后将相同的重新组合成一个集合</li>
+<li>结果是集合中的一个元素和集合中的元素个数</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/7d01589a631e49c1ac63b6740f7fd0b2.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+<ul>
+<li>
+<p>看这张图,上面的明显没有达到后面的将几个相同数据聚合成一个数据的聚合效果</p>
+</li>
+<li>
+<p>所以需要修改代码</p>
+<p><code>Spark02_WordCount.java</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.zhang.wordcount</span>
+  
+<span class="kn">import</span> <span class="nn">org.apache.spark.rdd.RDD</span>
+<span class="kn">import</span> <span class="nn">org.apache.spark.</span><span class="o">{</span><span class="n">SparkConf</span><span class="o">,</span> <span class="n">SparkContext</span><span class="o">}</span>
+  
+<span class="n">object</span> <span class="n">Spark02_WorkCount</span><span class="o">{</span>
+  <span class="n">def</span> <span class="nf">main</span><span class="o">(</span><span class="n">args</span><span class="o">:</span> <span class="n">Array</span><span class="o">[</span><span class="n">String</span><span class="o">]):</span> <span class="n">Unit</span> <span class="o">=</span> <span class="o">{</span>
+  
+    <span class="n">val</span> <span class="n">sparkConf</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SparkConf</span><span class="o">().</span><span class="na">setMaster</span><span class="o">(</span><span class="s">&#34;local&#34;</span><span class="o">).</span><span class="na">setAppName</span><span class="o">(</span><span class="s">&#34;WordCount&#34;</span><span class="o">)</span>
+    <span class="n">val</span> <span class="n">sparkContext</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SparkContext</span><span class="o">(</span><span class="n">sparkConf</span><span class="o">)</span>
+  
+    <span class="n">var</span> <span class="n">linesData</span><span class="o">:</span> <span class="n">RDD</span><span class="o">[</span><span class="n">String</span><span class="o">]</span> <span class="o">=</span> <span class="n">sparkContext</span><span class="o">.</span><span class="na">textFile</span><span class="o">(</span><span class="s">&#34;datas&#34;</span><span class="o">)</span>
+  
+    <span class="n">val</span> <span class="n">words</span><span class="o">:</span> <span class="n">RDD</span><span class="o">[</span><span class="n">String</span><span class="o">]</span> <span class="o">=</span> <span class="n">linesData</span><span class="o">.</span><span class="na">flatMap</span><span class="o">(</span><span class="n">_</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">&#34; &#34;</span><span class="o">))</span>
+  
+    <span class="n">val</span> <span class="n">wordToOne</span><span class="o">:</span> <span class="n">RDD</span><span class="o">[(</span><span class="n">String</span><span class="o">,</span> <span class="n">Int</span><span class="o">)]</span> <span class="o">=</span> <span class="n">words</span><span class="o">.</span><span class="na">map</span><span class="o">(</span>
+      <span class="n">word</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">word</span><span class="o">,</span> <span class="n">1</span><span class="o">)</span>
+    <span class="o">)</span>
+  
+    <span class="n">val</span> <span class="n">wordGroup</span><span class="o">:</span> <span class="n">RDD</span><span class="o">[(</span><span class="n">String</span><span class="o">,</span> <span class="n">Iterable</span><span class="o">[(</span><span class="n">String</span><span class="o">,</span> <span class="n">Int</span><span class="o">)])]</span> <span class="o">=</span> <span class="n">wordToOne</span><span class="o">.</span><span class="na">groupBy</span><span class="o">(</span>
+      <span class="n">t</span> <span class="o">=&gt;</span> <span class="n">t</span><span class="o">.</span><span class="na">_1</span>
+    <span class="o">)</span>
+  
+    <span class="n">val</span> <span class="n">wordCountMap</span> <span class="o">=</span> <span class="n">wordGroup</span><span class="o">.</span><span class="na">map</span><span class="o">{</span>
+      <span class="k">case</span> <span class="o">(</span><span class="n">word</span><span class="o">,</span><span class="n">list</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="o">{</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">reduce</span><span class="o">(</span>
+          <span class="o">(</span><span class="n">t1</span><span class="o">,</span> <span class="n">t2</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="o">{</span>
+            <span class="o">(</span><span class="n">t1</span><span class="o">.</span><span class="na">_1</span><span class="o">,</span> <span class="n">t1</span><span class="o">.</span><span class="na">_2</span> <span class="o">+</span> <span class="n">t2</span><span class="o">.</span><span class="na">_2</span><span class="o">)</span>
+          <span class="o">}</span>
+        <span class="o">)</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  
+    <span class="n">val</span> <span class="n">result</span><span class="o">:</span> <span class="n">Array</span><span class="o">[(</span><span class="n">String</span><span class="o">,</span> <span class="n">Int</span><span class="o">)]</span> <span class="o">=</span> <span class="n">wordCountMap</span><span class="o">.</span><span class="na">collect</span><span class="o">()</span>
+    <span class="n">result</span><span class="o">.</span><span class="na">foreach</span><span class="o">(</span><span class="n">println</span><span class="o">)</span>
+  
+    <span class="n">sparkContext</span><span class="o">.</span><span class="na">stop</span><span class="o">()</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>草他马,scala真的是需要语法基础的&hellip;</p>
+</li>
+<li>
+<p>学scala去了,过几天再回来&hellip;</p>
+</li>
+<li>
+<p>😂</p>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Zhang's Blog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-10-15
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/java/">Java</a>
+          <a href="/tags/python/">Python</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E5%88%86%E5%B8%83%E5%BC%8F/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">分布式</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/docker/">
+            <span class="next-text nav-default">Docker</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://www.google.com/" class="iconfont icon-google" title="google"></a>
+      <a href="https://github.com/" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://www.douban.com/" class="iconfont icon-douban" title="douban"></a>
+      <a href="https://getpocket.com/" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="https://www.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="https://www.instagram.com/" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="https://about.gitlab.com/" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="https://www.bilibili.com/" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://golang.org/">GoLang</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Author - 
+    <a class="theme-link" href="https://space.bilibili.com/628950169/">Mr'zhang</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Zhang's Blog</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

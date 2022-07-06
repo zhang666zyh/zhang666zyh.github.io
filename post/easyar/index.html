@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>EasyAR - Zhang&#39;s Blog的博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Zhang&#39;s Blog" /><meta name="description" content="Step01.Unity中导入EasyAR资源并运行第一个项目 导入SDK 注册账号 下载Unity的EasyAR插件 点击下载 点击Unity Plugin 下载" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.67.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/easyar/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="EasyAR" />
+<meta property="og:description" content="Step01.Unity中导入EasyAR资源并运行第一个项目 导入SDK 注册账号 下载Unity的EasyAR插件 点击下载 点击Unity Plugin 下载" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/easyar/" />
+<meta property="article:published_time" content="2022-01-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-01T00:00:00+00:00" />
+<meta itemprop="name" content="EasyAR">
+<meta itemprop="description" content="Step01.Unity中导入EasyAR资源并运行第一个项目 导入SDK 注册账号 下载Unity的EasyAR插件 点击下载 点击Unity Plugin 下载">
+<meta itemprop="datePublished" content="2022-01-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-01-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="3267">
+
+
+
+<meta itemprop="keywords" content="Unity,AR," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="EasyAR"/>
+<meta name="twitter:description" content="Step01.Unity中导入EasyAR资源并运行第一个项目 导入SDK 注册账号 下载Unity的EasyAR插件 点击下载 点击Unity Plugin 下载"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Zhang&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/home/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">MyBlog</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Zhang&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/home/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">MyBlog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">EasyAR</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-01-01 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#step01unity中导入easyar资源并运行第一个项目">Step01.Unity中导入EasyAR资源并运行第一个项目</a>
+      <ul>
+        <li><a href="#导入sdk">导入SDK</a></li>
+        <li><a href="#填写许可证">填写许可证</a></li>
+        <li><a href="#第一个项目图像跟踪">第一个项目(图像跟踪)</a>
+          <ul>
+            <li><a href="#创建-easyar-ar-session">创建 EasyAR AR Session</a></li>
+            <li><a href="#创建image-target">创建Image Target</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#step02识别多张图片">Step02.识别多张图片</a>
+      <ul>
+        <li><a href="#平面图像跟踪程序控制">平面图像跟踪程序控制</a></li>
+      </ul>
+    </li>
+    <li><a href="#step03播放视频">Step03.播放视频</a>
+      <ul>
+        <li><a href="#在图片上播放视频">在图片上播放视频</a></li>
+        <li><a href="#在其它3d物体上播放视频">在其它3D物体上播放视频</a></li>
+      </ul>
+    </li>
+    <li><a href="#step04点击3d物体实现换色效果">Step04.点击3D物体,实现换色效果</a></li>
+    <li><a href="#step05实现放大效果">Step05.实现放大效果</a></li>
+    <li><a href="#step06实现任意拖拽效果">Step06.实现任意拖拽效果</a></li>
+    <li><a href="#step07对于unity好用的插件itween的研究">Step07.对于Unity好用的插件iTween的研究</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="step01unity中导入easyar资源并运行第一个项目">Step01.Unity中导入EasyAR资源并运行第一个项目</h1>
+<h2 id="导入sdk">导入SDK</h2>
+<ul>
+<li>
+<p>注册账号</p>
+</li>
+<li>
+<p>下载Unity的EasyAR插件</p>
+<ul>
+<li>点击下载</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/c305a2cf97bc418aa778edb637eeae05.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<ul>
+<li>
+<p>点击Unity Plugin</p>
+<p><img src="C:%5CUsers%5Czhangyuhang%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220208002801769.png" alt="image-20220208002801769"></p>
+</li>
+<li>
+<p>下载zip包</p>
+<p><img src="https://img-blog.csdnimg.cn/3c64feb09df443d28811d4dc30780997.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+<li>
+<p>新版本下载的zip包解压后是什么<code>TGZ</code>文件</p>
+</li>
+<li>
+<p>关于新版本的导入官方文档是这样说的</p>
+<p><code>Windows-&gt;PackageManager-&gt;点击左上角加号-&gt;Add package from tarball-&gt;选择解压出的TGZ文件</code></p>
+</li>
+<li>
+<p>导入后,tgz文件在哪个目录下也不要删了,项目就找这个文件.删除会导致项目无法启动</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="填写许可证">填写许可证</h2>
+<ul>
+<li>
+<p>到官网去注册一个License key作为项目支持密钥</p>
+</li>
+<li>
+<p>注册后找到<code>开发中心</code></p>
+</li>
+<li>
+<p>点击<code>我需要新的许可密钥</code></p>
+<p><img src="https://img-blog.csdnimg.cn/5644380ac41b488784e00a65b3d5ec00.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+<li>
+<p>选择个人版</p>
+<p><img src="https://img-blog.csdnimg.cn/8d04941b6da24c31af5d09503a013abc.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+<li>
+<p>正常填写</p>
+<blockquote>
+<ul>
+<li>
+<p>如果要导出Android应用</p>
+</li>
+<li>
+<p>Package Name需要和Unity的相同</p>
+<blockquote>
+<p>com.公司名.项目名</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>确认后点开生成的密钥</p>
+</li>
+<li>
+<p>复制</p>
+<p><img src="https://img-blog.csdnimg.cn/227479f77a7b4a64a6389cc7d97d6b00.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+</li>
+<li>
+<p>导入TGZ文件后,Unity导航栏就会出现一个<code>EasyAR</code>标识</p>
+<p><code>EasyAR-&gt;Sense-&gt;configuration</code></p>
+</li>
+<li>
+<p>找到右侧Inspector最下面的<code>EasyAR SDK License Key</code></p>
+</li>
+<li>
+<p>将上面复制的密钥粘贴进去</p>
+</li>
+<li>
+<p>至此,EasyAR的Unity环境就配置好了</p>
+</li>
+</ul>
+<h2 id="第一个项目图像跟踪">第一个项目(图像跟踪)</h2>
+<ul>
+<li>
+<p>这第一个项目就用图像跟踪举例,因为官方文档前面说了运动跟踪等情况但没实现</p>
+</li>
+<li>
+<p>EasyAR无需像ARFoundation这样删除AR Camera</p>
+</li>
+<li>
+<p>点击Main Camera,进行配置</p>
+</li>
+<li>
+<p>官网是这样讲的</p>
+<blockquote>
+<ul>
+<li><strong>Tag</strong>: 如果Camera不是来自 <code>AR Foundation</code> 或 <code>AR Engine Unity SDK</code> 或 <code>Nreal SDK</code> ，可以设置Camera Tag为 <em>MainCamera</em>，这样它会在AR Session启动时被frame source所选用。或者，你也可以通过在Inspector面包设置 [FrameSource.Camera](<a href="https://help.easyar.cn/EasyAR">https://help.easyar.cn/EasyAR</a> Sense Unity Plugin/latest/ApiReference/FrameSource.html#camera) 来修改 FrameSource 的 Camera 为这个Camera。</li>
+<li><strong>Clear Flags</strong>: 需要选择为 <em>Solid Color</em> 以确保Camera图像可以正常渲染。如果选择为 <em>Skybox</em> ，Camera图像将无法显示。</li>
+<li><strong>Background</strong>: 这个非必需配置，考虑到使用体验，建议将背景颜色设为黑色以便在Camera设备打开前和切换时以黑色显示。</li>
+<li><strong>Clipping Planes</strong>: 根据识别物体实际的物理距离设置。这里设置Near为0.1（米）以避免相机离物体较近时无法显示。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="创建-easyar-ar-session">创建 EasyAR AR Session</h3>
+<ul>
+<li>比如，如果你要使用 <code>图像跟踪</code>，你可以使用 <code>EasyAR Sense &gt; Image Tracking &gt; AR Session (Image Tracking Preset)</code> 来创建AR Session</li>
+<li>其他情况,例如稀疏地图、运动跟踪等官方文档有</li>
+<li>有了AR Session就有了AR Camera,接下来创建Image Target</li>
+</ul>
+<h3 id="创建image-target">创建Image Target</h3>
+<ul>
+<li>
+<p>如果你要使用 <code>图像跟踪</code> ，你需要通过 <code>EasyAR Sense &gt; Image Tracking &gt; Target : Image Target</code> 创建 [ImageTargetController](<a href="https://help.easyar.cn/EasyAR">https://help.easyar.cn/EasyAR</a> Sense Unity Plugin/latest/ApiReference/ImageTargetController.html)</p>
+</li>
+<li>
+<p>这时候场景中ImageTarget应该会显示成问号</p>
+</li>
+<li>
+<p>然后需要配置这个 ImageTarget。这通常由好几种不同的方法。这里使用其中的一种，使用StreamingAssets中的图片创建target。</p>
+</li>
+<li>
+<p>在Assets中创建StreamingAssets文件夹</p>
+</li>
+<li>
+<p>将需要识别的图片拖入StreamingAssets中。这里选用名片图。</p>
+</li>
+<li>
+<p>然后配置这个 [ImageTargetController](<a href="https://help.easyar.cn/EasyAR">https://help.easyar.cn/EasyAR</a> Sense Unity Plugin/latest/ApiReference/ImageTargetController.html) 以使用 StreamingAssets 中的图片</p>
+</li>
+<li>
+<p>不像Vuforia还要创建数据库导包</p>
+</li>
+<li>
+<p>这是官网对于Image Target配置的描述</p>
+<blockquote>
+<ul>
+<li><strong>Source Type</strong>: 这里设置为 <em>Image File</em> ，表示将使用图片文件创建ImageTarget。</li>
+<li><strong>Path Type</strong>: 这里设置为 <em>StreamingAssets</em> ，表示 <em>Path</em> 将使用相对于StreamingAssets的路径。</li>
+<li><strong>Path</strong>: 图片相对于StreamingAssets的路径(就是要识别追踪的图片在StreamingAssets目录下的路径)</li>
+<li><strong>Name</strong>: target名字，可以随意输入。</li>
+<li><strong>Scale</strong>: 根据识别图宽度实际的物理大小设置。这里使用的名片实际大小为9mm，因此设为0.09（米）。</li>
+<li><strong>Tracker</strong>: 需要加载 [ImageTargetController](<a href="https://help.easyar.cn/EasyAR">https://help.easyar.cn/EasyAR</a> Sense Unity Plugin/latest/ApiReference/ImageTargetController.html) 的 [ImageTrackerFrameFilter](<a href="https://help.easyar.cn/EasyAR">https://help.easyar.cn/EasyAR</a> Sense Unity Plugin/latest/ApiReference/ImageTrackerFrameFilter.html) 。在添加ImageTarget时，它会被默认设为场景中的其中一个 [ImageTrackerFrameFilter](<a href="https://help.easyar.cn/EasyAR">https://help.easyar.cn/EasyAR</a> Sense Unity Plugin/latest/ApiReference/ImageTrackerFrameFilter.html) ，添加后仍可修改。</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>场景中ImageTarget的显示将随Path的输入而随时改变</p>
+</li>
+<li>
+<p>在ImageTarget下创建一个任意的3D物体</p>
+</li>
+<li>
+<p>运行项目</p>
+</li>
+</ul>
+<hr>
+<h1 id="step02识别多张图片">Step02.识别多张图片</h1>
+<ul>
+<li>
+<p>创建两个<code>Image Target</code>,放上<code>StreamingAssets</code>目录下不同图片,创建两个不同的3D物体</p>
+</li>
+<li>
+<p>更改AR Session下的Image Tracker的属性值</p>
+<blockquote>
+<p>Simultaneous Target代表最大识别图片数</p>
+<p>默认是1,改成2即可</p>
+</blockquote>
+</li>
+<li>
+<p>但这里有问题</p>
+</li>
+<li>
+<p>当放置两张一样图片识别的时候,它只在其中一个上面显示3D物体</p>
+</li>
+<li>
+<p>将ImageTarget多复制几个就好了</p>
+</li>
+</ul>
+<h2 id="平面图像跟踪程序控制">平面图像跟踪程序控制</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">    public ImageTrackerFrameFilter tracker;
+    public ImageTargetController targetController;
+
+    void Awake()
+    {
+        if (targetController)
+        {
+            targetController.TargetFound += () =&gt;
+            {
+                Debug.LogFormat(...);	//当图像被跟踪到
+            };
+            targetController.TargetLost += () =&gt;
+            {
+                Debug.LogFormat(...);	//当图像从视野消失
+            };
+            targetController.TargetLoad += (Target target, bool status) =&gt;
+            {
+                Debug.LogFormat(...);	//加载图像
+            };
+            targetController.TargetUnload += (Target target, bool status) =&gt;
+            {
+                Debug.LogFormat(...);	//卸载图像
+            };
+        }
+    }
+    public void SetTracker(bool status)
+    {
+        tracker.enabled = status;	//设置是否跟踪
+    }
+    public void SetTarget(bool status)
+    {
+        if (status)
+        {
+            targetController.Tracker = tracker; //加载图像
+        }
+        else
+        {
+            targetController.Tracker = null;    //卸载图像
+        }
+    }
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h1 id="step03播放视频">Step03.播放视频</h1>
+<h2 id="在图片上播放视频">在图片上播放视频</h2>
+<ul>
+<li>在场景中设置Main Camera的Clear Flags属性为Solid Color</li>
+<li>创建Image Target,并设置识别图片</li>
+<li>选中一个“ImageTarget”，点击鼠标右键，在弹出菜单中选择3D Object&ndash;Plane,为“ImageTarget”对象添加一个平面作为其子游戏对象</li>
+<li>设置Plane游戏对象的角度为<code>90,0,180</code>，并修改其Scale属性将其大小设置的和视频图片大小一样(就是横长竖窄那种(0.1,0,0.05))</li>
+<li>选中Plane游戏对象，点击菜单Add Component&ndash;Video&ndash;Video Player，为其添加一个视频播放组件</li>
+<li>将一段视频拖到目录Videos下，导入为资源，并将其拖动到Video Player组件的Video Clip属性中为其赋值</li>
+<li>运行项目</li>
+</ul>
+<h2 id="在其它3d物体上播放视频">在其它3D物体上播放视频</h2>
+<ul>
+<li>
+<p>就是将上面的平面替换成立方体等,然后给3D物体一个适当的角度</p>
+</li>
+<li>
+<p>别整个平面看不出来是3D的</p>
+</li>
+<li>
+<p>比如立方体设置(45,45,0),它的一个角就扎在图片上了</p>
+</li>
+<li>
+<p>运行项目,立方体6个面都播放同一个视频</p>
+</li>
+</ul>
+<hr>
+<h1 id="step04点击3d物体实现换色效果">Step04.点击3D物体,实现换色效果</h1>
+<ul>
+<li>
+<p>创建两个不同贴图的Material</p>
+</li>
+<li>
+<p>然后在ImageTarget上创建</p>
+<p><code>ChangeMaterial.cs</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+  
+<span class="k">public</span> <span class="k">class</span> <span class="nc">ChangeMaterial</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">Material</span> <span class="n">Blue</span><span class="p">;</span>
+    <span class="k">public</span> <span class="n">Material</span> <span class="n">K</span><span class="p">;</span>
+    <span class="k">private</span> <span class="kt">bool</span> <span class="n">isClick</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+    <span class="c1">// Use this for initialization
+</span><span class="c1"></span>    <span class="k">void</span> <span class="n">Start</span> <span class="p">()</span> <span class="p">{</span>    
+    <span class="p">}</span>
+    <span class="c1">// Update is called once per frame
+</span><span class="c1"></span>    <span class="k">void</span> <span class="n">Update</span> <span class="p">()</span> <span class="p">{</span>   
+    <span class="p">}</span>
+    <span class="k">void</span> <span class="n">OnMouseDown</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(!</span><span class="n">isClick</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">MeshRenderer</span><span class="p">&gt;</span> <span class="p">().</span><span class="n">material</span> <span class="p">=</span> <span class="n">Blue</span><span class="p">;</span>
+            <span class="n">isClick</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">MeshRenderer</span><span class="p">&gt;</span> <span class="p">().</span><span class="n">material</span> <span class="p">=</span> <span class="n">K</span><span class="p">;</span>
+            <span class="n">isClick</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>最后再将两个材料赋给脚本</p>
+</li>
+<li>
+<p>导出到Android就好了</p>
+</li>
+</ul>
+<h1 id="step05实现放大效果">Step05.实现放大效果</h1>
+<ul>
+<li>
+<p>创建<code>Enlarge.cs</code></p>
+<p><code>Enlarge.cs</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Enlarge</span> <span class="p">:</span> <span class="n">MonoBehaviour</span> <span class="p">{</span>
+    <span class="k">private</span> <span class="n">Touch</span> <span class="n">oldTouch1</span><span class="p">;</span>  <span class="c1">//上次触摸点1(手指1)
+</span><span class="c1"></span>    <span class="k">private</span> <span class="n">Touch</span> <span class="n">oldTouch2</span><span class="p">;</span>  <span class="c1">//上次触摸点2(手指2)
+</span><span class="c1"></span>    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">//没有触摸，就是触摸点为0
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">touchCount</span> <span class="p">&lt;=</span> <span class="m">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>     
+        <span class="c1">//多点触摸, 放大缩小
+</span><span class="c1"></span>        <span class="n">Touch</span> <span class="n">newTouch1</span> <span class="p">=</span> <span class="n">Input</span><span class="p">.</span><span class="n">GetTouch</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+        <span class="n">Touch</span> <span class="n">newTouch2</span> <span class="p">=</span> <span class="n">Input</span><span class="p">.</span><span class="n">GetTouch</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+        <span class="c1">//第2点刚开始接触屏幕, 只记录，不做处理
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">newTouch2</span><span class="p">.</span><span class="n">phase</span> <span class="p">==</span> <span class="n">TouchPhase</span><span class="p">.</span><span class="n">Began</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">oldTouch2</span> <span class="p">=</span> <span class="n">newTouch2</span><span class="p">;</span>
+            <span class="n">oldTouch1</span> <span class="p">=</span> <span class="n">newTouch1</span><span class="p">;</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">//计算老的两点距离和新的两点间距离，变大要放大模型，变小要缩放模型
+</span><span class="c1"></span>        <span class="kt">float</span> <span class="n">oldDistance</span> <span class="p">=</span> <span class="n">Vector2</span><span class="p">.</span><span class="n">Distance</span><span class="p">(</span><span class="n">oldTouch1</span><span class="p">.</span><span class="n">position</span><span class="p">,</span> <span class="n">oldTouch2</span><span class="p">.</span><span class="n">position</span><span class="p">);</span>
+        <span class="kt">float</span> <span class="n">newDistance</span> <span class="p">=</span> <span class="n">Vector2</span><span class="p">.</span><span class="n">Distance</span><span class="p">(</span><span class="n">newTouch1</span><span class="p">.</span><span class="n">position</span><span class="p">,</span> <span class="n">newTouch2</span><span class="p">.</span><span class="n">position</span><span class="p">);</span>
+        <span class="c1">//两个距离之差，为正表示放大手势， 为负表示缩小手势
+</span><span class="c1"></span>        <span class="kt">float</span> <span class="n">offset</span> <span class="p">=</span> <span class="n">newDistance</span> <span class="p">-</span> <span class="n">oldDistance</span><span class="p">;</span>
+        <span class="c1">//放大因子， 一个像素按 0.01倍来算(100可调整)
+</span><span class="c1"></span>        <span class="kt">float</span> <span class="n">scaleFactor</span> <span class="p">=</span> <span class="n">offset</span> <span class="p">/</span> <span class="m">100f</span><span class="p">;</span>
+        <span class="n">Vector3</span> <span class="n">localScale</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">localScale</span><span class="p">;</span>
+        <span class="n">Vector3</span> <span class="n">scale</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="n">localScale</span><span class="p">.</span><span class="n">x</span> <span class="p">+</span> <span class="n">scaleFactor</span><span class="p">,</span>
+            <span class="n">localScale</span><span class="p">.</span><span class="n">y</span> <span class="p">+</span> <span class="n">scaleFactor</span><span class="p">,</span>
+            <span class="n">localScale</span><span class="p">.</span><span class="n">z</span> <span class="p">+</span> <span class="n">scaleFactor</span><span class="p">);</span>
+        <span class="c1">//在什么情况下进行缩放
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">scale</span><span class="p">.</span><span class="n">x</span> <span class="p">&gt;=</span> <span class="m">0.05f</span> <span class="p">&amp;&amp;</span> <span class="n">scale</span><span class="p">.</span><span class="n">y</span> <span class="p">&gt;=</span><span class="m">0.05f</span> <span class="p">&amp;&amp;</span> <span class="n">scale</span><span class="p">.</span><span class="n">z</span> <span class="p">&gt;=</span> <span class="m">0.05f</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">transform</span><span class="p">.</span><span class="n">localScale</span> <span class="p">=</span> <span class="n">scale</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">//记住最新的触摸点，下次使用
+</span><span class="c1"></span>        <span class="n">oldTouch1</span> <span class="p">=</span> <span class="n">newTouch1</span><span class="p">;</span>
+        <span class="n">oldTouch2</span> <span class="p">=</span> <span class="n">newTouch2</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>将脚本赋给物体</p>
+</li>
+</ul>
+<hr>
+<h1 id="step06实现任意拖拽效果">Step06.实现任意拖拽效果</h1>
+<ul>
+<li>
+<p>创建<code>Drag.cs</code></p>
+<p><code>Drag.cs</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+  
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Drag</span> <span class="p">:</span> <span class="n">MonoBehaviour</span> <span class="p">{</span>
+    <span class="k">private</span> <span class="n">Vector3</span> <span class="n">_vec3TargetScreenSpace</span><span class="p">;</span><span class="c1">// 目标物体的屏幕空间坐标
+</span><span class="c1"></span>  
+    <span class="k">private</span> <span class="n">Vector3</span> <span class="n">_vec3TargetWorldSpace</span><span class="p">;</span><span class="c1">// 目标物体的世界空间坐标
+</span><span class="c1"></span>  
+    <span class="k">private</span> <span class="n">Transform</span> <span class="n">_trans</span><span class="p">;</span><span class="c1">// 目标物体的空间变换组件
+</span><span class="c1"></span>  
+    <span class="k">private</span> <span class="n">Vector3</span> <span class="n">_vec3MouseScreenSpace</span><span class="p">;</span><span class="c1">// 鼠标的屏幕空间坐标
+</span><span class="c1"></span>  
+    <span class="k">private</span> <span class="n">Vector3</span> <span class="n">_vec3Offset</span><span class="p">;</span><span class="c1">// 偏移
+</span><span class="c1"></span>  
+    <span class="k">void</span> <span class="n">Awake</span><span class="p">()</span> <span class="p">{</span> <span class="n">_trans</span> <span class="p">=</span> <span class="n">transform</span><span class="p">;</span> <span class="p">}</span>
+  
+    <span class="n">IEnumerator</span> <span class="n">OnMouseDown</span><span class="p">()</span>
+  
+    <span class="p">{</span>
+  
+        <span class="c1">// 把目标物体的世界空间坐标转换到它自身的屏幕空间坐标
+</span><span class="c1"></span>  
+        <span class="n">_vec3TargetScreenSpace</span> <span class="p">=</span> <span class="n">Camera</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">WorldToScreenPoint</span><span class="p">(</span><span class="n">_trans</span><span class="p">.</span><span class="n">position</span><span class="p">);</span>
+  
+        <span class="c1">// 存储鼠标的屏幕空间坐标（Z值使用目标物体的屏幕空间坐标）
+</span><span class="c1"></span>  
+        <span class="n">_vec3MouseScreenSpace</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">mousePosition</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">Input</span><span class="p">.</span><span class="n">mousePosition</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">_vec3TargetScreenSpace</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
+  
+        <span class="c1">// 计算目标物体与鼠标物体在世界空间中的偏移量
+</span><span class="c1"></span>  
+        <span class="n">_vec3Offset</span> <span class="p">=</span> <span class="n">_trans</span><span class="p">.</span><span class="n">position</span> <span class="p">-</span> <span class="n">Camera</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">ScreenToWorldPoint</span><span class="p">(</span><span class="n">_vec3MouseScreenSpace</span><span class="p">);</span>
+  
+        <span class="c1">// 鼠标左键按下
+</span><span class="c1"></span>  
+        <span class="k">while</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetMouseButton</span><span class="p">(</span><span class="m">0</span><span class="p">))</span>
+  
+        <span class="p">{</span>
+  
+            <span class="c1">// 存储鼠标的屏幕空间坐标（Z值使用目标物体的屏幕空间坐标）
+</span><span class="c1"></span>  
+            <span class="n">_vec3MouseScreenSpace</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">mousePosition</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">Input</span><span class="p">.</span><span class="n">mousePosition</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">_vec3TargetScreenSpace</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
+  
+            <span class="c1">// 把鼠标的屏幕空间坐标转换到世界空间坐标（Z值使用目标物体的屏幕空间坐标），加上偏移量，以此作为目标物体的世界空间坐标
+</span><span class="c1"></span>  
+            <span class="n">_vec3TargetWorldSpace</span> <span class="p">=</span> <span class="n">Camera</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">ScreenToWorldPoint</span><span class="p">(</span><span class="n">_vec3MouseScreenSpace</span><span class="p">)</span> <span class="p">+</span> <span class="n">_vec3Offset</span><span class="p">;</span>
+  
+            <span class="c1">// 更新目标物体的世界空间坐标
+</span><span class="c1"></span>            <span class="n">_trans</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">_vec3TargetWorldSpace</span><span class="p">;</span>
+            <span class="c1">// 等待固定更新
+</span><span class="c1"></span>            <span class="k">yield</span> <span class="k">return</span> <span class="k">new</span> <span class="n">WaitForFixedUpdate</span><span class="p">();</span>
+  
+        <span class="p">}</span>
+  
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>将脚本赋给物体</p>
+</li>
+</ul>
+<hr>
+<h1 id="step07对于unity好用的插件itween的研究">Step07.对于Unity好用的插件iTween的研究</h1>
+<ul>
+<li>有了它,就可以实时的点击交互寻路变色等了,AR开发有了希望</li>
+<li>EasyAR + iTween</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Zhang's Blog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2022-01-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/unity/">Unity</a>
+          <a href="/tags/ar/">AR</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/opencv/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">opencv</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
+            <span class="next-text nav-default">网络安全</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://www.google.com/" class="iconfont icon-google" title="google"></a>
+      <a href="https://github.com/" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://www.douban.com/" class="iconfont icon-douban" title="douban"></a>
+      <a href="https://getpocket.com/" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="https://www.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="https://www.instagram.com/" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="https://about.gitlab.com/" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="https://www.bilibili.com/" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://golang.org/">GoLang</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Author - 
+    <a class="theme-link" href="https://space.bilibili.com/628950169/">Mr'zhang</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Zhang's Blog</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rust on Zhang&#39;s Blog的博客</title>
+    <link>http://localhost:1313/tags/rust/</link>
+    <description>Recent content in Rust on Zhang&#39;s Blog的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 21 Jul 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Rust</title>
+      <link>http://localhost:1313/post/rust/</link>
+      <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/rust/</guid>
+      <description>Step1. Rust的第一个程序 1 2 3 fn main(){println!(&amp;#34;HelloWorld&amp;#34;);} Step2. 猜数字游戏</description>
+    </item>
+    
+  </channel>
+</rss>

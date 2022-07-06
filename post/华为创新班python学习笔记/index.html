@@ -1,0 +1,2440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>华为创新班Python学习笔记 - Zhang&#39;s Blog的博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Zhang&#39;s Blog" /><meta name="description" content="Step1. 函数 Step2. List Step3. Turple Step4. Set Step5. Dict Step6. 对象 面向对象的三大特性 Step5.正则表达式 案例 作业 S1. 百鸡百钱 S2. 斐波那契数列 S3. 计算两点之间距离的对象 S4. 判断素数 S5." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.67.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/%E5%8D%8E%E4%B8%BA%E5%88%9B%E6%96%B0%E7%8F%ADpython%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="华为创新班Python学习笔记" />
+<meta property="og:description" content="Step1. 函数 Step2. List Step3. Turple Step4. Set Step5. Dict Step6. 对象 面向对象的三大特性 Step5.正则表达式 案例 作业 S1. 百鸡百钱 S2. 斐波那契数列 S3. 计算两点之间距离的对象 S4. 判断素数 S5." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/%E5%8D%8E%E4%B8%BA%E5%88%9B%E6%96%B0%E7%8F%ADpython%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+<meta property="article:published_time" content="2021-08-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-08-15T00:00:00+00:00" />
+<meta itemprop="name" content="华为创新班Python学习笔记">
+<meta itemprop="description" content="Step1. 函数 Step2. List Step3. Turple Step4. Set Step5. Dict Step6. 对象 面向对象的三大特性 Step5.正则表达式 案例 作业 S1. 百鸡百钱 S2. 斐波那契数列 S3. 计算两点之间距离的对象 S4. 判断素数 S5.">
+<meta itemprop="datePublished" content="2021-08-15T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-08-15T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="5588">
+
+
+
+<meta itemprop="keywords" content="Python," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="华为创新班Python学习笔记"/>
+<meta name="twitter:description" content="Step1. 函数 Step2. List Step3. Turple Step4. Set Step5. Dict Step6. 对象 面向对象的三大特性 Step5.正则表达式 案例 作业 S1. 百鸡百钱 S2. 斐波那契数列 S3. 计算两点之间距离的对象 S4. 判断素数 S5."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Zhang&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/home/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">MyBlog</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Zhang&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/home/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">MyBlog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">华为创新班Python学习笔记</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-08-15 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#step1-函数">Step1. 函数</a></li>
+    <li><a href="#step2-list">Step2. List</a></li>
+    <li><a href="#step3-turple">Step3. Turple</a></li>
+    <li><a href="#step4-set">Step4. Set</a></li>
+    <li><a href="#step5-dict">Step5. Dict</a></li>
+    <li><a href="#step06listsetturple和dict的区别">Step06.List、Set、Turple和Dict的区别</a></li>
+    <li><a href="#step6-对象">Step6. 对象</a>
+      <ul>
+        <li><a href="#面向对象的三大特性">面向对象的三大特性</a></li>
+      </ul>
+    </li>
+    <li><a href="#step5正则表达式">Step5.正则表达式</a>
+      <ul>
+        <li><a href="#案例">案例</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业">作业</a>
+      <ul>
+        <li><a href="#s1-百鸡百钱">S1. 百鸡百钱</a></li>
+        <li><a href="#s2-斐波那契数列">S2. 斐波那契数列</a></li>
+        <li><a href="#s3-计算两点之间距离的对象">S3. 计算两点之间距离的对象</a></li>
+        <li><a href="#s4-判断素数">S4. 判断素数</a></li>
+        <li><a href="#s5通过正则表达式匹配0-120之间的数字">S5.通过正则表达式匹配0-120之间的数字</a></li>
+        <li><a href="#s6图灵机器人">S6.图灵机器人</a></li>
+        <li><a href="#s7多线程锁">S7.多线程锁</a></li>
+        <li><a href="#s8图灵机器人">S8.图灵机器人</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <!-- TOC -->
+<ul>
+<li><a href="#step1-%E5%87%BD%E6%95%B0">Step1. 函数</a></li>
+<li><a href="#step2-list">Step2. List</a></li>
+<li><a href="#step3-turple">Step3. Turple</a></li>
+<li><a href="#step4-set">Step4. Set</a></li>
+<li><a href="#step5-dict">Step5. Dict</a></li>
+<li><a href="#step6-%E5%AF%B9%E8%B1%A1">Step6. 对象</a>
+<ul>
+<li><a href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7">面向对象的三大特性</a></li>
+</ul>
+</li>
+<li><a href="#step5%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">Step5.正则表达式</a>
+<ul>
+<li><a href="#%E6%A1%88%E4%BE%8B">案例</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BD%9C%E4%B8%9A">作业</a>
+<ul>
+<li><a href="#s1-%E7%99%BE%E9%B8%A1%E7%99%BE%E9%92%B1">S1. 百鸡百钱</a></li>
+<li><a href="#s2-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97">S2. 斐波那契数列</a></li>
+<li><a href="#s3-%E8%AE%A1%E7%AE%97%E4%B8%A4%E7%82%B9%E4%B9%8B%E9%97%B4%E8%B7%9D%E7%A6%BB%E7%9A%84%E5%AF%B9%E8%B1%A1">S3. 计算两点之间距离的对象</a></li>
+<li><a href="#s4-%E5%88%A4%E6%96%AD%E7%B4%A0%E6%95%B0">S4. 判断素数</a></li>
+</ul>
+</li>
+<li><a href="#s5%E9%80%9A%E8%BF%87%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D0-120%E4%B9%8B%E9%97%B4%E7%9A%84%E6%95%B0%E5%AD%97">S5.通过正则表达式匹配0-120之间的数字</a></li>
+<li><a href="#s6%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA">S6.图灵机器人</a></li>
+</ul>
+<!-- /TOC -->
+<h1 id="step1-函数">Step1. 函数</h1>
+<ul>
+<li>
+<p>普通函数编写方法</p>
+<p><code>function.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> + </span><span class="si">%d</span><span class="s1"> =&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">),</span><span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+  
+<span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>带有默认值的函数</p>
+<p><code>function.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="mi">4</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> + </span><span class="si">%d</span><span class="s1"> =&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">),</span><span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+  
+<span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>这样传入的第一个值默认是第一个形式参数</p>
+</blockquote>
+<blockquote>
+<p>下面这个和这个不同,下面的相当于这个的升级版</p>
+</blockquote>
+<blockquote>
+<p>你可以直接进行变量的赋值和传递</p>
+</blockquote>
+</li>
+<li>
+<p>带有指定位置默认值的函数</p>
+<p><code>function.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="mi">4</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> + </span><span class="si">%d</span><span class="s1"> =&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">),</span><span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+  
+<span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>虽说函数的形式参数和全局变量是互不冲突的,但是Python中我猜你只要使用这个函数,而且这个函数同时设置了变量名和变量值</p>
+</blockquote>
+<blockquote>
+<p>那么你就可以传入一个变量而不是一个简单的数值</p>
+</blockquote>
+<blockquote>
+<p>但是这个变量的名称要和形式参数的某一个变量名相同</p>
+</blockquote>
+</li>
+<li>
+<p>多个返回值</p>
+<p><code>function.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">addNum</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="n">subNum</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">addNum</span><span class="p">,</span><span class="n">subNum</span>
+  
+<span class="n">addNum</span><span class="p">,</span><span class="n">subNum</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">addNum</span><span class="p">,</span><span class="n">subNum</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>你也可以使用一个变量来接收多个返回值</p>
+</blockquote>
+<blockquote>
+<p>它默认是使用元组存储</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="step2-list">Step2. List</h1>
+<ul>
+<li>
+<p>向列表末尾插入一个元素</p>
+<p><code>TestPython.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+  
+<span class="nb">list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+  
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<blockquote>
+<p>append()方法只能向列表中插入一个元素,两个或者多个就会报错</p>
+</blockquote>
+<blockquote>
+<p>即使你使用列表将多个元素封装在一起也会被视作一个元素</p>
+</blockquote>
+<blockquote>
+<p>此时我们就需要使用extend函数向列表末尾插入多个元素</p>
+</blockquote>
+<ul>
+<li>
+<p>向列表末尾插入多个元素</p>
+<p><code>TestPython.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+  
+<span class="c1"># 这里要注意:列表的extend方法只能接受一个元素,这里插入列表相当于列表的扩展</span>
+<span class="nb">list</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+  
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>向列表中任意位置插入元素</p>
+<p><code>TestPython.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+  
+<span class="nb">list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+  
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>删除列表元素</p>
+<ul>
+<li>
+<p>通过值删除</p>
+<p><code>TestPython.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+      
+<span class="nb">list</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+      
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>通过索引删除</p>
+<blockquote>
+<p>pop函数和del语句都可以通过索引删除列表中元素</p>
+</blockquote>
+<blockquote>
+<p>区别是pop是函数,有返回值;而del是命令</p>
+</blockquote>
+<p><code>TestPython.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+      
+<span class="nb">list</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+      
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>TestPython.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+      
+<span class="k">del</span> <span class="nb">list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+      
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+<li>
+<p>清除列表元素</p>
+<p>list.clear()</p>
+</li>
+</ul>
+<h1 id="step3-turple">Step3. Turple</h1>
+<ul>
+<li>
+<p>元组它是一种不可变的数据结构,访问方法和List是一样的,但是不可以更改,只能访问</p>
+</li>
+<li>
+<p>长度为1的元组</p>
+<p><code>TestPython.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">turple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
+  
+<span class="k">print</span><span class="p">(</span><span class="n">turple</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">turple</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">turple</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>长度为0的元组</p>
+<p><code>TestPython.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">turple</span> <span class="o">=</span> <span class="p">()</span>
+  
+<span class="k">print</span><span class="p">(</span><span class="n">turple</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">turple</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">turple</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>元组的另外一种写法</p>
+<p><code>TestPython.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">turple</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+  
+<span class="k">print</span><span class="p">(</span><span class="n">turple</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">turple</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">turple</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="sb">```TestPython.py```</span>
+
+    <span class="n">turple</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span>
+    
+    <span class="k">print</span><span class="p">(</span><span class="n">turple</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">turple</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">turple</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>​</p>
+<h1 id="step4-set">Step4. Set</h1>
+<ul>
+<li>
+<p>集合中的元素是无序的,但使用for循环遍历集合是从左向右依次遍历的</p>
+</li>
+<li>
+<p>创建一个集合</p>
+<p><code>TestPython.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">set1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;张三&#39;</span><span class="p">,</span><span class="s1">&#39;李四&#39;</span><span class="p">,</span><span class="s1">&#39;王五&#39;</span><span class="p">}</span>
+<span class="k">print</span><span class="p">(</span><span class="n">set1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">set1</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Set中的元素不能重复,如果有重复,它会自动去重</p>
+</li>
+<li>
+<p>所以列表去重的最好方法就是转换为集合</p>
+<p><code>TestPython.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+<span class="c1"># set()方法是将其他数据结构转为集合,而list()方法是将其他数据结构重新转换为列表</span>
+<span class="n">list1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">list1</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>集合中的元素可以修改</p>
+<p><code>TestPython.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">set2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">}</span>
+<span class="c1"># print(set2[1])</span>
+<span class="n">set2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">set2</span><span class="p">)</span>
+<span class="n">set2</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">set2</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>长度为2、1、0的集合</p>
+<p><code>TestPython.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">set0</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span>
+<span class="k">print</span><span class="p">(</span><span class="n">set0</span><span class="p">)</span>
+  
+<span class="n">set1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+<span class="k">print</span><span class="p">(</span><span class="n">set1</span><span class="p">)</span>
+  
+<span class="n">set2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">set2</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>集合的逻辑运算</p>
+<p><code>TestPython.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">set1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">}</span>
+<span class="n">set2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">}</span>
+<span class="k">print</span><span class="p">(</span><span class="n">set1</span> <span class="ow">and</span> <span class="n">set2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">set1</span> <span class="o">&amp;</span> <span class="n">set2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">set1</span> <span class="ow">or</span> <span class="n">set2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">set1</span> <span class="o">|</span> <span class="n">set2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">set1</span> <span class="o">-</span> <span class="n">set2</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h1 id="step5-dict">Step5. Dict</h1>
+<ul>
+<li>
+<p>字典类似于哈希表,key-value的形式</p>
+</li>
+<li>
+<p>而且键和值可以为任意类型的数据</p>
+<p><code>TestPython.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;userName&#39;</span><span class="p">:</span><span class="s1">&#39;zhangyuhang&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;userId&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;salary&#39;</span><span class="p">:</span><span class="mi">10000000</span>
+<span class="p">}</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>设置字典元素的内容</p>
+<p><code>TestPython.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;userName&#39;</span><span class="p">:</span><span class="s1">&#39;zhangyuhang&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;userId&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;salary&#39;</span><span class="p">:</span><span class="mi">10000000</span>
+<span class="p">}</span>
+  
+<span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;userName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;zhangleyi&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>如果修改字典元素过程中修改的键不存在,则在字典末尾添加这个值</p>
+<p><code>TestPython.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;userName&#39;</span><span class="p">:</span><span class="s1">&#39;zhangyuhang&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;userId&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;salary&#39;</span><span class="p">:</span><span class="mi">10000000</span>
+<span class="p">}</span>
+<span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;userPwd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;123456&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>删除字典元素</p>
+<p><code>TestPython.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;userName&#39;</span><span class="p">:</span><span class="s1">&#39;zhangyuhang&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;userId&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;salary&#39;</span><span class="p">:</span><span class="mi">10000000</span>
+<span class="p">}</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">dict1</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;useId&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>删除字典元素过程中,如果没有这个键,则会报错</p>
+</li>
+<li>
+<p>字典的pop方法,如果删除成功,返回值为删除的值</p>
+</li>
+<li>
+<p>查找字典元素,还可以使用字典的get方法</p>
+<p><code>TestPython.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;userName&#39;</span><span class="p">:</span><span class="s1">&#39;zhangyuhang&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;userId&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;salary&#39;</span><span class="p">:</span><span class="mi">10000000</span>
+<span class="p">}</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dict1</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;userName&#39;</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>get方法,如果没有找到,则返回None</p>
+</li>
+<li>
+<p>使用for循环遍历字典(通过遍历键来访问键所对应的值)</p>
+<p><code>TestPython.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;userName&#39;</span><span class="p">:</span><span class="s1">&#39;zhangyuhang&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;userId&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;salary&#39;</span><span class="p">:</span><span class="mi">10000000</span>
+<span class="p">}</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dict1</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">%s</span><span class="s2"> : </span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="n">dict1</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>直接遍历键值对</p>
+<p><code>TestPython.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;userName&#39;</span><span class="p">:</span><span class="s1">&#39;zhangyuhang&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;userId&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;salary&#39;</span><span class="p">:</span><span class="mi">10000000</span>
+<span class="p">}</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">value</span> <span class="ow">in</span> <span class="n">dict1</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">%s</span><span class="s2"> : </span><span class="si">%s</span><span class="s2">&#34;</span><span class="o">%</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="n">value</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<hr>
+<h1 id="step06listsetturple和dict的区别">Step06.List、Set、Turple和Dict的区别</h1>
+<ul>
+<li>
+<p><code>List</code></p>
+<blockquote>
+<p>列表,可变序列,用<code>[]</code>括起来,可进行<code>CURD</code>操作,可以通过索引访问元素,且索引可以为负数</p>
+</blockquote>
+</li>
+<li>
+<p><code>Turple</code></p>
+<blockquote>
+<p>元组,不可变序列,用<code>()</code>括起来,只能进行访问操作,访问方式和<code>List</code>一样</p>
+</blockquote>
+</li>
+<li>
+<p><code>Set</code></p>
+<blockquote>
+<p>集合,可变序列,不同于<code>List</code>和<code>Turple</code>,不能通过索引访问,且集合中元素无序,且可以自动去重</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="step6-对象">Step6. 对象</h1>
+<ul>
+<li>
+<p>构造函数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+        <span class="n">dog1</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s1">&#39;旺财&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="n">dog2</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s1">&#39;如花&#39;</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">dog1</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">dog2</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+        <span class="n">main</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>删除函数</p>
+<blockquote>
+<p>程序运行结束,通过__del__函数销毁创建的对象</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+  
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;__del__&#39;</span><span class="p">)</span>
+  
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">dog1</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s1">&#39;旺财&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="c1"># dog2 = Dog(&#39;如花&#39;, 200)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">dog1</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">dog1</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+        <span class="n">main</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<blockquote>
+<p>如果在程序运行之前使用del 对象指令,就会调用__del__函数删除指定的对象</p>
+</blockquote>
+<h2 id="面向对象的三大特性">面向对象的三大特性</h2>
+<ul>
+<li>
+<p>封装</p>
+<blockquote>
+<p>将类的属性设置为私有防止恶意修改</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- encoding:UTF-8 -*-</span>
+  
+<span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__age</span> <span class="o">=</span> <span class="n">age</span>
+  
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;__del__&#39;</span><span class="p">)</span>
+  
+    <span class="k">def</span> <span class="nf">getAge</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__age</span>
+  
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s1">&#39;旺财&#39;</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">dog</span><span class="o">.</span><span class="n">getAge</span><span class="p">())</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>  if __name__ == '__main__':
+      main()
+</code></pre>
+</li>
+<li>
+<p>继承</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- encoding:UTF-8 -*-</span>
+  
+<span class="s1">&#39;&#39;&#39;
+</span><span class="s1">@File     :   test06.py
+</span><span class="s1">@Time     :   2021/9/22 15:23
+</span><span class="s1">@Author   :   张宇航
+</span><span class="s1">@Contact  :   zhangzyh666@163.com
+</span><span class="s1">@MyWeb    :   https://zhang666zyh.github.io
+</span><span class="s1">&#39;&#39;&#39;</span>
+  
+<span class="k">class</span> <span class="nc">Animal</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;eat&#39;</span><span class="p">)</span>
+  
+<span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">pass</span>
+  
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
+    <span class="n">dog</span><span class="o">.</span><span class="n">eat</span><span class="p">()</span>
+  
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+      
+      
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>重写父类方法</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- encoding:UTF-8 -*-</span>
+  
+<span class="s1">&#39;&#39;&#39;
+</span><span class="s1">@File     :   test06.py
+</span><span class="s1">@Time     :   2021/9/22 15:23
+</span><span class="s1">@Author   :   张宇航
+</span><span class="s1">@Contact  :   zhangzyh666@163.com
+</span><span class="s1">@MyWeb    :   https://zhang666zyh.github.io
+</span><span class="s1">&#39;&#39;&#39;</span>
+  
+<span class="k">class</span> <span class="nc">Animal</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Animal Eat&#39;</span><span class="p">)</span>
+  
+<span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c1"># 通过super()调用父类方法</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">eat</span><span class="p">();</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Dog Eat&#39;</span><span class="p">)</span>
+  
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
+    <span class="n">dog</span><span class="o">.</span><span class="n">eat</span><span class="p">()</span>
+  
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>通常最上层的父类默认继承object类,但更高版本中偏向使用class Animal(object):</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- encoding:UTF-8 -*-</span>
+  
+<span class="s1">&#39;&#39;&#39;
+</span><span class="s1">@File     :   test06.py
+</span><span class="s1">@Time     :   2021/9/22 15:23
+</span><span class="s1">@Author   :   张宇航
+</span><span class="s1">@Contact  :   zhangzyh666@163.com
+</span><span class="s1">@MyWeb    :   https://zhang666zyh.github.io
+</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="k">class</span> <span class="nc">Animal</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Animal Eat&#39;</span><span class="p">)</span>
+  
+<span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">eat</span><span class="p">()</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Dog Eat&#39;</span><span class="p">)</span>
+  
+<span class="k">class</span> <span class="nc">LittleDog</span><span class="p">(</span><span class="n">Dog</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">eat</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;LittleDog Eat&#39;</span><span class="p">)</span>
+          
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">little_dog</span> <span class="o">=</span> <span class="n">LittleDog</span><span class="p">()</span>
+    <span class="n">little_dog</span><span class="o">.</span><span class="n">eat</span><span class="p">()</span>
+      
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>多态</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- encoding:UTF-8 -*-</span>
+  
+<span class="s1">&#39;&#39;&#39;
+</span><span class="s1">@File     :   test09.py
+</span><span class="s1">@Time     :   2021/9/22 15:55
+</span><span class="s1">@Author   :   张宇航
+</span><span class="s1">@Contact  :   zhangzyh666@163.com
+</span><span class="s1">@MyWeb    :   https://zhang666zyh.github.io
+</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;PersonEat&#34;</span><span class="p">)</span>
+          
+<span class="k">class</span> <span class="nc">Woman</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;WomanEat&#34;</span><span class="p">)</span>
+          
+<span class="k">class</span> <span class="nc">Man</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;ManEat&#34;</span><span class="p">)</span>
+          
+<span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;ChildEat&#34;</span><span class="p">)</span>
+          
+<span class="k">def</span> <span class="nf">doEat</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">eat</span><span class="p">()</span>
+  
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+    <span class="n">woman</span> <span class="o">=</span> <span class="n">Woman</span><span class="p">()</span>
+    <span class="n">man</span> <span class="o">=</span> <span class="n">Man</span><span class="p">()</span>
+    <span class="n">child</span> <span class="o">=</span> <span class="n">Child</span><span class="p">()</span>
+    <span class="n">doEat</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+    <span class="n">doEat</span><span class="p">(</span><span class="n">woman</span><span class="p">)</span>
+    <span class="n">doEat</span><span class="p">(</span><span class="n">man</span><span class="p">)</span>	
+    <span class="n">doEat</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+          
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>    <span class="err">在</span><span class="n">doEat</span><span class="p">()</span><span class="err">函数中</span><span class="p">,</span><span class="err">如果形参为</span><span class="n">null或者对象类型不是父类</span><span class="p">,</span><span class="err">则会报错</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>这里我们使用isinstance()函数判断对象类型是否属于某个类</p>
+</li>
+<li>
+<p>在处理多态的代码的时候都要加上这条</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="step5正则表达式">Step5.正则表达式</h1>
+<ul>
+<li>
+<p>第一个正则表达式</p>
+<ul>
+<li>
+<p>在Python中使用正则表达式需要导入re包(系统自带)</p>
+</li>
+<li>
+<p>使用match函数</p>
+</li>
+<li>
+<p>re.match(pattern,string,flag)</p>
+</li>
+<li>
+<p>pattern是正则表达式,string是被匹配的字符串,而flag是一个参数</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="c1"># -*- encoding:UTF-8 -*-</span>
+
+<span class="s2">&#34;&#34;&#34;
+</span><span class="s2">@File     :   re_001.py
+</span><span class="s2">@Time     :   2021/9/26 13:30
+</span><span class="s2">@Author   :   张宇航
+</span><span class="s2">@Contact  :   zhangzyh666@163.com
+</span><span class="s2">@MyWeb    :   https://zhang666zyh.github.io
+</span><span class="s2">&#34;&#34;&#34;</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">&#34;he&#34;</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s2">&#34;helloworld&#34;</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="n">string</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">span</span><span class="p">())</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>使用match只能从开头匹配,如果字符串开头不是连续的你要寻找的字符串,就无法找到</p>
+<ul>
+<li>我们可以使用search函数</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- encoding:UTF-8 -*-</span>
+  
+<span class="s2">&#34;&#34;&#34;
+</span><span class="s2">@File     :   re_002.py
+</span><span class="s2">@Time     :   2021/9/26 7:08
+</span><span class="s2">@Author   :   张宇航
+</span><span class="s2">@Contact  :   zhangzyh666@163.com
+</span><span class="s2">@MyWeb    :   https://zhang666zyh.github.io
+</span><span class="s2">&#34;&#34;&#34;</span>
+<span class="kn">import</span> <span class="nn">re</span>
+  
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">&#34;he&#34;</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s2">&#34;1helloWorld&#34;</span>
+  
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">span</span><span class="p">())</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>.表示任意字符,&quot;*&ldquo;表示至少一个,所以&rdquo;.*&ldquo;就表示一个任意长度任意内容的字符串</p>
+</li>
+<li>
+<p>使用group函数可以取出匹配括号中匹配的第几组结果</p>
+<ul>
+<li>group()或者group(0)就是将匹配的结果全部取出;group(1)或者group(2)&hellip;就是获取第一组、第二组结果</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- encoding:UTF-8 -*-</span>
+  
+<span class="s2">&#34;&#34;&#34;
+</span><span class="s2">@File     :   re_003.py
+</span><span class="s2">@Time     :   2021/9/26 7:19
+</span><span class="s2">@Author   :   张宇航
+</span><span class="s2">@Contact  :   zhangzyh666@163.com
+</span><span class="s2">@MyWeb    :   https://zhang666zyh.github.io
+</span><span class="s2">&#34;&#34;&#34;</span>
+<span class="kn">import</span> <span class="nn">re</span>
+  
+<span class="n">pattern</span> <span class="o">=</span> <span class="s1">&#39;(.*),(.*)&#39;</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;Hello,World&#39;</span>
+  
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="n">string</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;匹配成功,所有结果为:&#34;</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;第一组结果为:&#34;</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;第二组结果为:&#34;</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;匹配失败!!!&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>关于match方法的flag参数</p>
+<ul>
+<li>
+<p>flag是指定匹配格式,例如</p>
+<ul>
+<li>
+<p>re.i:区分大小写</p>
+</li>
+<li>
+<p>re.M:支持换行匹配</p>
+</li>
+<li>
+<p>re.S:匹配内容包括换行符<code>\n</code></p>
+<blockquote>
+<p>如果没有<code>re.S</code>,则只在每一行进行匹配,每行单独为一个整体</p>
+<p><code>re.S</code>则为,在意<code>\n</code>符,将换行符上下文作为一个整体</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>常用正则表达式总结:</p>
+<table>
+<thead>
+<tr>
+<th align="center">符号</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">^string</td>
+<td align="center">pattern只能出现在string开头</td>
+</tr>
+<tr>
+<td align="center">string$</td>
+<td align="center">pattern只能出现在string结尾</td>
+</tr>
+<tr>
+<td align="center">?</td>
+<td align="center">出现0次或1次</td>
+</tr>
+<tr>
+<td align="center">+</td>
+<td align="center">出现1次或多次</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center">出现0次或多次</td>
+</tr>
+<tr>
+<td align="center">.</td>
+<td align="center">匹配任意字符</td>
+</tr>
+<tr>
+<td align="center">{2}</td>
+<td align="center">字符出现2次</td>
+</tr>
+<tr>
+<td align="center">{2,}</td>
+<td align="center">字符至少出现2次</td>
+</tr>
+<tr>
+<td align="center">{2,4}</td>
+<td align="center">字符出现2-4次</td>
+</tr>
+<tr>
+<td align="center">a|b</td>
+<td align="center">或,二选一</td>
+</tr>
+<tr>
+<td align="center">[a,b,c]</td>
+<td align="center">多选一</td>
+</tr>
+<tr>
+<td align="center">[^a,b,c]</td>
+<td align="center">除了a,b,c之外的所有字符</td>
+</tr>
+<tr>
+<td align="center">[a-z]</td>
+<td align="center">所有的小写字母</td>
+</tr>
+<tr>
+<td align="center">[A-Z]</td>
+<td align="center">所有的大写字母</td>
+</tr>
+<tr>
+<td align="center">\w</td>
+<td align="center">匹配数字、字母、下划线</td>
+</tr>
+<tr>
+<td align="center">\W</td>
+<td align="center">匹配除数字、字母、下划线以外的所有字符</td>
+</tr>
+<tr>
+<td align="center">\s</td>
+<td align="center">匹配空字符,空格、换行符、制表符</td>
+</tr>
+<tr>
+<td align="center">\S</td>
+<td align="center">匹配除空字符,空格、换行符、制表符以外的所有字符</td>
+</tr>
+<tr>
+<td align="center">\d</td>
+<td align="center">匹配0-9所有的数字</td>
+</tr>
+<tr>
+<td align="center">\D</td>
+<td align="center">匹配所有除数字以外的所有字符</td>
+</tr>
+<tr>
+<td align="center">\1、\2、\3&hellip;</td>
+<td align="center">匹配第n个圆括号中的内容</td>
+</tr>
+<tr>
+<td align="center">\</td>
+<td align="center">转义字符</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>贪婪模式</p>
+<blockquote>
+<p>尽可能多的匹配字符串</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- encoding:UTF-8 -*-</span>
+  
+<span class="s2">&#34;&#34;&#34;
+</span><span class="s2">@File     :   re_006.py
+</span><span class="s2">@Time     :   2021/9/27 0:46
+</span><span class="s2">@Author   :   张宇航
+</span><span class="s2">@Contact  :   zhangzyh666@163.com
+</span><span class="s2">@MyWeb    :   https://zhang666zyh.github.io
+</span><span class="s2">&#34;&#34;&#34;</span>
+<span class="kn">import</span> <span class="nn">re</span>
+  
+<span class="n">pattern</span> <span class="o">=</span> <span class="s1">&#39;a.*d&#39;</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;abcdefgcd&#39;</span>
+  
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="n">string</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;匹配成功!!!&#34;</span><span class="p">,</span><span class="n">result</span><span class="o">.</span><span class="n">span</span><span class="p">())</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;匹配失败!!!&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>非贪婪模式</p>
+<blockquote>
+<p>通过使用?、+以及(m,n)等限制次数的符号来解决贪婪模式的问题</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- encoding:UTF-8 -*-</span>
+  
+<span class="s2">&#34;&#34;&#34;
+</span><span class="s2">@File     :   re_006.py
+</span><span class="s2">@Time     :   2021/9/27 0:46
+</span><span class="s2">@Author   :   张宇航
+</span><span class="s2">@Contact  :   zhangzyh666@163.com
+</span><span class="s2">@MyWeb    :   https://zhang666zyh.github.io
+</span><span class="s2">&#34;&#34;&#34;</span>
+<span class="kn">import</span> <span class="nn">re</span>
+  
+<span class="n">pattern</span> <span class="o">=</span> <span class="s1">&#39;a.*?d&#39;</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;abcdefgcd&#39;</span>
+  
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="n">string</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;匹配成功!!!&#34;</span><span class="p">,</span><span class="n">result</span><span class="o">.</span><span class="n">span</span><span class="p">())</span>
+<span class="k">else</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;匹配失败!!!&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="案例">案例</h2>
+<ul>
+<li>
+<p>匹配邮政编码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- encoding:UTF-8 -*-</span>
+    
+<span class="s2">&#34;&#34;&#34;
+</span><span class="s2">@File     :   test.py
+</span><span class="s2">@Time     :   2021/9/27 0:53
+</span><span class="s2">@Author   :   张宇航
+</span><span class="s2">@Contact  :   zhangzyh666@163.com
+</span><span class="s2">@MyWeb    :   https://zhang666zyh.github.io
+</span><span class="s2">&#34;&#34;&#34;</span>
+<span class="kn">import</span> <span class="nn">re</span>
+    
+<span class="n">pattern</span> <span class="o">=</span> <span class="s1">&#39;^[1-9]\d{5}$&#39;</span>
+<span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;匹配成功!!!&#34;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">span</span><span class="p">())</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;匹配失败&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>匹配邮箱地址</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">re</span>
+    
+<span class="n">pattern</span> <span class="o">=</span> <span class="s1">&#39;\w+[@][a-z0-9A-Z_]([\.a-z0-9A-Z_]+)+&#39;</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;zhangzyh666@163.com&#39;</span>
+    
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+    
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">span</span><span class="p">())</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>匹配ip地址</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">re</span>
+  
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;(^[1-9]|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5]).(\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5]).(\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5]).(\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])$&#39;</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;127.111.111.1111&#39;</span>
+  
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+  
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h1 id="作业">作业</h1>
+<h2 id="s1-百鸡百钱">S1. 百鸡百钱</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- encoding:UTF-8 -*-</span>
+
+<span class="s1">&#39;&#39;&#39;
+</span><span class="s1">@File     :   Test.py
+</span><span class="s1">@Time     :   2021/9/8 19:53
+</span><span class="s1">@Author   :   张宇航
+</span><span class="s1">@Contact  :   zhangzyh666@163.com
+</span><span class="s1">&#39;&#39;&#39;</span>
+
+<span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">33</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+            <span class="k">if</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">j</span> <span class="o">+</span> <span class="n">k</span> <span class="o">//</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">100</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span> <span class="o">+</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">100</span><span class="p">:</span>
+                <span class="nb">list</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">])</span>
+                <span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+                <span class="nb">list</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="s2-斐波那契数列">S2. 斐波那契数列</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- encoding:UTF-8 -*-</span>
+
+<span class="s1">&#39;&#39;&#39;
+</span><span class="s1">@File     :   Test.py
+</span><span class="s1">@Time     :   2021/9/8 19:53
+</span><span class="s1">@Author   :   张宇航
+</span><span class="s1">@Contact  :   zhangzyh666@163.com
+</span><span class="s1">&#39;&#39;&#39;</span>
+
+<span class="k">def</span> <span class="nf">fibnacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fibnacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">fibnacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">fibnacci</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="s3-计算两点之间距离的对象">S3. 计算两点之间距离的对象</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- encoding:UTF-8 -*-</span>
+
+<span class="s1">&#39;&#39;&#39;
+</span><span class="s1">@File     :   Test03.py
+</span><span class="s1">@Time     :   2021/9/18 11:48
+</span><span class="s1">@Author   :   张宇航
+</span><span class="s1">@Contact  :   zhangzyh666@163.com
+</span><span class="s1">@MyWeb    :   https://zhang666zyh.github.io
+</span><span class="s1">&#39;&#39;&#39;</span>
+
+<span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">z</span><span class="p">;</span>
+
+    <span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">point1</span><span class="p">,</span> <span class="n">point2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">((</span><span class="n">point1</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">point2</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">point1</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">point2</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">point1</span><span class="o">.</span><span class="n">z</span> <span class="o">-</span> <span class="n">point2</span><span class="o">.</span><span class="n">z</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
+       
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">point1</span><span class="p">,</span> <span class="n">point2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">Point</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+
+    <span class="n">point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">point_Distance</span> <span class="o">=</span> <span class="n">point</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">point1</span><span class="p">,</span> <span class="n">point2</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">point_Distance</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="s4-判断素数">S4. 判断素数</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- encoding:UTF-8 -*-</span>
+
+<span class="s2">&#34;&#34;&#34;
+</span><span class="s2">@File     :   test10.py
+</span><span class="s2">@Time     :   2021/9/22 16:09
+</span><span class="s2">@Author   :   张宇航
+</span><span class="s2">@Contact  :   zhangzyh666@163.com
+</span><span class="s2">@MyWeb    :   https://zhang666zyh.github.io
+</span><span class="s2">&#34;&#34;&#34;</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;请输入一个整数:&#39;</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;是素数&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;不是素数&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="s5通过正则表达式匹配0-120之间的数字">S5.通过正则表达式匹配0-120之间的数字</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="c1"># -*- encoding:UTF-8 -*-</span>
+
+<span class="s2">&#34;&#34;&#34;
+</span><span class="s2">@File     :   test11.py
+</span><span class="s2">@Time     :   2021/9/26 8:59
+</span><span class="s2">@Author   :   张宇航
+</span><span class="s2">@Contact  :   zhangzyh666@163.com
+</span><span class="s2">@MyWeb    :   https://zhang666zyh.github.io
+</span><span class="s2">&#34;&#34;&#34;</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="s1">&#39;(\d$)|([1-9]\d$)|(1[01]\d$|120$)&#39;</span>
+<span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="s6图灵机器人">S6.图灵机器人</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- encoding:UTF-8 -*-</span>
+
+<span class="s2">&#34;&#34;&#34;
+</span><span class="s2">@File     :   test12.py
+</span><span class="s2">@Time     :   2021/9/27 2:38
+</span><span class="s2">@Author   :   张宇航
+</span><span class="s2">@Contact  :   zhangzyh666@163.com
+</span><span class="s2">@MyWeb    :   https://zhang666zyh.github.io
+</span><span class="s2">&#34;&#34;&#34;</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="k">def</span> <span class="nf">robot</span><span class="p">(</span><span class="n">inputStr</span><span class="p">):</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="s1">&#39;(你好)|(我要吃.*)|((\d+)\+(\d+)=)&#39;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="n">inputStr</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;你好&#39;</span>
+    <span class="k">elif</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">result_Str</span> <span class="o">=</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">))[</span><span class="mi">3</span><span class="p">:]</span>
+        <span class="k">return</span> <span class="s1">&#39;今晚吃&#39;</span><span class="o">+</span><span class="n">result_Str</span>
+    <span class="k">elif</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">pos1</span> <span class="o">=</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">)</span>
+        <span class="n">pos2</span> <span class="o">=</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)</span>
+        <span class="n">val1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">))[</span><span class="mi">0</span><span class="p">:</span><span class="n">pos1</span><span class="p">])</span>
+        <span class="n">val2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">))[</span><span class="n">pos1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span><span class="n">pos2</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">val1</span> <span class="o">+</span> <span class="n">val2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;臣妾做不到&#39;</span>
+        <span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">inputStr</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">robot</span><span class="p">(</span><span class="n">inputStr</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>	
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="s7多线程锁">S7.多线程锁</h2>
+<p><img src="https://img-blog.csdnimg.cn/cb5ed25b98a9421badbabe7db5960d15.jpg?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5a2k5ZCNQA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Photo"></p>
+<p><code>代码</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">multiprocessing</span>
+
+<span class="n">lock</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+
+<span class="n">flag</span> <span class="o">=</span> <span class="bp">False</span>
+
+
+<span class="k">def</span> <span class="nf">run1</span><span class="p">(</span><span class="n">lock</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span>
+        <span class="n">lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;子线程1-&gt;</span><span class="si">%d</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+        <span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">run2</span><span class="p">(</span><span class="n">lock</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span>
+        <span class="n">lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;子线程2-&gt;</span><span class="si">%d</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+        <span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">41</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&#34;这是主进程-&gt;</span><span class="si">%d</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">20</span><span class="p">:</span>
+                <span class="n">p1</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">run1</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">lock</span><span class="p">,))</span>
+                <span class="n">p1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+                <span class="n">p1</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&#34;这是主进程-&gt;</span><span class="si">%d</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">run2</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">lock</span><span class="p">,))</span>
+    <span class="n">p2</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>这里主要用到了join,join的作用是阻塞主线程,等待子线程结束</p>
+<p>join方法有一个参数是timeout,即如果主线程等待timeout,子线程还没有结束,则主线程强制结束子线程</p>
+</blockquote>
+<hr>
+<h2 id="s8图灵机器人">S8.图灵机器人</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-txt" data-lang="txt">哲学家就餐问题可以这样表述，假设有五位哲学家围坐在一张圆形餐桌旁，做以下两件事情之一：吃饭，或者思考。吃东西的时候，他们就停止思考，思考的时候也停止吃东西。餐桌中间有一大碗意大利面，每位哲学家之间各有一只餐叉。因为用一只餐叉很难吃到意大利面，所以假设哲学家必须用两只餐叉吃东西。他们只能使用自己左右手边的那两只餐叉。哲学家就餐问题有时也用米饭和五根筷子而不是意大利面和餐叉来描述，因为吃米饭必须用两根筷子。
+
+这个问题不考虑意大利面有多少，也不考虑哲学家的胃有多大。假设两者都是无限大。
+
+问题在于如何设计一套规则，使得在哲学家们在完全不交谈，也就是无法知道其他人可能在什么时候要吃饭或者思考的情况下，可以在这两种状态下永远交替下去。
+</code></pre></td></tr></table>
+</div>
+</div><p><code>代码</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">lock1</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">RLock</span><span class="p">()</span>
+<span class="n">lock2</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">RLock</span><span class="p">()</span>
+<span class="n">lock3</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">RLock</span><span class="p">()</span>
+<span class="n">lock4</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">RLock</span><span class="p">()</span>
+<span class="n">lock5</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">RLock</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Philosopher</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span>
+
+
+<span class="n">philosopher1</span> <span class="o">=</span> <span class="n">Philosopher</span><span class="p">(</span><span class="n">lock5</span><span class="p">,</span> <span class="n">lock1</span><span class="p">)</span>
+<span class="n">philosopher2</span> <span class="o">=</span> <span class="n">Philosopher</span><span class="p">(</span><span class="n">lock1</span><span class="p">,</span> <span class="n">lock2</span><span class="p">)</span>
+<span class="n">philosopher3</span> <span class="o">=</span> <span class="n">Philosopher</span><span class="p">(</span><span class="n">lock2</span><span class="p">,</span> <span class="n">lock3</span><span class="p">)</span>
+<span class="n">philosopher4</span> <span class="o">=</span> <span class="n">Philosopher</span><span class="p">(</span><span class="n">lock3</span><span class="p">,</span> <span class="n">lock4</span><span class="p">)</span>
+<span class="n">philosopher5</span> <span class="o">=</span> <span class="n">Philosopher</span><span class="p">(</span><span class="n">lock4</span><span class="p">,</span> <span class="n">lock5</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">philosopher</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="n">lockLeft</span> <span class="o">=</span> <span class="n">philosopher</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">lockLeft</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s2">&#34;获取左筷子&#34;</span><span class="p">)</span>
+
+    <span class="n">lockRight</span> <span class="o">=</span> <span class="n">philosopher</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">lockRight</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s2">&#34;获取右筷子&#34;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;哲学家&#34;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&#34;开始就餐&#34;</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">philosopher</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+    <span class="n">philosopher</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+
+
+<span class="n">t1</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">run</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">philosopher1</span><span class="p">,</span> <span class="s2">&#34;philosopher1&#34;</span><span class="p">))</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">run</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">philosopher2</span><span class="p">,</span> <span class="s2">&#34;philosopher2&#34;</span><span class="p">))</span>
+<span class="n">t3</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">run</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">philosopher3</span><span class="p">,</span> <span class="s2">&#34;philosopher3&#34;</span><span class="p">))</span>
+<span class="n">t4</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">run</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">philosopher4</span><span class="p">,</span> <span class="s2">&#34;philosopher4&#34;</span><span class="p">))</span>
+<span class="n">t5</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">run</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">philosopher5</span><span class="p">,</span> <span class="s2">&#34;philosopher5&#34;</span><span class="p">))</span>
+
+<span class="n">t1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">t2</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">t3</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">t4</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">t5</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>Python中Lock与RLock的区别</p>
+<blockquote>
+<p>在同一线程内,对<code>RLock</code>进行多次<code>acquire()</code>操作,程序不会阻塞.因为它是递归锁</p>
+<p>而Lock多次acquire会产生死锁</p>
+<p>RLock进行了多少次acquire,实际上就需要多少个release来释放</p>
+</blockquote>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Zhang's Blog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-08-15
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/python/">Python</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/mybatis/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">MyBatis</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/html/">
+            <span class="next-text nav-default">HTML</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://www.google.com/" class="iconfont icon-google" title="google"></a>
+      <a href="https://github.com/" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://www.douban.com/" class="iconfont icon-douban" title="douban"></a>
+      <a href="https://getpocket.com/" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="https://www.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="https://www.instagram.com/" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="https://about.gitlab.com/" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="https://www.bilibili.com/" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://golang.org/">GoLang</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Author - 
+    <a class="theme-link" href="https://space.bilibili.com/628950169/">Mr'zhang</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Zhang's Blog</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
